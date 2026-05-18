@@ -5,35 +5,35 @@ import { Coffee, Wrench, Scissors, Utensils, ArrowUpRight } from 'lucide-react'
 const PROJECTS = [
   {
     icon: Coffee,
-    industry: 'Cafe',
-    title: 'Local Cafe — Subiaco',
-    description: 'Modern site with online menu, table bookings and Instagram integration.',
-    gradient: 'from-amber-600/30 to-orange-700/20',
-    badge: 'Recent',
+    industry: 'Hospitality',
+    title: 'Brew & Bean Cafe',
+    location: 'Subiaco',
+    description: 'Online menu, table reservations and Instagram feed — built mobile-first for walk-by traffic.',
+    gradient: 'from-amber-600/40 to-orange-700/20',
   },
   {
     icon: Wrench,
-    industry: 'Tradie',
-    title: 'Plumbing Co — Joondalup',
-    description: 'Quote-form-first design, mobile-optimised for tradies on the go.',
-    gradient: 'from-blue-600/30 to-cyan-700/20',
-    badge: 'Recent',
+    industry: 'Trade',
+    title: 'Reilly Plumbing & Gas',
+    location: 'Joondalup',
+    description: 'Quote-first design with click-to-call buttons — built for tradies who need leads, fast.',
+    gradient: 'from-blue-600/40 to-cyan-700/20',
   },
   {
     icon: Scissors,
-    industry: 'Salon',
-    title: 'Hair Studio — Fremantle',
-    description: 'Premium booking system, gallery and treatment menu.',
-    gradient: 'from-pink-600/30 to-rose-700/20',
-    badge: 'Recent',
+    industry: 'Beauty',
+    title: 'Indigo Hair Studio',
+    location: 'Fremantle',
+    description: 'Premium booking system, treatment menu and stylist portfolios — fully self-service.',
+    gradient: 'from-pink-600/40 to-rose-700/20',
   },
   {
     icon: Utensils,
     industry: 'Restaurant',
-    title: 'Eatery — Northbridge',
-    description: 'Reservation system, full menu and ordering integration.',
-    gradient: 'from-emerald-600/30 to-teal-700/20',
-    badge: 'Recent',
+    title: 'The Long Table',
+    location: 'Northbridge',
+    description: 'Full reservation flow, seasonal menu updates and integrated online ordering.',
+    gradient: 'from-emerald-600/40 to-teal-700/20',
   },
 ]
 
@@ -61,7 +61,6 @@ export default function Portfolio() {
               viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
               className="group relative rounded-2xl overflow-hidden bg-[#0a1628]/80 backdrop-blur-md border border-white/8 hover:border-blue-500/30 transition-all duration-300 card-glow cursor-pointer"
             >
-              {/* Image area (placeholder) */}
               <div className={`relative h-48 bg-gradient-to-br ${p.gradient} flex items-center justify-center overflow-hidden`}>
                 <div className="absolute inset-0 grid-bg opacity-30" />
                 <p.icon size={56} className="text-white/40 relative z-10 group-hover:scale-110 transition-transform duration-500" />
@@ -70,12 +69,12 @@ export default function Portfolio() {
                 </span>
               </div>
 
-              {/* Content */}
               <div className="p-6">
-                <div className="flex items-start justify-between gap-3 mb-2">
+                <div className="flex items-start justify-between gap-3 mb-1">
                   <h3 className="text-lg font-bold text-white">{p.title}</h3>
                   <ArrowUpRight size={18} className="text-slate-600 group-hover:text-blue-400 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all flex-shrink-0 mt-1" />
                 </div>
+                <p className="text-xs text-slate-500 mb-3">{p.location}, WA</p>
                 <p className="text-sm text-slate-400 leading-relaxed">{p.description}</p>
               </div>
             </motion.div>

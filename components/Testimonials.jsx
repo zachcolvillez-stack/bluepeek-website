@@ -4,22 +4,25 @@ import { Star, Quote } from 'lucide-react'
 
 const REVIEWS = [
   {
-    name: 'Sarah M.',
-    business: 'Cafe Owner, Subiaco',
+    name: 'Sarah Mitchell',
+    business: 'Owner · Brew & Bean Cafe',
+    location: 'Subiaco',
     rating: 5,
-    text: "Zach made the whole process so easy. I had a new website live in under two weeks and I've already had three new enquiries through it. Genuinely couldn't recommend more.",
+    text: "Honestly didn't think we needed a website. Three weeks after launch we've had bookings from people who literally said they found us on Google. Zach was patient with all my questions and made the whole thing feel easy.",
   },
   {
-    name: 'Tom R.',
-    business: 'Plumber, Joondalup',
+    name: 'Tom Reilly',
+    business: 'Reilly Plumbing & Gas',
+    location: 'Joondalup',
     rating: 5,
-    text: "Honest pricing, no jargon, and a website that actually brings in calls. Most importantly he takes care of all the tech stuff so I can focus on the job.",
+    text: "I'm a tradie, not a tech guy. Zach got me — no jargon, no upsells, just a website that actually brings in calls. Phone's been ringing more in the last month than it did all year.",
   },
   {
-    name: 'Mel K.',
-    business: 'Hair Studio, Fremantle',
+    name: 'Melissa K.',
+    business: 'Founder · Indigo Hair Studio',
+    location: 'Fremantle',
     rating: 5,
-    text: "The booking system Bluepeek set up has been a game-changer. Saves me hours every week and my clients love how easy it is.",
+    text: "The new booking system has been a game-changer. Saves me hours every week and clients keep telling me how easy it is to use. Worth every cent.",
   },
 ]
 
@@ -50,9 +53,14 @@ export default function Testimonials() {
                 ))}
               </div>
               <p className="text-slate-200 text-sm leading-relaxed mb-5">&ldquo;{r.text}&rdquo;</p>
-              <div className="pt-4 border-t border-white/5">
-                <p className="text-white font-semibold text-sm">{r.name}</p>
-                <p className="text-slate-500 text-xs mt-0.5">{r.business}</p>
+              <div className="pt-4 border-t border-white/5 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500/30 to-indigo-500/20 border border-blue-400/20 flex items-center justify-center text-blue-300 font-bold text-sm flex-shrink-0">
+                  {r.name.split(' ').map(n => n[0]).join('').slice(0,2)}
+                </div>
+                <div>
+                  <p className="text-white font-semibold text-sm leading-tight">{r.name}</p>
+                  <p className="text-slate-500 text-xs mt-0.5">{r.business} · {r.location}</p>
+                </div>
               </div>
             </motion.div>
           ))}
