@@ -39,7 +39,7 @@ export default function Testimonials() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
           {REVIEWS.map((r, i) => (
             <motion.div key={r.name}
               initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
@@ -65,6 +65,7 @@ export default function Testimonials() {
             </motion.div>
           ))}
         </div>
+        <p className="text-center text-[10px] text-slate-700">Example reviews shown for illustration purposes.</p>
       </div>
     </section>
   )

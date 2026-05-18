@@ -81,12 +81,15 @@ export default function Portfolio() {
           ))}
         </div>
 
-        <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
           viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center text-sm text-slate-500 mt-10">
-          Want to be our next case study?{' '}
-          <a href="#contact" className="text-blue-400 hover:text-blue-300 font-medium">Get in touch →</a>
-        </motion.p>
+          className="text-center mt-10">
+          <p className="text-sm text-slate-500">
+            Want to be our next case study?{' '}
+            <a href="#contact" className="text-blue-400 hover:text-blue-300 font-medium">Get in touch →</a>
+          </p>
+          <p className="text-[10px] text-slate-700 mt-3">Example projects shown for illustration purposes.</p>
+        </motion.div>
       </div>
     </section>
   )
