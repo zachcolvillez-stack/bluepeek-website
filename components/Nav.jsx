@@ -30,7 +30,7 @@ export default function Nav({ onNavigate, currentScene }) {
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <a href="#" onClick={(e) => handleClick(e, 'hero')} className="flex items-center gap-2.5">
-          <img src="/logo.png" alt="Bluepeek" className="w-9 h-9 object-contain" />
+          <img src="/logo.png" alt="Bluepeek" className="w-20 h-20 object-contain" />
           <span className="text-white font-bold text-lg tracking-tight">bluepeek</span>
         </a>
 
