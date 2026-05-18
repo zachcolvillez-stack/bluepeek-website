@@ -20,7 +20,7 @@ export default function Hero({ onCTA }) {
         >
           <span className="text-white">Premium Websites,</span>
           <br />
-          <span className="gradient-text">Made for Perth.</span>
+          <span className="gradient-text">Built for You.</span>
         </motion.h1>
 
         {/* Subheadline */}
