@@ -1,34 +1,34 @@
 'use client'
 import { motion } from 'framer-motion'
-import { Globe, Bot, BarChart3, Megaphone } from 'lucide-react'
+import { Globe, Sparkles, BarChart3, Megaphone } from 'lucide-react'
 
 const SERVICES = [
   {
     icon: Globe,
-    title: 'Website Design & Development',
+    title: 'Custom Websites',
     tag: 'Available Now',
     tagColor: 'text-blue-400 bg-blue-400/10 border-blue-400/20',
-    description: 'Custom-built, lightning-fast websites that look premium and turn visitors into paying customers.',
+    description: 'Beautiful, fast websites built to attract local customers and turn them into paying jobs. Looks great on every phone, easy for you to update.',
     points: [
-      'Mobile-first & fully responsive',
-      'Built for speed & Google rankings',
+      'Mobile-friendly & fast loading',
+      'Built to rank on Google',
       'Designed around your brand',
-      'Enquiry & booking integrations',
+      'Easy contact & booking forms',
     ],
     glow: 'rgba(59,130,246,0.08)',
     border: 'hover:border-blue-500/30',
   },
   {
-    icon: Bot,
-    title: 'AI Integration',
+    icon: Sparkles,
+    title: 'Smart Automation',
     tag: 'Available Now',
     tagColor: 'text-indigo-400 bg-indigo-400/10 border-indigo-400/20',
-    description: 'Intelligent AI tools built directly into your website — automating enquiries, bookings, and customer service 24/7.',
+    description: "Save hours every week with simple tools that handle enquiries, bookings, and customer questions — even when you're flat out on the job.",
     points: [
-      'AI chatbots that qualify leads',
-      'Automated enquiry responses',
-      'Smart booking systems',
-      'Works while you sleep',
+      'Auto-reply to enquiries',
+      'Online booking systems',
+      '24/7 chat assistant',
+      'Frees up your time',
     ],
     glow: 'rgba(99,102,241,0.08)',
     border: 'hover:border-indigo-500/30',
@@ -38,12 +38,12 @@ const SERVICES = [
     title: 'SEO & Google Ads',
     tag: 'Coming Soon',
     tagColor: 'text-slate-500 bg-slate-500/10 border-slate-500/20',
-    description: 'Get found at the top of Google when locals search for your services. Paid and organic strategies tailored for Perth.',
+    description: 'Get found at the top of Google when locals search for your services. Paid and organic strategies built for Perth businesses.',
     points: [
-      'Local SEO optimisation',
+      'Local SEO that works',
       'Google Ads management',
-      'Monthly performance reports',
-      'Keyword & competitor research',
+      'Monthly reports',
+      'No long-term contracts',
     ],
     glow: 'rgba(30,58,95,0.05)',
     border: 'hover:border-slate-600/30',
@@ -51,15 +51,15 @@ const SERVICES = [
   },
   {
     icon: Megaphone,
-    title: 'Social Media & Content',
+    title: 'Social Media',
     tag: 'Coming Soon',
     tagColor: 'text-slate-500 bg-slate-500/10 border-slate-500/20',
-    description: 'Consistent, professional content across Facebook and Instagram — keeping your business top of mind for local customers.',
+    description: 'Consistent, professional posts across Facebook and Instagram — keeping your business top of mind for local customers.',
     points: [
-      'Content creation & scheduling',
+      'Content creation & posting',
       'Brand-consistent design',
-      'Community management',
-      'Growth strategies',
+      'Reply & engagement support',
+      'Local growth strategies',
     ],
     glow: 'rgba(30,58,95,0.05)',
     border: 'hover:border-slate-600/30',
@@ -74,11 +74,13 @@ export default function Services() {
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
           <p className="text-blue-400 text-sm font-semibold uppercase tracking-widest mb-4">What We Do</p>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-5">
-            Everything Your Business<br />Needs to Win Online
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-5"
+            style={{ textShadow: '0 4px 30px rgba(0,0,0,0.5)' }}>
+            Everything Your Business<br />Needs to Grow Online
           </h2>
-          <p className="text-slate-400 text-lg max-w-xl mx-auto">
-            From your first website to full AI automation — Bluepeek handles the digital side so you can focus on running your business.
+          <p className="text-slate-300 text-lg max-w-xl mx-auto"
+            style={{ textShadow: '0 2px 20px rgba(0,0,0,0.5)' }}>
+            From your first website to smart automation — Bluepeek looks after the digital side so you can focus on running your business.
           </p>
         </motion.div>
 
@@ -94,20 +96,18 @@ export default function Services() {
               }`}
               style={{ boxShadow: `inset 0 0 60px ${s.glow}` }}
             >
-              {/* Icon */}
               <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${
                 s.muted ? 'bg-white/5' : 'bg-blue-500/15'
               }`}>
                 <s.icon size={22} className={s.muted ? 'text-slate-600' : 'text-blue-400'} />
               </div>
 
-              {/* Tag */}
               <span className={`inline-block text-xs font-semibold px-2.5 py-1 rounded-full border mb-4 ${s.tagColor}`}>
                 {s.tag}
               </span>
 
               <h3 className={`text-xl font-bold mb-3 ${s.muted ? 'text-slate-500' : 'text-white'}`}>{s.title}</h3>
-              <p className={`text-sm leading-relaxed mb-6 ${s.muted ? 'text-slate-700' : 'text-slate-400'}`}>{s.description}</p>
+              <p className={`text-sm leading-relaxed mb-6 ${s.muted ? 'text-slate-700' : 'text-slate-300'}`}>{s.description}</p>
 
               <ul className="space-y-2">
                 {s.points.map(p => (
@@ -120,6 +120,15 @@ export default function Services() {
             </motion.div>
           ))}
         </div>
+
+        {/* Pricing nudge */}
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.4 }}
+          className="text-center mt-12">
+          <p className="text-slate-300 text-base">
+            Most websites <span className="text-white font-bold">from $1,500</span> — fixed pricing, no surprises.
+          </p>
+        </motion.div>
       </div>
     </section>
   )

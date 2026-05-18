@@ -12,9 +12,10 @@ export default function Nav({ onNavigate, currentScene }) {
   }, [])
 
   const links = [
-    { label: 'Services',     id: 'services' },
-    { label: 'How It Works', id: 'how-it-works' },
-    { label: 'About',        id: 'about' },
+    { label: 'Services',  id: 'services' },
+    { label: 'Our Work',  id: 'work' },
+    { label: 'Reviews',   id: 'reviews' },
+    { label: 'About',     id: 'about' },
   ]
 
   const handleClick = (e, id) => {
@@ -51,7 +52,7 @@ export default function Nav({ onNavigate, currentScene }) {
         {/* CTA */}
         <a href="#contact" onClick={(e) => handleClick(e, 'contact')}
           className="hidden md:inline-flex items-center px-5 py-2.5 rounded-lg bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold transition-all btn-glow">
-          Start Your Project
+          Get a Free Quote
         </a>
 
         {/* Mobile menu button */}
@@ -75,7 +76,7 @@ export default function Nav({ onNavigate, currentScene }) {
           ))}
           <a href="#contact" onClick={(e) => handleClick(e, 'contact')}
             className="block w-full text-center px-5 py-2.5 rounded-lg bg-blue-500 text-white text-sm font-semibold mt-2">
-            Start Your Project
+            Get a Free Quote
           </a>
         </div>
       )}

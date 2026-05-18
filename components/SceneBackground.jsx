@@ -13,11 +13,23 @@ const SCENES = {
     overlay: 'linear-gradient(180deg, rgba(2,8,23,0.7) 0%, rgba(2,8,23,0.65) 50%, rgba(2,8,23,0.95) 100%)',
     tint: 'radial-gradient(ellipse at top right, rgba(99,102,241,0.18) 0%, transparent 60%)',
   },
+  work: {
+    position: '30% 40%',
+    scale: 1.3,
+    overlay: 'linear-gradient(180deg, rgba(2,8,23,0.72) 0%, rgba(2,8,23,0.7) 50%, rgba(2,8,23,0.95) 100%)',
+    tint: 'radial-gradient(ellipse at right, rgba(99,102,241,0.18) 0%, transparent 60%)',
+  },
   'how-it-works': {
     position: '70% 60%',
     scale: 1.25,
     overlay: 'linear-gradient(180deg, rgba(2,8,23,0.75) 0%, rgba(2,8,23,0.7) 50%, rgba(2,8,23,0.95) 100%)',
     tint: 'radial-gradient(ellipse at left, rgba(59,130,246,0.2) 0%, transparent 60%)',
+  },
+  reviews: {
+    position: 'center 50%',
+    scale: 1.2,
+    overlay: 'linear-gradient(180deg, rgba(2,8,23,0.7) 0%, rgba(2,8,23,0.65) 50%, rgba(2,8,23,0.95) 100%)',
+    tint: 'radial-gradient(ellipse at top left, rgba(96,165,250,0.2) 0%, transparent 60%)',
   },
   about: {
     position: 'center 85%',

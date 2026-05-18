@@ -5,23 +5,23 @@ import { MapPin, Clock, ShieldCheck, Phone } from 'lucide-react'
 const PILLARS = [
   {
     icon: MapPin,
-    title: 'Perth Local',
-    description: "We&apos;re based right here in Perth. We understand the local market, local customers, and what Perth businesses actually need.",
+    title: 'Local & Perth-Based',
+    description: "Born and based in Perth. We know the local market, we understand your customers, and we&apos;re here for a coffee if you ever want to meet in person.",
   },
   {
     icon: Clock,
     title: 'Fast Turnaround',
-    description: 'Most projects delivered in 1–2 weeks. No endless back-and-forth, no months of waiting — just fast, quality work.',
+    description: 'Most websites delivered in 1–2 weeks. No drawn-out months of waiting — just honest, fast work.',
   },
   {
     icon: ShieldCheck,
     title: 'You Own Everything',
-    description: 'No lock-in contracts. You own your website, your domain, and your content. Walk away any time — no strings attached.',
+    description: 'No lock-in contracts, no holding your website hostage. You own your domain, your site, your content — walk away any time.',
   },
   {
     icon: Phone,
     title: 'Direct Access',
-    description: "You deal with us directly — no account managers, no outsourcing. The person building your site is the person answering your messages.",
+    description: "You talk to me directly — no account managers, no offshore teams. The person building your site is the person answering your messages.",
   },
 ]
 
@@ -32,10 +32,12 @@ export default function WhyUs() {
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
           <p className="text-blue-400 text-sm font-semibold uppercase tracking-widest mb-4">Why Bluepeek</p>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-5">
-            A Different Kind of<br />Digital Studio
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-5"
+            style={{ textShadow: '0 4px 30px rgba(0,0,0,0.5)' }}>
+            A Different Kind of<br />Web Designer
           </h2>
-          <p className="text-slate-400 text-lg max-w-xl mx-auto">
+          <p className="text-slate-300 text-lg max-w-xl mx-auto"
+            style={{ textShadow: '0 2px 20px rgba(0,0,0,0.5)' }}>
             Big agencies charge big prices and treat you like a number. We&apos;re built differently.
           </p>
         </motion.div>
@@ -52,7 +54,7 @@ export default function WhyUs() {
               </div>
               <div>
                 <h3 className="text-white font-bold mb-2">{p.title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed"
+                <p className="text-slate-300 text-sm leading-relaxed"
                   dangerouslySetInnerHTML={{ __html: p.description.replace(/&apos;/g, "'") }} />
               </div>
             </motion.div>
@@ -65,11 +67,12 @@ export default function WhyUs() {
           className="text-center p-8 rounded-2xl border border-white/5 bg-[#040d1a]/70 backdrop-blur-md"
         >
           <img src="/logo.png" alt="Bluepeek" className="w-14 h-14 mx-auto mb-4 object-contain" />
-          <p className="text-slate-300 text-sm leading-relaxed max-w-lg mx-auto">
-            &ldquo;I started Bluepeek because I saw too many great local Perth businesses being invisible online.
-            Every business deserves a digital presence that actually works for them.&rdquo;
+          <p className="text-slate-200 text-base leading-relaxed max-w-lg mx-auto">
+            &ldquo;I started Bluepeek because too many great Perth businesses were being held back
+            by terrible (or no) websites. Every local business deserves a digital presence that
+            actually works for them — without paying agency prices.&rdquo;
           </p>
-          <p className="text-slate-600 text-xs mt-4">Zach — Founder, Bluepeek</p>
+          <p className="text-slate-500 text-sm mt-4">Zach — Founder, Bluepeek</p>
         </motion.div>
       </div>
     </section>
