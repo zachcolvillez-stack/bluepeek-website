@@ -51,7 +51,7 @@ export default function SceneBackground({ scene }) {
         }}
       />
 
-      {/* Static soft accent shapes for depth */}
+      {/* Soft accent shape top right */}
       <div
         className="absolute"
         style={{
@@ -64,32 +64,34 @@ export default function SceneBackground({ scene }) {
         }}
       />
 
-      {/* === Mountain silhouettes — layered for depth === */}
+      {/* Mountain outlines — layered for depth */}
       <svg
         className="absolute bottom-0 left-0 w-full pointer-events-none"
         viewBox="0 0 1440 400"
         preserveAspectRatio="none"
-        style={{ height: '50vh', maxHeight: '500px' }}
+        style={{ height: '45vh', maxHeight: '450px' }}
+        fill="none"
       >
-        {/* Back layer — lightest, smallest peaks */}
+        {/* Back layer — palest, thinnest */}
         <path
-          d="M0,300 L80,220 L180,260 L290,180 L400,230 L520,170 L640,220 L760,160 L880,210 L1000,170 L1130,200 L1260,150 L1380,190 L1440,160 L1440,400 L0,400 Z"
-          fill="rgba(147,197,253,0.25)"
+          d="M0,300 L80,220 L180,260 L290,180 L400,230 L520,170 L640,220 L760,160 L880,210 L1000,170 L1130,200 L1260,150 L1380,190 L1440,160"
+          stroke="rgba(147,197,253,0.6)"
+          strokeWidth="1.5"
+          strokeLinejoin="round"
         />
         {/* Middle layer */}
         <path
-          d="M0,330 L90,260 L200,300 L320,230 L450,275 L580,215 L710,260 L840,205 L970,250 L1110,200 L1250,240 L1380,210 L1440,225 L1440,400 L0,400 Z"
-          fill="rgba(96,165,250,0.30)"
+          d="M0,330 L90,260 L200,300 L320,230 L450,275 L580,215 L710,260 L840,205 L970,250 L1110,200 L1250,240 L1380,210 L1440,225"
+          stroke="rgba(96,165,250,0.7)"
+          strokeWidth="1.75"
+          strokeLinejoin="round"
         />
-        {/* Front layer — most saturated, tallest peaks closest to viewer */}
+        {/* Front layer — strongest line */}
         <path
-          d="M0,360 L120,310 L260,350 L400,295 L540,335 L680,275 L820,320 L960,280 L1100,310 L1230,270 L1360,295 L1440,285 L1440,400 L0,400 Z"
-          fill="rgba(59,130,246,0.40)"
-        />
-        {/* Foreground darker base */}
-        <path
-          d="M0,385 L100,370 L240,380 L380,365 L520,378 L660,360 L800,375 L940,365 L1080,380 L1220,365 L1360,378 L1440,370 L1440,400 L0,400 Z"
-          fill="rgba(37,99,235,0.30)"
+          d="M0,360 L120,310 L260,350 L400,295 L540,335 L680,275 L820,320 L960,280 L1100,310 L1230,270 L1360,295 L1440,285"
+          stroke="rgba(59,130,246,0.8)"
+          strokeWidth="2"
+          strokeLinejoin="round"
         />
       </svg>
     </div>
