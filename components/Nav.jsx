@@ -26,13 +26,13 @@ export default function Nav({ onNavigate, currentScene }) {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled ? 'bg-[#020817]/70 backdrop-blur-xl border-b border-white/5' : 'bg-transparent'
+      scrolled ? 'bg-white/80 backdrop-blur-xl border-b border-slate-200/60' : 'bg-transparent'
     }`}>
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <a href="#" onClick={(e) => handleClick(e, 'hero')} className="flex items-center gap-2.5">
           <img src="/logo.png" alt="Bluepeek" className="w-20 h-20 object-contain" />
-          <span className="text-white font-bold text-lg tracking-tight">bluepeek</span>
+          <span className="text-slate-900 font-bold text-lg tracking-tight">bluepeek</span>
         </a>
 
         {/* Desktop links */}
@@ -41,8 +41,8 @@ export default function Nav({ onNavigate, currentScene }) {
             <a key={l.label} href={`#${l.id}`} onClick={(e) => handleClick(e, l.id)}
               className={`text-sm transition-all px-4 py-2 rounded-lg ${
                 currentScene === l.id
-                  ? 'text-white bg-white/10'
-                  : 'text-slate-400 hover:text-white hover:bg-white/5'
+                  ? 'text-blue-600 bg-blue-50'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
               }`}>
               {l.label}
             </a>
@@ -56,7 +56,7 @@ export default function Nav({ onNavigate, currentScene }) {
         </a>
 
         {/* Mobile menu button */}
-        <button className="md:hidden text-slate-400" onClick={() => setMenuOpen(!menuOpen)}>
+        <button className="md:hidden text-slate-600" onClick={() => setMenuOpen(!menuOpen)}>
           <div className="space-y-1.5">
             <span className={`block w-6 h-0.5 bg-current transition-all ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
             <span className={`block w-6 h-0.5 bg-current transition-all ${menuOpen ? 'opacity-0' : ''}`} />
@@ -67,10 +67,10 @@ export default function Nav({ onNavigate, currentScene }) {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[#020817]/95 backdrop-blur-xl border-b border-white/5 px-6 py-4 space-y-2">
+        <div className="md:hidden bg-white/95 backdrop-blur-xl border-b border-slate-200 px-6 py-4 space-y-2">
           {links.map(l => (
             <a key={l.label} href={`#${l.id}`} onClick={(e) => handleClick(e, l.id)}
-              className="block text-slate-300 hover:text-white transition-colors py-2">
+              className="block text-slate-700 hover:text-slate-900 transition-colors py-2">
               {l.label}
             </a>
           ))}

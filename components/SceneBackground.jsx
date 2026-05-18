@@ -1,48 +1,13 @@
 'use client'
 
 const SCENES = {
-  hero: {
-    position: 'center 55%',
-    scale: 1.08,
-    overlay: 'linear-gradient(180deg, rgba(2,8,23,0.55) 0%, rgba(2,8,23,0.6) 50%, rgba(2,8,23,0.95) 100%)',
-    tint: 'radial-gradient(ellipse at center top, rgba(59,130,246,0.15) 0%, transparent 60%)',
-  },
-  services: {
-    position: 'center 25%',
-    scale: 1.45,
-    overlay: 'linear-gradient(180deg, rgba(2,8,23,0.7) 0%, rgba(2,8,23,0.65) 50%, rgba(2,8,23,0.95) 100%)',
-    tint: 'radial-gradient(ellipse at top right, rgba(99,102,241,0.18) 0%, transparent 60%)',
-  },
-  work: {
-    position: '30% 40%',
-    scale: 1.3,
-    overlay: 'linear-gradient(180deg, rgba(2,8,23,0.72) 0%, rgba(2,8,23,0.7) 50%, rgba(2,8,23,0.95) 100%)',
-    tint: 'radial-gradient(ellipse at right, rgba(99,102,241,0.18) 0%, transparent 60%)',
-  },
-  'how-it-works': {
-    position: '70% 60%',
-    scale: 1.25,
-    overlay: 'linear-gradient(180deg, rgba(2,8,23,0.75) 0%, rgba(2,8,23,0.7) 50%, rgba(2,8,23,0.95) 100%)',
-    tint: 'radial-gradient(ellipse at left, rgba(59,130,246,0.2) 0%, transparent 60%)',
-  },
-  reviews: {
-    position: 'center 50%',
-    scale: 1.2,
-    overlay: 'linear-gradient(180deg, rgba(2,8,23,0.7) 0%, rgba(2,8,23,0.65) 50%, rgba(2,8,23,0.95) 100%)',
-    tint: 'radial-gradient(ellipse at top left, rgba(96,165,250,0.2) 0%, transparent 60%)',
-  },
-  about: {
-    position: 'center 85%',
-    scale: 1.55,
-    overlay: 'linear-gradient(180deg, rgba(2,8,23,0.7) 0%, rgba(2,8,23,0.6) 50%, rgba(2,8,23,0.95) 100%)',
-    tint: 'radial-gradient(ellipse at bottom, rgba(96,165,250,0.22) 0%, transparent 60%)',
-  },
-  contact: {
-    position: 'center 35%',
-    scale: 1.15,
-    overlay: 'linear-gradient(180deg, rgba(2,8,23,0.78) 0%, rgba(2,8,23,0.72) 50%, rgba(2,8,23,0.95) 100%)',
-    tint: 'radial-gradient(ellipse at center, rgba(59,130,246,0.25) 0%, transparent 50%)',
-  },
+  hero:           { glowX: '50%', glowY: '0%',   glowSize: '900px', glowColor: 'rgba(59,130,246,0.18)' },
+  services:       { glowX: '85%', glowY: '15%',  glowSize: '800px', glowColor: 'rgba(99,102,241,0.16)' },
+  work:           { glowX: '10%', glowY: '30%',  glowSize: '850px', glowColor: 'rgba(59,130,246,0.16)' },
+  'how-it-works': { glowX: '90%', glowY: '50%',  glowSize: '750px', glowColor: 'rgba(96,165,250,0.18)' },
+  reviews:        { glowX: '15%', glowY: '60%',  glowSize: '800px', glowColor: 'rgba(99,102,241,0.16)' },
+  about:          { glowX: '80%', glowY: '80%',  glowSize: '900px', glowColor: 'rgba(59,130,246,0.18)' },
+  contact:        { glowX: '50%', glowY: '40%',  glowSize: '1000px', glowColor: 'rgba(59,130,246,0.20)' },
 }
 
 export default function SceneBackground({ scene }) {
@@ -50,34 +15,39 @@ export default function SceneBackground({ scene }) {
 
   return (
     <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-      {/* Background image — transitions position & scale */}
+      {/* Base white */}
+      <div className="absolute inset-0 bg-white" />
+
+      {/* Soft dot grid */}
+      <div className="absolute inset-0 dot-bg opacity-60" />
+
+      {/* Moving blue glow */}
       <div
-        className="absolute inset-0 transition-all ease-out"
+        className="absolute transition-all ease-out"
         style={{
-          backgroundImage: 'url(/hero-bg.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: s.position,
-          transform: `scale(${s.scale})`,
+          left: s.glowX,
+          top: s.glowY,
+          transform: 'translate(-50%, -50%)',
+          width: s.glowSize,
+          height: s.glowSize,
+          background: `radial-gradient(circle, ${s.glowColor} 0%, transparent 70%)`,
           transitionDuration: '1800ms',
+          filter: 'blur(20px)',
         }}
       />
-      {/* Dark gradient overlay for text readability */}
+
+      {/* Soft secondary glow */}
       <div
-        className="absolute inset-0 transition-all ease-out"
-        style={{ background: s.overlay, transitionDuration: '1800ms' }}
-      />
-      {/* Blue tint that shifts per scene */}
-      <div
-        className="absolute inset-0 transition-all ease-out"
-        style={{ background: s.tint, transitionDuration: '1800ms' }}
-      />
-      {/* Subtle grid overlay */}
-      <div
-        className="absolute inset-0 opacity-30"
+        className="absolute transition-all ease-out opacity-50"
         style={{
-          backgroundImage:
-            'linear-gradient(rgba(30,58,95,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(30,58,95,0.15) 1px, transparent 1px)',
-          backgroundSize: '64px 64px',
+          right: s.glowX,
+          bottom: s.glowY,
+          transform: 'translate(50%, 50%)',
+          width: '600px',
+          height: '600px',
+          background: `radial-gradient(circle, rgba(147,197,253,0.15) 0%, transparent 70%)`,
+          transitionDuration: '2200ms',
+          filter: 'blur(30px)',
         }}
       />
     </div>
