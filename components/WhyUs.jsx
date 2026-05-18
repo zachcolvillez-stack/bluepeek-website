@@ -5,8 +5,8 @@ import { MapPin, Clock, ShieldCheck, Phone } from 'lucide-react'
 const PILLARS = [
   {
     icon: MapPin,
-    title: 'Local & Perth-Based',
-    description: "Born and based in Perth. We know the local market, we understand your customers, and we&apos;re here for a coffee if you ever want to meet in person.",
+    title: 'Local & Personable',
+    description: "We work with local businesses across Australia. Real people, real conversations, and a coffee in person if you&apos;re nearby.",
   },
   {
     icon: Clock,
@@ -68,9 +68,9 @@ export default function WhyUs() {
         >
           <img src="/logo.png" alt="Bluepeek" className="w-14 h-14 mx-auto mb-4 object-contain" />
           <p className="text-slate-200 text-base leading-relaxed max-w-lg mx-auto">
-            &ldquo;I started Bluepeek because too many great Perth businesses were being held back
-            by terrible (or no) websites. Every local business deserves a digital presence that
-            actually works for them — without paying agency prices.&rdquo;
+            &ldquo;I started Bluepeek because too many great local businesses were being held back
+            by terrible (or no) websites. Every business deserves a digital presence that actually
+            works for them — without paying agency prices.&rdquo;
           </p>
           <p className="text-slate-500 text-sm mt-4">Zach — Founder, Bluepeek</p>
         </motion.div>

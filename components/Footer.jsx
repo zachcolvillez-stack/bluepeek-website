@@ -29,7 +29,7 @@ export default function Footer({ onNavigate }) {
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-2 mt-8 pt-6 border-t border-white/5">
           <p className="text-xs text-slate-700">© {new Date().getFullYear()} Bluepeek. All rights reserved.</p>
-          <p className="text-xs text-slate-700">Founded by Zach — Perth, Western Australia</p>
+          <p className="text-xs text-slate-700">Founded by Zach — Australia</p>
         </div>
       </div>
     </footer>

@@ -46,11 +46,11 @@ export default function Portfolio() {
           <p className="text-blue-400 text-sm font-semibold uppercase tracking-widest mb-4">Our Work</p>
           <h2 className="text-4xl md:text-5xl font-black text-white mb-5"
             style={{ textShadow: '0 4px 30px rgba(0,0,0,0.5)' }}>
-            Built for Real<br />Perth Businesses
+            Built for Real<br />Local Businesses
           </h2>
           <p className="text-slate-300 text-lg max-w-xl mx-auto"
             style={{ textShadow: '0 2px 20px rgba(0,0,0,0.5)' }}>
-            From cafes to tradies, here&apos;s a taste of what we build for local Perth businesses.
+            From cafes to tradies, here&apos;s a taste of what we build for local businesses.
           </p>
         </motion.div>
 

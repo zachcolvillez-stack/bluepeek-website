@@ -28,7 +28,7 @@ export default function Hero({ onCTA }) {
           className="text-lg md:text-xl text-slate-200 max-w-2xl mx-auto mb-10 leading-relaxed"
           style={{ textShadow: '0 2px 20px rgba(0,0,0,0.6)' }}
         >
-          We build websites and smart tools that help local Perth businesses get found on Google,
+          We build websites and smart tools that help local businesses get found on Google,
           look professional online, and bring in more customers — without the agency headache.
         </motion.p>
 

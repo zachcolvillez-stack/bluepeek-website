@@ -35,7 +35,7 @@ export default function Testimonials() {
           <p className="text-blue-400 text-sm font-semibold uppercase tracking-widest mb-4">What Clients Say</p>
           <h2 className="text-4xl md:text-5xl font-black text-white mb-5"
             style={{ textShadow: '0 4px 30px rgba(0,0,0,0.5)' }}>
-            Trusted by Local<br />Perth Businesses
+            Trusted by Local<br />Businesses
           </h2>
         </motion.div>
 
