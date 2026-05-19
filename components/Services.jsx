@@ -96,7 +96,7 @@ export default function Services() {
           viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.4 }}
           className="text-center mt-12">
           <p className="text-slate-600 text-base">
-            Most websites <span className="text-slate-900 font-bold">from $1,500</span> — fixed pricing, no surprises.
+            Packages <span className="text-slate-900 font-bold">from $499</span> — fixed pricing, no surprises.
           </p>
         </motion.div>
       </div>
