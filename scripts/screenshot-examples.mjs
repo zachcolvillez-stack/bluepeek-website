@@ -2,10 +2,10 @@ import { chromium } from 'playwright'
 import fs from 'fs'
 
 const PAGES = [
-  { url: 'https://bluepeek.com.au/examples/cafe',       file: 'cafe.png' },
-  { url: 'https://bluepeek.com.au/examples/plumber',    file: 'plumber.png' },
-  { url: 'https://bluepeek.com.au/examples/salon',      file: 'salon.png' },
-  { url: 'https://bluepeek.com.au/examples/restaurant', file: 'restaurant.png' },
+  { url: 'http://localhost:3000/examples/cafe',       file: 'cafe.png' },
+  { url: 'http://localhost:3000/examples/plumber',    file: 'plumber.png' },
+  { url: 'http://localhost:3000/examples/salon',      file: 'salon.png' },
+  { url: 'http://localhost:3000/examples/restaurant', file: 'restaurant.png' },
 ]
 
 const OUT_DIR = 'public/screenshots'
@@ -20,18 +20,27 @@ const page = await context.newPage()
 
 for (const { url, file } of PAGES) {
   console.log(`📸 ${url}`)
-  await page.goto(url, { waitUntil: 'networkidle', timeout: 45000 })
-  // Hide demo banner during screenshot
+  await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 })
+  // Wait for all images on the page to load
+  await page.evaluate(() => Promise.all(
+    Array.from(document.images).filter(i => !i.complete).map(i =>
+      new Promise(res => { i.onload = i.onerror = res })
+    )
+  ))
+  // Hide demo banner
   await page.evaluate(() => {
     const banner = document.body.firstElementChild
     if (banner && banner.textContent.includes('Example design')) banner.style.display = 'none'
   })
-  await page.waitForTimeout(2500)
+  // Extra wait for animations / fonts
+  await page.waitForTimeout(3000)
   await page.screenshot({
     path: `${OUT_DIR}/${file}`,
     clip: { x: 0, y: 0, width: 1440, height: 900 },
   })
+  const stat = fs.statSync(`${OUT_DIR}/${file}`)
+  console.log(`   → ${file} (${Math.round(stat.size / 1024)}KB)`)
 }
 
 await browser.close()
-console.log('✅ All screenshots saved to', OUT_DIR)
+console.log('✅ Done')
