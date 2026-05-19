@@ -1,15 +1,18 @@
 'use client'
-import { motion } from 'framer-motion'
-import { ArrowUpRight } from 'lucide-react'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { ArrowUpRight, X } from 'lucide-react'
 
 const PROJECTS = [
-  { image: '/screenshots/cafe.png',       industry: 'Hospitality', title: 'Brew & Bean Cafe',      location: 'Subiaco',    description: 'Online menu, table reservations and Instagram feed — built mobile-first for walk-by traffic.', href: '/examples/cafe' },
-  { image: '/screenshots/plumber.png',    industry: 'Trade',       title: 'Reilly Plumbing & Gas', location: 'Joondalup',  description: 'Quote-first design with click-to-call buttons — built for tradies who need leads, fast.',       href: '/examples/plumber' },
-  { image: '/screenshots/salon.png',      industry: 'Beauty',      title: 'Indigo Hair Studio',    location: 'Fremantle',  description: 'Premium booking system, treatment menu and stylist portfolios — fully self-service.',         href: '/examples/salon' },
-  { image: '/screenshots/restaurant.png', industry: 'Restaurant',  title: 'The Long Table',        location: 'Northbridge',description: 'Full reservation flow, seasonal menu updates and integrated online ordering.',                href: '/examples/restaurant' },
+  { image: '/screenshots/cafe.png',       industry: 'Hospitality', title: 'Brew & Bean Cafe',      location: 'Subiaco',     description: 'Online menu, table reservations and Instagram feed — built mobile-first for walk-by traffic.' },
+  { image: '/screenshots/plumber.png',    industry: 'Trade',       title: 'Reilly Plumbing & Gas', location: 'Joondalup',   description: 'Quote-first design with click-to-call buttons — built for tradies who need leads, fast.' },
+  { image: '/screenshots/salon.png',      industry: 'Beauty',      title: 'Indigo Hair Studio',    location: 'Fremantle',   description: 'Premium booking system, treatment menu and stylist portfolios — fully self-service.' },
+  { image: '/screenshots/restaurant.png', industry: 'Restaurant',  title: 'The Long Table',        location: 'Northbridge', description: 'Full reservation flow, seasonal menu updates and integrated online ordering.' },
 ]
 
 export default function Portfolio() {
+  const [lightbox, setLightbox] = useState(null)
+
   return (
     <section id="work" className="relative py-28 px-6">
       <div className="max-w-6xl mx-auto">
@@ -20,16 +23,16 @@ export default function Portfolio() {
             Built for Real<br />Local Businesses
           </h2>
           <p className="text-slate-600 text-lg max-w-xl mx-auto">
-            Click any project to view the live demo — fully designed homepages built for real industries.
+            A snapshot of recent homepage designs across different industries.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {PROJECTS.map((p, i) => (
-            <motion.a key={p.title} href={p.href} target="_blank" rel="noopener noreferrer"
+            <motion.button key={p.title} onClick={() => setLightbox(p)}
               initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group relative rounded-2xl overflow-hidden bg-white border border-slate-200 hover:border-blue-300 transition-all duration-300 card-glow cursor-pointer block"
+              className="group relative rounded-2xl overflow-hidden bg-white border border-slate-200 hover:border-blue-300 transition-all duration-300 card-glow cursor-pointer block text-left"
             >
               {/* Browser-style chrome bar */}
               <div className="flex items-center gap-1.5 px-4 py-2.5 bg-slate-100 border-b border-slate-200">
@@ -37,11 +40,11 @@ export default function Portfolio() {
                 <div className="w-2.5 h-2.5 rounded-full bg-amber-400" />
                 <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
                 <div className="flex-1 mx-3 px-3 py-0.5 text-[10px] text-slate-500 bg-white rounded text-center font-mono truncate">
-                  bluepeek.com.au{p.href}
+                  {p.title.toLowerCase().replace(/[^a-z]/g, '')}.com.au
                 </div>
               </div>
 
-              {/* Screenshot */}
+              {/* Screenshot preview */}
               <div className="relative aspect-[16/10] overflow-hidden bg-slate-50">
                 <img src={p.image} alt={p.title} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
                 <span className="absolute top-3 right-3 text-xs font-medium px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-sm text-slate-700 border border-slate-200 shadow-sm">
@@ -49,7 +52,7 @@ export default function Portfolio() {
                 </span>
                 <div className="absolute inset-0 bg-blue-600/0 group-hover:bg-blue-600/10 transition-colors duration-300 flex items-center justify-center">
                   <span className="opacity-0 group-hover:opacity-100 px-5 py-2.5 bg-white text-blue-600 rounded-full text-sm font-semibold shadow-lg transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                    View Live Demo →
+                    View Larger →
                   </span>
                 </div>
               </div>
@@ -63,7 +66,7 @@ export default function Portfolio() {
                 <p className="text-xs text-slate-500 mb-3">{p.location}, WA</p>
                 <p className="text-sm text-slate-600 leading-relaxed">{p.description}</p>
               </div>
-            </motion.a>
+            </motion.button>
           ))}
         </div>
 
@@ -77,6 +80,42 @@ export default function Portfolio() {
           <p className="text-[10px] text-slate-400 mt-3">Example projects shown for illustration purposes.</p>
         </motion.div>
       </div>
+
+      {/* Lightbox */}
+      <AnimatePresence>
+        {lightbox && (
+          <motion.div
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            onClick={() => setLightbox(null)}
+            className="fixed inset-0 z-[100] bg-black/85 backdrop-blur-sm flex items-center justify-center p-6 cursor-pointer"
+          >
+            <button onClick={() => setLightbox(null)}
+              className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors">
+              <X size={18} />
+            </button>
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              onClick={(e) => e.stopPropagation()}
+              className="max-w-6xl w-full rounded-xl overflow-hidden shadow-2xl bg-white cursor-default"
+            >
+              <div className="flex items-center gap-1.5 px-4 py-2.5 bg-slate-100 border-b border-slate-200">
+                <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
+                <div className="w-2.5 h-2.5 rounded-full bg-amber-400" />
+                <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
+                <div className="flex-1 mx-3 px-3 py-0.5 text-[11px] text-slate-500 bg-white rounded text-center font-mono">
+                  {lightbox.title.toLowerCase().replace(/[^a-z]/g, '')}.com.au
+                </div>
+              </div>
+              <img src={lightbox.image} alt={lightbox.title} className="w-full h-auto" />
+              <div className="p-5 bg-white">
+                <h3 className="font-bold text-slate-900">{lightbox.title}</h3>
+                <p className="text-xs text-slate-500 mt-1">{lightbox.industry} · {lightbox.location}, WA</p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   )
 }
