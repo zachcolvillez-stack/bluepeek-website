@@ -3,10 +3,10 @@ import { motion } from 'framer-motion'
 import { Coffee, Wrench, Scissors, Utensils, ArrowUpRight } from 'lucide-react'
 
 const PROJECTS = [
-  { icon: Coffee,   industry: 'Hospitality', title: 'Brew & Bean Cafe',        location: 'Subiaco',    description: 'Online menu, table reservations and Instagram feed — built mobile-first for walk-by traffic.', gradient: 'from-amber-100 to-orange-100' },
-  { icon: Wrench,   industry: 'Trade',       title: 'Reilly Plumbing & Gas',   location: 'Joondalup',  description: 'Quote-first design with click-to-call buttons — built for tradies who need leads, fast.',       gradient: 'from-blue-100 to-cyan-100' },
-  { icon: Scissors, industry: 'Beauty',      title: 'Indigo Hair Studio',      location: 'Fremantle',  description: 'Premium booking system, treatment menu and stylist portfolios — fully self-service.',         gradient: 'from-pink-100 to-rose-100' },
-  { icon: Utensils, industry: 'Restaurant',  title: 'The Long Table',          location: 'Northbridge',description: 'Full reservation flow, seasonal menu updates and integrated online ordering.',                gradient: 'from-emerald-100 to-teal-100' },
+  { icon: Coffee,   industry: 'Hospitality', title: 'Brew & Bean Cafe',        location: 'Subiaco',    description: 'Online menu, table reservations and Instagram feed — built mobile-first for walk-by traffic.', gradient: 'from-amber-100 to-orange-100',   href: '/examples/cafe' },
+  { icon: Wrench,   industry: 'Trade',       title: 'Reilly Plumbing & Gas',   location: 'Joondalup',  description: 'Quote-first design with click-to-call buttons — built for tradies who need leads, fast.',       gradient: 'from-blue-100 to-cyan-100',      href: '/examples/plumber' },
+  { icon: Scissors, industry: 'Beauty',      title: 'Indigo Hair Studio',      location: 'Fremantle',  description: 'Premium booking system, treatment menu and stylist portfolios — fully self-service.',         gradient: 'from-pink-100 to-rose-100',      href: '/examples/salon' },
+  { icon: Utensils, industry: 'Restaurant',  title: 'The Long Table',          location: 'Northbridge',description: 'Full reservation flow, seasonal menu updates and integrated online ordering.',                gradient: 'from-emerald-100 to-teal-100',   href: '/examples/restaurant' },
 ]
 
 export default function Portfolio() {
@@ -20,21 +20,24 @@ export default function Portfolio() {
             Built for Real<br />Local Businesses
           </h2>
           <p className="text-slate-600 text-lg max-w-xl mx-auto">
-            From cafes to tradies, here&apos;s a taste of what we build for local businesses.
+            Click any project to view the live demo — fully designed homepages built for real industries.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {PROJECTS.map((p, i) => (
-            <motion.div key={p.title}
+            <motion.a key={p.title} href={p.href} target="_blank" rel="noopener noreferrer"
               initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group relative rounded-2xl overflow-hidden bg-white/90 backdrop-blur-md border border-slate-200 hover:border-blue-300 transition-all duration-300 card-glow cursor-pointer"
+              className="group relative rounded-2xl overflow-hidden bg-white/90 backdrop-blur-md border border-slate-200 hover:border-blue-300 transition-all duration-300 card-glow cursor-pointer block"
             >
               <div className={`relative h-48 bg-gradient-to-br ${p.gradient} flex items-center justify-center overflow-hidden`}>
                 <p.icon size={56} className="text-slate-700/50 relative z-10 group-hover:scale-110 transition-transform duration-500" />
                 <span className="absolute top-3 right-3 text-xs font-medium px-2.5 py-1 rounded-full bg-white/80 backdrop-blur-sm text-slate-700 border border-slate-200">
                   {p.industry}
+                </span>
+                <span className="absolute bottom-3 left-3 text-xs font-semibold px-2.5 py-1 rounded-full bg-blue-600 text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                  View Live Demo →
                 </span>
               </div>
 
@@ -46,7 +49,7 @@ export default function Portfolio() {
                 <p className="text-xs text-slate-500 mb-3">{p.location}, WA</p>
                 <p className="text-sm text-slate-600 leading-relaxed">{p.description}</p>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
 
