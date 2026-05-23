@@ -1,5 +1,4 @@
 'use client'
-import { motion } from 'framer-motion'
 import { Star, Quote } from 'lucide-react'
 
 const REVIEWS = [
@@ -12,21 +11,16 @@ export default function Testimonials() {
   return (
     <section id="reviews" className="relative py-32 px-6">
       <div className="max-w-6xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-20">
+        <div className="text-center mb-20">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] mb-4" style={{ color: '#22d3ee' }}>What Clients Say</p>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-5" style={{ color: '#f5f5f7' }}>
             Trusted by local<br />Perth businesses.
           </h2>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-          {REVIEWS.map((r, i) => (
-            <motion.div key={r.name}
-              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="card p-7"
-            >
+          {REVIEWS.map((r) => (
+            <div key={r.name} className="card p-7">
               <Quote size={24} style={{ color: 'rgba(34,211,238,0.3)' }} className="mb-4" />
               <div className="flex gap-0.5 mb-4">
                 {[...Array(r.rating)].map((_, i) => (
@@ -44,7 +38,7 @@ export default function Testimonials() {
                   <p className="text-xs mt-0.5" style={{ color: '#8a8a93' }}>{r.business} · {r.location}</p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
         <p className="text-center text-[10px]" style={{ color: '#5a5a62' }}>Example reviews shown for illustration purposes.</p>

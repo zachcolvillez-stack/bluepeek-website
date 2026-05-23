@@ -1,6 +1,5 @@
 'use client'
 import { useState } from 'react'
-import { motion } from 'framer-motion'
 import { Send, CheckCircle, AlertCircle } from 'lucide-react'
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mgoqeber'
@@ -39,8 +38,7 @@ export default function Contact() {
   return (
     <section id="contact" className="relative py-32 px-6">
       <div className="max-w-2xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12">
+        <div className="text-center mb-12">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] mb-4" style={{ color: '#22d3ee' }}>Let's Chat</p>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-5" style={{ color: '#f5f5f7' }}>
             Get your free quote.
@@ -48,11 +46,9 @@ export default function Contact() {
           <p className="text-base md:text-lg" style={{ color: '#8a8a93' }}>
             Tell us about your business — we'll reply within 24 hours.<br />No pressure, no sales pitch.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}
-          className="card p-8">
+        <div className="card p-8">
 
           {status === 'sent' ? (
             <div className="text-center py-12">
@@ -118,7 +114,7 @@ export default function Contact() {
               </p>
             </form>
           )}
-        </motion.div>
+        </div>
       </div>
     </section>
   )

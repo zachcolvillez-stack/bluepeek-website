@@ -1,5 +1,4 @@
 'use client'
-import { motion } from 'framer-motion'
 import { Globe, Sparkles, BarChart3, Megaphone } from 'lucide-react'
 
 const SERVICES = [
@@ -41,8 +40,7 @@ export default function Services() {
   return (
     <section id="services" className="relative py-32 px-6">
       <div className="max-w-6xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-20">
+        <div className="text-center mb-20">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] mb-4" style={{ color: '#22d3ee' }}>What We Do</p>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-5" style={{ color: '#f5f5f7' }}>
             Everything your business<br />needs to grow online.
@@ -50,16 +48,11 @@ export default function Services() {
           <p className="text-base md:text-lg max-w-xl mx-auto leading-relaxed" style={{ color: '#8a8a93' }}>
             From your first website to smart automation — we handle the digital side so you can focus on the work.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {SERVICES.map((s, i) => (
-            <motion.div key={s.title}
-              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="card p-8"
-              style={!s.available ? { opacity: 0.55 } : {}}
-            >
+          {SERVICES.map((s) => (
+            <div key={s.title} className="card p-8" style={!s.available ? { opacity: 0.55 } : {}}>
               <div className="flex items-start justify-between mb-6">
                 <div className="w-11 h-11 rounded-xl flex items-center justify-center"
                   style={{ background: s.available ? 'rgba(34,211,238,0.1)' : 'rgba(255,255,255,0.04)' }}>
@@ -85,17 +78,15 @@ export default function Services() {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        <motion.div initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-center mt-14">
+        <div className="text-center mt-14">
           <p className="text-sm" style={{ color: '#8a8a93' }}>
-            Every project tailored to your business — <a href="#contact" className="font-semibold transition-colors" style={{ color: '#22d3ee' }}>get a free quote</a>.
+            Every project tailored to your business — <a href="#contact" className="font-semibold" style={{ color: '#22d3ee' }}>get a free quote</a>.
           </p>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

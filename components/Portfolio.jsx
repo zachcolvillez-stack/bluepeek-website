@@ -16,8 +16,7 @@ export default function Portfolio() {
   return (
     <section id="work" className="relative py-32 px-6">
       <div className="max-w-6xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-20">
+        <div className="text-center mb-20">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] mb-4" style={{ color: '#22d3ee' }}>Our Work</p>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-5" style={{ color: '#f5f5f7' }}>
             Built for real<br />Perth businesses.
@@ -25,13 +24,11 @@ export default function Portfolio() {
           <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: '#8a8a93' }}>
             A snapshot of recent homepage designs across different industries.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {PROJECTS.map((p, i) => (
-            <motion.button key={p.title} onClick={() => setLightbox(p)}
-              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.08 }}
+          {PROJECTS.map((p) => (
+            <button key={p.title} onClick={() => setLightbox(p)}
               className="card group overflow-hidden cursor-pointer block text-left"
             >
               {/* Browser-style chrome bar */}
@@ -63,19 +60,17 @@ export default function Portfolio() {
                 <p className="text-xs mb-3" style={{ color: '#22d3ee' }}>{p.location}, WA</p>
                 <p className="text-sm leading-relaxed" style={{ color: '#8a8a93' }}>{p.description}</p>
               </div>
-            </motion.button>
+            </button>
           ))}
         </div>
 
-        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-          viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-12">
+        <div className="text-center mt-12">
           <p className="text-sm" style={{ color: '#8a8a93' }}>
             Want to be our next case study?{' '}
             <a href="#contact" className="font-semibold" style={{ color: '#22d3ee' }}>Get in touch →</a>
           </p>
           <p className="text-[10px] mt-3" style={{ color: '#5a5a62' }}>Example projects shown for illustration purposes.</p>
-        </motion.div>
+        </div>
       </div>
 
       {/* Lightbox */}
