@@ -20,6 +20,24 @@ const PROJECTS = [
     location:    'Perth, WA',
     description: 'Modern barbershop site with online bookings, gallery and service menu — designed to fill the chairs and grow the brand.',
   },
+  {
+    image:       '/screenshots/airborne.png',
+    url:         'https://www.airbornesuspensionandmechanical.com.au',
+    domain:      'airbornesuspensionandmechanical.com.au',
+    industry:    '4WD & Suspension',
+    title:       'Airborne Suspension & Mechanical',
+    location:    'Malaga, WA',
+    description: 'Premium suspension and 4WD specialist site — showcasing 25+ years of expertise, lift kits, and 41 five-star reviews.',
+  },
+  {
+    image:       '/screenshots/aeandac.png',
+    url:         'https://www.aeandacservicecenter.com.au',
+    domain:      'aeandacservicecenter.com.au',
+    industry:    'Auto Electrical',
+    title:       'AE & AC Service Center',
+    location:    'Malaga, WA',
+    description: 'Auto electrical and air conditioning specialist — workshop-grade diagnostics and clear service info built to earn trust online.',
+  },
 ]
 
 export default function Portfolio() {
