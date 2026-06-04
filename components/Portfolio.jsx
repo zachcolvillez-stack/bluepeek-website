@@ -54,7 +54,7 @@ export default function Portfolio() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-2 gap-5">
           {PROJECTS.map((p) => (
             <a key={p.title}
               href={p.url}
