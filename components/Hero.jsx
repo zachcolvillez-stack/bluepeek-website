@@ -8,8 +8,8 @@ export default function Hero({ onCTA }) {
   return (
     <section id="hero" className="relative min-h-screen flex items-center pt-28 pb-16 px-6 overflow-hidden">
       {/* Soft hero glows */}
-      <div className="hero-glow" style={{ top: '-10%', right: '-5%', width: '560px', height: '560px', background: 'radial-gradient(circle, rgba(47,99,217,0.12) 0%, transparent 70%)' }} />
-      <div className="hero-glow" style={{ bottom: '-15%', left: '-8%', width: '480px', height: '480px', background: 'radial-gradient(circle, rgba(11,35,80,0.06) 0%, transparent 70%)' }} />
+      <div className="hero-glow" style={{ top: '-10%', right: '-5%', width: '560px', height: '560px', background: 'radial-gradient(circle, rgba(79,134,247,0.22) 0%, transparent 70%)' }} />
+      <div className="hero-glow" style={{ bottom: '-15%', left: '-8%', width: '480px', height: '480px', background: 'radial-gradient(circle, rgba(155,107,242,0.18) 0%, transparent 70%)' }} />
 
       <div className="relative max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-14 items-center">
         {/* ── Left: copy ── */}
@@ -20,12 +20,12 @@ export default function Hero({ onCTA }) {
 
           <motion.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.08 }}
             className="text-4xl md:text-5xl lg:text-[3.4rem] font-bold tracking-tight leading-[1.08] mt-6 mb-6"
-            style={{ color: '#0f1e38' }}>
+            style={{ color: '#ffffff' }}>
             Premium websites & AI systems built to bring Perth businesses <span className="gradient-text">more leads.</span>
           </motion.h1>
 
           <motion.p initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.16 }}
-            className="text-base md:text-lg leading-relaxed mb-8 max-w-xl" style={{ color: '#46566f' }}>
+            className="text-base md:text-lg leading-relaxed mb-8 max-w-xl" style={{ color: '#c2d2ee' }}>
             We design high-converting websites, lead-capture systems and smart automations for local businesses that want to look professional, get found, and grow.
           </motion.p>
 
@@ -48,22 +48,22 @@ export default function Hero({ onCTA }) {
             {TRUST.map(t => (
               <div key={t} className="flex items-center gap-2">
                 <span className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
-                  style={{ background: '#dbe8fc' }}>
-                  <Check size={11} style={{ color: '#0b2350' }} strokeWidth={3} />
+                  style={{ background: 'linear-gradient(135deg, #4f86f7, #9b6bf2)' }}>
+                  <Check size={11} className="text-white" strokeWidth={3} />
                 </span>
-                <span className="text-sm font-medium" style={{ color: '#46566f' }}>{t}</span>
+                <span className="text-sm font-medium" style={{ color: '#c2d2ee' }}>{t}</span>
               </div>
             ))}
           </motion.div>
         </div>
 
-        {/* ── Right: premium mockup ── */}
+        {/* ── Right: premium mockup (white accent) ── */}
         <motion.div initial={{ opacity: 0, scale: 0.96, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="relative hidden lg:block">
 
           {/* Main browser mockup */}
-          <div className="card float-soft overflow-hidden" style={{ borderRadius: '20px' }}>
+          <div className="card-light float-soft overflow-hidden" style={{ borderRadius: '20px' }}>
             <div className="flex items-center gap-1.5 px-4 py-3" style={{ background: '#f6f9fc', borderBottom: '1px solid #e4eaf3' }}>
               <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#d4deec' }} />
               <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#d4deec' }} />
@@ -74,14 +74,13 @@ export default function Hero({ onCTA }) {
               </div>
             </div>
             <div className="p-6" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #f6f9fc 100%)' }}>
-              {/* fake hero */}
               <div className="h-3 w-24 rounded-full mb-3" style={{ background: '#dbe8fc' }} />
               <div className="h-5 w-3/4 rounded-md mb-2" style={{ background: '#0b2350' }} />
-              <div className="h-5 w-1/2 rounded-md mb-4" style={{ background: '#1d4488' }} />
+              <div className="h-5 w-1/2 rounded-md mb-4" style={{ background: '#7a6ff5' }} />
               <div className="h-2 w-full rounded-full mb-1.5" style={{ background: '#e4eaf3' }} />
               <div className="h-2 w-5/6 rounded-full mb-5" style={{ background: '#e4eaf3' }} />
               <div className="flex gap-2 mb-6">
-                <div className="h-8 w-28 rounded-lg" style={{ background: 'linear-gradient(180deg, #12356f, #0b2350)' }} />
+                <div className="h-8 w-28 rounded-lg" style={{ background: 'linear-gradient(135deg, #4f86f7, #9b6bf2)' }} />
                 <div className="h-8 w-24 rounded-lg" style={{ background: '#ffffff', border: '1px solid #d4deec' }} />
               </div>
               <div className="grid grid-cols-3 gap-2">
@@ -97,10 +96,10 @@ export default function Hero({ onCTA }) {
           </div>
 
           {/* Floating: new lead notification */}
-          <div className="absolute -left-8 top-20 glass float-soft-delay rounded-2xl p-3.5 w-52" style={{ borderRadius: '16px' }}>
+          <div className="absolute -left-8 top-20 card-light float-soft-delay p-3.5 w-52" style={{ borderRadius: '16px' }}>
             <div className="flex items-center gap-2.5">
               <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-                style={{ background: 'linear-gradient(135deg, #2f63d9, #1d4488)' }}>
+                style={{ background: 'linear-gradient(135deg, #4f86f7, #9b6bf2)' }}>
                 <MessageSquare size={16} className="text-white" />
               </div>
               <div className="min-w-0">
@@ -114,9 +113,9 @@ export default function Hero({ onCTA }) {
           </div>
 
           {/* Floating: automation flow */}
-          <div className="absolute -right-6 bottom-12 glass rounded-2xl p-3.5 w-48 float-soft" style={{ borderRadius: '16px' }}>
+          <div className="absolute -right-6 bottom-12 card-light p-3.5 w-48 float-soft" style={{ borderRadius: '16px' }}>
             <div className="flex items-center gap-2 mb-2">
-              <Zap size={14} style={{ color: '#2f63d9' }} />
+              <Zap size={14} style={{ color: '#7a6ff5' }} />
               <p className="text-xs font-bold" style={{ color: '#0b2350' }}>Auto-reply sent</p>
             </div>
             <div className="space-y-1.5">
@@ -132,7 +131,7 @@ export default function Hero({ onCTA }) {
           </div>
 
           {/* Floating: leads stat */}
-          <div className="absolute -right-4 top-2 glass rounded-2xl px-4 py-3 float-soft-delay" style={{ borderRadius: '16px' }}>
+          <div className="absolute -right-4 top-2 card-light px-4 py-3 float-soft-delay" style={{ borderRadius: '16px' }}>
             <div className="flex items-center gap-2">
               <TrendingUp size={15} style={{ color: '#22c55e' }} />
               <div>
