@@ -1,53 +1,98 @@
 'use client'
-import { MapPin, Clock, ShieldCheck, Phone } from 'lucide-react'
-
-const PILLARS = [
-  { icon: MapPin,      title: 'Local & Personable', description: "We work with Perth businesses. Real people, real conversations, and a coffee in person if you're nearby." },
-  { icon: Clock,       title: 'Fast Turnaround',    description: 'Most websites delivered in 1–2 weeks. No drawn-out months of waiting — just honest, fast work.' },
-  { icon: ShieldCheck, title: 'You Own Everything', description: 'No lock-in contracts. You own your domain, your site, your content — walk away any time.' },
-  { icon: Phone,       title: 'Direct Access',      description: "You talk to me directly. No account managers, no offshore teams. The person building your site is the person answering your messages." },
-]
+import { motion } from 'framer-motion'
+import { MapPin, Target, ShieldCheck, MessageCircle, Zap, Clock, ArrowRight } from 'lucide-react'
 
 export default function WhyUs() {
   return (
-    <section id="about" className="relative py-32 px-6">
+    <section id="about" className="section-soft relative py-28 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] mb-4" style={{ color: '#22d3ee' }}>Why Bluepeek</p>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-5" style={{ color: '#f5f5f7' }}>
-            A different kind<br />of web designer.
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
+          <span className="eyebrow">Why Bluepeek</span>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#0f1e38' }}>
+            A premium agency<br />that feels local.
           </h2>
-          <p className="text-base md:text-lg max-w-xl mx-auto leading-relaxed" style={{ color: '#8a8a93' }}>
-            Big agencies charge big prices and treat you like a number. We're built differently.
+          <p className="text-base md:text-lg max-w-xl mx-auto leading-relaxed" style={{ color: '#46566f' }}>
+            Big-agency quality without the big-agency runaround. Here’s what makes us different.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-16">
-          {PILLARS.map((p) => (
-            <div key={p.title} className="card flex gap-5 p-7">
-              <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
-                style={{ background: 'rgba(34,211,238,0.1)' }}>
-                <p.icon size={19} style={{ color: '#22d3ee' }} />
+        {/* ── Bento grid ── */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
+          {/* Large feature — Local Perth team */}
+          <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.5 }}
+            className="md:col-span-2 md:row-span-2 rounded-3xl p-8 relative overflow-hidden"
+            style={{ background: 'linear-gradient(140deg, #0b2350 0%, #12356f 60%, #1d4488 100%)', boxShadow: '0 20px 50px rgba(11,35,80,0.25)' }}>
+            <div className="absolute -right-16 -top-16 w-64 h-64 rounded-full" style={{ background: 'radial-gradient(circle, rgba(47,99,217,0.35) 0%, transparent 70%)' }} />
+            <div className="relative">
+              <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-6"
+                style={{ background: 'rgba(255,255,255,0.12)', backdropFilter: 'blur(8px)' }}>
+                <MapPin size={22} className="text-white" />
               </div>
-              <div>
-                <h3 className="font-semibold mb-2" style={{ color: '#f5f5f7' }}>{p.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: '#8a8a93' }}>{p.description}</p>
+              <h3 className="text-2xl font-bold text-white mb-3">Local Perth team — real people, real conversations.</h3>
+              <p className="text-base leading-relaxed max-w-md" style={{ color: '#bcd0f0' }}>
+                You’re not a ticket number. We’re based in Perth, we know the local market, and we’ll grab a coffee in person if you’re nearby. Every site is built around bringing you real customers — not design awards.
+              </p>
+              <div className="flex flex-wrap gap-2 mt-6">
+                {['Built around leads, not vanity', 'Knows the WA market'].map(t => (
+                  <span key={t} className="text-xs font-medium px-3 py-1.5 rounded-full"
+                    style={{ background: 'rgba(255,255,255,0.1)', color: '#dbe8fc' }}>{t}</span>
+                ))}
               </div>
             </div>
-          ))}
+          </motion.div>
+
+          {/* No lock-in */}
+          <BentoCard icon={ShieldCheck} title="No lock-in contracts" body="You own your domain, site and content. Walk away any time — no hostage situations." delay={0.08} />
+
+          {/* Fast launch */}
+          <BentoCard icon={Clock} title="Fast launch timelines" body="Most sites go live in 1–2 weeks. No drawn-out months of waiting." delay={0.16} />
         </div>
 
-        <div className="card text-center p-10">
-          <div className="w-14 h-14 rounded-xl mx-auto mb-5 flex items-center justify-center"
-            style={{ background: '#22d3ee' }}>
-            <span className="text-2xl font-black" style={{ color: '#0a0a0c' }}>b</span>
-          </div>
-          <p className="text-base md:text-lg leading-relaxed max-w-lg mx-auto" style={{ color: '#b4b4bb' }}>
-            "I started Bluepeek because too many great local businesses were being held back by terrible (or no) websites. Every business deserves a digital presence that actually works — without paying agency prices."
-          </p>
-          <p className="text-sm mt-5" style={{ color: '#22d3ee' }}>— Zach, Founder of Bluepeek</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <BentoCard icon={MessageCircle} title="Clear communication" body="Plain English, no jargon. You always know what’s happening and why." delay={0.0} />
+          <BentoCard icon={Zap} title="AI-ready systems" body="Lead capture and automation built in — so your site works while you don’t." delay={0.08} />
+          <BentoCard icon={Target} title="Direct access to Zach" body="Talk to the person actually building your site. No account managers, no offshore teams." delay={0.16} />
         </div>
+
+        {/* ── Founder card ── */}
+        <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.6 }}
+          className="card mt-6 p-8 md:p-12 flex flex-col md:flex-row items-center gap-8">
+          {/* Portrait placeholder */}
+          <div className="flex-shrink-0">
+            <div className="w-28 h-28 rounded-3xl flex items-center justify-center"
+              style={{ background: 'linear-gradient(135deg, #12356f, #0b2350)', boxShadow: '0 12px 30px rgba(11,35,80,0.25)' }}>
+              <span className="text-4xl font-black text-white">Z</span>
+            </div>
+          </div>
+          <div className="text-center md:text-left">
+            <svg width="32" height="24" viewBox="0 0 32 24" className="mx-auto md:mx-0 mb-4" style={{ opacity: 0.18 }}>
+              <path d="M0 24V12C0 5 4 1 12 0L13 4C8 5 6 8 6 12H12V24H0ZM20 24V12C20 5 24 1 32 0L33 4C28 5 26 8 26 12H32V24H20Z" fill="#0b2350"/>
+            </svg>
+            <p className="text-lg md:text-xl leading-relaxed font-medium mb-5" style={{ color: '#0f1e38' }}>
+              I started Bluepeek because too many great local businesses were being held back by terrible — or no — websites. Every Perth business deserves a digital presence that actually works for them, without paying agency prices or getting locked into contracts.
+            </p>
+            <p className="text-xl font-bold" style={{ color: '#0b2350', fontFamily: 'Georgia, serif', fontStyle: 'italic' }}>Zach</p>
+            <p className="text-sm mt-0.5" style={{ color: '#7a8aa3' }}>Founder · Bluepeek · Perth, WA</p>
+          </div>
+        </motion.div>
       </div>
     </section>
+  )
+}
+
+function BentoCard({ icon: Icon, title, body, delay }) {
+  return (
+    <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }} transition={{ duration: 0.5, delay }}
+      className="card p-7">
+      <div className="w-11 h-11 rounded-2xl flex items-center justify-center mb-5" style={{ background: '#eef4fc' }}>
+        <Icon size={20} style={{ color: '#0b2350' }} />
+      </div>
+      <h3 className="font-bold mb-2" style={{ color: '#0f1e38' }}>{title}</h3>
+      <p className="text-sm leading-relaxed" style={{ color: '#46566f' }}>{body}</p>
+    </motion.div>
   )
 }
