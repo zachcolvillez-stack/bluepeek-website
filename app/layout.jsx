@@ -1,21 +1,53 @@
 import './globals.css'
+import { SITE } from '../lib/site'
+import { organizationSchema, websiteSchema } from '../lib/schema'
+import JsonLd from '../components/seo/JsonLd'
 
 export const metadata = {
-  title: 'Bluepeek — Premium Websites & AI for Perth Businesses',
-  description: 'Bluepeek builds high-converting websites and AI lead-capture systems for Perth businesses. Perth website design, local SEO, automation — no lock-in, you own everything. Get a free quote.',
-  keywords: ['Perth website design', 'websites for local businesses', 'AI automation for small businesses', 'lead capture systems', 'high-converting websites', 'no lock-in websites', 'web design Perth', 'Bluepeek'],
+  metadataBase: new URL(SITE.url),
+  title: {
+    default: 'Bluepeek — Perth Website Design & AI Automation for Local Business',
+    template: '%s | Bluepeek Perth',
+  },
+  description: SITE.description,
+  keywords: [
+    'Perth website design', 'small business websites Perth', 'AI automation Perth',
+    'lead capture websites', 'web design Perth', 'websites for tradies',
+    'local SEO Perth', 'website designer Perth', 'Bluepeek',
+  ],
+  authors: [{ name: 'Bluepeek' }],
+  creator: 'Bluepeek',
+  alternates: { canonical: '/' },
   openGraph: {
-    title: 'Bluepeek — Premium Websites & AI for Perth Businesses',
-    description: 'High-converting websites and AI lead-capture systems for Perth businesses. Built in Perth, no lock-in, you own everything.',
     type: 'website',
     locale: 'en_AU',
+    url: SITE.url,
+    siteName: SITE.name,
+    title: 'Bluepeek — Perth Website Design & AI Automation',
+    description: SITE.description,
+    images: [{ url: SITE.ogImage, width: 1200, height: 630, alt: 'Bluepeek — Perth website design & AI automation' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Bluepeek — Perth Website Design & AI Automation',
+    description: SITE.description,
+    images: [SITE.ogImage],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
   },
 }
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body suppressHydrationWarning>{children}</body>
+    <html lang="en-AU" suppressHydrationWarning>
+      <body suppressHydrationWarning>
+        {children}
+        <JsonLd data={organizationSchema()} />
+        <JsonLd data={websiteSchema()} />
+      </body>
     </html>
   )
 }
