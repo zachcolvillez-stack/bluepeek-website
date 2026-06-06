@@ -63,50 +63,50 @@ export default function Portfolio() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {PROJECTS.map((p, i) => (
-            <motion.a key={p.title}
-              href={p.url} target="_blank" rel="noopener noreferrer"
+            <motion.div key={p.title}
               initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="card group overflow-hidden block text-left"
+              className="card group overflow-hidden text-left flex flex-col"
             >
-              {/* Browser chrome */}
-              <div className="flex items-center gap-1.5 px-4 py-2.5" style={{ background: 'rgba(255,255,255,0.06)', borderBottom: '1px solid rgba(255,255,255,0.10)' }}>
-                <div className="w-2.5 h-2.5 rounded-full" style={{ background: 'rgba(255,255,255,0.25)' }} />
-                <div className="w-2.5 h-2.5 rounded-full" style={{ background: 'rgba(255,255,255,0.25)' }} />
-                <div className="w-2.5 h-2.5 rounded-full" style={{ background: 'rgba(255,255,255,0.25)' }} />
-                <div className="flex-1 mx-3 px-3 py-0.5 text-[10px] rounded text-center font-mono truncate"
-                  style={{ background: 'rgba(0,0,0,0.2)', color: '#aebfe6', border: '1px solid rgba(255,255,255,0.08)' }}>
-                  {p.domain}
+              {/* Screenshot → opens live site */}
+              <a href={p.url} target="_blank" rel="noopener noreferrer" className="block">
+                <div className="flex items-center gap-1.5 px-4 py-2.5" style={{ background: 'rgba(255,255,255,0.06)', borderBottom: '1px solid rgba(255,255,255,0.10)' }}>
+                  <div className="w-2.5 h-2.5 rounded-full" style={{ background: 'rgba(255,255,255,0.25)' }} />
+                  <div className="w-2.5 h-2.5 rounded-full" style={{ background: 'rgba(255,255,255,0.25)' }} />
+                  <div className="w-2.5 h-2.5 rounded-full" style={{ background: 'rgba(255,255,255,0.25)' }} />
+                  <div className="flex-1 mx-3 px-3 py-0.5 text-[10px] rounded text-center font-mono truncate"
+                    style={{ background: 'rgba(0,0,0,0.2)', color: '#aebfe6', border: '1px solid rgba(255,255,255,0.08)' }}>
+                    {p.domain}
+                  </div>
+                  <ExternalLink size={12} style={{ color: '#8ba0c6' }} />
                 </div>
-                <ExternalLink size={12} style={{ color: '#8ba0c6' }} />
-              </div>
-
-              {/* Screenshot */}
-              <div className="relative aspect-[16/10] overflow-hidden" style={{ background: '#0e2a5e' }}>
-                <img src={p.image} alt={p.title}
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
-                  onError={(e) => { e.currentTarget.style.display = 'none' }} />
-                <span className="absolute top-3 right-3 text-xs font-semibold px-2.5 py-1 rounded-full"
-                  style={{ background: 'rgba(8,27,62,0.85)', color: '#ffffff', border: '1px solid rgba(255,255,255,0.2)', backdropFilter: 'blur(8px)' }}>
-                  {p.industry}
-                </span>
-              </div>
+                <div className="relative aspect-[16/10] overflow-hidden" style={{ background: '#0e2a5e' }}>
+                  <img src={p.image} alt={`${p.title} — ${p.industry} website in ${p.location} built by Bluepeek`}
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                    onError={(e) => { e.currentTarget.style.display = 'none' }} />
+                  <span className="absolute top-3 right-3 text-xs font-semibold px-2.5 py-1 rounded-full"
+                    style={{ background: 'rgba(8,27,62,0.85)', color: '#ffffff', border: '1px solid rgba(255,255,255,0.2)', backdropFilter: 'blur(8px)' }}>
+                    {p.industry}
+                  </span>
+                </div>
+              </a>
 
               {/* Content */}
-              <div className="p-6">
-                <div className="flex items-start justify-between gap-3 mb-1">
-                  <h3 className="text-lg font-bold" style={{ color: '#ffffff' }}>{p.title}</h3>
-                  <ArrowUpRight size={18} style={{ color: '#8ba0c6' }}
-                    className="group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all flex-shrink-0 mt-1" />
-                </div>
+              <div className="p-6 flex flex-col flex-1">
+                <h3 className="text-lg font-bold mb-1" style={{ color: '#ffffff' }}>{p.title}</h3>
                 <p className="text-xs font-medium mb-3 gradient-text inline-block">{p.location}</p>
-                <p className="text-sm leading-relaxed mb-4" style={{ color: '#c2d2ee' }}>{p.description}</p>
-                <span className="inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: '#ffffff' }}>
-                  Visit site
-                  <ArrowUpRight size={14} />
-                </span>
+                <p className="text-sm leading-relaxed mb-5 flex-1" style={{ color: '#c2d2ee' }}>{p.description}</p>
+                <div className="flex items-center gap-4">
+                  <Link href={p.caseStudy} className="inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: '#ffffff' }}>
+                    View case study <ArrowUpRight size={14} />
+                  </Link>
+                  <a href={p.url} target="_blank" rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm font-medium" style={{ color: '#8ba0c6' }}>
+                    Visit site <ExternalLink size={13} />
+                  </a>
+                </div>
               </div>
-            </motion.a>
+            </motion.div>
           ))}
         </div>
 
