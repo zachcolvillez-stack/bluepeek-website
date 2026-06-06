@@ -5,7 +5,6 @@ import { Check, Sparkles, ArrowRight } from 'lucide-react'
 const PACKAGES = [
   {
     name: 'Starter',
-    price: '499',
     tagline: 'Get online and look professional.',
     features: [
       'Custom 3-page website',
@@ -19,7 +18,6 @@ const PACKAGES = [
   },
   {
     name: 'Growth',
-    price: '899',
     tagline: 'A website that captures and works leads for you.',
     features: [
       'Everything in Starter',
@@ -34,7 +32,6 @@ const PACKAGES = [
   },
   {
     name: 'Scale',
-    price: '1,500',
     tagline: 'Full system built to grow your business.',
     features: [
       'Everything in Growth',
@@ -57,10 +54,10 @@ export default function Packages({ onCTA }) {
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
           <span className="eyebrow">Packages</span>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#ffffff' }}>
-            Simple pricing,<br />built to bring you leads.
+            Built to bring you leads —<br />priced to fit your business.
           </h2>
           <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: '#c2d2ee' }}>
-            Every package is custom-quoted to fit your business. No lock-in, no hidden fees — you own everything.
+            Every package is custom-quoted to fit your goals. No lock-in, no hidden fees — and you own everything.
           </p>
         </motion.div>
 
@@ -81,14 +78,8 @@ export default function Packages({ onCTA }) {
                 </span>
               )}
 
-              <h3 className="text-lg font-bold mb-1" style={{ color: '#ffffff' }}>{p.name}</h3>
-              <p className="text-sm mb-5" style={{ color: '#9bb0d4' }}>{p.tagline}</p>
-
-              <div className="flex items-baseline gap-1.5 mb-1">
-                <span className="text-sm font-medium" style={{ color: '#8ba0c6' }}>from</span>
-                <span className="text-4xl font-bold" style={{ color: '#ffffff' }}>${p.price}</span>
-              </div>
-              <p className="text-xs mb-6" style={{ color: '#8ba0c6' }}>one-off · monthly care plans available</p>
+              <h3 className="text-xl font-bold mb-1.5" style={{ color: '#ffffff' }}>{p.name}</h3>
+              <p className="text-sm mb-6" style={{ color: '#9bb0d4' }}>{p.tagline}</p>
 
               {p.hasAI && (
                 <div className="flex items-center gap-2 mb-5 px-3 py-2 rounded-xl"
@@ -112,7 +103,7 @@ export default function Packages({ onCTA }) {
 
               <button onClick={() => onCTA?.('contact')}
                 className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-full text-sm ${p.popular ? 'btn-primary' : 'btn-secondary'}`}>
-                Get Started
+                Get a Quote
                 <ArrowRight size={15} />
               </button>
             </motion.div>
