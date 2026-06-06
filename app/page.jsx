@@ -10,6 +10,7 @@ import Testimonials from '../components/Testimonials'
 import WhyUs from '../components/WhyUs'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
+import MobileCTA from '../components/MobileCTA'
 
 export default function Home() {
   const [scene, setScene] = useState('hero')
@@ -23,7 +24,7 @@ export default function Home() {
 
   return (
     <main className="relative">
-      <SceneBackground scene={scene} />
+      <SceneBackground />
       <div className="relative z-10">
         <Nav onNavigate={goTo} currentScene={scene} />
         <Hero onCTA={goTo} />
@@ -35,6 +36,7 @@ export default function Home() {
         <Contact />
         <Footer onNavigate={goTo} />
       </div>
+      <MobileCTA onCTA={goTo} />
     </main>
   )
 }
