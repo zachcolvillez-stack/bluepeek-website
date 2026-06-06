@@ -14,7 +14,7 @@ const INTENTS = {
   },
   pricing: {
     label: 'How much does it cost?',
-    reply: "Every project is quoted to fit the business, but as a guide:\n\n• Starter websites from $499\n• Growth (site + AI assistant + lead capture) from $899\n• Scale (full site + advanced AI + automation) from $1,500\n\nNo lock-in, and you own everything. Want a free custom quote?",
+    reply: "Every project is custom-quoted to fit your business and goals — so you only pay for what you actually need.\n\nWe've got three packages: Starter, Growth (site + 24/7 AI assistant + lead capture) and Scale. No lock-in, and you own everything.\n\nWant a free, no-obligation quote?",
     next: ['quote', 'ai', 'process'],
   },
   turnaround: {
