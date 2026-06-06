@@ -1,47 +1,68 @@
 'use client'
-import { Star, Quote } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { PhoneCall, Sparkles, Clock, CheckCircle2 } from 'lucide-react'
 
-const REVIEWS = [
-  { name: 'Sarah Mitchell', business: 'Owner · Brew & Bean Cafe',     location: 'Subiaco',   rating: 5, text: "Honestly didn't think we needed a website. Three weeks after launch we've had bookings from people who literally said they found us on Google. Zach made the whole thing feel easy." },
-  { name: 'Tom Reilly',     business: 'Reilly Plumbing & Gas',        location: 'Joondalup', rating: 5, text: "I'm a tradie, not a tech guy. Zach got me — no jargon, just a site that actually brings in calls. Phone's been ringing more this month than all year." },
-  { name: 'Melissa K.',     business: 'Founder · Indigo Hair Studio', location: 'Fremantle', rating: 5, text: "The new booking system has been a game-changer. Saves me hours every week and clients keep saying how easy it is. Worth every cent." },
+const PAINS = [
+  {
+    icon: PhoneCall,
+    pain: '“I need more calls and enquiries.”',
+    solution: 'We build websites designed to convert — clear calls-to-action, click-to-call buttons and lead capture that turn visitors into real enquiries.',
+  },
+  {
+    icon: Sparkles,
+    pain: '“My current website looks outdated.”',
+    solution: 'A premium, modern site that makes you look as professional as you are — and instantly more trustworthy than your competitors.',
+  },
+  {
+    icon: Clock,
+    pain: '“I don’t have time to chase enquiries.”',
+    solution: 'AI assistants and automations reply, qualify and follow up for you — so leads never go cold while you’re on the job.',
+  },
+  {
+    icon: CheckCircle2,
+    pain: '“I just want something simple that works.”',
+    solution: 'No jargon, no lock-in contracts, no months of waiting. Most sites go live in 1–2 weeks and you own everything.',
+  },
 ]
 
 export default function Testimonials() {
   return (
-    <section id="reviews" className="relative py-32 px-6">
+    <section id="reviews" className="relative py-28 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] mb-4" style={{ color: '#22d3ee' }}>What Clients Say</p>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-5" style={{ color: '#f5f5f7' }}>
-            Trusted by local<br />Perth businesses.
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
+          <span className="eyebrow">Built For Local Owners</span>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#0f1e38' }}>
+            We solve the problems<br />local businesses actually have.
           </h2>
-        </div>
+          <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: '#46566f' }}>
+            If any of these sound like you, you’re exactly who we build for.
+          </p>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-          {REVIEWS.map((r) => (
-            <div key={r.name} className="card p-7">
-              <Quote size={24} style={{ color: 'rgba(34,211,238,0.3)' }} className="mb-4" />
-              <div className="flex gap-0.5 mb-4">
-                {[...Array(r.rating)].map((_, i) => (
-                  <Star key={i} size={13} style={{ color: '#22d3ee', fill: '#22d3ee' }} />
-                ))}
-              </div>
-              <p className="text-sm leading-relaxed mb-6" style={{ color: '#b4b4bb' }}>&ldquo;{r.text}&rdquo;</p>
-              <div className="pt-4 flex items-center gap-3" style={{ borderTop: '1px solid #232328' }}>
-                <div className="w-10 h-10 rounded-full flex items-center justify-center font-semibold text-sm flex-shrink-0"
-                  style={{ background: 'rgba(34,211,238,0.1)', color: '#22d3ee', border: '1px solid rgba(34,211,238,0.2)' }}>
-                  {r.name.split(' ').map(n => n[0]).join('').slice(0,2)}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {PAINS.map((p, i) => (
+            <motion.div key={p.pain}
+              initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="card p-7"
+            >
+              <div className="flex items-start gap-4">
+                <div className="w-11 h-11 rounded-2xl flex items-center justify-center flex-shrink-0"
+                  style={{ background: '#eef4fc' }}>
+                  <p.icon size={20} style={{ color: '#0b2350' }} />
                 </div>
                 <div>
-                  <p className="font-semibold text-sm leading-tight" style={{ color: '#f5f5f7' }}>{r.name}</p>
-                  <p className="text-xs mt-0.5" style={{ color: '#8a8a93' }}>{r.business} · {r.location}</p>
+                  <p className="text-lg font-bold mb-2 leading-snug" style={{ color: '#0f1e38' }}>{p.pain}</p>
+                  <div className="flex items-start gap-2">
+                    <span className="text-xs font-bold uppercase tracking-wider mt-1 flex-shrink-0" style={{ color: '#2f63d9' }}>Fixed</span>
+                    <p className="text-sm leading-relaxed" style={{ color: '#46566f' }}>{p.solution}</p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
-        <p className="text-center text-[10px]" style={{ color: '#5a5a62' }}>Example reviews shown for illustration purposes.</p>
       </div>
     </section>
   )
