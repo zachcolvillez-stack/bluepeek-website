@@ -16,18 +16,18 @@ export default function HowItWorks() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
           <span className="eyebrow">The Process</span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#0f1e38' }}>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#ffffff' }}>
             Simple, honest,<br />done right.
           </h2>
-          <p className="text-base md:text-lg max-w-lg mx-auto leading-relaxed" style={{ color: '#46566f' }}>
+          <p className="text-base md:text-lg max-w-lg mx-auto leading-relaxed" style={{ color: '#c2d2ee' }}>
             No jargon, no surprises — just a clear path from first chat to a website that works.
           </p>
         </motion.div>
 
         <div className="relative">
-          {/* Connecting navy timeline (desktop) */}
+          {/* Connecting timeline (desktop) */}
           <div className="hidden lg:block absolute top-9 left-[12.5%] right-[12.5%] h-0.5"
-            style={{ background: 'linear-gradient(90deg, transparent, #cdddf6 15%, #cdddf6 85%, transparent)' }} />
+            style={{ background: 'linear-gradient(90deg, transparent, rgba(123,111,245,0.5) 15%, rgba(123,111,245,0.5) 85%, transparent)' }} />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {STEPS.map((step, i) => (
@@ -36,20 +36,19 @@ export default function HowItWorks() {
                 viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="relative text-center"
               >
-                {/* Numbered node */}
-                <div className="relative inline-flex items-center justify-center w-18 h-18 mb-5">
-                  <div className="w-18 h-18 rounded-2xl flex items-center justify-center"
-                    style={{ width: '72px', height: '72px', background: 'linear-gradient(135deg, #12356f, #0b2350)', boxShadow: '0 10px 24px rgba(11,35,80,0.22)' }}>
+                <div className="relative inline-flex items-center justify-center mb-5">
+                  <div className="rounded-2xl flex items-center justify-center"
+                    style={{ width: '72px', height: '72px', background: 'linear-gradient(135deg, #4f86f7, #9b6bf2)', boxShadow: '0 12px 28px rgba(123,111,245,0.4)' }}>
                     <step.icon size={26} className="text-white" />
                   </div>
                   <span className="absolute -top-2 -right-1 w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-bold"
-                    style={{ background: '#ffffff', color: '#2f63d9', border: '1.5px solid #cdddf6', boxShadow: '0 2px 6px rgba(11,35,80,0.1)' }}>
+                    style={{ background: '#081b3e', color: '#ffffff', border: '1.5px solid rgba(123,111,245,0.6)' }}>
                     {step.number}
                   </span>
                 </div>
 
-                <h3 className="text-lg font-bold mb-2.5" style={{ color: '#0f1e38' }}>{step.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: '#46566f' }}>{step.description}</p>
+                <h3 className="text-lg font-bold mb-2.5" style={{ color: '#ffffff' }}>{step.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: '#c2d2ee' }}>{step.description}</p>
               </motion.div>
             ))}
           </div>
