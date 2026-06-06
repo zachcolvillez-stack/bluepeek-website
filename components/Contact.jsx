@@ -48,28 +48,29 @@ export default function Contact() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="lg:pt-6">
           <span className="eyebrow">Let’s Talk</span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#0f1e38' }}>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#ffffff' }}>
             Ready to turn your website into a lead machine?
           </h2>
-          <p className="text-base md:text-lg leading-relaxed mb-8" style={{ color: '#46566f' }}>
+          <p className="text-base md:text-lg leading-relaxed mb-8" style={{ color: '#c2d2ee' }}>
             Tell us about your business and we’ll reply within 24 hours with honest advice — whether that’s a new site, AI automation, or both.
           </p>
 
           <div className="space-y-3.5 mb-8">
             {TRUST.map(t => (
               <div key={t.label} className="flex items-center gap-3">
-                <span className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: '#dbe8fc' }}>
-                  <t.icon size={16} style={{ color: '#0b2350' }} />
+                <span className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+                  style={{ background: 'linear-gradient(135deg, #4f86f7, #9b6bf2)' }}>
+                  <t.icon size={16} className="text-white" />
                 </span>
-                <span className="text-sm font-medium" style={{ color: '#0f1e38' }}>{t.label}</span>
+                <span className="text-sm font-medium" style={{ color: '#ffffff' }}>{t.label}</span>
               </div>
             ))}
           </div>
 
           <a href={`mailto:${CONTACT_EMAIL}`}
             className="inline-flex items-center gap-2.5 px-4 py-3 rounded-xl font-medium text-sm"
-            style={{ background: '#ffffff', border: '1px solid #e4eaf3', color: '#0b2350', boxShadow: '0 2px 8px rgba(11,35,80,0.05)' }}>
-            <Mail size={16} style={{ color: '#2f63d9' }} />
+            style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.14)', color: '#ffffff' }}>
+            <Mail size={16} style={{ color: '#9bb3ff' }} />
             {CONTACT_EMAIL}
           </a>
         </motion.div>
