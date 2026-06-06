@@ -48,10 +48,10 @@ export default function Portfolio() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
           <span className="eyebrow">Our Work</span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#0f1e38' }}>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#ffffff' }}>
             Real Perth businesses,<br />live and online.
           </h2>
-          <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: '#46566f' }}>
+          <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: '#c2d2ee' }}>
             A look at recent client websites — click through to see them live.
           </p>
         </motion.div>
@@ -65,24 +65,24 @@ export default function Portfolio() {
               className="card group overflow-hidden block text-left"
             >
               {/* Browser chrome */}
-              <div className="flex items-center gap-1.5 px-4 py-2.5" style={{ background: '#f6f9fc', borderBottom: '1px solid #e4eaf3' }}>
-                <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#d4deec' }} />
-                <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#d4deec' }} />
-                <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#d4deec' }} />
+              <div className="flex items-center gap-1.5 px-4 py-2.5" style={{ background: 'rgba(255,255,255,0.06)', borderBottom: '1px solid rgba(255,255,255,0.10)' }}>
+                <div className="w-2.5 h-2.5 rounded-full" style={{ background: 'rgba(255,255,255,0.25)' }} />
+                <div className="w-2.5 h-2.5 rounded-full" style={{ background: 'rgba(255,255,255,0.25)' }} />
+                <div className="w-2.5 h-2.5 rounded-full" style={{ background: 'rgba(255,255,255,0.25)' }} />
                 <div className="flex-1 mx-3 px-3 py-0.5 text-[10px] rounded text-center font-mono truncate"
-                  style={{ background: '#ffffff', color: '#7a8aa3', border: '1px solid #e4eaf3' }}>
+                  style={{ background: 'rgba(0,0,0,0.2)', color: '#aebfe6', border: '1px solid rgba(255,255,255,0.08)' }}>
                   {p.domain}
                 </div>
-                <ExternalLink size={12} style={{ color: '#a9bad2' }} />
+                <ExternalLink size={12} style={{ color: '#8ba0c6' }} />
               </div>
 
               {/* Screenshot */}
-              <div className="relative aspect-[16/10] overflow-hidden" style={{ background: '#f1f5fb' }}>
+              <div className="relative aspect-[16/10] overflow-hidden" style={{ background: '#0e2a5e' }}>
                 <img src={p.image} alt={p.title}
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                   onError={(e) => { e.currentTarget.style.display = 'none' }} />
                 <span className="absolute top-3 right-3 text-xs font-semibold px-2.5 py-1 rounded-full"
-                  style={{ background: 'rgba(255,255,255,0.95)', color: '#0b2350', border: '1px solid #e4eaf3', boxShadow: '0 2px 8px rgba(11,35,80,0.1)' }}>
+                  style={{ background: 'rgba(8,27,62,0.85)', color: '#ffffff', border: '1px solid rgba(255,255,255,0.2)', backdropFilter: 'blur(8px)' }}>
                   {p.industry}
                 </span>
               </div>
@@ -90,14 +90,13 @@ export default function Portfolio() {
               {/* Content */}
               <div className="p-6">
                 <div className="flex items-start justify-between gap-3 mb-1">
-                  <h3 className="text-lg font-bold" style={{ color: '#0f1e38' }}>{p.title}</h3>
-                  <ArrowUpRight size={18} style={{ color: '#a9bad2' }}
-                    className="group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all flex-shrink-0 mt-1"
-                    onMouseEnter={(e) => e.currentTarget.style.color = '#0b2350'} />
+                  <h3 className="text-lg font-bold" style={{ color: '#ffffff' }}>{p.title}</h3>
+                  <ArrowUpRight size={18} style={{ color: '#8ba0c6' }}
+                    className="group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all flex-shrink-0 mt-1" />
                 </div>
-                <p className="text-xs font-medium mb-3" style={{ color: '#2f63d9' }}>{p.location}</p>
-                <p className="text-sm leading-relaxed mb-4" style={{ color: '#46566f' }}>{p.description}</p>
-                <span className="inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: '#0b2350' }}>
+                <p className="text-xs font-medium mb-3 gradient-text inline-block">{p.location}</p>
+                <p className="text-sm leading-relaxed mb-4" style={{ color: '#c2d2ee' }}>{p.description}</p>
+                <span className="inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: '#ffffff' }}>
                   Visit site
                   <ArrowUpRight size={14} />
                 </span>
@@ -109,9 +108,9 @@ export default function Portfolio() {
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
           viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}
           className="text-center mt-12">
-          <p className="text-sm" style={{ color: '#46566f' }}>
+          <p className="text-sm" style={{ color: '#c2d2ee' }}>
             Want to be our next case study?{' '}
-            <a href="#contact" className="font-semibold" style={{ color: '#0b2350' }}>Get in touch →</a>
+            <a href="#contact" className="font-semibold" style={{ color: '#ffffff' }}>Get in touch →</a>
           </p>
         </motion.div>
       </div>
