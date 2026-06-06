@@ -1,5 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import { ArrowUpRight, ExternalLink } from 'lucide-react'
 
 const PROJECTS = [
@@ -7,6 +8,7 @@ const PROJECTS = [
     image:       '/screenshots/superiorgarage.png',
     url:         'https://superiorgarage.com.au',
     domain:      'superiorgarage.com.au',
+    caseStudy:   '/work/superior-garage',
     industry:    'Automotive',
     title:       'Superior Garage',
     location:    'Malaga, WA',
@@ -16,6 +18,7 @@ const PROJECTS = [
     image:       '/screenshots/54fadez.png',
     url:         'https://54fadez.com.au',
     domain:      '54fadez.com.au',
+    caseStudy:   '/work/54-fadez',
     industry:    'Barbershop',
     title:       '54 Fadez',
     location:    'Perth, WA',
@@ -25,6 +28,7 @@ const PROJECTS = [
     image:       '/screenshots/airborne.png',
     url:         'https://www.airbornesuspensionandmechanical.com.au',
     domain:      'airbornesuspensionandmechanical.com.au',
+    caseStudy:   '/work/airborne-suspension-mechanical',
     industry:    '4WD & Suspension',
     title:       'Airborne Suspension & Mechanical',
     location:    'Malaga, WA',
@@ -34,6 +38,7 @@ const PROJECTS = [
     image:       '/screenshots/aeandac.png',
     url:         'https://www.aeandacservicecenter.com.au',
     domain:      'aeandacservicecenter.com.au',
+    caseStudy:   '/work/ae-ac-service-center',
     industry:    'Auto Electrical',
     title:       'AE & AC Service Center',
     location:    'Malaga, WA',
