@@ -1,45 +1,46 @@
 'use client'
 
 /**
- * Premium light background — crisp white with very subtle navy/blue
- * glows and a faint dot grid. Sits behind all content, never blocks clicks.
+ * Premium navy background — deep blue base with subtle brand-gradient
+ * glows and a faint grid. Sits behind all content, never blocks clicks.
  */
 export default function SceneBackground() {
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden" style={{ background: '#ffffff' }}>
-      {/* Faint dot grid for texture */}
+    <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden" style={{ background: '#081b3e' }}>
+      {/* Faint grid for texture */}
       <div
         className="absolute inset-0"
         style={{
-          backgroundImage: 'radial-gradient(rgba(11,35,80,0.045) 1px, transparent 1px)',
-          backgroundSize: '28px 28px',
-          opacity: 0.6,
+          backgroundImage:
+            'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
+          backgroundSize: '64px 64px',
+          opacity: 0.7,
         }}
       />
 
-      {/* Soft blue glow — top right */}
+      {/* Brand-blue glow — top right */}
       <div
         className="absolute"
         style={{
-          top: '-180px',
-          right: '-120px',
-          width: '620px',
-          height: '620px',
-          background: 'radial-gradient(circle, rgba(47,99,217,0.10) 0%, transparent 68%)',
-          filter: 'blur(50px)',
+          top: '-160px',
+          right: '-100px',
+          width: '640px',
+          height: '640px',
+          background: 'radial-gradient(circle, rgba(79,134,247,0.18) 0%, transparent 68%)',
+          filter: 'blur(60px)',
         }}
       />
 
-      {/* Soft navy glow — bottom left */}
+      {/* Brand-purple glow — bottom left */}
       <div
         className="absolute"
         style={{
           bottom: '-200px',
           left: '-160px',
-          width: '560px',
-          height: '560px',
-          background: 'radial-gradient(circle, rgba(11,35,80,0.07) 0%, transparent 70%)',
-          filter: 'blur(60px)',
+          width: '600px',
+          height: '600px',
+          background: 'radial-gradient(circle, rgba(155,107,242,0.14) 0%, transparent 70%)',
+          filter: 'blur(70px)',
         }}
       />
     </div>
