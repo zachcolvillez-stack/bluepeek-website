@@ -4,6 +4,7 @@ import SceneBackground from '../components/SceneBackground'
 import Nav from '../components/Nav'
 import Hero from '../components/Hero'
 import Services from '../components/Services'
+import Packages from '../components/Packages'
 import Portfolio from '../components/Portfolio'
 import HowItWorks from '../components/HowItWorks'
 import Testimonials from '../components/Testimonials'
@@ -11,6 +12,7 @@ import WhyUs from '../components/WhyUs'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
 import MobileCTA from '../components/MobileCTA'
+import ChatWidget from '../components/ChatWidget'
 
 export default function Home() {
   const [scene, setScene] = useState('hero')
@@ -29,6 +31,7 @@ export default function Home() {
         <Nav onNavigate={goTo} currentScene={scene} />
         <Hero onCTA={goTo} />
         <Services />
+        <Packages onCTA={goTo} />
         <Portfolio />
         <HowItWorks />
         <Testimonials />
@@ -37,6 +40,7 @@ export default function Home() {
         <Footer onNavigate={goTo} />
       </div>
       <MobileCTA onCTA={goTo} />
+      <ChatWidget />
     </main>
   )
 }
