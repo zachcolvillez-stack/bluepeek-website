@@ -7,350 +7,163 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: #0f1520;
-  color: #f5f5f7;
+  background: #ffffff;
+  color: #0f1e38;
   font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
-  font-feature-settings: 'ss01', 'ss02';
+  font-feature-settings: 'ss01', 'cv01';
 }
 
-/* Brand accent — electric cyan, distinct from Bonfire's warm tones */
+/* ═══════════════════════════════════════════════════════════════
+   BLUEPEEK PREMIUM DESIGN SYSTEM — White & Navy
+   ═══════════════════════════════════════════════════════════════ */
 :root {
-  --bp-bg:       #0f1520;
-  --bp-surface:  #1a2235;
-  --bp-border:   #2a3348;
-  --bp-text:     #f5f5f7;
-  --bp-muted:    #8a8a93;
-  --bp-accent:   #22d3ee;   /* cyan-400 */
-  --bp-accent-2: #06b6d4;   /* cyan-500 */
+  --white:      #ffffff;
+  --bg-soft:    #f6f9fc;   /* off-white section */
+  --bg-tint:    #eef4fc;   /* subtle blue tint section */
+  --border:     #e4eaf3;   /* hairline borders */
+  --border-2:   #d4deec;
+
+  --navy:       #0b2350;   /* deep premium navy — headings, buttons */
+  --navy-700:   #12356f;
+  --navy-soft:  #1d4488;
+  --blue:       #2f63d9;   /* accent blue — used sparingly */
+  --blue-soft:  #5b8def;
+  --blue-tint:  #dbe8fc;
+
+  --text:       #0f1e38;   /* near-navy heading text */
+  --text-body:  #46566f;   /* body copy */
+  --muted:      #7a8aa3;   /* muted labels */
+
+  --shadow-sm:  0 1px 2px rgba(11,35,80,0.04), 0 2px 8px rgba(11,35,80,0.05);
+  --shadow-md:  0 4px 12px rgba(11,35,80,0.06), 0 12px 32px rgba(11,35,80,0.08);
+  --shadow-lg:  0 8px 24px rgba(11,35,80,0.08), 0 24px 60px rgba(11,35,80,0.12);
+  --shadow-navy: 0 10px 30px rgba(11,35,80,0.25);
 }
 
+/* Navy gradient text for emphasis */
 .gradient-text {
-  background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 50%, #0891b2 100%);
+  background: linear-gradient(120deg, #0b2350 0%, #1d4488 50%, #2f63d9 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Subtle grid — barely visible, gives texture without noise */
-.grid-bg {
-  background-image:
-    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-  background-size: 60px 60px;
+/* Section background helpers */
+.section-soft { background: var(--bg-soft); }
+.section-tint {
+  background: linear-gradient(180deg, #ffffff 0%, var(--bg-tint) 50%, #ffffff 100%);
 }
 
+/* ── Premium card ───────────────────────────────────────────── */
 .card {
-  background: var(--bp-surface);
-  border: 1px solid var(--bp-border);
-  border-radius: 16px;
-  transition: border-color 200ms, transform 200ms;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 280ms cubic-bezier(0.22,1,0.36,1), box-shadow 280ms, border-color 280ms;
 }
 .card:hover {
-  border-color: #2e2e36;
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-2);
 }
 
+/* Light glassmorphism card */
+.glass {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.8);
+  box-shadow: var(--shadow-md);
+}
+
+/* ── Buttons ────────────────────────────────────────────────── */
 .btn-primary {
-  background: var(--bp-accent);
-  color: #0f1520;
+  background: linear-gradient(180deg, #12356f 0%, #0b2350 100%);
+  color: #ffffff;
   font-weight: 600;
-  transition: background 150ms, transform 150ms;
+  box-shadow: var(--shadow-navy);
+  transition: transform 180ms, box-shadow 180ms, filter 180ms;
 }
 .btn-primary:hover {
-  background: #67e8f9;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px rgba(11,35,80,0.35);
+  filter: brightness(1.08);
 }
 
 .btn-secondary {
-  background: transparent;
-  color: var(--bp-text);
-  border: 1px solid var(--bp-border);
-  transition: border-color 150ms, background 150ms;
+  background: #ffffff;
+  color: var(--navy);
+  border: 1px solid var(--border-2);
+  font-weight: 600;
+  transition: transform 180ms, box-shadow 180ms, border-color 180ms;
 }
 .btn-secondary:hover {
-  border-color: #3a3a42;
-  background: rgba(255,255,255,0.03);
+  transform: translateY(-2px);
+  border-color: var(--navy-soft);
+  box-shadow: var(--shadow-md);
 }
 
 /* Section divider */
 .divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--bp-border), transparent);
+  background: linear-gradient(90deg, transparent, var(--border-2), transparent);
 }
 
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #0f1520; }
-::-webkit-scrollbar-thumb { background: #2a2a30; border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #3a3a42; }
-
-::selection { background: #22d3ee; color: #0f1520; }
-
-/* ═══════════════════════════════════════════════════════════════
-   CINEMATIC DEEP-SEA JELLYFISH BACKGROUND
-   Layered scene with bioluminescent jellyfish, light rays,
-   particles and bubbles. All GPU-accelerated transforms.
-   ═══════════════════════════════════════════════════════════════ */
-
-/* ── Deep ocean gradient base ───────────────────────────────── */
-.ocean-bg {
-  background:
-    radial-gradient(ellipse at 50%   0%, rgba(34, 211, 238, 0.05) 0%, transparent 55%),
-    radial-gradient(ellipse at 25% 100%, rgba(8,  47, 73,  0.55) 0%, transparent 60%),
-    radial-gradient(ellipse at 75%  50%, rgba(7,  27, 60,  0.40) 0%, transparent 70%),
-    linear-gradient(180deg, #020512 0%, #050d20 35%, #03081a 70%, #020410 100%);
+/* Eyebrow label pill */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blue);
+  background: var(--blue-tint);
+  padding: 5px 12px;
+  border-radius: 999px;
 }
 
-/* Slight darkening at the bottom = sense of depth */
-.ocean-depth {
+/* ── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 9px; }
+::-webkit-scrollbar-track { background: #f1f5fb; }
+::-webkit-scrollbar-thumb { background: #c2cfe0; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #a9bad2; }
+
+::selection { background: var(--navy); color: #ffffff; }
+
+/* ── Premium background glow (hero) ─────────────────────────── */
+.hero-glow {
   position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 50% 100%, rgba(0, 0, 0, 0.55) 0%, transparent 65%);
-  pointer-events: none;
-}
-
-/* ── Volumetric light rays piercing down from above ─────────── */
-.light-rays {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.ray {
-  position: absolute;
-  top: -15%;
-  width: 160px;
-  height: 135%;
-  background: linear-gradient(180deg,
-    rgba(103, 232, 249, 0.07) 0%,
-    rgba(34, 211, 238, 0.10) 30%,
-    rgba(6, 182, 212, 0.04) 70%,
-    transparent 100%);
-  filter: blur(25px);
-  mix-blend-mode: screen;
-  animation: ray-drift 22s ease-in-out infinite;
-  will-change: opacity, transform;
-}
-
-.ray.r1 { left:  8%; transform: rotate( 6deg); animation-delay:  0s; }
-.ray.r2 { left: 32%; transform: rotate(-4deg); animation-delay: -6s; }
-.ray.r3 { left: 58%; transform: rotate( 8deg); animation-delay: -12s; }
-.ray.r4 { left: 82%; transform: rotate(-7deg); animation-delay: -18s; }
-
-@keyframes ray-drift {
-  0%, 100% { opacity: 0.55; }
-  50%      { opacity: 1; }
-}
-
-/* ── Jellyfish (PNG-based) ──────────────────────────────────── */
-.jelly {
-  position: absolute;
-  pointer-events: none;
-  will-change: transform;
-}
-
-.jelly img {
-  display: block;
-  width: 100%;
-  height: auto;
-  /* mix-blend-mode: screen knocks out the light checkerboard pattern,
-     so only the bright cyan jellyfish pixels remain visible */
-  mix-blend-mode: screen;
-  filter:
-    drop-shadow(0 0 30px rgba(34, 211, 238, 0.55))
-    drop-shadow(0 0 70px rgba(34, 211, 238, 0.28));
-}
-
-/* Main hero jellyfish — stays on screen 80%+ of the time */
-.jelly-main {
-  top: 10%;
-  left: 15%;
-  width: 520px;
-  animation: swim-main 90s ease-in-out infinite, jelly-bob 7s ease-in-out infinite;
-}
-
-.jelly-main .jelly-img {
-  animation: jelly-pulse 5.5s ease-in-out infinite, jelly-tilt 9s ease-in-out infinite;
-  transform-origin: 50% 25%;
-}
-
-/* Soft cyan halo behind the main jellyfish */
-.jelly-glow {
-  position: absolute;
-  top: 8%;
-  left: 50%;
-  width: 280px;
-  height: 280px;
-  transform: translateX(-50%);
-  background: radial-gradient(circle, rgba(103, 232, 249, 0.4) 0%, transparent 65%);
-  filter: blur(50px);
-  animation: jelly-pulse 5.5s ease-in-out infinite;
-  mix-blend-mode: screen;
-}
-
-/* ── Far-background jellies (atmospheric depth) ─────────────── */
-.jelly-far {
-  filter: blur(10px);
-  mix-blend-mode: screen;
-}
-.jelly-far img {
-  filter: drop-shadow(0 0 20px rgba(34, 211, 238, 0.4));
-}
-
-.jelly-far-1 {
-  top: 38%;
-  left: -8%;
-  width: 200px;
-  opacity: 0.20;
-  animation: swim-far-1 95s linear infinite;
-}
-.jelly-far-2 {
-  top: 62%;
-  left: -5%;
-  width: 150px;
-  opacity: 0.14;
-  animation: swim-far-2 120s linear infinite;
-}
-.jelly-far-3 {
-  top: 12%;
-  left: 35%;
-  width: 110px;
-  opacity: 0.11;
-  animation: swim-far-3 140s linear infinite;
-}
-
-/* ── Animations ─────────────────────────────────────────────── */
-
-/* Main swim — graceful slow drift, stays mostly on-screen.
-   Starts visible at left: 15%, drifts gently right, loops back smoothly.
-   Total range covers ~50vw so the jellyfish is always visible. */
-@keyframes swim-main {
-  0%   { transform: translate(0,     0)    rotate(-2deg); }
-  15%  { transform: translate( 8vw, -25px) rotate( 1deg); }
-  30%  { transform: translate(20vw, -10px) rotate( 3deg); }
-  45%  { transform: translate(30vw,  20px) rotate( 0deg); }
-  60%  { transform: translate(38vw, -15px) rotate(-3deg); }
-  75%  { transform: translate(25vw,  10px) rotate( 2deg); }
-  90%  { transform: translate(10vw, -10px) rotate(-1deg); }
-  100% { transform: translate(0,     0)    rotate(-2deg); }
-}
-
-@keyframes swim-far-1 {
-  0%   { transform: translate(0vw,    0); }
-  100% { transform: translate(135vw,  30px); }
-}
-@keyframes swim-far-2 {
-  0%   { transform: translate(0vw,    0); }
-  100% { transform: translate(140vw, -25px); }
-}
-@keyframes swim-far-3 {
-  0%   { transform: translate(0vw,    0); }
-  100% { transform: translate(90vw,   45px); }
-}
-
-/* Gentle vertical bob */
-@keyframes jelly-bob {
-  0%, 100% { translate: 0 0; }
-  50%      { translate: 0 -18px; }
-}
-
-/* Pulsing glow — mimics bioluminescent breathing */
-@keyframes jelly-pulse {
-  0%, 100% {
-    opacity: 0.9;
-    filter:
-      brightness(1)
-      drop-shadow(0 0 30px rgba(34, 211, 238, 0.55))
-      drop-shadow(0 0 70px rgba(34, 211, 238, 0.28));
-  }
-  50% {
-    opacity: 1;
-    filter:
-      brightness(1.25)
-      drop-shadow(0 0 50px rgba(103, 232, 249, 0.85))
-      drop-shadow(0 0 110px rgba(34, 211, 238, 0.5));
-  }
-}
-
-/* Subtle tilt — adds fluid feel as it swims */
-@keyframes jelly-tilt {
-  0%, 100% { transform: rotate(-2deg) scaleY(1); }
-  50%      { transform: rotate(2deg)  scaleY(0.97); }
-}
-
-/* ── Particles (tiny glowing specks) ────────────────────────── */
-.particles {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.particle {
-  position: absolute;
-  background: rgba(103, 232, 249, 0.7);
   border-radius: 50%;
-  box-shadow: 0 0 6px rgba(34, 211, 238, 0.8);
-  animation-name: float-up;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  will-change: transform, opacity;
-}
-
-.bubble {
-  position: absolute;
-  bottom: -20px;
-  background: radial-gradient(circle at 30% 30%,
-    rgba(207, 250, 254, 0.45) 0%,
-    rgba(103, 232, 249, 0.18) 60%,
-    transparent 80%);
-  border: 1px solid rgba(103, 232, 249, 0.25);
-  border-radius: 50%;
-  animation-name: rise;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  opacity: 0;
-  will-change: transform, opacity;
-}
-
-@keyframes float-up {
-  0%   { transform: translate(0,      0)    scale(1);   opacity: 0; }
-  10%  { opacity: 0.7; }
-  90%  { opacity: 0.4; }
-  100% { transform: translate(25px,  -100vh) scale(0.8); opacity: 0; }
-}
-
-@keyframes rise {
-  0%   { transform: translate(0,    0)      scale(0.4); opacity: 0; }
-  10%  { opacity: 0.6; transform: translate(8px, -10vh) scale(1); }
-  90%  { opacity: 0.4; }
-  100% { transform: translate(40px, -115vh) scale(1.2); opacity: 0; }
-}
-
-/* ── Vignette overlay — content contrast ────────────────────── */
-.vignette {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 50% 50%, transparent 0%, transparent 55%, rgba(0, 0, 0, 0.45) 100%);
+  filter: blur(70px);
   pointer-events: none;
 }
 
-/* ── Responsive (mobile) ────────────────────────────────────── */
-@media (max-width: 768px) {
-  .jelly-main   { width: 280px; left: 8%; }
-  .jelly-glow   { width: 200px; height: 200px; }
-  .jelly-far-1  { width: 130px; }
-  .jelly-far-2  { width: 100px; }
-  .jelly-far-3  { width:  80px; }
-  .ray          { width:  90px; }
+/* Soft floating animation for hero mockup */
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-14px); }
 }
+.float-soft { animation: float-soft 6s ease-in-out infinite; }
 
-/* ── Accessibility — disable motion for users who request it ── */
+@keyframes float-soft-delay {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+.float-soft-delay { animation: float-soft-delay 5s ease-in-out infinite 1s; }
+
+/* Subtle pulse for live dots / glow accents */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.5; transform: scale(0.85); }
+}
+.pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+
+/* Accessibility — reduce motion */
 @media (prefers-reduced-motion: reduce) {
-  .jelly, .jelly img, .jelly-glow, .ray, .particle, .bubble {
-    animation: none !important;
-  }
-  .jelly-main  { transform: translate(35vw,  0); }
-  .jelly-far-1 { transform: translate(20vw,  0); }
-  .jelly-far-2 { transform: translate(60vw,  0); }
-  .jelly-far-3 { transform: translate(50vw,  0); }
+  .float-soft, .float-soft-delay, .pulse-dot { animation: none !important; }
+  html { scroll-behavior: auto; }
 }
