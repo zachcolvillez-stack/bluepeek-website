@@ -1,48 +1,68 @@
 'use client'
+import { motion } from 'framer-motion'
+import { Search, PenTool, Rocket, LineChart } from 'lucide-react'
 
 const STEPS = [
-  { number: '01', title: 'Free Chat',        description: "A quick 15-minute call to chat about your business and what you're hoping to achieve. If we're not the right fit, we'll tell you straight up." },
-  { number: '02', title: 'We Build It',      description: "We design and build your site — keeping you in the loop. You see drafts, give feedback, we make changes until it's right." },
-  { number: '03', title: 'Launch & Support', description: "Your site goes live. We make sure it runs smoothly, show you how to manage it, and stick around when you need us." },
+  { number: '01', icon: Search,    title: 'Discovery',        description: 'A quick, no-pressure chat about your business, your goals and what success looks like. If we’re not the right fit, we’ll say so.' },
+  { number: '02', icon: PenTool,   title: 'Design & Build',   description: 'We design and build your site with you in the loop — drafts, feedback and changes until it’s exactly right.' },
+  { number: '03', icon: Rocket,    title: 'Launch',           description: 'Your site goes live, fast. We handle the technical side and make sure everything runs perfectly from day one.' },
+  { number: '04', icon: LineChart, title: 'Support & Growth', description: 'We stick around — support when you need it, plus AI and automation to keep the leads coming in.' },
 ]
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="relative py-32 px-6">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] mb-4" style={{ color: '#22d3ee' }}>The Process</p>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-5" style={{ color: '#f5f5f7' }}>
-            Simple. Honest.<br />Done right.
+    <section id="how-it-works" className="section-tint relative py-28 px-6">
+      <div className="max-w-6xl mx-auto">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
+          <span className="eyebrow">The Process</span>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#0f1e38' }}>
+            Simple, honest,<br />done right.
           </h2>
-          <p className="text-base md:text-lg max-w-lg mx-auto leading-relaxed" style={{ color: '#8a8a93' }}>
-            No jargon, no surprises. Just a clear path to a website that actually works.
+          <p className="text-base md:text-lg max-w-lg mx-auto leading-relaxed" style={{ color: '#46566f' }}>
+            No jargon, no surprises — just a clear path from first chat to a website that works.
           </p>
-        </div>
+        </motion.div>
 
         <div className="relative">
-          <div className="hidden md:block absolute top-10 left-[calc(16.67%+20px)] right-[calc(16.67%+20px)] h-px"
-            style={{ background: 'linear-gradient(90deg, transparent, #232328 20%, #232328 80%, transparent)' }} />
+          {/* Connecting navy timeline (desktop) */}
+          <div className="hidden lg:block absolute top-9 left-[12.5%] right-[12.5%] h-0.5"
+            style={{ background: 'linear-gradient(90deg, transparent, #cdddf6 15%, #cdddf6 85%, transparent)' }} />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {STEPS.map((step) => (
-              <div key={step.number} className="relative text-center">
-                <div className="relative inline-flex items-center justify-center w-20 h-20 rounded-full mb-6"
-                  style={{ background: '#131316', border: '1px solid #232328' }}>
-                  <span className="text-2xl font-bold gradient-text">{step.number}</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {STEPS.map((step, i) => (
+              <motion.div key={step.number}
+                initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="relative text-center"
+              >
+                {/* Numbered node */}
+                <div className="relative inline-flex items-center justify-center w-18 h-18 mb-5">
+                  <div className="w-18 h-18 rounded-2xl flex items-center justify-center"
+                    style={{ width: '72px', height: '72px', background: 'linear-gradient(135deg, #12356f, #0b2350)', boxShadow: '0 10px 24px rgba(11,35,80,0.22)' }}>
+                    <step.icon size={26} className="text-white" />
+                  </div>
+                  <span className="absolute -top-2 -right-1 w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-bold"
+                    style={{ background: '#ffffff', color: '#2f63d9', border: '1.5px solid #cdddf6', boxShadow: '0 2px 6px rgba(11,35,80,0.1)' }}>
+                    {step.number}
+                  </span>
                 </div>
-                <h3 className="text-xl font-semibold mb-3" style={{ color: '#f5f5f7' }}>{step.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: '#8a8a93' }}>{step.description}</p>
-              </div>
+
+                <h3 className="text-lg font-bold mb-2.5" style={{ color: '#0f1e38' }}>{step.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: '#46566f' }}>{step.description}</p>
+              </motion.div>
             ))}
           </div>
         </div>
 
-        <div className="text-center mt-16">
-          <a href="#contact" className="inline-flex items-center gap-2 font-semibold text-sm" style={{ color: '#22d3ee' }}>
-            Book your free chat today →
-          </a>
-        </div>
+        <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.4 }}
+          className="text-center mt-14">
+          <button onClick={() => { const el = document.getElementById('contact'); el?.scrollIntoView({ behavior: 'smooth' }) }}
+            className="btn-primary inline-flex items-center px-7 py-3.5 rounded-full text-sm">
+            Book your free discovery chat
+          </button>
+        </motion.div>
       </div>
     </section>
   )
