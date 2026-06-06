@@ -14,9 +14,9 @@ export default function Nav({ onNavigate, currentScene }) {
 
   const links = [
     { label: 'Services', id: 'services' },
+    { label: 'Pricing',  id: 'packages' },
     { label: 'Work',     id: 'work' },
     { label: 'Process',  id: 'how-it-works' },
-    { label: 'Reviews',  id: 'reviews' },
     { label: 'Contact',  id: 'contact' },
   ]
 
