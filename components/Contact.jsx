@@ -78,7 +78,7 @@ export default function Contact() {
         {/* ── Right: form card ── */}
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}
-          className="card p-8">
+          className="card-light p-8">
           {status === 'sent' ? (
             <div className="text-center py-12">
               <div className="w-14 h-14 rounded-2xl mx-auto mb-4 flex items-center justify-center" style={{ background: '#dbe8fc' }}>
