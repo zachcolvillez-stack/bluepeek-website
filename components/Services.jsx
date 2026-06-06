@@ -44,10 +44,10 @@ export default function Services() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
           <span className="eyebrow">What We Do</span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#0f1e38' }}>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#ffffff' }}>
             Everything your business<br />needs to win online.
           </h2>
-          <p className="text-base md:text-lg max-w-xl mx-auto leading-relaxed" style={{ color: '#46566f' }}>
+          <p className="text-base md:text-lg max-w-xl mx-auto leading-relaxed" style={{ color: '#c2d2ee' }}>
             From a premium website to AI that captures every lead — we handle the digital side so you can focus on the work.
           </p>
         </motion.div>
@@ -58,35 +58,34 @@ export default function Services() {
               initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.08 }}
               className="card p-8 relative overflow-hidden"
-              style={s.featured ? { borderColor: '#cdddf6' } : {}}
+              style={s.featured ? { borderColor: 'rgba(123,111,245,0.4)' } : {}}
             >
-              {/* featured navy accent bar */}
               {s.featured && (
-                <div className="absolute top-0 left-0 right-0 h-1" style={{ background: 'linear-gradient(90deg, #0b2350, #2f63d9)' }} />
+                <div className="absolute top-0 left-0 right-0 h-1" style={{ background: 'linear-gradient(90deg, #4f86f7, #9b6bf2)' }} />
               )}
 
               <div className="flex items-start justify-between mb-6">
                 <div className="w-12 h-12 rounded-2xl flex items-center justify-center"
                   style={s.featured
-                    ? { background: 'linear-gradient(135deg, #12356f, #0b2350)', boxShadow: '0 8px 20px rgba(11,35,80,0.22)' }
-                    : { background: '#eef4fc' }}>
-                  <s.icon size={22} style={{ color: s.featured ? '#ffffff' : '#0b2350' }} />
+                    ? { background: 'linear-gradient(135deg, #4f86f7, #9b6bf2)', boxShadow: '0 8px 20px rgba(123,111,245,0.4)' }
+                    : { background: 'rgba(255,255,255,0.08)' }}>
+                  <s.icon size={22} className="text-white" />
                 </div>
                 <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full"
                   style={s.featured
-                    ? { background: '#dbe8fc', color: '#0b2350' }
-                    : { background: '#f1f5fb', color: '#7a8aa3' }}>
+                    ? { background: 'rgba(123,111,245,0.18)', color: '#c9bcff', border: '1px solid rgba(123,111,245,0.35)' }
+                    : { background: 'rgba(255,255,255,0.06)', color: '#8ba0c6' }}>
                   {s.tag}
                 </span>
               </div>
 
-              <h3 className="text-xl font-bold mb-2.5" style={{ color: '#0f1e38' }}>{s.title}</h3>
-              <p className="text-sm leading-relaxed mb-6" style={{ color: '#46566f' }}>{s.description}</p>
+              <h3 className="text-xl font-bold mb-2.5" style={{ color: '#ffffff' }}>{s.title}</h3>
+              <p className="text-sm leading-relaxed mb-6" style={{ color: '#c2d2ee' }}>{s.description}</p>
 
               <ul className="space-y-2.5">
                 {s.points.map(p => (
-                  <li key={p} className="flex items-center gap-3 text-sm" style={{ color: '#0f1e38' }}>
-                    <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: '#2f63d9' }} />
+                  <li key={p} className="flex items-center gap-3 text-sm" style={{ color: '#e3ebf9' }}>
+                    <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: 'linear-gradient(135deg, #4f86f7, #9b6bf2)' }} />
                     {p}
                   </li>
                 ))}
@@ -98,7 +97,7 @@ export default function Services() {
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
           viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }}
           className="text-center mt-12">
-          <a href="#contact" className="inline-flex items-center gap-2 font-semibold text-sm group" style={{ color: '#0b2350' }}>
+          <a href="#contact" className="inline-flex items-center gap-2 font-semibold text-sm group" style={{ color: '#aebfe6' }}>
             Not sure what you need? Get a free quote
             <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
           </a>
