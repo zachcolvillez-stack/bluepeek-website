@@ -49,6 +49,8 @@ export default function RootLayout({ children }) {
         {children}
         <JsonLd data={organizationSchema()} />
         <JsonLd data={websiteSchema()} />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
