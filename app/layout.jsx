@@ -1,4 +1,6 @@
 import './globals.css'
+import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { SITE } from '../lib/site'
 import { organizationSchema, websiteSchema } from '../lib/schema'
 import JsonLd from '../components/seo/JsonLd'
