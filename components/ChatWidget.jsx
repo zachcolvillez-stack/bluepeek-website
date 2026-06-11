@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { MessageSquare, X, Send, Sparkles } from 'lucide-react'
 
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mgoqeber'
+const BLUEPEEK_ENDPOINT = 'https://bumjkwvaeqghjspowkrd.supabase.co/functions/v1/submit-form'
 
 /* Scripted knowledge base — instant answers in BluePeek's voice.
    Each intent has a reply and optional follow-up quick-replies. */
@@ -96,14 +96,18 @@ export default function ChatWidget() {
 
   const submitLead = async (finalLead) => {
     try {
-      await fetch(FORMSPREE_ENDPOINT, {
+      await fetch(BLUEPEEK_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: finalLead.name,
-          contact: finalLead.contact,
-          message: finalLead.detail,
-          _subject: `💬 Chatbot lead — ${finalLead.name}`,
+          formSlug: 'contact',
+          domain: typeof window !== 'undefined' ? window.location.hostname : 'bluepeek.com.au',
+          data: {
+            name: finalLead.name,
+            contact: finalLead.contact,
+            message: finalLead.detail,
+            source: 'chat widget',
+          },
         }),
       })
     } catch {}
