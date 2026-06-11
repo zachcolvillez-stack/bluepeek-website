@@ -34,6 +34,28 @@ export default function Footer({ onNavigate }) {
             <p className="text-sm leading-relaxed max-w-xs" style={{ color: '#9bb3d9' }}>
               Premium websites and AI lead-capture systems for Perth businesses. Built to get you found, look professional, and grow.
             </p>
+            {/* Social icons — renders only the platforms with a handle set in lib/social.js */}
+            {activeSocials().length > 0 && (
+              <div className="flex items-center gap-3 mt-5">
+                {activeSocials().map(({ key, label, url }) => {
+                  const Icon = SOCIAL_ICONS[key]
+                  return (
+                    <a
+                      key={key}
+                      href={url}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      aria-label={`Bluepeek on ${label}`}
+                      title={label}
+                      className="w-9 h-9 rounded-lg flex items-center justify-center transition-all hover:scale-110"
+                      style={{ background: 'rgba(47,99,217,0.25)', color: '#bcd0f0' }}
+                    >
+                      <Icon size={17} />
+                    </a>
+                  )
+                })}
+              </div>
+            )}
           </div>
 
           {/* Links */}
