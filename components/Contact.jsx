@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Send, CheckCircle, AlertCircle, Mail, Gift, ShieldCheck, MapPin, Cpu } from 'lucide-react'
 
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mgoqeber'
+const BLUEPEEK_ENDPOINT = 'https://bumjkwvaeqghjspowkrd.supabase.co/functions/v1/submit-form'
 const CONTACT_EMAIL = 'info@bluepeek.com.au'
 
 const TRUST = [
@@ -23,14 +23,16 @@ export default function Contact() {
     e.preventDefault()
     setStatus('sending')
     try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
+      const res = await fetch(BLUEPEEK_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: form.name, business: form.business, email: form.email,
-          phone: form.phone, message: form.message,
-          _replyto: form.email,
-          _subject: `New Bluepeek Enquiry — ${form.business || form.name}`,
+          formSlug: 'contact',
+          domain: typeof window !== 'undefined' ? window.location.hostname : 'bluepeek.com.au',
+          data: {
+            name: form.name, business: form.business, email: form.email,
+            phone: form.phone, message: form.message,
+          },
         }),
       })
       if (res.ok) { setStatus('sent'); setForm({ name: '', business: '', email: '', phone: '', message: '' }) }
