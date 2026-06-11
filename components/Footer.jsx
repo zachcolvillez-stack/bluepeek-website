@@ -1,7 +1,17 @@
 'use client'
-import { Mail, MapPin } from 'lucide-react'
+import { Mail, MapPin, Instagram, Facebook, Linkedin, Youtube, Music2 } from 'lucide-react'
+import { activeSocials } from '../lib/social'
 
 const CONTACT_EMAIL = 'info@bluepeek.com.au'
+
+// lucide has no TikTok glyph — Music2 is the conventional stand-in.
+const SOCIAL_ICONS = {
+  instagram: Instagram,
+  facebook: Facebook,
+  tiktok: Music2,
+  linkedin: Linkedin,
+  youtube: Youtube,
+}
 
 export default function Footer({ onNavigate }) {
   const handleClick = (e, id) => {
