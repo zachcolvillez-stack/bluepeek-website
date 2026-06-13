@@ -103,8 +103,8 @@ export default function Contact() {
                     value={form.name} onChange={e => set('name', e.target.value)} />
                 </div>
                 <div>
-                  <label className="block text-xs mb-1.5 font-semibold" style={{ color: '#46566f' }}>Business Name *</label>
-                  <input required className={inp} style={inpStyle} placeholder="Smith Plumbing"
+                  <label className="block text-xs mb-1.5 font-semibold" style={{ color: '#565471' }}>Business Name *</label>
+                  <input required className={inp} style={inpStyle} placeholder="Smith Plumbing" onFocus={onFocus} onBlur={onBlur}
                     value={form.business} onChange={e => set('business', e.target.value)} />
                 </div>
               </div>
