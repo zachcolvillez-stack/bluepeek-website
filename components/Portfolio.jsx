@@ -93,15 +93,15 @@ export default function Portfolio() {
 
               {/* Content */}
               <div className="p-6 flex flex-col flex-1">
-                <h3 className="text-lg font-bold mb-1" style={{ color: '#ffffff' }}>{p.title}</h3>
+                <h3 className="text-lg font-bold mb-1" style={{ color: '#1a1730' }}>{p.title}</h3>
                 <p className="text-xs font-medium mb-3 gradient-text inline-block">{p.location}</p>
-                <p className="text-sm leading-relaxed mb-5 flex-1" style={{ color: '#c2d2ee' }}>{p.description}</p>
+                <p className="text-sm leading-relaxed mb-5 flex-1" style={{ color: '#565471' }}>{p.description}</p>
                 <div className="flex items-center gap-4">
-                  <Link href={p.caseStudy} className="inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: '#ffffff' }}>
+                  <Link href={p.caseStudy} className="inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: '#7c5fe0' }}>
                     View case study <ArrowUpRight size={14} />
                   </Link>
                   <a href={p.url} target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-sm font-medium" style={{ color: '#8ba0c6' }}>
+                    className="inline-flex items-center gap-1.5 text-sm font-medium" style={{ color: '#8c8aa3' }}>
                     Visit site <ExternalLink size={13} />
                   </a>
                 </div>
