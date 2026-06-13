@@ -5,7 +5,7 @@ import { Check, Sparkles, ArrowRight } from 'lucide-react'
 const PACKAGES = [
   {
     name: 'Starter',
-    tagline: 'Get online and look professional.',
+    tagline: 'Get online and look the part.',
     features: [
       'Custom 3-page website',
       'Mobile-first & fast loading',
