@@ -63,7 +63,7 @@ export default function Contact() {
             {TRUST.map(t => (
               <div key={t.label} className="flex items-center gap-3">
                 <span className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: 'rgba(124,95,224,0.10)' }}>
+                  style={{ background: 'rgba(159,182,255,0.12)' }}>
                   <t.icon size={16} style={{ color: '#9fb6ff' }} />
                 </span>
                 <span className="text-sm font-medium" style={{ color: '#aab3c9' }}>{t.label}</span>
@@ -85,7 +85,7 @@ export default function Contact() {
           className="card-light p-8">
           {status === 'sent' ? (
             <div className="text-center py-12">
-              <div className="w-14 h-14 rounded-2xl mx-auto mb-4 flex items-center justify-center" style={{ background: 'rgba(124,95,224,0.10)' }}>
+              <div className="w-14 h-14 rounded-2xl mx-auto mb-4 flex items-center justify-center" style={{ background: 'rgba(159,182,255,0.12)' }}>
                 <CheckCircle size={28} style={{ color: '#9fb6ff' }} />
               </div>
               <h3 className="text-xl font-bold mb-2" style={{ color: '#f4f7fd' }}>Thanks — we’ve got it.</h3>
