@@ -16,11 +16,11 @@ export default function HowItWorks() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
           <span className="eyebrow">The Process</span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#ffffff' }}>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#1a1730' }}>
             Simple, honest,<br />done right.
           </h2>
-          <p className="text-base md:text-lg max-w-lg mx-auto leading-relaxed" style={{ color: '#c2d2ee' }}>
-            No jargon, no surprises — just a clear path from first chat to a website that works.
+          <p className="text-base md:text-lg max-w-lg mx-auto leading-relaxed" style={{ color: '#565471' }}>
+            No jargon and no surprises — just a clear path from our first conversation to a website that earns enquiries.
           </p>
         </motion.div>
 
