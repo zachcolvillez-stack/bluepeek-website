@@ -53,10 +53,10 @@ export default function Portfolio() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
           <span className="eyebrow">Our Work</span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#1a1730' }}>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#f4f7fd' }}>
             Real local businesses,<br />live and online.
           </h2>
-          <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: '#565471' }}>
+          <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: '#aab3c9' }}>
             A selection of recent websites Blue Peek has built — click through to see each one live.
           </p>
         </motion.div>
@@ -70,22 +70,22 @@ export default function Portfolio() {
             >
               {/* Screenshot → opens live site */}
               <a href={p.url} target="_blank" rel="noopener noreferrer" className="block">
-                <div className="flex items-center gap-1.5 px-4 py-2.5" style={{ background: '#f4f3fb', borderBottom: '1px solid rgba(99,91,168,0.12)' }}>
-                  <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#d8d2f0' }} />
-                  <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#d8d2f0' }} />
-                  <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#d8d2f0' }} />
+                <div className="flex items-center gap-1.5 px-4 py-2.5" style={{ background: 'rgba(255,255,255,0.04)', borderBottom: '1px solid rgba(255,255,255,0.09)' }}>
+                  <div className="w-2.5 h-2.5 rounded-full" style={{ background: 'rgba(255,255,255,0.18)' }} />
+                  <div className="w-2.5 h-2.5 rounded-full" style={{ background: 'rgba(255,255,255,0.18)' }} />
+                  <div className="w-2.5 h-2.5 rounded-full" style={{ background: 'rgba(255,255,255,0.18)' }} />
                   <div className="flex-1 mx-3 px-3 py-0.5 text-[10px] rounded text-center font-mono truncate"
-                    style={{ background: '#ffffff', color: '#8c8aa3', border: '1px solid rgba(99,91,168,0.12)' }}>
+                    style={{ background: 'rgba(255,255,255,0.05)', color: '#7e889f', border: '1px solid rgba(255,255,255,0.09)' }}>
                     {p.domain}
                   </div>
-                  <ExternalLink size={12} style={{ color: '#8c8aa3' }} />
+                  <ExternalLink size={12} style={{ color: '#7e889f' }} />
                 </div>
-                <div className="relative aspect-[16/10] overflow-hidden" style={{ background: '#f4f3fb' }}>
+                <div className="relative aspect-[16/10] overflow-hidden" style={{ background: 'rgba(255,255,255,0.03)' }}>
                   <img src={p.image} alt={`${p.title} — ${p.industry} website in ${p.location} built by Bluepeek`}
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                     onError={(e) => { e.currentTarget.style.display = 'none' }} />
                   <span className="absolute top-3 right-3 text-xs font-semibold px-2.5 py-1 rounded-full"
-                    style={{ background: 'rgba(124,95,224,0.10)', color: '#7c5fe0', border: '1px solid rgba(124,95,224,0.20)', backdropFilter: 'blur(8px)' }}>
+                    style={{ background: 'rgba(20,28,48,0.7)', color: '#cdd8f5', border: '1px solid rgba(159,182,255,0.3)', backdropFilter: 'blur(8px)' }}>
                     {p.industry}
                   </span>
                 </div>
@@ -93,15 +93,15 @@ export default function Portfolio() {
 
               {/* Content */}
               <div className="p-6 flex flex-col flex-1">
-                <h3 className="text-lg font-bold mb-1" style={{ color: '#1a1730' }}>{p.title}</h3>
+                <h3 className="text-lg font-bold mb-1" style={{ color: '#f4f7fd' }}>{p.title}</h3>
                 <p className="text-xs font-medium mb-3 gradient-text inline-block">{p.location}</p>
-                <p className="text-sm leading-relaxed mb-5 flex-1" style={{ color: '#565471' }}>{p.description}</p>
+                <p className="text-sm leading-relaxed mb-5 flex-1" style={{ color: '#aab3c9' }}>{p.description}</p>
                 <div className="flex items-center gap-4">
-                  <Link href={p.caseStudy} className="inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: '#7c5fe0' }}>
+                  <Link href={p.caseStudy} className="inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: '#9fb6ff' }}>
                     View case study <ArrowUpRight size={14} />
                   </Link>
                   <a href={p.url} target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-sm font-medium" style={{ color: '#8c8aa3' }}>
+                    className="inline-flex items-center gap-1.5 text-sm font-medium" style={{ color: '#7e889f' }}>
                     Visit site <ExternalLink size={13} />
                   </a>
                 </div>
@@ -113,9 +113,9 @@ export default function Portfolio() {
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
           viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}
           className="text-center mt-12">
-          <p className="text-sm" style={{ color: '#565471' }}>
+          <p className="text-sm" style={{ color: '#aab3c9' }}>
             Want your business to be our next case study?{' '}
-            <a href="#contact" className="font-semibold" style={{ color: '#7c5fe0' }}>Get in touch →</a>
+            <a href="#contact" className="font-semibold" style={{ color: '#9fb6ff' }}>Get in touch →</a>
           </p>
         </motion.div>
       </div>
