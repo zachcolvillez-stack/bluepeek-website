@@ -49,11 +49,11 @@ export default function Testimonials() {
             >
               <div className="flex items-start gap-4">
                 <div className="w-11 h-11 rounded-2xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: 'rgba(124,95,224,0.10)' }}>
-                  <p.icon size={20} style={{ color: '#7c5fe0' }} />
+                  style={{ background: 'rgba(159,182,255,0.12)' }}>
+                  <p.icon size={20} style={{ color: '#9fb6ff' }} />
                 </div>
                 <div>
-                  <p className="text-lg font-bold mb-2 leading-snug" style={{ color: '#1a1730' }}>{p.pain}</p>
+                  <p className="text-lg font-bold mb-2 leading-snug" style={{ color: '#f4f7fd' }}>{p.pain}</p>
                   <div className="flex items-start gap-2">
                     <span className="text-xs font-bold uppercase tracking-wider mt-1 flex-shrink-0 gradient-text">Fixed</span>
                     <p className="text-sm leading-relaxed" style={{ color: '#565471' }}>{p.solution}</p>
