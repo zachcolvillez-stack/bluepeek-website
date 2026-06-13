@@ -57,10 +57,10 @@ export default function SiteHeader() {
 
       {menuOpen && (
         <div className="md:hidden px-6 py-4 space-y-1"
-          style={{ background: 'rgba(8,27,62,0.97)', backdropFilter: 'blur(18px)', borderBottom: '1px solid rgba(255,255,255,0.10)' }}>
+          style={{ background: 'rgba(255,255,255,0.98)', backdropFilter: 'blur(18px)', borderBottom: '1px solid rgba(99,91,168,0.12)' }}>
           {links.map(l => (
             <a key={l.label} href={l.href} onClick={() => setMenuOpen(false)}
-              className="block py-2.5 font-medium" style={{ color: '#aebfe6' }}>{l.label}</a>
+              className="block py-2.5 font-medium" style={{ color: '#4a4767' }}>{l.label}</a>
           ))}
           <a href="/#contact" className="block w-full text-center btn-primary px-5 py-3 rounded-full text-sm mt-3">Get a Free Quote</a>
         </div>

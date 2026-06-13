@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import { Mail, MapPin } from 'lucide-react'
 import { SITE, SERVICES, INDUSTRIES, u } from '../../lib/site'
+import Logo from '../Logo'
 
 /* Rich footer with sitewide internal links — used across all pages. */
 export default function SiteFooter() {
@@ -11,11 +12,8 @@ export default function SiteFooter() {
         <div className="grid md:grid-cols-4 gap-10 pb-10" style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #7fb0f7 0%, #8f86f3 55%, #a78bf5 100%)' }}>
-                <span className="text-base font-black text-white">b</span>
-              </div>
-              <span className="font-bold text-lg tracking-tight" style={{ color: '#f4f7fd' }}>bluepeek</span>
+            <div className="mb-4">
+              <Logo size={36} />
             </div>
             <p className="text-sm leading-relaxed max-w-xs" style={{ color: '#aab3c9' }}>
               Premium websites and intelligent lead-capture systems for Perth businesses. Built to get you found, look established, and grow.
