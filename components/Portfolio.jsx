@@ -53,11 +53,11 @@ export default function Portfolio() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
           <span className="eyebrow">Our Work</span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#ffffff' }}>
-            Real Perth businesses,<br />live and online.
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#1a1730' }}>
+            Real local businesses,<br />live and online.
           </h2>
-          <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: '#c2d2ee' }}>
-            A look at recent client websites — click through to see them live.
+          <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: '#565471' }}>
+            A selection of recent websites Blue Peek has built — click through to see each one live.
           </p>
         </motion.div>
 
@@ -70,22 +70,22 @@ export default function Portfolio() {
             >
               {/* Screenshot → opens live site */}
               <a href={p.url} target="_blank" rel="noopener noreferrer" className="block">
-                <div className="flex items-center gap-1.5 px-4 py-2.5" style={{ background: 'rgba(255,255,255,0.06)', borderBottom: '1px solid rgba(255,255,255,0.10)' }}>
-                  <div className="w-2.5 h-2.5 rounded-full" style={{ background: 'rgba(255,255,255,0.25)' }} />
-                  <div className="w-2.5 h-2.5 rounded-full" style={{ background: 'rgba(255,255,255,0.25)' }} />
-                  <div className="w-2.5 h-2.5 rounded-full" style={{ background: 'rgba(255,255,255,0.25)' }} />
+                <div className="flex items-center gap-1.5 px-4 py-2.5" style={{ background: '#f4f3fb', borderBottom: '1px solid rgba(99,91,168,0.12)' }}>
+                  <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#d8d2f0' }} />
+                  <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#d8d2f0' }} />
+                  <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#d8d2f0' }} />
                   <div className="flex-1 mx-3 px-3 py-0.5 text-[10px] rounded text-center font-mono truncate"
-                    style={{ background: 'rgba(0,0,0,0.2)', color: '#aebfe6', border: '1px solid rgba(255,255,255,0.08)' }}>
+                    style={{ background: '#ffffff', color: '#8c8aa3', border: '1px solid rgba(99,91,168,0.12)' }}>
                     {p.domain}
                   </div>
-                  <ExternalLink size={12} style={{ color: '#8ba0c6' }} />
+                  <ExternalLink size={12} style={{ color: '#8c8aa3' }} />
                 </div>
-                <div className="relative aspect-[16/10] overflow-hidden" style={{ background: '#0e2a5e' }}>
+                <div className="relative aspect-[16/10] overflow-hidden" style={{ background: '#f4f3fb' }}>
                   <img src={p.image} alt={`${p.title} — ${p.industry} website in ${p.location} built by Bluepeek`}
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                     onError={(e) => { e.currentTarget.style.display = 'none' }} />
                   <span className="absolute top-3 right-3 text-xs font-semibold px-2.5 py-1 rounded-full"
-                    style={{ background: 'rgba(8,27,62,0.85)', color: '#ffffff', border: '1px solid rgba(255,255,255,0.2)', backdropFilter: 'blur(8px)' }}>
+                    style={{ background: 'rgba(124,95,224,0.10)', color: '#7c5fe0', border: '1px solid rgba(124,95,224,0.20)', backdropFilter: 'blur(8px)' }}>
                     {p.industry}
                   </span>
                 </div>
