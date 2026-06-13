@@ -31,7 +31,7 @@ export default function FAQ() {
             <details key={i} className="card p-5 group" style={{ borderRadius: '16px' }}>
               <summary className="flex items-center justify-between cursor-pointer list-none font-semibold" style={{ color: '#f4f7fd' }}>
                 {f.q}
-                <ChevronRight size={18} className="transition-transform group-open:rotate-90 flex-shrink-0 ml-3" style={{ color: '#8c8aa3' }} />
+                <ChevronRight size={18} className="transition-transform group-open:rotate-90 flex-shrink-0 ml-3" style={{ color: '#7e889f' }} />
               </summary>
               <p className="text-sm leading-relaxed mt-3" style={{ color: '#aab3c9' }}>{f.a}</p>
             </details>
