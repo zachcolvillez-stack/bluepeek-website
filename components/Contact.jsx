@@ -121,9 +121,9 @@ export default function Contact() {
                 </div>
               </div>
               <div>
-                <label className="block text-xs mb-1.5 font-semibold" style={{ color: '#46566f' }}>Tell us about your business</label>
-                <textarea rows={4} className={inp + ' resize-none'} style={inpStyle}
-                  placeholder="What do you do? Got a website already? What are you hoping to achieve?"
+                <label className="block text-xs mb-1.5 font-semibold" style={{ color: '#565471' }}>Tell us about your business</label>
+                <textarea rows={4} className={inp + ' resize-none'} style={inpStyle} onFocus={onFocus} onBlur={onBlur}
+                  placeholder="What do you do, do you have a website already, and what would you like it to achieve?"
                   value={form.message} onChange={e => set('message', e.target.value)} />
               </div>
 
