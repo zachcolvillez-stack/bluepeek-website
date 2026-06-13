@@ -63,10 +63,10 @@ export default function Contact() {
             {TRUST.map(t => (
               <div key={t.label} className="flex items-center gap-3">
                 <span className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: 'linear-gradient(135deg, #4f86f7, #9b6bf2)' }}>
-                  <t.icon size={16} className="text-white" />
+                  style={{ background: 'rgba(124,95,224,0.10)' }}>
+                  <t.icon size={16} style={{ color: '#7c5fe0' }} />
                 </span>
-                <span className="text-sm font-medium" style={{ color: '#ffffff' }}>{t.label}</span>
+                <span className="text-sm font-medium" style={{ color: '#565471' }}>{t.label}</span>
               </div>
             ))}
           </div>
