@@ -112,8 +112,8 @@ export default function Packages({ onCTA }) {
 
         <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
           viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-center text-sm mt-10" style={{ color: '#8ba0c6' }}>
-          Need something different? <a href="#contact" onClick={(e) => { e.preventDefault(); onCTA?.('contact') }} className="font-semibold" style={{ color: '#ffffff' }}>Ask for a custom quote →</a>
+          className="text-center text-sm mt-10" style={{ color: '#8c8aa3' }}>
+          Need something different? <a href="#contact" onClick={(e) => { e.preventDefault(); onCTA?.('contact') }} className="font-semibold" style={{ color: '#7c5fe0' }}>Ask for a custom quote →</a>
         </motion.p>
       </div>
     </section>
