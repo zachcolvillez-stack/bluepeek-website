@@ -27,7 +27,7 @@ export default function SiteFooter() {
             <div className="flex flex-col gap-2.5 text-sm">
               {SERVICES.map(s => (
                 <Link key={s.slug} href={u.service(s.slug)} className="transition-colors" style={{ color: '#aab3c9' }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = '#7c5fe0'}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#9fb6ff'}
                   onMouseLeave={(e) => e.currentTarget.style.color = '#aab3c9'}>{s.title}</Link>
               ))}
             </div>
@@ -39,7 +39,7 @@ export default function SiteFooter() {
             <div className="flex flex-col gap-2.5 text-sm">
               {INDUSTRIES.map(i => (
                 <Link key={i.slug} href={u.industry(i.slug)} className="transition-colors" style={{ color: '#aab3c9' }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = '#7c5fe0'}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#9fb6ff'}
                   onMouseLeave={(e) => e.currentTarget.style.color = '#aab3c9'}>{i.title}</Link>
               ))}
             </div>
@@ -50,17 +50,17 @@ export default function SiteFooter() {
             <p className="text-xs font-bold uppercase tracking-wider mb-4" style={{ color: '#7e889f' }}>Company</p>
             <div className="flex flex-col gap-2.5 text-sm mb-4">
               <Link href="/" className="transition-colors" style={{ color: '#aab3c9' }}
-                onMouseEnter={(e) => e.currentTarget.style.color = '#7c5fe0'}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#9fb6ff'}
                 onMouseLeave={(e) => e.currentTarget.style.color = '#aab3c9'}>Home</Link>
               <a href="/#work" className="transition-colors" style={{ color: '#aab3c9' }}
-                onMouseEnter={(e) => e.currentTarget.style.color = '#7c5fe0'}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#9fb6ff'}
                 onMouseLeave={(e) => e.currentTarget.style.color = '#aab3c9'}>Our Work</a>
               <a href="/#contact" className="transition-colors" style={{ color: '#aab3c9' }}
-                onMouseEnter={(e) => e.currentTarget.style.color = '#7c5fe0'}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#9fb6ff'}
                 onMouseLeave={(e) => e.currentTarget.style.color = '#aab3c9'}>Contact</a>
             </div>
             <a href={`mailto:${SITE.email}`} className="inline-flex items-center gap-2 text-sm transition-colors mb-2" style={{ color: '#aab3c9' }}
-              onMouseEnter={(e) => e.currentTarget.style.color = '#7c5fe0'}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#9fb6ff'}
               onMouseLeave={(e) => e.currentTarget.style.color = '#aab3c9'}>
               <Mail size={15} /> {SITE.email}
             </a>
