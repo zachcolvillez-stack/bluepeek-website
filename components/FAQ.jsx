@@ -18,7 +18,7 @@ export default function FAQ() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12">
           <span className="eyebrow">FAQ</span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#1a1730' }}>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#f4f7fd' }}>
             Questions, answered.
           </h2>
           <p className="text-base md:text-lg" style={{ color: '#565471' }}>
@@ -29,7 +29,7 @@ export default function FAQ() {
         <div className="space-y-3">
           {HOME_FAQS.map((f, i) => (
             <details key={i} className="card p-5 group" style={{ borderRadius: '16px' }}>
-              <summary className="flex items-center justify-between cursor-pointer list-none font-semibold" style={{ color: '#1a1730' }}>
+              <summary className="flex items-center justify-between cursor-pointer list-none font-semibold" style={{ color: '#f4f7fd' }}>
                 {f.q}
                 <ChevronRight size={18} className="transition-transform group-open:rotate-90 flex-shrink-0 ml-3" style={{ color: '#8c8aa3' }} />
               </summary>
