@@ -29,8 +29,8 @@ export default function CaseStudyTemplate({ breadcrumb = [], study, content, rel
         {/* Header */}
         <section className="relative max-w-4xl mx-auto px-6 pb-10">
           <span className="eyebrow">Case Study · {study.industry}</span>
-          <h1 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-4" style={{ color: '#ffffff' }}>{study.title}</h1>
-          <p className="text-base md:text-lg" style={{ color: '#c2d2ee' }}>{study.location}</p>
+          <h1 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-4" style={{ color: '#1a1730' }}>{study.title}</h1>
+          <p className="text-base md:text-lg" style={{ color: '#565471' }}>{study.location}</p>
         </section>
 
         {/* Live screenshot */}
