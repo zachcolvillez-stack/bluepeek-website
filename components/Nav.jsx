@@ -72,10 +72,10 @@ export default function Nav({ onNavigate, currentScene }) {
       {/* Mobile menu */}
       {menuOpen && (
         <div className="md:hidden px-6 py-4 space-y-1"
-          style={{ background: 'rgba(255,255,255,0.98)', backdropFilter: 'blur(18px)', borderBottom: '1px solid rgba(99,91,168,0.12)' }}>
+          style={{ background: 'rgba(10,14,26,0.96)', backdropFilter: 'blur(18px)', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
           {links.map(l => (
             <a key={l.label} href={l.href || `#${l.id}`} onClick={l.href ? () => setMenuOpen(false) : (e) => handleClick(e, l.id)}
-              className="block py-2.5 font-medium transition-colors" style={{ color: '#4a4767' }}>
+              className="block py-2.5 font-medium transition-colors" style={{ color: '#aab3c9' }}>
               {l.label}
             </a>
           ))}
