@@ -52,11 +52,11 @@ export default function Contact() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="lg:pt-6">
           <span className="eyebrow">Let’s Talk</span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#ffffff' }}>
-            Ready to turn your website into a lead machine?
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#1a1730' }}>
+            Let’s build a website your business is proud of.
           </h2>
-          <p className="text-base md:text-lg leading-relaxed mb-8" style={{ color: '#c2d2ee' }}>
-            Tell us about your business and we’ll reply within 24 hours with honest advice — whether that’s a new site, AI automation, or both.
+          <p className="text-base md:text-lg leading-relaxed mb-8" style={{ color: '#565471' }}>
+            Tell us a little about your business and we’ll reply within one business day with clear, honest advice — whether you need a new website, smarter automation, or both.
           </p>
 
           <div className="space-y-3.5 mb-8">
