@@ -23,7 +23,7 @@ export default function SiteFooter() {
 
           {/* Services */}
           <div>
-            <p className="text-xs font-bold uppercase tracking-wider mb-4" style={{ color: '#8c8aa3' }}>Services</p>
+            <p className="text-xs font-bold uppercase tracking-wider mb-4" style={{ color: '#7e889f' }}>Services</p>
             <div className="flex flex-col gap-2.5 text-sm">
               {SERVICES.map(s => (
                 <Link key={s.slug} href={u.service(s.slug)} className="transition-colors" style={{ color: '#aab3c9' }}
@@ -35,7 +35,7 @@ export default function SiteFooter() {
 
           {/* Industries */}
           <div>
-            <p className="text-xs font-bold uppercase tracking-wider mb-4" style={{ color: '#8c8aa3' }}>Industries</p>
+            <p className="text-xs font-bold uppercase tracking-wider mb-4" style={{ color: '#7e889f' }}>Industries</p>
             <div className="flex flex-col gap-2.5 text-sm">
               {INDUSTRIES.map(i => (
                 <Link key={i.slug} href={u.industry(i.slug)} className="transition-colors" style={{ color: '#aab3c9' }}
@@ -47,7 +47,7 @@ export default function SiteFooter() {
 
           {/* Company / contact */}
           <div>
-            <p className="text-xs font-bold uppercase tracking-wider mb-4" style={{ color: '#8c8aa3' }}>Company</p>
+            <p className="text-xs font-bold uppercase tracking-wider mb-4" style={{ color: '#7e889f' }}>Company</p>
             <div className="flex flex-col gap-2.5 text-sm mb-4">
               <Link href="/" className="transition-colors" style={{ color: '#aab3c9' }}
                 onMouseEnter={(e) => e.currentTarget.style.color = '#7c5fe0'}
@@ -71,8 +71,8 @@ export default function SiteFooter() {
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-2 mt-8">
-          <p className="text-xs" style={{ color: '#8c8aa3' }}>© {new Date().getFullYear()} Bluepeek. All rights reserved.</p>
-          <p className="text-xs" style={{ color: '#8c8aa3' }}>Premium websites & smart systems · Built in Perth</p>
+          <p className="text-xs" style={{ color: '#7e889f' }}>© {new Date().getFullYear()} Bluepeek. All rights reserved.</p>
+          <p className="text-xs" style={{ color: '#7e889f' }}>Premium websites & smart systems · Built in Perth</p>
         </div>
       </div>
     </footer>
