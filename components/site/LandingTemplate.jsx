@@ -6,7 +6,7 @@ import ChatWidget from '../ChatWidget'
 
 /**
  * Reusable premium landing template for service & industry pages.
- * Pure presentational server component — keeps the navy/white brand system.
+ * Pure presentational server component — keeps the light pastel brand system.
  *
  * Props:
  *   breadcrumb : [{ name, href }]
