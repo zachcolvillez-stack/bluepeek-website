@@ -85,12 +85,12 @@ export default function Contact() {
           className="card-light p-8">
           {status === 'sent' ? (
             <div className="text-center py-12">
-              <div className="w-14 h-14 rounded-2xl mx-auto mb-4 flex items-center justify-center" style={{ background: '#dbe8fc' }}>
-                <CheckCircle size={28} style={{ color: '#0b2350' }} />
+              <div className="w-14 h-14 rounded-2xl mx-auto mb-4 flex items-center justify-center" style={{ background: 'rgba(124,95,224,0.10)' }}>
+                <CheckCircle size={28} style={{ color: '#7c5fe0' }} />
               </div>
-              <h3 className="text-xl font-bold mb-2" style={{ color: '#0f1e38' }}>Thanks — we got it!</h3>
-              <p className="mb-6" style={{ color: '#46566f' }}>We’ll be in touch within 24 hours.</p>
-              <button onClick={() => setStatus('idle')} className="text-sm font-semibold" style={{ color: '#0b2350' }}>
+              <h3 className="text-xl font-bold mb-2" style={{ color: '#1a1730' }}>Thanks — we’ve got it.</h3>
+              <p className="mb-6" style={{ color: '#565471' }}>We’ll be in touch within one business day.</p>
+              <button onClick={() => setStatus('idle')} className="text-sm font-semibold" style={{ color: '#7c5fe0' }}>
                 Send another enquiry
               </button>
             </div>
