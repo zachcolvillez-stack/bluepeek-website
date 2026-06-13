@@ -44,10 +44,10 @@ export default function Nav({ onNavigate, currentScene }) {
             <a key={l.label} href={l.href || `#${l.id}`} onClick={l.href ? undefined : (e) => handleClick(e, l.id)}
               className="text-sm font-medium transition-all px-4 py-2 rounded-lg"
               style={currentScene === l.id
-                ? { color: '#1a1730', background: 'rgba(99,91,168,0.10)' }
-                : { color: '#4a4767' }}
-              onMouseEnter={(e) => { if (currentScene !== l.id) e.currentTarget.style.color = '#1a1730' }}
-              onMouseLeave={(e) => { if (currentScene !== l.id) e.currentTarget.style.color = '#4a4767' }}>
+                ? { color: '#f4f7fd', background: 'rgba(255,255,255,0.08)' }
+                : { color: '#aab3c9' }}
+              onMouseEnter={(e) => { if (currentScene !== l.id) e.currentTarget.style.color = '#ffffff' }}
+              onMouseLeave={(e) => { if (currentScene !== l.id) e.currentTarget.style.color = '#aab3c9' }}>
               {l.label}
             </a>
           ))}
