@@ -26,8 +26,8 @@ export default function SiteHeader() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={scrolled
-        ? { background: 'rgba(8,27,62,0.78)', backdropFilter: 'blur(18px)', WebkitBackdropFilter: 'blur(18px)', borderBottom: '1px solid rgba(255,255,255,0.10)', boxShadow: '0 8px 30px rgba(0,0,0,0.25)' }
-        : { background: 'rgba(8,27,62,0.55)', backdropFilter: 'blur(8px)' }}>
+        ? { background: 'rgba(255,255,255,0.82)', backdropFilter: 'blur(18px)', WebkitBackdropFilter: 'blur(18px)', borderBottom: '1px solid rgba(99,91,168,0.12)', boxShadow: '0 8px 30px rgba(91,77,168,0.10)' }
+        : { background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(8px)' }}>
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link href="/" aria-label="Bluepeek home"><Logo size={38} /></Link>
 
