@@ -56,7 +56,7 @@ export default function Testimonials() {
                   <p className="text-lg font-bold mb-2 leading-snug" style={{ color: '#f4f7fd' }}>{p.pain}</p>
                   <div className="flex items-start gap-2">
                     <span className="text-xs font-bold uppercase tracking-wider mt-1 flex-shrink-0 gradient-text">Fixed</span>
-                    <p className="text-sm leading-relaxed" style={{ color: '#565471' }}>{p.solution}</p>
+                    <p className="text-sm leading-relaxed" style={{ color: '#aab3c9' }}>{p.solution}</p>
                   </div>
                 </div>
               </div>
