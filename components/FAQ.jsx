@@ -29,11 +29,11 @@ export default function FAQ() {
         <div className="space-y-3">
           {HOME_FAQS.map((f, i) => (
             <details key={i} className="card p-5 group" style={{ borderRadius: '16px' }}>
-              <summary className="flex items-center justify-between cursor-pointer list-none font-semibold" style={{ color: '#ffffff' }}>
+              <summary className="flex items-center justify-between cursor-pointer list-none font-semibold" style={{ color: '#1a1730' }}>
                 {f.q}
-                <ChevronRight size={18} className="transition-transform group-open:rotate-90 flex-shrink-0 ml-3" style={{ color: '#8ba0c6' }} />
+                <ChevronRight size={18} className="transition-transform group-open:rotate-90 flex-shrink-0 ml-3" style={{ color: '#8c8aa3' }} />
               </summary>
-              <p className="text-sm leading-relaxed mt-3" style={{ color: '#c2d2ee' }}>{f.a}</p>
+              <p className="text-sm leading-relaxed mt-3" style={{ color: '#565471' }}>{f.a}</p>
             </details>
           ))}
         </div>
