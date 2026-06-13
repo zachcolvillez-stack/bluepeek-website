@@ -41,7 +41,7 @@ export default function Contact() {
   }
 
   const inp = "w-full rounded-xl px-4 py-3 text-sm transition-all focus:outline-none"
-  const inpStyle = { background: '#ffffff', border: '1px solid rgba(99,91,168,0.20)', color: '#f4f7fd' }
+  const inpStyle = { background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(99,91,168,0.20)', color: '#f4f7fd' }
   const onFocus = (e) => { e.target.style.borderColor = '#9b87f5' }
   const onBlur  = (e) => { e.target.style.borderColor = 'rgba(99,91,168,0.20)' }
 
@@ -73,7 +73,7 @@ export default function Contact() {
 
           <a href={`mailto:${CONTACT_EMAIL}`}
             className="inline-flex items-center gap-2.5 px-4 py-3 rounded-xl font-medium text-sm"
-            style={{ background: '#ffffff', border: '1px solid rgba(99,91,168,0.20)', color: '#f4f7fd' }}>
+            style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(99,91,168,0.20)', color: '#f4f7fd' }}>
             <Mail size={16} style={{ color: '#9fb6ff' }} />
             {CONTACT_EMAIL}
           </a>
