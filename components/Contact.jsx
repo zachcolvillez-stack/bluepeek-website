@@ -98,8 +98,8 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs mb-1.5 font-semibold" style={{ color: '#46566f' }}>Your Name *</label>
-                  <input required className={inp} style={inpStyle} placeholder="John Smith"
+                  <label className="block text-xs mb-1.5 font-semibold" style={{ color: '#565471' }}>Your Name *</label>
+                  <input required className={inp} style={inpStyle} placeholder="John Smith" onFocus={onFocus} onBlur={onBlur}
                     value={form.name} onChange={e => set('name', e.target.value)} />
                 </div>
                 <div>
