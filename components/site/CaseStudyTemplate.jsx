@@ -11,16 +11,16 @@ export default function CaseStudyTemplate({ breadcrumb = [], study, content, rel
       <SiteHeader />
 
       <main className="relative pt-28">
-        <div className="hero-glow" style={{ top: '-6%', left: '-4%', width: '520px', height: '520px', background: 'radial-gradient(circle, rgba(155,107,242,0.18) 0%, transparent 70%)' }} />
+        <div className="hero-glow" style={{ top: '-6%', left: '-4%', width: '520px', height: '520px', background: 'radial-gradient(circle, rgba(155,135,245,0.12) 0%, transparent 70%)' }} />
 
         <div className="relative max-w-4xl mx-auto px-6">
-          <nav aria-label="Breadcrumb" className="flex items-center flex-wrap gap-1.5 text-xs mb-6" style={{ color: '#8ba0c6' }}>
+          <nav aria-label="Breadcrumb" className="flex items-center flex-wrap gap-1.5 text-xs mb-6" style={{ color: '#8c8aa3' }}>
             {breadcrumb.map((b, i) => (
               <span key={b.href} className="flex items-center gap-1.5">
-                {i > 0 && <ChevronRight size={12} style={{ color: '#4a5e84' }} />}
+                {i > 0 && <ChevronRight size={12} style={{ color: '#8c8aa3' }} />}
                 {i < breadcrumb.length - 1
-                  ? <Link href={b.href} className="hover:text-white transition-colors">{b.name}</Link>
-                  : <span style={{ color: '#c2d2ee' }}>{b.name}</span>}
+                  ? <Link href={b.href} className="transition-colors" style={{ color: '#8c8aa3' }} onMouseEnter={(e) => e.currentTarget.style.color = '#7c5fe0'} onMouseLeave={(e) => e.currentTarget.style.color = '#8c8aa3'}>{b.name}</Link>
+                  : <span style={{ color: '#565471' }}>{b.name}</span>}
               </span>
             ))}
           </nav>
