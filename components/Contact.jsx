@@ -115,8 +115,8 @@ export default function Contact() {
                     value={form.email} onChange={e => set('email', e.target.value)} />
                 </div>
                 <div>
-                  <label className="block text-xs mb-1.5 font-semibold" style={{ color: '#46566f' }}>Phone</label>
-                  <input type="tel" className={inp} style={inpStyle} placeholder="04xx xxx xxx"
+                  <label className="block text-xs mb-1.5 font-semibold" style={{ color: '#565471' }}>Phone</label>
+                  <input type="tel" className={inp} style={inpStyle} placeholder="04xx xxx xxx" onFocus={onFocus} onBlur={onBlur}
                     value={form.phone} onChange={e => set('phone', e.target.value)} />
                 </div>
               </div>
