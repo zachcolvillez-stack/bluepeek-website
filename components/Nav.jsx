@@ -74,7 +74,7 @@ export default function Nav({ onNavigate, currentScene }) {
         <div className="md:hidden px-6 py-4 space-y-1"
           style={{ background: 'rgba(8,27,62,0.97)', backdropFilter: 'blur(18px)', borderBottom: '1px solid rgba(255,255,255,0.10)' }}>
           {links.map(l => (
-            <a key={l.label} href={`#${l.id}`} onClick={(e) => handleClick(e, l.id)}
+            <a key={l.label} href={l.href || `#${l.id}`} onClick={l.href ? () => setMenuOpen(false) : (e) => handleClick(e, l.id)}
               className="block py-2.5 font-medium transition-colors" style={{ color: '#aebfe6' }}>
               {l.label}
             </a>
