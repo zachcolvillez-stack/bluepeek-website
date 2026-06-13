@@ -68,8 +68,8 @@ export default function Packages({ onCTA }) {
               viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
               className="relative rounded-3xl p-8"
               style={p.popular
-                ? { background: 'linear-gradient(160deg, rgba(79,134,247,0.18), rgba(155,107,242,0.12))', border: '1.5px solid rgba(123,111,245,0.6)', boxShadow: '0 24px 60px rgba(123,111,245,0.25)', transform: 'scale(1.03)' }
-                : { background: 'rgba(255,255,255,0.045)', border: '1px solid rgba(255,255,255,0.10)' }}
+                ? { background: 'rgba(124,95,224,0.06)', border: '1.5px solid rgba(155,135,245,0.45)', boxShadow: '0 24px 60px rgba(123,111,245,0.18)', transform: 'scale(1.03)' }
+                : { background: '#ffffff', border: '1px solid rgba(99,91,168,0.12)', boxShadow: '0 2px 10px rgba(91,77,168,0.06)' }}
             >
               {p.popular && (
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full text-white"
