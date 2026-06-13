@@ -59,16 +59,16 @@ export default function LandingTemplate({ breadcrumb = [], eyebrow, h1, lead, se
         <div className="relative max-w-4xl mx-auto px-6 py-10 space-y-12">
           {sections.map((s, i) => (
             <section key={i}>
-              <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4" style={{ color: '#ffffff' }}>{s.h2}</h2>
+              <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4" style={{ color: '#1a1730' }}>{s.h2}</h2>
               {s.paragraphs?.map((p, j) => (
-                <p key={j} className="text-base leading-relaxed mb-4" style={{ color: '#c2d2ee' }}>{p}</p>
+                <p key={j} className="text-base leading-relaxed mb-4" style={{ color: '#565471' }}>{p}</p>
               ))}
               {s.bullets?.length > 0 && (
                 <ul className="space-y-2.5 mt-5">
                   {s.bullets.map((b, k) => (
-                    <li key={k} className="flex items-start gap-3 text-base" style={{ color: '#e3ebf9' }}>
+                    <li key={k} className="flex items-start gap-3 text-base" style={{ color: '#565471' }}>
                       <span className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                        style={{ background: 'linear-gradient(135deg,#4f86f7,#9b6bf2)' }}>
+                        style={{ background: 'linear-gradient(135deg, #7fb0f7 0%, #8f86f3 55%, #a78bf5 100%)' }}>
                         <Check size={11} className="text-white" strokeWidth={3} />
                       </span>
                       {b}
