@@ -4,7 +4,7 @@ import SiteHeader from './SiteHeader'
 import SiteFooter from './SiteFooter'
 import ChatWidget from '../ChatWidget'
 
-/* Case study page template — premium navy, factual (no invented metrics). */
+/* Case study page template — light premium, factual (no invented metrics). */
 export default function CaseStudyTemplate({ breadcrumb = [], study, content, related = [] }) {
   return (
     <>
