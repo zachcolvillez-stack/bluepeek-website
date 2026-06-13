@@ -41,7 +41,9 @@ export default function Contact() {
   }
 
   const inp = "w-full rounded-xl px-4 py-3 text-sm transition-all focus:outline-none"
-  const inpStyle = { background: '#f6f9fc', border: '1px solid #e4eaf3', color: '#0f1e38' }
+  const inpStyle = { background: '#ffffff', border: '1px solid rgba(99,91,168,0.20)', color: '#1a1730' }
+  const onFocus = (e) => { e.target.style.borderColor = '#9b87f5' }
+  const onBlur  = (e) => { e.target.style.borderColor = 'rgba(99,91,168,0.20)' }
 
   return (
     <section id="contact" className="section-tint relative py-28 px-6">
