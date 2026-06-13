@@ -73,8 +73,8 @@ export default function Contact() {
 
           <a href={`mailto:${CONTACT_EMAIL}`}
             className="inline-flex items-center gap-2.5 px-4 py-3 rounded-xl font-medium text-sm"
-            style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.14)', color: '#ffffff' }}>
-            <Mail size={16} style={{ color: '#9bb3ff' }} />
+            style={{ background: '#ffffff', border: '1px solid rgba(99,91,168,0.20)', color: '#1a1730' }}>
+            <Mail size={16} style={{ color: '#7c5fe0' }} />
             {CONTACT_EMAIL}
           </a>
         </motion.div>
