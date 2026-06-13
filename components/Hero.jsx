@@ -20,25 +20,25 @@ export default function Hero({ onCTA }) {
 
           <motion.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.08 }}
             className="text-4xl md:text-5xl lg:text-[3.4rem] font-bold tracking-tight leading-[1.08] mt-6 mb-6"
-            style={{ color: '#ffffff' }}>
-            Premium websites & AI systems built to bring Perth businesses <span className="gradient-text">more leads.</span>
+            style={{ color: '#1a1730' }}>
+            Websites that make local businesses <span className="gradient-text">look established.</span>
           </motion.h1>
 
           <motion.p initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.16 }}
-            className="text-base md:text-lg leading-relaxed mb-8 max-w-xl" style={{ color: '#c2d2ee' }}>
-            We design high-converting websites, lead-capture systems and smart automations for local businesses that want to look professional, get found, and grow.
+            className="text-base md:text-lg leading-relaxed mb-8 max-w-xl" style={{ color: '#565471' }}>
+            Blue Peek designs clean, professional websites and smart digital systems that help Australian businesses build trust, capture leads, and turn visitors into enquiries.
           </motion.p>
 
           <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.24 }}
             className="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-10">
             <button onClick={() => onCTA('contact')}
               className="group btn-primary flex items-center gap-2 px-7 py-3.5 rounded-full text-sm w-full sm:w-auto justify-center">
-              Get a Free Quote
+              Get a Website
               <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
             </button>
             <button onClick={() => onCTA('work')}
               className="btn-secondary flex items-center gap-2 px-7 py-3.5 rounded-full text-sm w-full sm:w-auto justify-center">
-              See Our Work
+              View Our Work
             </button>
           </motion.div>
 
