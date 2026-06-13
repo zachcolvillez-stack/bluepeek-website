@@ -76,7 +76,7 @@ export default function Hero({ onCTA }) {
             <div className="p-6" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #f6f9fc 100%)' }}>
               <div className="h-3 w-24 rounded-full mb-3" style={{ background: '#dbe8fc' }} />
               <div className="h-5 w-3/4 rounded-md mb-2" style={{ background: '#0b2350' }} />
-              <div className="h-5 w-1/2 rounded-md mb-4" style={{ background: '#7a6ff5' }} />
+              <div className="h-5 w-1/2 rounded-md mb-4" style={{ background: '#9b87f5' }} />
               <div className="h-2 w-full rounded-full mb-1.5" style={{ background: '#e4eaf3' }} />
               <div className="h-2 w-5/6 rounded-full mb-5" style={{ background: '#e4eaf3' }} />
               <div className="flex gap-2 mb-6">
@@ -115,7 +115,7 @@ export default function Hero({ onCTA }) {
           {/* Floating: automation flow */}
           <div className="absolute -right-6 bottom-12 card-light p-3.5 w-48 float-soft" style={{ borderRadius: '16px' }}>
             <div className="flex items-center gap-2 mb-2">
-              <Zap size={14} style={{ color: '#7a6ff5' }} />
+              <Zap size={14} style={{ color: '#9b87f5' }} />
               <p className="text-xs font-bold" style={{ color: '#0b2350' }}>Auto-reply sent</p>
             </div>
             <div className="space-y-1.5">
