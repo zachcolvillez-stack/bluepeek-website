@@ -53,11 +53,11 @@ export default function Packages({ onCTA }) {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
           <span className="eyebrow">Packages</span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#ffffff' }}>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#1a1730' }}>
             Built to bring you leads —<br />priced to fit your business.
           </h2>
-          <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: '#c2d2ee' }}>
-            Every package is custom-quoted to fit your goals. No lock-in, no hidden fees — and you own everything.
+          <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: '#565471' }}>
+            Every Blue Peek package is custom-quoted to fit your goals. No lock-in, no hidden fees — and you own everything.
           </p>
         </motion.div>
 
