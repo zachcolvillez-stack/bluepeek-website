@@ -165,8 +165,8 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 /* ── Scrollbar ──────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 9px; }
 ::-webkit-scrollbar-track { background: #0b1020; }
-::-webkit-scrollbar-thumb { background: #2a3450, ; background: #2a3450; border-radius: 5px; }
-::-webkit-scrollbar-thumb:hover { background: #3a4straight; background: #3a4668; }
+::-webkit-scrollbar-thumb { background: #2a3450; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #3a4668; }
 
 ::selection { background: rgba(127,176,247,0.32); color: #ffffff; }
 
