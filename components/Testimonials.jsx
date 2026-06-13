@@ -32,11 +32,11 @@ export default function Testimonials() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
           <span className="eyebrow">Built For Local Owners</span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#ffffff' }}>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#1a1730' }}>
             We solve the problems<br />local businesses actually have.
           </h2>
-          <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: '#c2d2ee' }}>
-            If any of these sound like you, you’re exactly who we build for.
+          <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: '#565471' }}>
+            If any of these sound familiar, you’re exactly who Blue Peek builds for.
           </p>
         </motion.div>
 
