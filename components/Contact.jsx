@@ -140,9 +140,9 @@ export default function Contact() {
                 {status === 'sending' ? 'Sending…' : <><Send size={15} /> Send Enquiry</>}
               </button>
 
-              <p className="text-xs text-center pt-1" style={{ color: '#7a8aa3' }}>
+              <p className="text-xs text-center pt-1" style={{ color: '#8c8aa3' }}>
                 Or email us at{' '}
-                <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold" style={{ color: '#0b2350' }}>
+                <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold" style={{ color: '#7c5fe0' }}>
                   {CONTACT_EMAIL}
                 </a>
               </p>
