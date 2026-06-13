@@ -51,7 +51,7 @@ export default function Hero({ onCTA }) {
                   style={{ background: 'linear-gradient(135deg, #7fb0f7, #a78bf5)' }}>
                   <Check size={11} className="text-white" strokeWidth={3} />
                 </span>
-                <span className="text-sm font-medium" style={{ color: '#c2d2ee' }}>{t}</span>
+                <span className="text-sm font-medium" style={{ color: '#565471' }}>{t}</span>
               </div>
             ))}
           </motion.div>
