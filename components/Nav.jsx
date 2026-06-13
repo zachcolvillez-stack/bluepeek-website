@@ -41,7 +41,7 @@ export default function Nav({ onNavigate, currentScene }) {
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-1">
           {links.map(l => (
-            <a key={l.label} href={`#${l.id}`} onClick={(e) => handleClick(e, l.id)}
+            <a key={l.label} href={l.href || `#${l.id}`} onClick={l.href ? undefined : (e) => handleClick(e, l.id)}
               className="text-sm font-medium transition-all px-4 py-2 rounded-lg"
               style={currentScene === l.id
                 ? { color: '#ffffff', background: 'rgba(255,255,255,0.10)' }
