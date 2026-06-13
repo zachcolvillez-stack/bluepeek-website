@@ -57,88 +57,16 @@ export default function Hero({ onCTA }) {
           </motion.div>
         </div>
 
-        {/* ── Right: premium mockup (white accent) ── */}
+        {/* ── Right: hero illustration ── */}
         <motion.div initial={{ opacity: 0, scale: 0.96, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="relative hidden lg:block">
-
-          {/* Main browser mockup */}
-          <div className="card-light float-soft overflow-hidden" style={{ borderRadius: '20px' }}>
-            <div className="flex items-center gap-1.5 px-4 py-3" style={{ background: '#f6f9fc', borderBottom: '1px solid #e4eaf3' }}>
-              <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#d4deec' }} />
-              <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#d4deec' }} />
-              <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#d4deec' }} />
-              <div className="flex-1 mx-3 px-3 py-1 text-[10px] rounded-md text-center font-mono"
-                style={{ background: '#ffffff', color: '#7a8aa3', border: '1px solid #e4eaf3' }}>
-                yourbusiness.com.au
-              </div>
-            </div>
-            <div className="p-6" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #f6f9fc 100%)' }}>
-              <div className="h-3 w-24 rounded-full mb-3" style={{ background: '#dbe8fc' }} />
-              <div className="h-5 w-3/4 rounded-md mb-2" style={{ background: '#0b2350' }} />
-              <div className="h-5 w-1/2 rounded-md mb-4" style={{ background: '#9b87f5' }} />
-              <div className="h-2 w-full rounded-full mb-1.5" style={{ background: '#e4eaf3' }} />
-              <div className="h-2 w-5/6 rounded-full mb-5" style={{ background: '#e4eaf3' }} />
-              <div className="flex gap-2 mb-6">
-                <div className="h-8 w-28 rounded-lg" style={{ background: 'linear-gradient(135deg, #7fb0f7, #a78bf5)' }} />
-                <div className="h-8 w-24 rounded-lg" style={{ background: '#ffffff', border: '1px solid #d4deec' }} />
-              </div>
-              <div className="grid grid-cols-3 gap-2">
-                {[0,1,2].map(i => (
-                  <div key={i} className="rounded-lg p-2.5" style={{ background: '#ffffff', border: '1px solid #e4eaf3' }}>
-                    <div className="h-5 w-5 rounded-md mb-2" style={{ background: '#dbe8fc' }} />
-                    <div className="h-1.5 w-full rounded-full mb-1" style={{ background: '#e4eaf3' }} />
-                    <div className="h-1.5 w-2/3 rounded-full" style={{ background: '#eef4fc' }} />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Floating: new lead notification */}
-          <div className="absolute -left-8 top-20 card-light float-soft-delay p-3.5 w-52" style={{ borderRadius: '16px' }}>
-            <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-                style={{ background: 'linear-gradient(135deg, #7fb0f7, #a78bf5)' }}>
-                <MessageSquare size={16} className="text-white" />
-              </div>
-              <div className="min-w-0">
-                <div className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full pulse-dot" style={{ background: '#22c55e' }} />
-                  <p className="text-xs font-bold" style={{ color: '#0b2350' }}>New lead captured</p>
-                </div>
-                <p className="text-[11px] mt-0.5" style={{ color: '#7a8aa3' }}>Quote request · 2s ago</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Floating: automation flow */}
-          <div className="absolute -right-6 bottom-12 card-light p-3.5 w-48 float-soft" style={{ borderRadius: '16px' }}>
-            <div className="flex items-center gap-2 mb-2">
-              <Zap size={14} style={{ color: '#9b87f5' }} />
-              <p className="text-xs font-bold" style={{ color: '#0b2350' }}>Auto-reply sent</p>
-            </div>
-            <div className="space-y-1.5">
-              <div className="flex items-center gap-1.5">
-                <Check size={11} style={{ color: '#22c55e' }} strokeWidth={3} />
-                <div className="h-1.5 flex-1 rounded-full" style={{ background: '#e4eaf3' }} />
-              </div>
-              <div className="flex items-center gap-1.5">
-                <Check size={11} style={{ color: '#22c55e' }} strokeWidth={3} />
-                <div className="h-1.5 w-3/4 rounded-full" style={{ background: '#e4eaf3' }} />
-              </div>
-            </div>
-          </div>
-
-          {/* Floating: leads stat */}
-          <div className="absolute -right-4 top-2 card-light px-4 py-3 float-soft-delay" style={{ borderRadius: '16px' }}>
-            <div className="flex items-center gap-2">
-              <TrendingUp size={15} style={{ color: '#22c55e' }} />
-              <div>
-                <p className="text-base font-bold leading-none" style={{ color: '#0b2350' }}>More calls</p>
-                <p className="text-[10px] mt-0.5" style={{ color: '#7a8aa3' }}>from day one</p>
-              </div>
-            </div>
+          <div className="relative w-full" style={{ aspectRatio: '4 / 3' }}>
+            <img
+              src="/hero-desk.png"
+              alt="Laptop on a desk displaying a custom Blue Peek website"
+              className="w-full h-full object-contain float-soft"
+            />
           </div>
         </motion.div>
       </div>
