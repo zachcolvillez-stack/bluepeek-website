@@ -14,7 +14,7 @@ export default function SiteFooter() {
               <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #7fb0f7 0%, #8f86f3 55%, #a78bf5 100%)' }}>
                 <span className="text-base font-black text-white">b</span>
               </div>
-              <span className="font-bold text-lg tracking-tight" style={{ color: '#1a1730' }}>bluepeek</span>
+              <span className="font-bold text-lg tracking-tight" style={{ color: '#f4f7fd' }}>bluepeek</span>
             </div>
             <p className="text-sm leading-relaxed max-w-xs" style={{ color: '#565471' }}>
               Premium websites and intelligent lead-capture systems for Perth businesses. Built to get you found, look established, and grow.
