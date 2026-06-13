@@ -60,7 +60,7 @@ export default function Nav({ onNavigate, currentScene }) {
         </a>
 
         {/* Mobile menu button */}
-        <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)} style={{ color: '#ffffff' }} aria-label="Menu">
+        <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)} style={{ color: '#1a1730' }} aria-label="Menu">
           <div className="space-y-1.5">
             <span className={`block w-6 h-0.5 bg-current transition-all ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
             <span className={`block w-6 h-0.5 bg-current transition-all ${menuOpen ? 'opacity-0' : ''}`} />
