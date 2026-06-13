@@ -101,7 +101,7 @@ export default function CaseStudyTemplate({ breadcrumb = [], study, content, rel
         {/* CTA */}
         <section className="relative max-w-4xl mx-auto px-6 py-16">
           <div className="rounded-3xl p-10 text-center relative overflow-hidden"
-            style={{ background: 'linear-gradient(140deg,#4f86f7 0%,#6f6ff5 55%,#9b6bf2 100%)', boxShadow: '0 24px 60px rgba(123,111,245,0.35)' }}>
+            style={{ background: 'linear-gradient(135deg, #7fb0f7 0%, #8f86f3 55%, #a78bf5 100%)', boxShadow: '0 24px 60px rgba(140,120,235,0.28)' }}>
             <h2 className="relative text-2xl md:text-3xl font-bold text-white mb-3">Want a site like this?</h2>
             <p className="relative text-base mb-7 max-w-lg mx-auto" style={{ color: 'rgba(255,255,255,0.9)' }}>
               Tell us about your business and we’ll reply within 24 hours — free quote, no pressure.
