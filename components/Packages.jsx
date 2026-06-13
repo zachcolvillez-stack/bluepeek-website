@@ -18,7 +18,7 @@ const PACKAGES = [
   },
   {
     name: 'Growth',
-    tagline: 'A website that captures and works leads for you.',
+    tagline: 'A website that captures and follows up your leads.',
     features: [
       'Everything in Starter',
       'Up to 5 custom pages',
