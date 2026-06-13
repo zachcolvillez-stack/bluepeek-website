@@ -83,15 +83,15 @@ export default function LandingTemplate({ breadcrumb = [], eyebrow, h1, lead, se
         {/* FAQ */}
         {faqs.length > 0 && (
           <section className="relative max-w-4xl mx-auto px-6 py-12">
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-8" style={{ color: '#ffffff' }}>Frequently asked questions</h2>
+            <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-8" style={{ color: '#1a1730' }}>Frequently asked questions</h2>
             <div className="space-y-3">
               {faqs.map((f, i) => (
                 <details key={i} className="card p-5 group" style={{ borderRadius: '16px' }}>
-                  <summary className="flex items-center justify-between cursor-pointer list-none font-semibold" style={{ color: '#ffffff' }}>
+                  <summary className="flex items-center justify-between cursor-pointer list-none font-semibold" style={{ color: '#1a1730' }}>
                     {f.q}
-                    <ChevronRight size={18} className="transition-transform group-open:rotate-90 flex-shrink-0 ml-3" style={{ color: '#8ba0c6' }} />
+                    <ChevronRight size={18} className="transition-transform group-open:rotate-90 flex-shrink-0 ml-3" style={{ color: '#8c8aa3' }} />
                   </summary>
-                  <p className="text-sm leading-relaxed mt-3" style={{ color: '#c2d2ee' }}>{f.a}</p>
+                  <p className="text-sm leading-relaxed mt-3" style={{ color: '#565471' }}>{f.a}</p>
                 </details>
               ))}
             </div>
