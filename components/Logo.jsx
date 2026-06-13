@@ -9,7 +9,7 @@
  *   showText   — render the "bluepeek" wordmark beside it (default true)
  *   textColor  — wordmark colour (default white)
  */
-export default function Logo({ size = 36, showText = true, textColor = '#ffffff' }) {
+export default function Logo({ size = 36, showText = true, textColor = '#1a1730' }) {
   const gid = 'bp-grad'
   return (
     <span className="inline-flex items-center gap-2.5 select-none">
