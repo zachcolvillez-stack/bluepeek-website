@@ -30,7 +30,7 @@ export default function Nav({ onNavigate, currentScene }) {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={scrolled
-        ? { background: 'rgba(255,255,255,0.82)', backdropFilter: 'blur(18px)', WebkitBackdropFilter: 'blur(18px)', borderBottom: '1px solid rgba(99,91,168,0.12)', boxShadow: '0 8px 30px rgba(91,77,168,0.10)' }
+        ? { background: 'rgba(10,14,26,0.72)', backdropFilter: 'blur(18px)', WebkitBackdropFilter: 'blur(18px)', borderBottom: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 8px 30px rgba(0,0,0,0.45)' }
         : { background: 'transparent' }}>
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
