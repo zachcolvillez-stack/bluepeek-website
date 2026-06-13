@@ -7,120 +7,128 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: #081b3e;
-  color: #ffffff;
-  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+  background: #ffffff;
+  color: #565471;
+  font-family: var(--font-body), -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   font-feature-settings: 'ss01', 'cv01';
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   BLUEPEEK PREMIUM DESIGN SYSTEM — Navy dominant, white accents
-   Brand gradient: blue → purple (from logo)
-   ═══════════════════════════════════════════════════════════════ */
-:root {
-  --navy:        #081b3e;   /* deepest navy — base background */
-  --navy-2:      #0b2350;   /* section navy */
-  --navy-3:      #0e2a5e;   /* lighter navy panels */
-  --navy-line:   rgba(255,255,255,0.10);   /* hairline borders */
-  --navy-line-2: rgba(255,255,255,0.16);
-
-  --brand-a:     #4f86f7;   /* brand blue */
-  --brand-b:     #9b6bf2;   /* brand purple */
-
-  --text:        #ffffff;   /* headings */
-  --text-body:   #c2d2ee;   /* body copy */
-  --muted:       #8ba0c6;   /* muted labels */
-
-  --shadow-md:   0 10px 30px rgba(0,0,0,0.25);
-  --shadow-lg:   0 20px 50px rgba(0,0,0,0.35);
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-heading), var(--font-body), -apple-system, sans-serif;
+  letter-spacing: -0.02em;
 }
 
-/* Brand gradient text */
+/* ═══════════════════════════════════════════════════════════════
+   BLUEPEEK DESIGN SYSTEM — Light, minimal, soft pastel purple/blue
+   Mostly white · gentle gradients fading into white · premium calm
+   ═══════════════════════════════════════════════════════════════ */
+:root {
+  --bg:          #ffffff;   /* main background */
+  --bg-2:        #faf9ff;   /* faint lavender off-white */
+  --bg-3:        #f4f3fb;   /* very light grey-lavender panels */
+  --line:        rgba(99,91,168,0.12);   /* pastel hairline borders */
+  --line-2:      rgba(99,91,168,0.20);
+
+  --brand-a:     #6fa8f5;   /* soft blue */
+  --brand-b:     #9b87f5;   /* pastel purple */
+  --brand-ink:   #7c5fe0;   /* accent text that stays legible on white */
+
+  --ink:         #1a1730;   /* headings — deep indigo charcoal */
+  --text-body:   #565471;   /* body copy — soft slate */
+  --muted:       #8c8aa3;   /* muted labels */
+
+  --shadow-sm:   0 2px 10px rgba(91,77,168,0.06);
+  --shadow-md:   0 10px 30px rgba(91,77,168,0.09);
+  --shadow-lg:   0 24px 60px rgba(91,77,168,0.14);
+}
+
+/* Brand gradient text — pastel purple → soft blue */
 .gradient-text {
-  background: linear-gradient(120deg, #6fa1ff 0%, #8e8bff 50%, #b58bff 100%);
+  background: linear-gradient(120deg, #7c5fe0 0%, #8a7cf0 45%, #5f9bf0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Section backgrounds — subtle navy variation */
+/* Section backgrounds — soft pastel tints that fade into white */
 .section-soft {
-  background: linear-gradient(180deg, #081b3e 0%, #0b2452 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #faf9ff 100%);
 }
 .section-tint {
   background:
-    radial-gradient(ellipse at 50% 0%, rgba(79,134,247,0.12) 0%, transparent 55%),
-    linear-gradient(180deg, #0b2452 0%, #081b3e 100%);
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(155,135,245,0.10) 0%, transparent 60%),
+    linear-gradient(180deg, #faf9ff 0%, #ffffff 100%);
 }
 
-/* ── Cards — navy glass with white accent borders ───────────── */
+/* ── Cards — clean white, thin pastel border, soft shadow ───── */
 .card {
-  background: rgba(255,255,255,0.045);
-  border: 1px solid rgba(255,255,255,0.10);
-  border-radius: 20px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  transition: transform 280ms cubic-bezier(0.22,1,0.36,1), box-shadow 280ms, border-color 280ms, background 280ms;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 300ms cubic-bezier(0.22,1,0.36,1), box-shadow 300ms, border-color 300ms;
 }
 .card:hover {
   transform: translateY(-4px);
-  background: rgba(255,255,255,0.07);
-  border-color: rgba(255,255,255,0.20);
+  border-color: var(--line-2);
   box-shadow: var(--shadow-lg);
 }
 
-/* White accent card — for forms / mockups that should pop */
+/* White accent card — for forms / mockups */
 .card-light {
   background: #ffffff;
-  border: 1px solid rgba(255,255,255,0.5);
-  border-radius: 20px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
   box-shadow: var(--shadow-lg);
 }
 
-/* Glass — translucent navy */
+/* Glass — soft frosted white */
 .glass {
-  background: rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.72);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255,255,255,0.14);
+  border: 1px solid var(--line);
   box-shadow: var(--shadow-md);
 }
 
 /* ── Buttons ────────────────────────────────────────────────── */
-/* Primary = brand gradient (the "blue" hero element) */
+/* Primary = soft pastel blue→purple gradient */
 .btn-primary {
-  background: linear-gradient(135deg, #4f86f7 0%, #7a6ff5 55%, #9b6bf2 100%);
+  background: linear-gradient(135deg, #7fb0f7 0%, #8f86f3 55%, #a78bf5 100%);
   color: #ffffff;
   font-weight: 600;
-  box-shadow: 0 10px 30px rgba(79,134,247,0.35);
+  box-shadow: 0 8px 24px rgba(140,120,235,0.28);
   transition: transform 180ms, box-shadow 180ms, filter 180ms;
 }
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 16px 44px rgba(123,111,245,0.5);
-  filter: brightness(1.08);
+  box-shadow: 0 14px 36px rgba(140,120,235,0.40);
+  filter: brightness(1.03) saturate(1.05);
 }
 
-/* Secondary = white outline (white accent) */
+/* Secondary = white with subtle pastel border */
 .btn-secondary {
-  background: rgba(255,255,255,0.06);
-  color: #ffffff;
-  border: 1px solid rgba(255,255,255,0.25);
+  background: #ffffff;
+  color: #4a4767;
+  border: 1px solid var(--line-2);
   font-weight: 600;
-  transition: transform 180ms, background 180ms, border-color 180ms;
+  box-shadow: var(--shadow-sm);
+  transition: transform 180ms, background 180ms, border-color 180ms, box-shadow 180ms;
 }
 .btn-secondary:hover {
   transform: translateY(-2px);
-  background: rgba(255,255,255,0.12);
-  border-color: rgba(255,255,255,0.45);
+  background: #faf9ff;
+  border-color: rgba(124,95,224,0.45);
+  box-shadow: var(--shadow-md);
 }
 
-/* White solid button (max-contrast CTA option) */
+/* Solid accent button (max-contrast option) */
 .btn-white {
   background: #ffffff;
-  color: #0b2350;
+  color: #4a4767;
   font-weight: 700;
+  border: 1px solid var(--line-2);
   box-shadow: var(--shadow-md);
   transition: transform 180ms, box-shadow 180ms;
 }
@@ -128,7 +136,7 @@ body {
 
 .divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+  background: linear-gradient(90deg, transparent, rgba(99,91,168,0.18), transparent);
 }
 
 /* Eyebrow label */
@@ -138,28 +146,28 @@ body {
   gap: 6px;
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #aebfe6;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.12);
+  color: #7c5fe0;
+  background: rgba(124,95,224,0.08);
+  border: 1px solid rgba(124,95,224,0.16);
   padding: 5px 12px;
   border-radius: 999px;
 }
 
 /* ── Scrollbar ──────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 9px; }
-::-webkit-scrollbar-track { background: #081b3e; }
-::-webkit-scrollbar-thumb { background: #1e3a6e; border-radius: 5px; }
-::-webkit-scrollbar-thumb:hover { background: #2a4d8a; }
+::-webkit-scrollbar-track { background: #f4f3fb; }
+::-webkit-scrollbar-thumb { background: #d8d2f0; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #c3b9ea; }
 
-::selection { background: #7a6ff5; color: #ffffff; }
+::selection { background: rgba(155,135,245,0.28); color: #1a1730; }
 
-/* ── Hero glow ──────────────────────────────────────────────── */
+/* ── Soft glow blobs ────────────────────────────────────────── */
 .hero-glow {
   position: absolute;
   border-radius: 50%;
-  filter: blur(70px);
+  filter: blur(80px);
   pointer-events: none;
 }
 
