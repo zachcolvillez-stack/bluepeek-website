@@ -1,6 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
-import { ArrowRight, MapPin, Check, Zap, MessageSquare, TrendingUp } from 'lucide-react'
+import { ArrowRight, MapPin, Check } from 'lucide-react'
 
 const TRUST = ['Built in Perth', '1–2 Week Turnaround', 'No Lock-In', 'You Own Everything']
 
