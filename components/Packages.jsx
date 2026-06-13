@@ -78,22 +78,22 @@ export default function Packages({ onCTA }) {
                 </span>
               )}
 
-              <h3 className="text-xl font-bold mb-1.5" style={{ color: '#ffffff' }}>{p.name}</h3>
-              <p className="text-sm mb-6" style={{ color: '#9bb0d4' }}>{p.tagline}</p>
+              <h3 className="text-xl font-bold mb-1.5" style={{ color: '#1a1730' }}>{p.name}</h3>
+              <p className="text-sm mb-6" style={{ color: '#8c8aa3' }}>{p.tagline}</p>
 
               {p.hasAI && (
                 <div className="flex items-center gap-2 mb-5 px-3 py-2 rounded-xl"
-                  style={{ background: 'rgba(123,111,245,0.14)', border: '1px solid rgba(123,111,245,0.3)' }}>
-                  <Sparkles size={15} style={{ color: '#c9bcff' }} />
-                  <span className="text-xs font-semibold" style={{ color: '#dcd4ff' }}>Includes 24/7 AI Chatbot</span>
+                  style={{ background: 'rgba(124,95,224,0.08)', border: '1px solid rgba(124,95,224,0.16)' }}>
+                  <Sparkles size={15} style={{ color: '#7c5fe0' }} />
+                  <span className="text-xs font-semibold" style={{ color: '#7c5fe0' }}>Includes 24/7 AI chatbot</span>
                 </div>
               )}
 
               <ul className="space-y-3 mb-8">
                 {p.features.map(f => (
-                  <li key={f} className="flex items-start gap-2.5 text-sm" style={{ color: '#e3ebf9' }}>
+                  <li key={f} className="flex items-start gap-2.5 text-sm" style={{ color: '#565471' }}>
                     <span className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                      style={{ background: 'linear-gradient(135deg, #4f86f7, #9b6bf2)' }}>
+                      style={{ background: 'linear-gradient(135deg, #7fb0f7 0%, #8f86f3 55%, #a78bf5 100%)' }}>
                       <Check size={10} className="text-white" strokeWidth={3} />
                     </span>
                     {f}

@@ -113,9 +113,9 @@ export default function Portfolio() {
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
           viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}
           className="text-center mt-12">
-          <p className="text-sm" style={{ color: '#c2d2ee' }}>
-            Want to be our next case study?{' '}
-            <a href="#contact" className="font-semibold" style={{ color: '#ffffff' }}>Get in touch →</a>
+          <p className="text-sm" style={{ color: '#565471' }}>
+            Want your business to be our next case study?{' '}
+            <a href="#contact" className="font-semibold" style={{ color: '#7c5fe0' }}>Get in touch →</a>
           </p>
         </motion.div>
       </div>
