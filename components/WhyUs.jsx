@@ -9,7 +9,7 @@ export default function WhyUs() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
           <span className="eyebrow">Why Blue Peek</span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#1a1730' }}>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#f4f7fd' }}>
             A premium agency<br />that feels local.
           </h2>
           <p className="text-base md:text-lg max-w-xl mx-auto leading-relaxed" style={{ color: '#565471' }}>
@@ -67,10 +67,10 @@ export default function WhyUs() {
             <svg width="32" height="24" viewBox="0 0 32 24" className="mx-auto md:mx-0 mb-4" style={{ opacity: 0.16 }}>
               <path d="M0 24V12C0 5 4 1 12 0L13 4C8 5 6 8 6 12H12V24H0ZM20 24V12C20 5 24 1 32 0L33 4C28 5 26 8 26 12H32V24H20Z" fill="#7c5fe0"/>
             </svg>
-            <p className="text-lg md:text-xl leading-relaxed font-medium mb-5" style={{ color: '#1a1730' }}>
+            <p className="text-lg md:text-xl leading-relaxed font-medium mb-5" style={{ color: '#f4f7fd' }}>
               I started Blue Peek because too many great local businesses were being held back by poor — or no — websites. Every Perth business deserves an online presence that actually works for them, without paying inflated agency prices or getting locked into contracts.
             </p>
-            <p className="text-xl font-bold" style={{ color: '#1a1730', fontFamily: 'Georgia, serif', fontStyle: 'italic' }}>Zach</p>
+            <p className="text-xl font-bold" style={{ color: '#f4f7fd', fontFamily: 'Georgia, serif', fontStyle: 'italic' }}>Zach</p>
             <p className="text-sm mt-0.5" style={{ color: '#8c8aa3' }}>Founder · Blue Peek · Perth, WA</p>
           </div>
         </motion.div>
@@ -87,7 +87,7 @@ function BentoCard({ icon: Icon, title, body, delay }) {
       <div className="w-11 h-11 rounded-2xl flex items-center justify-center mb-5" style={{ background: 'rgba(124,95,224,0.10)' }}>
         <Icon size={20} style={{ color: '#7c5fe0' }} />
       </div>
-      <h3 className="font-bold mb-2" style={{ color: '#1a1730' }}>{title}</h3>
+      <h3 className="font-bold mb-2" style={{ color: '#f4f7fd' }}>{title}</h3>
       <p className="text-sm leading-relaxed" style={{ color: '#565471' }}>{body}</p>
     </motion.div>
   )
