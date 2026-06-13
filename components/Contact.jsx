@@ -7,10 +7,10 @@ const BLUEPEEK_ENDPOINT = 'https://bumjkwvaeqghjspowkrd.supabase.co/functions/v1
 const CONTACT_EMAIL = 'info@bluepeek.com.au'
 
 const TRUST = [
-  { icon: Gift,        label: 'Free quote, no obligation' },
-  { icon: ShieldCheck, label: 'No pressure, no hard sell' },
-  { icon: MapPin,      label: 'Local Perth support' },
-  { icon: Cpu,         label: 'Website + AI options' },
+  { icon: Gift,        label: 'Free, no-obligation quote' },
+  { icon: ShieldCheck, label: 'Straight answers, no hard sell' },
+  { icon: MapPin,      label: 'Local Perth team' },
+  { icon: Cpu,         label: 'Websites and automation' },
 ]
 
 export default function Contact() {
