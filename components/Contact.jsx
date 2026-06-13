@@ -110,8 +110,8 @@ export default function Contact() {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs mb-1.5 font-semibold" style={{ color: '#46566f' }}>Email *</label>
-                  <input required type="email" className={inp} style={inpStyle} placeholder="john@business.com.au"
+                  <label className="block text-xs mb-1.5 font-semibold" style={{ color: '#565471' }}>Email *</label>
+                  <input required type="email" className={inp} style={inpStyle} placeholder="john@business.com.au" onFocus={onFocus} onBlur={onBlur}
                     value={form.email} onChange={e => set('email', e.target.value)} />
                 </div>
                 <div>
