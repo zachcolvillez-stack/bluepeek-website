@@ -38,17 +38,17 @@ export default function HowItWorks() {
               >
                 <div className="relative inline-flex items-center justify-center mb-5">
                   <div className="rounded-2xl flex items-center justify-center"
-                    style={{ width: '72px', height: '72px', background: 'linear-gradient(135deg, #4f86f7, #9b6bf2)', boxShadow: '0 12px 28px rgba(123,111,245,0.4)' }}>
+                    style={{ width: '72px', height: '72px', background: 'linear-gradient(135deg, #7fb0f7 0%, #8f86f3 55%, #a78bf5 100%)', boxShadow: '0 12px 28px rgba(140,120,235,0.28)' }}>
                     <step.icon size={26} className="text-white" />
                   </div>
                   <span className="absolute -top-2 -right-1 w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-bold"
-                    style={{ background: '#081b3e', color: '#ffffff', border: '1.5px solid rgba(123,111,245,0.6)' }}>
+                    style={{ background: '#ffffff', color: '#7c5fe0', border: '1.5px solid rgba(99,91,168,0.20)' }}>
                     {step.number}
                   </span>
                 </div>
 
-                <h3 className="text-lg font-bold mb-2.5" style={{ color: '#ffffff' }}>{step.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: '#c2d2ee' }}>{step.description}</p>
+                <h3 className="text-lg font-bold mb-2.5" style={{ color: '#1a1730' }}>{step.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: '#565471' }}>{step.description}</p>
               </motion.div>
             ))}
           </div>
