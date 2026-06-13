@@ -12,7 +12,7 @@ export default function WhyUs() {
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#f4f7fd' }}>
             A premium agency<br />that feels local.
           </h2>
-          <p className="text-base md:text-lg max-w-xl mx-auto leading-relaxed" style={{ color: '#565471' }}>
+          <p className="text-base md:text-lg max-w-xl mx-auto leading-relaxed" style={{ color: '#aab3c9' }}>
             Big-agency quality without the big-agency runaround. Here’s what makes Blue Peek different.
           </p>
         </motion.div>
@@ -88,7 +88,7 @@ function BentoCard({ icon: Icon, title, body, delay }) {
         <Icon size={20} style={{ color: '#7c5fe0' }} />
       </div>
       <h3 className="font-bold mb-2" style={{ color: '#f4f7fd' }}>{title}</h3>
-      <p className="text-sm leading-relaxed" style={{ color: '#565471' }}>{body}</p>
+      <p className="text-sm leading-relaxed" style={{ color: '#aab3c9' }}>{body}</p>
     </motion.div>
   )
 }
