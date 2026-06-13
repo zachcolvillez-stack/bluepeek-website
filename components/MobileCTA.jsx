@@ -29,10 +29,7 @@ export default function MobileCTA({ onCTA }) {
       style={{
         transform: show ? 'translateY(0)' : 'translateY(120%)',
         opacity: show ? 1 : 0,
-        background: 'rgba(255,255,255,0.85)',
-        backdropFilter: 'blur(16px)',
-        WebkitBackdropFilter: 'blur(16px)',
-        borderTop: '1px solid #e4eaf3',
+        background: 'transparent',
       }}
     >
       <button
