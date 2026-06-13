@@ -1,46 +1,48 @@
 'use client'
 
 /**
- * Premium navy background — deep blue base with subtle brand-gradient
- * glows and a faint grid. Sits behind all content, never blocks clicks.
+ * Light, minimal background — mostly white with soft pastel purple/blue
+ * glows that fade naturally into the page. Sits behind all content.
  */
 export default function SceneBackground() {
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden" style={{ background: '#081b3e' }}>
-      {/* Faint grid for texture */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage:
-            'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
-          backgroundSize: '64px 64px',
-          opacity: 0.7,
-        }}
-      />
-
-      {/* Brand-blue glow — top right */}
+    <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden" style={{ background: '#ffffff' }}>
+      {/* Soft blue glow — top right */}
       <div
         className="absolute"
         style={{
-          top: '-160px',
-          right: '-100px',
-          width: '640px',
-          height: '640px',
-          background: 'radial-gradient(circle, rgba(79,134,247,0.18) 0%, transparent 68%)',
-          filter: 'blur(60px)',
-        }}
-      />
-
-      {/* Brand-purple glow — bottom left */}
-      <div
-        className="absolute"
-        style={{
-          bottom: '-200px',
-          left: '-160px',
-          width: '600px',
-          height: '600px',
-          background: 'radial-gradient(circle, rgba(155,107,242,0.14) 0%, transparent 70%)',
+          top: '-200px',
+          right: '-140px',
+          width: '720px',
+          height: '720px',
+          background: 'radial-gradient(circle, rgba(125,179,250,0.16) 0%, transparent 66%)',
           filter: 'blur(70px)',
+        }}
+      />
+
+      {/* Pastel purple glow — mid left */}
+      <div
+        className="absolute"
+        style={{
+          top: '38%',
+          left: '-220px',
+          width: '660px',
+          height: '660px',
+          background: 'radial-gradient(circle, rgba(155,135,245,0.14) 0%, transparent 68%)',
+          filter: 'blur(80px)',
+        }}
+      />
+
+      {/* Faint lavender wash — bottom */}
+      <div
+        className="absolute"
+        style={{
+          bottom: '-260px',
+          right: '8%',
+          width: '700px',
+          height: '700px',
+          background: 'radial-gradient(circle, rgba(180,165,250,0.10) 0%, transparent 70%)',
+          filter: 'blur(90px)',
         }}
       />
     </div>
