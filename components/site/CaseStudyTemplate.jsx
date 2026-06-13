@@ -36,17 +36,17 @@ export default function CaseStudyTemplate({ breadcrumb = [], study, content, rel
         {/* Live screenshot */}
         <section className="relative max-w-4xl mx-auto px-6 mb-12">
           <a href={study.url} target="_blank" rel="noopener noreferrer" className="card group block overflow-hidden">
-            <div className="flex items-center gap-1.5 px-4 py-2.5" style={{ background: 'rgba(255,255,255,0.06)', borderBottom: '1px solid rgba(255,255,255,0.10)' }}>
-              <div className="w-2.5 h-2.5 rounded-full" style={{ background: 'rgba(255,255,255,0.25)' }} />
-              <div className="w-2.5 h-2.5 rounded-full" style={{ background: 'rgba(255,255,255,0.25)' }} />
-              <div className="w-2.5 h-2.5 rounded-full" style={{ background: 'rgba(255,255,255,0.25)' }} />
+            <div className="flex items-center gap-1.5 px-4 py-2.5" style={{ background: '#f4f3fb', borderBottom: '1px solid rgba(99,91,168,0.12)' }}>
+              <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#d8d2f0' }} />
+              <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#d8d2f0' }} />
+              <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#d8d2f0' }} />
               <div className="flex-1 mx-3 px-3 py-0.5 text-[10px] rounded text-center font-mono truncate"
-                style={{ background: 'rgba(0,0,0,0.2)', color: '#aebfe6' }}>
+                style={{ background: '#ffffff', color: '#8c8aa3', border: '1px solid rgba(99,91,168,0.12)' }}>
                 {study.url.replace('https://', '').replace('www.', '')}
               </div>
-              <ExternalLink size={12} style={{ color: '#8ba0c6' }} />
+              <ExternalLink size={12} style={{ color: '#8c8aa3' }} />
             </div>
-            <div className="relative aspect-[16/9] overflow-hidden" style={{ background: '#0e2a5e' }}>
+            <div className="relative aspect-[16/9] overflow-hidden" style={{ background: '#f4f3fb' }}>
               <img src={study.image} alt={`${study.title} website homepage built by Bluepeek`}
                 className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
             </div>
