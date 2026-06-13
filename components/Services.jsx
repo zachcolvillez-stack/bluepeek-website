@@ -44,10 +44,10 @@ export default function Services() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
           <span className="eyebrow">What We Do</span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#1a1730' }}>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#f4f7fd' }}>
             Everything your business<br />needs to grow online.
           </h2>
-          <p className="text-base md:text-lg max-w-xl mx-auto leading-relaxed" style={{ color: '#565471' }}>
+          <p className="text-base md:text-lg max-w-xl mx-auto leading-relaxed" style={{ color: '#aab3c9' }}>
             From a professional website to AI that captures every lead, Blue Peek handles the digital side so you can focus on the work.
           </p>
         </motion.div>
@@ -58,7 +58,7 @@ export default function Services() {
               initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.08 }}
               className="card p-8 relative overflow-hidden"
-              style={s.featured ? { borderColor: 'rgba(99,91,168,0.20)' } : {}}
+              style={s.featured ? { borderColor: 'rgba(159,182,255,0.30)' } : {}}
             >
               {s.featured && (
                 <div className="absolute top-0 left-0 right-0 h-1" style={{ background: 'linear-gradient(135deg, #7fb0f7 0%, #8f86f3 55%, #a78bf5 100%)' }} />
@@ -67,24 +67,24 @@ export default function Services() {
               <div className="flex items-start justify-between mb-6">
                 <div className="w-12 h-12 rounded-2xl flex items-center justify-center"
                   style={s.featured
-                    ? { background: 'linear-gradient(135deg, #7fb0f7 0%, #8f86f3 55%, #a78bf5 100%)', boxShadow: '0 8px 20px rgba(140,120,235,0.28)' }
-                    : { background: 'rgba(124,95,224,0.10)' }}>
-                  <s.icon size={22} className={s.featured ? 'text-white' : ''} style={s.featured ? {} : { color: '#7c5fe0' }} />
+                    ? { background: 'linear-gradient(135deg, #7fb0f7 0%, #8f86f3 55%, #a78bf5 100%)', boxShadow: '0 8px 20px rgba(120,140,255,0.35)' }
+                    : { background: 'rgba(159,182,255,0.12)' }}>
+                  <s.icon size={22} className={s.featured ? 'text-white' : ''} style={s.featured ? {} : { color: '#9fb6ff' }} />
                 </div>
                 <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full"
                   style={s.featured
-                    ? { background: 'rgba(124,95,224,0.08)', color: '#7c5fe0', border: '1px solid rgba(124,95,224,0.16)' }
-                    : { background: 'rgba(124,95,224,0.08)', color: '#8c8aa3' }}>
+                    ? { background: 'rgba(159,182,255,0.12)', color: '#9fb6ff', border: '1px solid rgba(159,182,255,0.24)' }
+                    : { background: 'rgba(255,255,255,0.06)', color: '#7e889f' }}>
                   {s.tag}
                 </span>
               </div>
 
-              <h3 className="text-xl font-bold mb-2.5" style={{ color: '#1a1730' }}>{s.title}</h3>
-              <p className="text-sm leading-relaxed mb-6" style={{ color: '#565471' }}>{s.description}</p>
+              <h3 className="text-xl font-bold mb-2.5" style={{ color: '#f4f7fd' }}>{s.title}</h3>
+              <p className="text-sm leading-relaxed mb-6" style={{ color: '#aab3c9' }}>{s.description}</p>
 
               <ul className="space-y-2.5">
                 {s.points.map(p => (
-                  <li key={p} className="flex items-center gap-3 text-sm" style={{ color: '#565471' }}>
+                  <li key={p} className="flex items-center gap-3 text-sm" style={{ color: '#aab3c9' }}>
                     <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: 'linear-gradient(135deg, #7fb0f7 0%, #8f86f3 55%, #a78bf5 100%)' }} />
                     {p}
                   </li>
@@ -97,7 +97,7 @@ export default function Services() {
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
           viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }}
           className="text-center mt-12">
-          <a href="#contact" className="inline-flex items-center gap-2 font-semibold text-sm group" style={{ color: '#7c5fe0' }}>
+          <a href="#contact" className="inline-flex items-center gap-2 font-semibold text-sm group" style={{ color: '#9fb6ff' }}>
             Not sure what you need? Get a free quote
             <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
           </a>
