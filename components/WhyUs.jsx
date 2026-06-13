@@ -71,7 +71,7 @@ export default function WhyUs() {
               I started Blue Peek because too many great local businesses were being held back by poor — or no — websites. Every Perth business deserves an online presence that actually works for them, without paying inflated agency prices or getting locked into contracts.
             </p>
             <p className="text-xl font-bold" style={{ color: '#f4f7fd', fontFamily: 'Georgia, serif', fontStyle: 'italic' }}>Zach</p>
-            <p className="text-sm mt-0.5" style={{ color: '#8c8aa3' }}>Founder · Blue Peek · Perth, WA</p>
+            <p className="text-sm mt-0.5" style={{ color: '#7e889f' }}>Founder · Blue Peek · Perth, WA</p>
           </div>
         </motion.div>
       </div>
