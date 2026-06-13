@@ -27,7 +27,7 @@ export default function HowItWorks() {
         <div className="relative">
           {/* Connecting timeline (desktop) */}
           <div className="hidden lg:block absolute top-9 left-[12.5%] right-[12.5%] h-0.5"
-            style={{ background: 'linear-gradient(90deg, transparent, rgba(123,111,245,0.5) 15%, rgba(123,111,245,0.5) 85%, transparent)' }} />
+            style={{ background: 'linear-gradient(90deg, transparent, rgba(155,135,245,0.35) 15%, rgba(155,135,245,0.35) 85%, transparent)' }} />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {STEPS.map((step, i) => (
