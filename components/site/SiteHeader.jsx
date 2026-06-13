@@ -34,9 +34,9 @@ export default function SiteHeader() {
         <div className="hidden md:flex items-center gap-1">
           {links.map(l => (
             <a key={l.label} href={l.href}
-              className="text-sm font-medium transition-colors px-4 py-2 rounded-lg" style={{ color: '#aebfe6' }}
-              onMouseEnter={(e) => e.currentTarget.style.color = '#ffffff'}
-              onMouseLeave={(e) => e.currentTarget.style.color = '#aebfe6'}>
+              className="text-sm font-medium transition-colors px-4 py-2 rounded-lg" style={{ color: '#4a4767' }}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#1a1730'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#4a4767'}>
               {l.label}
             </a>
           ))}
