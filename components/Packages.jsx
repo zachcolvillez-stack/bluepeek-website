@@ -32,7 +32,7 @@ const PACKAGES = [
   },
   {
     name: 'Scale',
-    tagline: 'Full system built to grow your business.',
+    tagline: 'A complete system built to grow with your business.',
     features: [
       'Everything in Growth',
       '8+ pages & landing pages',
