@@ -73,7 +73,7 @@ export default function Packages({ onCTA }) {
             >
               {p.popular && (
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full text-white"
-                  style={{ background: 'linear-gradient(135deg, #4f86f7, #9b6bf2)', boxShadow: '0 6px 16px rgba(123,111,245,0.5)' }}>
+                  style={{ background: 'linear-gradient(135deg, #7fb0f7 0%, #8f86f3 55%, #a78bf5 100%)', boxShadow: '0 6px 16px rgba(140,120,235,0.28)' }}>
                   Most Popular
                 </span>
               )}
