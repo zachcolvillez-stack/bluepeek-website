@@ -21,7 +21,7 @@ export default function FAQ() {
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#f4f7fd' }}>
             Questions, answered.
           </h2>
-          <p className="text-base md:text-lg" style={{ color: '#565471' }}>
+          <p className="text-base md:text-lg" style={{ color: '#aab3c9' }}>
             The things Perth business owners usually ask Blue Peek before getting started.
           </p>
         </motion.div>
@@ -33,7 +33,7 @@ export default function FAQ() {
                 {f.q}
                 <ChevronRight size={18} className="transition-transform group-open:rotate-90 flex-shrink-0 ml-3" style={{ color: '#8c8aa3' }} />
               </summary>
-              <p className="text-sm leading-relaxed mt-3" style={{ color: '#565471' }}>{f.a}</p>
+              <p className="text-sm leading-relaxed mt-3" style={{ color: '#aab3c9' }}>{f.a}</p>
             </details>
           ))}
         </div>
