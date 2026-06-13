@@ -47,7 +47,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en-AU" suppressHydrationWarning>
+    <html lang="en-AU" className={`${inter.variable} ${jakarta.variable}`} suppressHydrationWarning>
       <body suppressHydrationWarning>
         {children}
         <JsonLd data={organizationSchema()} />
