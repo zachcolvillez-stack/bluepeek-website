@@ -48,7 +48,7 @@ export default function Hero({ onCTA }) {
             {TRUST.map(t => (
               <div key={t} className="flex items-center gap-2">
                 <span className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
-                  style={{ background: 'linear-gradient(135deg, #4f86f7, #9b6bf2)' }}>
+                  style={{ background: 'linear-gradient(135deg, #7fb0f7, #a78bf5)' }}>
                   <Check size={11} className="text-white" strokeWidth={3} />
                 </span>
                 <span className="text-sm font-medium" style={{ color: '#c2d2ee' }}>{t}</span>
@@ -80,7 +80,7 @@ export default function Hero({ onCTA }) {
               <div className="h-2 w-full rounded-full mb-1.5" style={{ background: '#e4eaf3' }} />
               <div className="h-2 w-5/6 rounded-full mb-5" style={{ background: '#e4eaf3' }} />
               <div className="flex gap-2 mb-6">
-                <div className="h-8 w-28 rounded-lg" style={{ background: 'linear-gradient(135deg, #4f86f7, #9b6bf2)' }} />
+                <div className="h-8 w-28 rounded-lg" style={{ background: 'linear-gradient(135deg, #7fb0f7, #a78bf5)' }} />
                 <div className="h-8 w-24 rounded-lg" style={{ background: '#ffffff', border: '1px solid #d4deec' }} />
               </div>
               <div className="grid grid-cols-3 gap-2">
@@ -99,7 +99,7 @@ export default function Hero({ onCTA }) {
           <div className="absolute -left-8 top-20 card-light float-soft-delay p-3.5 w-52" style={{ borderRadius: '16px' }}>
             <div className="flex items-center gap-2.5">
               <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-                style={{ background: 'linear-gradient(135deg, #4f86f7, #9b6bf2)' }}>
+                style={{ background: 'linear-gradient(135deg, #7fb0f7, #a78bf5)' }}>
                 <MessageSquare size={16} className="text-white" />
               </div>
               <div className="min-w-0">
