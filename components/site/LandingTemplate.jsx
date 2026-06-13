@@ -43,8 +43,8 @@ export default function LandingTemplate({ breadcrumb = [], eyebrow, h1, lead, se
         {/* Hero */}
         <section className="relative max-w-4xl mx-auto px-6 pb-12">
           <span className="eyebrow">{eyebrow}</span>
-          <h1 className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.1] mt-5 mb-5" style={{ color: '#ffffff' }}>{h1}</h1>
-          <p className="text-base md:text-lg leading-relaxed max-w-2xl mb-8" style={{ color: '#c2d2ee' }}>{lead}</p>
+          <h1 className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.1] mt-5 mb-5" style={{ color: '#1a1730' }}>{h1}</h1>
+          <p className="text-base md:text-lg leading-relaxed max-w-2xl mb-8" style={{ color: '#565471' }}>{lead}</p>
           <div className="flex flex-col sm:flex-row gap-3">
             <a href="/#contact" className="group btn-primary inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-sm">
               Get a Free Quote <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
