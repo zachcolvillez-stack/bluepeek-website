@@ -61,11 +61,12 @@ export default function Hero({ onCTA }) {
         <motion.div initial={{ opacity: 0, scale: 0.96, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="relative hidden lg:block">
-          <div className="relative w-full" style={{ aspectRatio: '4 / 3' }}>
+          <div className="float-soft w-full overflow-hidden"
+            style={{ aspectRatio: '1 / 1', borderRadius: '24px', boxShadow: 'var(--shadow-lg)', border: '1px solid rgba(99,91,168,0.10)' }}>
             <img
               src="/hero-desk.png"
-              alt="Laptop on a desk displaying a custom Blue Peek website"
-              className="w-full h-full object-contain float-soft"
+              alt="Laptop on a desk displaying a custom Blue Peek website showing a portfolio layout"
+              className="w-full h-full object-cover"
             />
           </div>
         </motion.div>
