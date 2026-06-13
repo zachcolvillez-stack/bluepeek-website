@@ -36,7 +36,6 @@ export default function Home() {
         <Services />
         <Packages onCTA={goTo} />
         <Portfolio />
-        <Gallery />
         <HowItWorks />
         <Testimonials />
         <WhyUs />
