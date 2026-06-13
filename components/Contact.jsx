@@ -129,7 +129,7 @@ export default function Contact() {
 
               {status === 'error' && (
                 <div className="flex items-center gap-2 px-4 py-3 rounded-lg text-sm"
-                  style={{ background: '#fef2f2', border: '1px solid #fecaca', color: '#dc2626' }}>
+                  style={{ background: 'rgba(220,38,38,0.12)', border: '1px solid rgba(248,113,113,0.35)', color: '#fca5a5' }}>
                   <AlertCircle size={16} />
                   Something went wrong. Please try again or email us directly.
                 </div>
