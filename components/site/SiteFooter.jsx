@@ -5,7 +5,7 @@ import { SITE, SERVICES, INDUSTRIES, u } from '../../lib/site'
 /* Rich footer with sitewide internal links — used across all pages. */
 export default function SiteFooter() {
   return (
-    <footer className="relative px-6 pt-16 pb-10" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #f4f3fb 100%)', borderTop: '1px solid rgba(99,91,168,0.12)' }}>
+    <footer className="relative px-6 pt-16 pb-10" style={{ background: 'linear-gradient(180deg, #0a0e1a 0%, #080b14 100%)', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-4 gap-10 pb-10" style={{ borderBottom: '1px solid rgba(99,91,168,0.12)' }}>
           {/* Brand */}
