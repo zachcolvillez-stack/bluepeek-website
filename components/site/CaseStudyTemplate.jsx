@@ -1,3 +1,4 @@
+'use client'
 import Link from 'next/link'
 import { ArrowRight, Check, ChevronRight, ExternalLink } from 'lucide-react'
 import SiteHeader from './SiteHeader'

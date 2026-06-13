@@ -1,3 +1,4 @@
+'use client'
 import Link from 'next/link'
 import { Mail, MapPin } from 'lucide-react'
 import { SITE, SERVICES, INDUSTRIES, u } from '../../lib/site'
