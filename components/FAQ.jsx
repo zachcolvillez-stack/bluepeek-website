@@ -18,11 +18,11 @@ export default function FAQ() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12">
           <span className="eyebrow">FAQ</span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#ffffff' }}>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#1a1730' }}>
             Questions, answered.
           </h2>
-          <p className="text-base md:text-lg" style={{ color: '#c2d2ee' }}>
-            Everything Perth business owners usually ask before getting started.
+          <p className="text-base md:text-lg" style={{ color: '#565471' }}>
+            The things Perth business owners usually ask Blue Peek before getting started.
           </p>
         </motion.div>
 

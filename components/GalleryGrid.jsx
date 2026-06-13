@@ -13,24 +13,24 @@ export default function GalleryGrid({ sites = [] }) {
           className="card group overflow-hidden text-left flex flex-col"
         >
           {/* Browser chrome bar */}
-          <div className="flex items-center gap-1.5 px-4 py-2.5" style={{ background: 'rgba(255,255,255,0.06)', borderBottom: '1px solid rgba(255,255,255,0.10)' }}>
-            <div className="w-2.5 h-2.5 rounded-full" style={{ background: 'rgba(255,255,255,0.25)' }} />
-            <div className="w-2.5 h-2.5 rounded-full" style={{ background: 'rgba(255,255,255,0.25)' }} />
-            <div className="w-2.5 h-2.5 rounded-full" style={{ background: 'rgba(255,255,255,0.25)' }} />
+          <div className="flex items-center gap-1.5 px-4 py-2.5" style={{ background: '#f4f3fb', borderBottom: '1px solid rgba(99,91,168,0.12)' }}>
+            <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#d8d2f0' }} />
+            <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#d8d2f0' }} />
+            <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#d8d2f0' }} />
             <div className="flex-1 mx-3 px-3 py-0.5 text-[10px] rounded text-center font-mono truncate"
-              style={{ background: 'rgba(0,0,0,0.2)', color: '#aebfe6', border: '1px solid rgba(255,255,255,0.08)' }}>
+              style={{ background: '#ffffff', color: '#8c8aa3', border: '1px solid rgba(99,91,168,0.12)' }}>
               {c.url.replace(/^https?:\/\/(www\.)?/, '')}
             </div>
-            <ExternalLink size={12} style={{ color: '#8ba0c6' }} />
+            <ExternalLink size={12} style={{ color: '#8c8aa3' }} />
           </div>
 
           {/* Screenshot */}
-          <div className="relative aspect-[16/10] overflow-hidden" style={{ background: '#0e2a5e' }}>
+          <div className="relative aspect-[16/10] overflow-hidden" style={{ background: '#f4f3fb' }}>
             <img src={c.image} alt={`${c.title} — ${c.industry} website in ${c.location} built by Bluepeek`}
               className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
               onError={(e) => { e.currentTarget.style.display = 'none' }} />
             <span className="absolute top-3 right-3 text-xs font-semibold px-2.5 py-1 rounded-full"
-              style={{ background: 'rgba(8,27,62,0.85)', color: '#ffffff', border: '1px solid rgba(255,255,255,0.2)', backdropFilter: 'blur(8px)' }}>
+              style={{ background: 'rgba(124,95,224,0.10)', color: '#7c5fe0', border: '1px solid rgba(124,95,224,0.20)', backdropFilter: 'blur(8px)' }}>
               {c.industry}
             </span>
           </div>
@@ -38,10 +38,10 @@ export default function GalleryGrid({ sites = [] }) {
           {/* Caption */}
           <div className="px-5 py-4 flex items-center justify-between gap-3">
             <div>
-              <h3 className="text-sm font-bold" style={{ color: '#ffffff' }}>{c.title}</h3>
-              <p className="text-xs" style={{ color: '#8ba0c6' }}>{c.location}</p>
+              <h3 className="text-sm font-bold" style={{ color: '#1a1730' }}>{c.title}</h3>
+              <p className="text-xs" style={{ color: '#8c8aa3' }}>{c.location}</p>
             </div>
-            <span className="inline-flex items-center gap-1.5 text-xs font-medium whitespace-nowrap" style={{ color: '#aebfe6' }}>
+            <span className="inline-flex items-center gap-1.5 text-xs font-medium whitespace-nowrap" style={{ color: '#7c5fe0' }}>
               Visit <ExternalLink size={12} />
             </span>
           </div>
