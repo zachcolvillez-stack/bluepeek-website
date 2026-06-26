@@ -69,7 +69,7 @@ export default function LandingTemplate({ breadcrumb = [], eyebrow, h1, lead, se
                   {s.bullets.map((b, k) => (
                     <li key={k} className="flex items-start gap-3 text-base" style={{ color: '#565471' }}>
                       <span className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                        style={{ background: 'linear-gradient(135deg, #7fb0f7 0%, #8f86f3 55%, #a78bf5 100%)' }}>
+                        style={{ background: 'linear-gradient(135deg, #16335c 0%, #0c1c34 100%)' }}>
                         <Check size={11} className="text-white" strokeWidth={3} />
                       </span>
                       {b}
