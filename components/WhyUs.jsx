@@ -84,11 +84,11 @@ function BentoCard({ icon: Icon, title, body, delay }) {
     <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }} transition={{ duration: 0.5, delay }}
       className="card p-7">
-      <div className="w-11 h-11 rounded-2xl flex items-center justify-center mb-5" style={{ background: 'rgba(159,182,255,0.12)' }}>
-        <Icon size={20} style={{ color: '#9fb6ff' }} />
+      <div className="w-11 h-11 rounded-2xl flex items-center justify-center mb-5" style={{ background: 'rgba(47,95,208,0.09)' }}>
+        <Icon size={20} style={{ color: '#16335c' }} />
       </div>
-      <h3 className="font-bold mb-2" style={{ color: '#f4f7fd' }}>{title}</h3>
-      <p className="text-sm leading-relaxed" style={{ color: '#aab3c9' }}>{body}</p>
+      <h3 className="font-bold mb-2" style={{ color: '#0c1c34' }}>{title}</h3>
+      <p className="text-sm leading-relaxed" style={{ color: '#475569' }}>{body}</p>
     </motion.div>
   )
 }
