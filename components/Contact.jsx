@@ -55,7 +55,7 @@ export default function Contact() {
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#0c1c34' }}>
             Let’s build a website your business is proud of.
           </h2>
-          <p className="text-base md:text-lg leading-relaxed mb-8" style={{ color: '#aab3c9' }}>
+          <p className="text-base md:text-lg leading-relaxed mb-8" style={{ color: '#475569' }}>
             Tell us a little about your business and we’ll reply within one business day with clear, honest advice — whether you need a new website, smarter automation, or both.
           </p>
 
@@ -66,7 +66,7 @@ export default function Contact() {
                   style={{ background: 'rgba(159,182,255,0.12)' }}>
                   <t.icon size={16} style={{ color: '#9fb6ff' }} />
                 </span>
-                <span className="text-sm font-medium" style={{ color: '#aab3c9' }}>{t.label}</span>
+                <span className="text-sm font-medium" style={{ color: '#475569' }}>{t.label}</span>
               </div>
             ))}
           </div>
@@ -89,7 +89,7 @@ export default function Contact() {
                 <CheckCircle size={28} style={{ color: '#9fb6ff' }} />
               </div>
               <h3 className="text-xl font-bold mb-2" style={{ color: '#0c1c34' }}>Thanks — we’ve got it.</h3>
-              <p className="mb-6" style={{ color: '#aab3c9' }}>We’ll be in touch within one business day.</p>
+              <p className="mb-6" style={{ color: '#475569' }}>We’ll be in touch within one business day.</p>
               <button onClick={() => setStatus('idle')} className="text-sm font-semibold" style={{ color: '#9fb6ff' }}>
                 Send another enquiry
               </button>
@@ -98,30 +98,30 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs mb-1.5 font-semibold" style={{ color: '#aab3c9' }}>Your Name *</label>
+                  <label className="block text-xs mb-1.5 font-semibold" style={{ color: '#475569' }}>Your Name *</label>
                   <input required className={inp} style={inpStyle} placeholder="John Smith" onFocus={onFocus} onBlur={onBlur}
                     value={form.name} onChange={e => set('name', e.target.value)} />
                 </div>
                 <div>
-                  <label className="block text-xs mb-1.5 font-semibold" style={{ color: '#aab3c9' }}>Business Name *</label>
+                  <label className="block text-xs mb-1.5 font-semibold" style={{ color: '#475569' }}>Business Name *</label>
                   <input required className={inp} style={inpStyle} placeholder="Smith Plumbing" onFocus={onFocus} onBlur={onBlur}
                     value={form.business} onChange={e => set('business', e.target.value)} />
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs mb-1.5 font-semibold" style={{ color: '#aab3c9' }}>Email *</label>
+                  <label className="block text-xs mb-1.5 font-semibold" style={{ color: '#475569' }}>Email *</label>
                   <input required type="email" className={inp} style={inpStyle} placeholder="john@business.com.au" onFocus={onFocus} onBlur={onBlur}
                     value={form.email} onChange={e => set('email', e.target.value)} />
                 </div>
                 <div>
-                  <label className="block text-xs mb-1.5 font-semibold" style={{ color: '#aab3c9' }}>Phone</label>
+                  <label className="block text-xs mb-1.5 font-semibold" style={{ color: '#475569' }}>Phone</label>
                   <input type="tel" className={inp} style={inpStyle} placeholder="04xx xxx xxx" onFocus={onFocus} onBlur={onBlur}
                     value={form.phone} onChange={e => set('phone', e.target.value)} />
                 </div>
               </div>
               <div>
-                <label className="block text-xs mb-1.5 font-semibold" style={{ color: '#aab3c9' }}>Tell us about your business</label>
+                <label className="block text-xs mb-1.5 font-semibold" style={{ color: '#475569' }}>Tell us about your business</label>
                 <textarea rows={4} className={inp + ' resize-none'} style={inpStyle} onFocus={onFocus} onBlur={onBlur}
                   placeholder="What do you do, do you have a website already, and what would you like it to achieve?"
                   value={form.message} onChange={e => set('message', e.target.value)} />
