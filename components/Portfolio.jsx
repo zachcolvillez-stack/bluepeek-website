@@ -46,63 +46,104 @@ const PROJECTS = [
   },
 ]
 
-export default function Portfolio() {
+function BrowserChrome({ domain }) {
   return (
-    <section id="work" className="relative py-28 px-6">
+    <div className="flex items-center gap-1.5 px-4 py-2.5" style={{ background: '#f7f9fc', borderBottom: '1px solid rgba(12,28,52,0.08)' }}>
+      <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#d4dcea' }} />
+      <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#d4dcea' }} />
+      <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#d4dcea' }} />
+      <div className="flex-1 mx-3 px-3 py-0.5 text-[10px] rounded text-center font-mono truncate"
+        style={{ background: '#ffffff', color: '#7e8aa0', border: '1px solid rgba(12,28,52,0.08)' }}>
+        {domain}
+      </div>
+      <ExternalLink size={12} style={{ color: '#a9b6c8' }} />
+    </div>
+  )
+}
+
+function IndustryTag({ children }) {
+  return (
+    <span className="absolute top-3 right-3 text-xs font-semibold px-2.5 py-1 rounded-full"
+      style={{ background: 'rgba(255,255,255,0.92)', color: '#0c1c34', border: '1px solid rgba(12,28,52,0.10)', backdropFilter: 'blur(8px)' }}>
+      {children}
+    </span>
+  )
+}
+
+export default function Portfolio() {
+  const [featured, ...rest] = PROJECTS
+  return (
+    <section id="work" className="section-soft relative py-28 px-6">
       <div className="max-w-6xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
           <span className="eyebrow">Our Work</span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#f4f7fd' }}>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#0c1c34' }}>
             Real local businesses,<br />live and online.
           </h2>
-          <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: '#aab3c9' }}>
+          <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: '#475569' }}>
             A selection of recent websites Blue Peek has built — click through to see each one live.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {PROJECTS.map((p, i) => (
+        {/* Featured project — large, two-column */}
+        <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.6 }}
+          className="card group overflow-hidden grid md:grid-cols-2 mb-6">
+          <a href={featured.url} target="_blank" rel="noopener noreferrer" className="block order-1 md:order-none">
+            <BrowserChrome domain={featured.domain} />
+            <div className="relative aspect-[16/11] md:h-full overflow-hidden" style={{ background: '#eff4fb' }}>
+              <img src={featured.image} alt={`${featured.title} — ${featured.industry} website built by Blue Peek`}
+                className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                onError={(e) => { e.currentTarget.style.display = 'none' }} />
+              <IndustryTag>{featured.industry}</IndustryTag>
+            </div>
+          </a>
+          <div className="p-8 md:p-10 flex flex-col justify-center">
+            <span className="text-[11px] font-bold uppercase tracking-wider mb-3" style={{ color: '#1b3c70' }}>Featured Project</span>
+            <h3 className="text-2xl font-bold mb-1.5" style={{ color: '#0c1c34' }}>{featured.title}</h3>
+            <p className="text-sm font-medium mb-4" style={{ color: '#2f5fd0' }}>{featured.location}</p>
+            <p className="text-base leading-relaxed mb-6" style={{ color: '#475569' }}>{featured.description}</p>
+            <div className="flex items-center gap-4">
+              <Link href={featured.caseStudy} className="inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: '#0c1c34' }}>
+                View case study <ArrowUpRight size={15} />
+              </Link>
+              <a href={featured.url} target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm font-medium" style={{ color: '#7e8aa0' }}>
+                Visit site <ExternalLink size={13} />
+              </a>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Remaining projects */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {rest.map((p, i) => (
             <motion.div key={p.title}
               initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.08 }}
               className="card group overflow-hidden text-left flex flex-col"
             >
-              {/* Screenshot → opens live site */}
               <a href={p.url} target="_blank" rel="noopener noreferrer" className="block">
-                <div className="flex items-center gap-1.5 px-4 py-2.5" style={{ background: 'rgba(255,255,255,0.04)', borderBottom: '1px solid rgba(255,255,255,0.09)' }}>
-                  <div className="w-2.5 h-2.5 rounded-full" style={{ background: 'rgba(255,255,255,0.18)' }} />
-                  <div className="w-2.5 h-2.5 rounded-full" style={{ background: 'rgba(255,255,255,0.18)' }} />
-                  <div className="w-2.5 h-2.5 rounded-full" style={{ background: 'rgba(255,255,255,0.18)' }} />
-                  <div className="flex-1 mx-3 px-3 py-0.5 text-[10px] rounded text-center font-mono truncate"
-                    style={{ background: 'rgba(255,255,255,0.05)', color: '#7e889f', border: '1px solid rgba(255,255,255,0.09)' }}>
-                    {p.domain}
-                  </div>
-                  <ExternalLink size={12} style={{ color: '#7e889f' }} />
-                </div>
-                <div className="relative aspect-[16/10] overflow-hidden" style={{ background: 'rgba(255,255,255,0.03)' }}>
-                  <img src={p.image} alt={`${p.title} — ${p.industry} website in ${p.location} built by Bluepeek`}
+                <BrowserChrome domain={p.domain} />
+                <div className="relative aspect-[16/10] overflow-hidden" style={{ background: '#eff4fb' }}>
+                  <img src={p.image} alt={`${p.title} — ${p.industry} website in ${p.location} built by Blue Peek`}
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                     onError={(e) => { e.currentTarget.style.display = 'none' }} />
-                  <span className="absolute top-3 right-3 text-xs font-semibold px-2.5 py-1 rounded-full"
-                    style={{ background: 'rgba(20,28,48,0.7)', color: '#cdd8f5', border: '1px solid rgba(159,182,255,0.3)', backdropFilter: 'blur(8px)' }}>
-                    {p.industry}
-                  </span>
+                  <IndustryTag>{p.industry}</IndustryTag>
                 </div>
               </a>
-
-              {/* Content */}
               <div className="p-6 flex flex-col flex-1">
-                <h3 className="text-lg font-bold mb-1" style={{ color: '#f4f7fd' }}>{p.title}</h3>
-                <p className="text-xs font-medium mb-3 gradient-text inline-block">{p.location}</p>
-                <p className="text-sm leading-relaxed mb-5 flex-1" style={{ color: '#aab3c9' }}>{p.description}</p>
+                <h3 className="text-lg font-bold mb-1" style={{ color: '#0c1c34' }}>{p.title}</h3>
+                <p className="text-xs font-medium mb-3" style={{ color: '#2f5fd0' }}>{p.location}</p>
+                <p className="text-sm leading-relaxed mb-5 flex-1" style={{ color: '#475569' }}>{p.description}</p>
                 <div className="flex items-center gap-4">
-                  <Link href={p.caseStudy} className="inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: '#9fb6ff' }}>
-                    View case study <ArrowUpRight size={14} />
+                  <Link href={p.caseStudy} className="inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: '#0c1c34' }}>
+                    Case study <ArrowUpRight size={14} />
                   </Link>
                   <a href={p.url} target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-sm font-medium" style={{ color: '#7e889f' }}>
-                    Visit site <ExternalLink size={13} />
+                    className="inline-flex items-center gap-1.5 text-sm font-medium" style={{ color: '#7e8aa0' }}>
+                    Visit <ExternalLink size={13} />
                   </a>
                 </div>
               </div>
@@ -112,10 +153,13 @@ export default function Portfolio() {
 
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
           viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-center mt-12">
-          <p className="text-sm" style={{ color: '#aab3c9' }}>
-            Want your business to be our next case study?{' '}
-            <a href="#contact" className="font-semibold" style={{ color: '#9fb6ff' }}>Get in touch →</a>
+          className="flex flex-col sm:flex-row items-center justify-center gap-x-6 gap-y-3 mt-12">
+          <Link href="/gallery" className="btn-secondary inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm">
+            See the full gallery <ArrowUpRight size={15} />
+          </Link>
+          <p className="text-sm" style={{ color: '#475569' }}>
+            Want to be our next case study?{' '}
+            <a href="#contact" className="font-semibold" style={{ color: '#0c1c34' }}>Get in touch →</a>
           </p>
         </motion.div>
       </div>
