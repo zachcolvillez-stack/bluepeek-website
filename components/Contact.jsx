@@ -64,7 +64,7 @@ export default function Contact() {
               <div key={t.label} className="flex items-center gap-3">
                 <span className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
                   style={{ background: 'rgba(159,182,255,0.12)' }}>
-                  <t.icon size={16} style={{ color: '#9fb6ff' }} />
+                  <t.icon size={16} style={{ color: '#16335c' }} />
                 </span>
                 <span className="text-sm font-medium" style={{ color: '#475569' }}>{t.label}</span>
               </div>
@@ -74,7 +74,7 @@ export default function Contact() {
           <a href={`mailto:${CONTACT_EMAIL}`}
             className="inline-flex items-center gap-2.5 px-4 py-3 rounded-xl font-medium text-sm"
             style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.12)', color: '#0c1c34' }}>
-            <Mail size={16} style={{ color: '#9fb6ff' }} />
+            <Mail size={16} style={{ color: '#16335c' }} />
             {CONTACT_EMAIL}
           </a>
         </motion.div>
@@ -86,11 +86,11 @@ export default function Contact() {
           {status === 'sent' ? (
             <div className="text-center py-12">
               <div className="w-14 h-14 rounded-2xl mx-auto mb-4 flex items-center justify-center" style={{ background: 'rgba(159,182,255,0.12)' }}>
-                <CheckCircle size={28} style={{ color: '#9fb6ff' }} />
+                <CheckCircle size={28} style={{ color: '#16335c' }} />
               </div>
               <h3 className="text-xl font-bold mb-2" style={{ color: '#0c1c34' }}>Thanks — we’ve got it.</h3>
               <p className="mb-6" style={{ color: '#475569' }}>We’ll be in touch within one business day.</p>
-              <button onClick={() => setStatus('idle')} className="text-sm font-semibold" style={{ color: '#9fb6ff' }}>
+              <button onClick={() => setStatus('idle')} className="text-sm font-semibold" style={{ color: '#16335c' }}>
                 Send another enquiry
               </button>
             </div>
@@ -142,7 +142,7 @@ export default function Contact() {
 
               <p className="text-xs text-center pt-1" style={{ color: '#7e889f' }}>
                 Or email us at{' '}
-                <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold" style={{ color: '#9fb6ff' }}>
+                <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold" style={{ color: '#16335c' }}>
                   {CONTACT_EMAIL}
                 </a>
               </p>
