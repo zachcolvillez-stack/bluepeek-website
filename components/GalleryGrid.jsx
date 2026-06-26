@@ -30,7 +30,7 @@ export default function GalleryGrid({ sites = [] }) {
               className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
               onError={(e) => { e.currentTarget.style.display = 'none' }} />
             <span className="absolute top-3 right-3 text-xs font-semibold px-2.5 py-1 rounded-full"
-              style={{ background: 'rgba(124,95,224,0.10)', color: '#7c5fe0', border: '1px solid rgba(124,95,224,0.20)', backdropFilter: 'blur(8px)' }}>
+              style={{ background: 'rgba(255,255,255,0.92)', color: '#0c1c34', border: '1px solid rgba(12,28,52,0.10)', backdropFilter: 'blur(8px)' }}>
               {c.industry}
             </span>
           </div>
