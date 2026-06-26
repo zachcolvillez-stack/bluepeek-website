@@ -118,7 +118,7 @@ export default function LandingTemplate({ breadcrumb = [], eyebrow, h1, lead, se
         {/* Final CTA */}
         <section className="relative max-w-4xl mx-auto px-6 py-16">
           <div className="rounded-3xl p-10 text-center relative overflow-hidden"
-            style={{ background: 'linear-gradient(140deg,#4f86f7 0%,#6f6ff5 55%,#9b6bf2 100%)', boxShadow: '0 24px 60px rgba(123,111,245,0.35)' }}>
+            style={{ background: 'linear-gradient(140deg, #16335c 0%, #0c1c34 100%)', boxShadow: '0 24px 60px rgba(12,28,52,0.30)' }}>
             <div className="absolute -right-16 -top-16 w-56 h-56 rounded-full" style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.22) 0%, transparent 70%)' }} />
             <h2 className="relative text-2xl md:text-3xl font-bold text-white mb-3">Ready to get more leads?</h2>
             <p className="relative text-base mb-7 max-w-lg mx-auto" style={{ color: 'rgba(255,255,255,0.9)' }}>
