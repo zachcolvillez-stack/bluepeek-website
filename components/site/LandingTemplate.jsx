@@ -102,12 +102,12 @@ export default function LandingTemplate({ breadcrumb = [], eyebrow, h1, lead, se
         {/* Related internal links */}
         {related.length > 0 && (
           <section className="relative max-w-4xl mx-auto px-6 py-10">
-            <h2 className="text-sm font-bold uppercase tracking-wider mb-5" style={{ color: '#8ba0c6' }}>Explore more</h2>
+            <h2 className="text-sm font-bold uppercase tracking-wider mb-5" style={{ color: '#7e8aa0' }}>Explore more</h2>
             <div className="flex flex-wrap gap-2.5">
               {related.map(r => (
                 <Link key={r.href} href={r.href}
                   className="inline-flex items-center gap-1.5 text-sm font-medium px-4 py-2 rounded-full transition-colors"
-                  style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', color: '#c2d2ee' }}>
+                  style={{ background: '#ffffff', border: '1px solid rgba(12,28,52,0.12)', color: '#475569' }}>
                   {r.label} <ChevronRight size={13} />
                 </Link>
               ))}
