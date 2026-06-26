@@ -32,10 +32,10 @@ export default function Testimonials() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
           <span className="eyebrow">Built For Local Owners</span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#f4f7fd' }}>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#0c1c34' }}>
             We solve the problems<br />local businesses actually have.
           </h2>
-          <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: '#aab3c9' }}>
+          <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: '#475569' }}>
             If any of these sound familiar, you’re exactly who Blue Peek builds for.
           </p>
         </motion.div>
@@ -49,14 +49,14 @@ export default function Testimonials() {
             >
               <div className="flex items-start gap-4">
                 <div className="w-11 h-11 rounded-2xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: 'rgba(159,182,255,0.12)' }}>
-                  <p.icon size={20} style={{ color: '#9fb6ff' }} />
+                  style={{ background: 'rgba(47,95,208,0.09)' }}>
+                  <p.icon size={20} style={{ color: '#16335c' }} />
                 </div>
                 <div>
-                  <p className="text-lg font-bold mb-2 leading-snug" style={{ color: '#f4f7fd' }}>{p.pain}</p>
+                  <p className="text-lg font-bold mb-2 leading-snug" style={{ color: '#0c1c34' }}>{p.pain}</p>
                   <div className="flex items-start gap-2">
                     <span className="text-xs font-bold uppercase tracking-wider mt-1 flex-shrink-0 gradient-text">Fixed</span>
-                    <p className="text-sm leading-relaxed" style={{ color: '#aab3c9' }}>{p.solution}</p>
+                    <p className="text-sm leading-relaxed" style={{ color: '#475569' }}>{p.solution}</p>
                   </div>
                 </div>
               </div>
