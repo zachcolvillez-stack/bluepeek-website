@@ -146,7 +146,7 @@ export default function ChatWidget() {
         onClick={() => setOpen(o => !o)}
         aria-label="Open chat"
         className="fixed z-50 bottom-24 right-4 md:bottom-6 md:right-6 w-14 h-14 rounded-full flex items-center justify-center transition-transform hover:scale-105"
-        style={{ background: 'linear-gradient(135deg, #4f86f7, #9b6bf2)', boxShadow: '0 10px 30px rgba(123,111,245,0.5)' }}
+        style={{ background: 'linear-gradient(135deg, #16335c, #0c1c34)', boxShadow: '0 10px 30px rgba(123,111,245,0.5)' }}
       >
         {open ? <X size={24} className="text-white" /> : <MessageSquare size={22} className="text-white" />}
         {!open && (
@@ -161,7 +161,7 @@ export default function ChatWidget() {
           style={{ height: '540px', maxHeight: 'calc(100vh - 12rem)', background: '#0b2350', border: '1px solid rgba(255,255,255,0.14)', boxShadow: '0 24px 60px rgba(0,0,0,0.5)' }}
         >
           {/* Header */}
-          <div className="px-5 py-4 flex items-center gap-3" style={{ background: 'linear-gradient(135deg, #4f86f7, #9b6bf2)' }}>
+          <div className="px-5 py-4 flex items-center gap-3" style={{ background: 'linear-gradient(135deg, #16335c, #0c1c34)' }}>
             <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(255,255,255,0.2)' }}>
               <Sparkles size={18} className="text-white" />
             </div>
@@ -183,7 +183,7 @@ export default function ChatWidget() {
                 <div className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                   <div className="max-w-[82%] px-3.5 py-2.5 rounded-2xl text-sm whitespace-pre-line leading-relaxed"
                     style={m.role === 'user'
-                      ? { background: 'linear-gradient(135deg, #4f86f7, #9b6bf2)', color: '#fff', borderBottomRightRadius: '4px' }
+                      ? { background: 'linear-gradient(135deg, #16335c, #0c1c34)', color: '#fff', borderBottomRightRadius: '4px' }
                       : { background: 'rgba(255,255,255,0.08)', color: '#e3ebf9', borderBottomLeftRadius: '4px' }}>
                     {m.text}
                   </div>
@@ -227,7 +227,7 @@ export default function ChatWidget() {
             />
             <button onClick={handleSend} aria-label="Send"
               className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
-              style={{ background: 'linear-gradient(135deg, #4f86f7, #9b6bf2)' }}>
+              style={{ background: 'linear-gradient(135deg, #16335c, #0c1c34)' }}>
               <Send size={16} className="text-white" />
             </button>
           </div>
