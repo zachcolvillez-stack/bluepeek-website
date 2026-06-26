@@ -27,7 +27,8 @@ export default function Logo({ size = 36, showText = true, textColor = '#0c1c34'
         {/* Cube outline */}
         <g stroke="#ffffff" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" fill="none">
           <path d="M50 26 L72 38 L72 62 L50 74 L28 62 L28 38 Z" />
-          <path d="M50 26 L50 50 M50 50 L72 38 M50 50 L28 38" />
+          {/* vertical line straight down the middle + two top-face edges */}
+          <path d="M50 26 L50 50 L50 74 M50 50 L72 38 M50 50 L28 38" />
         </g>
       </svg>
       {showText && (
