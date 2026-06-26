@@ -41,7 +41,7 @@ export default function Contact() {
   }
 
   const inp = "w-full rounded-xl px-4 py-3 text-sm transition-all focus:outline-none"
-  const inpStyle = { background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.12)', color: '#f4f7fd' }
+  const inpStyle = { background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.12)', color: '#0c1c34' }
   const onFocus = (e) => { e.target.style.borderColor = '#9b87f5' }
   const onBlur  = (e) => { e.target.style.borderColor = 'rgba(255,255,255,0.12)' }
 
@@ -52,7 +52,7 @@ export default function Contact() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="lg:pt-6">
           <span className="eyebrow">Let’s Talk</span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#f4f7fd' }}>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#0c1c34' }}>
             Let’s build a website your business is proud of.
           </h2>
           <p className="text-base md:text-lg leading-relaxed mb-8" style={{ color: '#aab3c9' }}>
@@ -73,7 +73,7 @@ export default function Contact() {
 
           <a href={`mailto:${CONTACT_EMAIL}`}
             className="inline-flex items-center gap-2.5 px-4 py-3 rounded-xl font-medium text-sm"
-            style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.12)', color: '#f4f7fd' }}>
+            style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.12)', color: '#0c1c34' }}>
             <Mail size={16} style={{ color: '#9fb6ff' }} />
             {CONTACT_EMAIL}
           </a>
@@ -88,7 +88,7 @@ export default function Contact() {
               <div className="w-14 h-14 rounded-2xl mx-auto mb-4 flex items-center justify-center" style={{ background: 'rgba(159,182,255,0.12)' }}>
                 <CheckCircle size={28} style={{ color: '#9fb6ff' }} />
               </div>
-              <h3 className="text-xl font-bold mb-2" style={{ color: '#f4f7fd' }}>Thanks — we’ve got it.</h3>
+              <h3 className="text-xl font-bold mb-2" style={{ color: '#0c1c34' }}>Thanks — we’ve got it.</h3>
               <p className="mb-6" style={{ color: '#aab3c9' }}>We’ll be in touch within one business day.</p>
               <button onClick={() => setStatus('idle')} className="text-sm font-semibold" style={{ color: '#9fb6ff' }}>
                 Send another enquiry
