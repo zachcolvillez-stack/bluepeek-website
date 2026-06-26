@@ -14,12 +14,12 @@ export default function Logo({ size = 36, showText = true, textColor = '#0c1c34'
   return (
     <span className="inline-flex items-center gap-2.5 select-none">
       <svg width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"
-        style={{ filter: 'drop-shadow(0 4px 12px rgba(79,134,247,0.35))', flexShrink: 0 }}>
+        style={{ filter: 'drop-shadow(0 4px 12px rgba(12,28,52,0.30))', flexShrink: 0 }}>
         <defs>
           <linearGradient id={gid} x1="10" y1="6" x2="92" y2="96" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#4f86f7" />
-            <stop offset="0.55" stopColor="#6f6ff5" />
-            <stop offset="1" stopColor="#9b6bf2" />
+            <stop stopColor="#2347c4" />
+            <stop offset="0.5" stopColor="#15306a" />
+            <stop offset="1" stopColor="#0a1730" />
           </linearGradient>
         </defs>
         {/* Rounded square */}
