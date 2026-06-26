@@ -30,7 +30,7 @@ export default function Nav({ onNavigate, currentScene }) {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={scrolled
-        ? { background: 'rgba(10,14,26,0.72)', backdropFilter: 'blur(18px)', WebkitBackdropFilter: 'blur(18px)', borderBottom: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 8px 30px rgba(0,0,0,0.45)' }
+        ? { background: 'rgba(255,255,255,0.82)', backdropFilter: 'blur(18px)', WebkitBackdropFilter: 'blur(18px)', borderBottom: '1px solid rgba(12,28,52,0.08)', boxShadow: '0 6px 24px rgba(12,28,52,0.06)' }
         : { background: 'transparent' }}>
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
@@ -44,10 +44,10 @@ export default function Nav({ onNavigate, currentScene }) {
             <a key={l.label} href={l.href || `#${l.id}`} onClick={l.href ? undefined : (e) => handleClick(e, l.id)}
               className="text-sm font-medium transition-all px-4 py-2 rounded-lg"
               style={currentScene === l.id
-                ? { color: '#f4f7fd', background: 'rgba(255,255,255,0.08)' }
-                : { color: '#aab3c9' }}
-              onMouseEnter={(e) => { if (currentScene !== l.id) e.currentTarget.style.color = '#ffffff' }}
-              onMouseLeave={(e) => { if (currentScene !== l.id) e.currentTarget.style.color = '#aab3c9' }}>
+                ? { color: '#0c1c34', background: 'rgba(12,28,52,0.06)' }
+                : { color: '#475569' }}
+              onMouseEnter={(e) => { if (currentScene !== l.id) e.currentTarget.style.color = '#0c1c34' }}
+              onMouseLeave={(e) => { if (currentScene !== l.id) e.currentTarget.style.color = '#475569' }}>
               {l.label}
             </a>
           ))}
@@ -60,7 +60,7 @@ export default function Nav({ onNavigate, currentScene }) {
         </a>
 
         {/* Mobile menu button */}
-        <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)} style={{ color: '#f4f7fd' }} aria-label="Menu">
+        <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)} style={{ color: '#0c1c34' }} aria-label="Menu">
           <div className="space-y-1.5">
             <span className={`block w-6 h-0.5 bg-current transition-all ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
             <span className={`block w-6 h-0.5 bg-current transition-all ${menuOpen ? 'opacity-0' : ''}`} />
@@ -72,10 +72,10 @@ export default function Nav({ onNavigate, currentScene }) {
       {/* Mobile menu */}
       {menuOpen && (
         <div className="md:hidden px-6 py-4 space-y-1"
-          style={{ background: 'rgba(10,14,26,0.96)', backdropFilter: 'blur(18px)', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+          style={{ background: 'rgba(255,255,255,0.97)', backdropFilter: 'blur(18px)', borderBottom: '1px solid rgba(12,28,52,0.08)' }}>
           {links.map(l => (
             <a key={l.label} href={l.href || `#${l.id}`} onClick={l.href ? () => setMenuOpen(false) : (e) => handleClick(e, l.id)}
-              className="block py-2.5 font-medium transition-colors" style={{ color: '#aab3c9' }}>
+              className="block py-2.5 font-medium transition-colors" style={{ color: '#475569' }}>
               {l.label}
             </a>
           ))}
