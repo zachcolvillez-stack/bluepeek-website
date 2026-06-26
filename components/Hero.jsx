@@ -15,7 +15,7 @@ export default function Hero({ onCTA }) {
         {/* ── Left: copy ── */}
         <div>
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-            <span className="eyebrow"><MapPin size={12} /> Perth · Servicing all of WA</span>
+            <span className="eyebrow"><MapPin size={12} /> Servicing all of Australia</span>
           </motion.div>
 
           <motion.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.08 }}
