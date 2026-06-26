@@ -42,7 +42,7 @@ export default function Contact() {
 
   const inp = "w-full rounded-xl px-4 py-3 text-sm transition-all focus:outline-none"
   const inpStyle = { background: '#f7f9fc', border: '1px solid rgba(12,28,52,0.12)', color: '#0c1c34' }
-  const onFocus = (e) => { e.target.style.borderColor = '#9b87f5' }
+  const onFocus = (e) => { e.target.style.borderColor = '#0c1c34' }
   const onBlur  = (e) => { e.target.style.borderColor = 'rgba(12,28,52,0.12)' }
 
   return (
