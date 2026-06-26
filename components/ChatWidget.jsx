@@ -146,7 +146,7 @@ export default function ChatWidget() {
         onClick={() => setOpen(o => !o)}
         aria-label="Open chat"
         className="fixed z-50 bottom-24 right-4 md:bottom-6 md:right-6 w-14 h-14 rounded-full flex items-center justify-center transition-transform hover:scale-105"
-        style={{ background: 'linear-gradient(135deg, #16335c, #0c1c34)', boxShadow: '0 10px 30px rgba(123,111,245,0.5)' }}
+        style={{ background: 'linear-gradient(135deg, #16335c, #0c1c34)', boxShadow: '0 10px 30px rgba(12,28,52,0.4)' }}
       >
         {open ? <X size={24} className="text-white" /> : <MessageSquare size={22} className="text-white" />}
         {!open && (
