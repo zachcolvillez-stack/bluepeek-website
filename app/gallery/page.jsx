@@ -23,15 +23,15 @@ export default function GalleryPage() {
     <>
       <SiteHeader />
       <main className="relative pt-28 pb-24 px-6">
-        <div className="hero-glow" style={{ top: '-6%', left: '-4%', width: '520px', height: '520px', background: 'radial-gradient(circle, rgba(155,107,242,0.18) 0%, transparent 70%)' }} />
+        <div className="hero-glow" style={{ top: '-6%', left: '-4%', width: '520px', height: '520px', background: 'radial-gradient(circle, rgba(47,95,208,0.10) 0%, transparent 70%)' }} />
 
         <div className="relative max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <span className="eyebrow">Gallery</span>
-            <h1 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#ffffff' }}>
+            <h1 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#0c1c34' }}>
               Every site we&apos;ve built,<br />in one place.
             </h1>
-            <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: '#c2d2ee' }}>
+            <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: '#475569' }}>
               A growing collection of live client websites for Perth small businesses. Tap any to visit the real thing.
             </p>
           </div>
@@ -39,7 +39,7 @@ export default function GalleryPage() {
           <GalleryGrid sites={CLIENT_SITES} />
 
           <div className="text-center mt-16">
-            <p className="text-base mb-5" style={{ color: '#c2d2ee' }}>Want your business here?</p>
+            <p className="text-base mb-5" style={{ color: '#475569' }}>Want your business here?</p>
             <Link href="/#contact" className="btn-primary inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold">
               Get a free quote <ArrowRight size={16} />
             </Link>
