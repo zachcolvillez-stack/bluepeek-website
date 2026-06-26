@@ -41,7 +41,7 @@ export default function GalleryGrid({ sites = [] }) {
               <h3 className="text-sm font-bold" style={{ color: '#1a1730' }}>{c.title}</h3>
               <p className="text-xs" style={{ color: '#8c8aa3' }}>{c.location}</p>
             </div>
-            <span className="inline-flex items-center gap-1.5 text-xs font-medium whitespace-nowrap" style={{ color: '#7c5fe0' }}>
+            <span className="inline-flex items-center gap-1.5 text-xs font-medium whitespace-nowrap" style={{ color: '#0c1c34' }}>
               Visit <ExternalLink size={12} />
             </span>
           </div>
