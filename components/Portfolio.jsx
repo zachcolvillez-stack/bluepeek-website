@@ -103,9 +103,11 @@ export default function Portfolio() {
             <p className="text-sm font-medium mb-4" style={{ color: '#2f5fd0' }}>{featured.location}</p>
             <p className="text-base leading-relaxed mb-6" style={{ color: '#475569' }}>{featured.description}</p>
             <div className="flex items-center gap-4">
-              <Link href={featured.caseStudy} className="inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: '#0c1c34' }}>
-                View case study <ArrowUpRight size={15} />
-              </Link>
+              {featured.caseStudy && (
+                <Link href={featured.caseStudy} className="inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: '#0c1c34' }}>
+                  View case study <ArrowUpRight size={15} />
+                </Link>
+              )}
               <a href={featured.url} target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-sm font-medium" style={{ color: '#7e8aa0' }}>
                 Visit site <ExternalLink size={13} />
