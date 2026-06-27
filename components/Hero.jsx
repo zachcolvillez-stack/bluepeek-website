@@ -74,12 +74,12 @@ export default function Hero({ onCTA }) {
               <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#d4dcea' }} />
               <div className="flex-1 mx-3 px-3 py-0.5 text-[10px] rounded text-center font-mono truncate"
                 style={{ background: '#ffffff', color: '#7e8aa0', border: '1px solid rgba(12,28,52,0.08)' }}>
-                adizahaircollections.com.au
+                jasminehealthandspa.com.au
               </div>
               <ExternalLink size={12} style={{ color: '#a9b6c8' }} />
             </div>
             <div className="relative aspect-[16/11] overflow-hidden" style={{ background: '#eff4fb' }}>
-              <img src="/screenshots/adizahaircollections.png" alt="A premium website Blue Peek designed for a local business"
+              <img src="/screenshots/jasmine.png" alt="A premium website Blue Peek designed for a local business"
                 className="w-full h-full object-cover object-top"
                 onError={(e) => { e.currentTarget.style.display = 'none' }} />
             </div>
