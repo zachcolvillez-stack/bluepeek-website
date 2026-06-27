@@ -42,7 +42,7 @@ export default async function GalleryPage() {
             </p>
           </div>
 
-          <GalleryGrid sites={CLIENT_SITES} />
+          <GalleryGrid sites={sites} />
 
           <div className="text-center mt-16">
             <p className="text-base mb-5" style={{ color: '#475569' }}>Want your business here?</p>
