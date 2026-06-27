@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { CLIENT_SITES, SITE } from '../../lib/site'
+import { SITE } from '../../lib/site'
+import { getGallerySites } from '../../lib/gallery'
 import GalleryGrid from '../../components/GalleryGrid'
 import SiteHeader from '../../components/site/SiteHeader'
 import SiteFooter from '../../components/site/SiteFooter'
