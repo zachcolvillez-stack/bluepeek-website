@@ -19,7 +19,12 @@ export const metadata = {
   },
 }
 
-export default function GalleryPage() {
+// Re-pull the Vercel project list hourly so newly-deployed sites appear here
+// on their own (see lib/gallery.js).
+export const revalidate = 3600
+
+export default async function GalleryPage() {
+  const sites = await getGallerySites()
   return (
     <>
       <SiteHeader />
