@@ -5,6 +5,26 @@ import { ArrowUpRight, ExternalLink } from 'lucide-react'
 
 const PROJECTS = [
   {
+    image:       '/screenshots/jasmine.png',
+    url:         'https://jasminehealthandspa.com.au',
+    domain:      'jasminehealthandspa.com.au',
+    caseStudy:   '/work/jasmine-health-and-spa',
+    industry:    'Health & Spa',
+    title:       'Jasmine Health & Spa',
+    location:    'Ascot, Perth WA',
+    description: 'Authentic Thai wellness and massage site — a calm, premium design with a full treatment menu, vouchers and easy online booking.',
+  },
+  {
+    image:       '/screenshots/bluestar.png',
+    url:         'https://bluestarmechanics.com.au',
+    domain:      'bluestarmechanics.com.au',
+    caseStudy:   '/work/bluestar-mechanics',
+    industry:    'Mechanic',
+    title:       'Bluestar Mechanics',
+    location:    'Coburg, VIC',
+    description: 'Family-owned mechanic site for all makes and models — servicing, roadworthy certificates and diagnostics, built to earn local trust.',
+  },
+  {
     image:       '/screenshots/superiorgarage.png',
     url:         'https://superiorgarage.com.au',
     domain:      'superiorgarage.com.au',
@@ -23,26 +43,6 @@ const PROJECTS = [
     title:       '54 Fadez',
     location:    'Perth, WA',
     description: 'Modern barbershop site with online bookings, gallery and service menu — designed to fill the chairs and grow the brand.',
-  },
-  {
-    image:       '/screenshots/adizahaircollections.png',
-    url:         'https://adizahaircollections.com.au',
-    domain:      'adizahaircollections.com.au',
-    caseStudy:   '/work/adizahaircollections',
-    industry:    'Hair & Braiding',
-    title:       'Adiza Hair Collections',
-    location:    'Wagga Wagga, NSW',
-    description: 'Luxury braiding and wig artistry site — elegant, mobile-first design with a full service menu, gallery and easy booking.',
-  },
-  {
-    image:       '/screenshots/aeandac.png',
-    url:         'https://www.aeandacservicecenter.com.au',
-    domain:      'aeandacservicecenter.com.au',
-    caseStudy:   '/work/ae-ac-service-center',
-    industry:    'Auto Electrical',
-    title:       'AE & AC Service Center',
-    location:    'Malaga, WA',
-    description: 'Auto electrical and air-con specialist — workshop-grade diagnostics and clear service info built to earn trust online.',
   },
 ]
 
