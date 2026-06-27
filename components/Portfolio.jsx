@@ -92,7 +92,7 @@ export default function Portfolio() {
           className="card group overflow-hidden grid md:grid-cols-2 mb-6">
           <a href={featured.url} target="_blank" rel="noopener noreferrer" className="block order-1 md:order-none">
             <BrowserChrome domain={featured.domain} />
-            <div className="relative aspect-[16/11] md:h-full overflow-hidden" style={{ background: '#eff4fb' }}>
+            <div className="relative aspect-[16/11] md:aspect-auto md:h-full overflow-hidden" style={{ background: '#eff4fb' }}>
               <img src={featured.image} alt={`${featured.title} — ${featured.industry} website built by Blue Peek`}
                 className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                 onError={(e) => { e.currentTarget.style.display = 'none' }} />
