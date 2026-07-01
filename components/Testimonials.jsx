@@ -27,7 +27,7 @@ const PAINS = [
 
 export default function Testimonials() {
   return (
-    <section id="reviews" className="relative py-28 px-6">
+    <section id="solutions" className="relative py-28 px-6">
       <div className="max-w-6xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
