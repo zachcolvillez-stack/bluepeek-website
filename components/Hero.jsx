@@ -90,7 +90,7 @@ export default function Hero({ onCTA }) {
             <div className="flex items-center gap-1 mb-1">
               {[0,1,2,3,4].map(i => <Star key={i} size={12} style={{ color: '#0c1c34', fill: '#0c1c34' }} />)}
             </div>
-            <p className="text-xs font-semibold" style={{ color: '#0c1c34' }}>Real sites, live & ranking</p>
+            <p className="text-xs font-semibold" style={{ color: '#0c1c34' }}>5.0 · 7 Google reviews</p>
           </div>
         </motion.div>
       </div>
