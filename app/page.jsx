@@ -6,6 +6,7 @@ import Hero from '../components/Hero'
 import Services from '../components/Services'
 import Packages from '../components/Packages'
 import Portfolio from '../components/Portfolio'
+import JasmineShowcase from '../components/JasmineShowcase'
 import Reviews from '../components/Reviews'
 import HowItWorks from '../components/HowItWorks'
 import Testimonials from '../components/Testimonials'
@@ -36,6 +37,7 @@ export default function Home() {
         <Hero onCTA={goTo} />
         <Services />
         <Packages onCTA={goTo} />
+        <JasmineShowcase />
         <Portfolio />
         <Reviews />
         <HowItWorks />
