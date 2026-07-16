@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Logo from '../Logo'
 
-/* Header for sub-pages — links back to homepage sections + key pages. */
+/* Header for sub-pages - links back to homepage sections + key pages. */
 export default function SiteHeader() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)

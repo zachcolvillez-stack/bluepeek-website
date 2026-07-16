@@ -12,7 +12,7 @@ const PROJECTS = [
     industry:    'Health & Spa',
     title:       'Jasmine Health & Spa',
     location:    'Ascot, Perth WA',
-    description: 'Authentic Thai wellness and massage site — a calm, premium design with a full treatment menu, vouchers and easy online booking.',
+    description: 'Authentic Thai wellness and massage site - a calm, premium design with a full treatment menu, vouchers and easy online booking.',
   },
   {
     image:       '/screenshots/bluestar.png',
@@ -22,7 +22,7 @@ const PROJECTS = [
     industry:    'Mechanic',
     title:       'Bluestar Mechanics',
     location:    'Coburg, VIC',
-    description: 'Family-owned mechanic site for all makes and models — servicing, roadworthy certificates and diagnostics, built to earn local trust.',
+    description: 'Family-owned mechanic site for all makes and models - servicing, roadworthy certificates and diagnostics, built to earn local trust.',
   },
   {
     image:       '/screenshots/stsbgardening.png',
@@ -31,7 +31,7 @@ const PROJECTS = [
     industry:    'Gardening',
     title:       'S.T.S.B Gardening Services',
     location:    'Albury, NSW',
-    description: 'Gardening, landscaping and lawn care site for the Albury–Wodonga area — clean, friendly design built to turn local searches into quote requests.',
+    description: 'Gardening, landscaping and lawn care site for the Albury–Wodonga area - clean, friendly design built to turn local searches into quote requests.',
   },
   {
     image:       '/screenshots/barberzden.png',
@@ -40,7 +40,7 @@ const PROJECTS = [
     industry:    'Barbershop',
     title:       'Barberz Den',
     location:    'Kiara, Perth WA',
-    description: 'Modern barbershop site with online bookings, gallery and service menu — designed to fill the chairs and grow the brand.',
+    description: 'Modern barbershop site with online bookings, gallery and service menu - designed to fill the chairs and grow the brand.',
   },
 ]
 
@@ -80,18 +80,18 @@ export default function Portfolio() {
             Real local businesses,<br />live and online.
           </h2>
           <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: '#475569' }}>
-            A selection of recent websites Blue Peek has built — click through to see each one live.
+            A selection of recent websites Blue Peek has built - click through to see each one live.
           </p>
         </motion.div>
 
-        {/* Featured project — large, two-column */}
+        {/* Featured project - large, two-column */}
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }}
           className="card group overflow-hidden grid md:grid-cols-2 mb-6">
           <a href={featured.url} target="_blank" rel="noopener noreferrer" className="block order-1 md:order-none">
             <BrowserChrome domain={featured.domain} />
             <div className="relative aspect-[16/11] md:aspect-auto md:h-full overflow-hidden" style={{ background: '#eff4fb' }}>
-              <img src={featured.image} alt={`${featured.title} — ${featured.industry} website built by Blue Peek`}
+              <img src={featured.image} alt={`${featured.title} - ${featured.industry} website built by Blue Peek`}
                 className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                 onError={(e) => { e.currentTarget.style.display = 'none' }} />
               <IndustryTag>{featured.industry}</IndustryTag>
@@ -127,7 +127,7 @@ export default function Portfolio() {
               <a href={p.url} target="_blank" rel="noopener noreferrer" className="block">
                 <BrowserChrome domain={p.domain} />
                 <div className="relative aspect-[16/10] overflow-hidden" style={{ background: '#eff4fb' }}>
-                  <img src={p.image} alt={`${p.title} — ${p.industry} website in ${p.location} built by Blue Peek`}
+                  <img src={p.image} alt={`${p.title} - ${p.industry} website in ${p.location} built by Blue Peek`}
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                     onError={(e) => { e.currentTarget.style.display = 'none' }} />
                   <IndustryTag>{p.industry}</IndustryTag>

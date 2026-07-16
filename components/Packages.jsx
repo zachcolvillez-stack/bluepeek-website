@@ -54,10 +54,10 @@ export default function Packages({ onCTA }) {
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
           <span className="eyebrow">Packages</span>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#0c1c34' }}>
-            Built to bring you leads —<br />priced to fit your business.
+            Built to bring you leads  -<br />priced to fit your business.
           </h2>
           <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: '#475569' }}>
-            Every Blue Peek package is custom-quoted to fit your goals. No lock-in, no hidden fees — and you own everything.
+            Every Blue Peek package is custom-quoted to fit your goals. No lock-in, no hidden fees - and you own everything.
           </p>
         </motion.div>
 

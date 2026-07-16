@@ -3,12 +3,12 @@ import { motion } from 'framer-motion'
 import { ChevronRight } from 'lucide-react'
 
 export const HOME_FAQS = [
-  { q: 'How much does a website cost in Perth?', a: 'Every project is custom-quoted to fit your business and goals — we have Starter, Growth and Scale packages. Get in touch for a free, no-obligation quote.' },
+  { q: 'How much does a website cost in Perth?', a: 'Every project is custom-quoted to fit your business and goals - we have Starter, Growth and Scale packages. Get in touch for a free, no-obligation quote.' },
   { q: 'How long does it take to build?', a: 'Most websites go live in one to two weeks once we have your content. We keep you in the loop with drafts and feedback the whole way.' },
-  { q: 'Do I own my website?', a: 'Yes — 100%. You own your domain, content and site, with no lock-in contracts. You can take it elsewhere any time.' },
-  { q: 'Do you offer AI chatbots and automation?', a: 'Yes. We build 24/7 AI assistants and automations that capture and follow up on leads for you — included in our Growth and Scale packages, or added to an existing site.' },
+  { q: 'Do I own my website?', a: 'Yes - 100%. You own your domain, content and site, with no lock-in contracts. You can take it elsewhere any time.' },
+  { q: 'Do you offer AI chatbots and automation?', a: 'Yes. We build 24/7 AI assistants and automations that capture and follow up on leads for you - included in our Growth and Scale packages, or added to an existing site.' },
   { q: 'What areas do you cover?', a: 'We’re based in Perth and work with businesses right across the Perth metro area and wider Western Australia.' },
-  { q: 'Can you improve my existing website?', a: 'Often, yes — we can review your current site and improve its design, SEO and lead capture, or rebuild it if that makes more sense for you.' },
+  { q: 'Can you improve my existing website?', a: 'Often, yes - we can review your current site and improve its design, SEO and lead capture, or rebuild it if that makes more sense for you.' },
 ]
 
 export default function FAQ() {

@@ -4,7 +4,7 @@ import { MessageSquare, X, Send, Sparkles } from 'lucide-react'
 
 const BLUEPEEK_ENDPOINT = 'https://bumjkwvaeqghjspowkrd.supabase.co/functions/v1/submit-form'
 
-/* Scripted knowledge base — instant answers in BluePeek's voice.
+/* Scripted knowledge base - instant answers in BluePeek's voice.
    Each intent has a reply and optional follow-up quick-replies. */
 const INTENTS = {
   services: {
@@ -14,22 +14,22 @@ const INTENTS = {
   },
   pricing: {
     label: 'How much does it cost?',
-    reply: "Every project is custom-quoted to fit your business and goals — so you only pay for what you actually need.\n\nWe've got three packages: Starter, Growth (site + 24/7 AI assistant + lead capture) and Scale. No lock-in, and you own everything.\n\nWant a free, no-obligation quote?",
+    reply: "Every project is custom-quoted to fit your business and goals - so you only pay for what you actually need.\n\nWe've got three packages: Starter, Growth (site + 24/7 AI assistant + lead capture) and Scale. No lock-in, and you own everything.\n\nWant a free, no-obligation quote?",
     next: ['quote', 'ai', 'process'],
   },
   turnaround: {
     label: 'How fast can you build it?',
-    reply: "Most websites go live in 1–2 weeks ⚡\n\nWe keep you in the loop the whole way — drafts, feedback, then launch. No drawn-out months of waiting.",
+    reply: "Most websites go live in 1–2 weeks ⚡\n\nWe keep you in the loop the whole way - drafts, feedback, then launch. No drawn-out months of waiting.",
     next: ['quote', 'process'],
   },
   ai: {
     label: 'Tell me about AI chatbots',
-    reply: "Great question — you're talking to one right now 😄\n\nWe build 24/7 AI assistants that answer customer questions, qualify enquiries and capture leads automatically — even while you're asleep or on the tools. It means you never miss a customer.\n\nIt's included in our Growth and Scale packages.",
+    reply: "Great question - you're talking to one right now 😄\n\nWe build 24/7 AI assistants that answer customer questions, qualify enquiries and capture leads automatically - even while you're asleep or on the tools. It means you never miss a customer.\n\nIt's included in our Growth and Scale packages.",
     next: ['pricing', 'quote'],
   },
   process: {
     label: 'How does it work?',
-    reply: "Four simple steps:\n\n1️⃣ Discovery — a quick chat about your goals\n2️⃣ Design & Build — we create it, you give feedback\n3️⃣ Launch — live in 1–2 weeks\n4️⃣ Support & Growth — we stick around\n\nNo jargon, no surprises.",
+    reply: "Four simple steps:\n\n1️⃣ Discovery - a quick chat about your goals\n2️⃣ Design & Build - we create it, you give feedback\n3️⃣ Launch - live in 1–2 weeks\n4️⃣ Support & Growth - we stick around\n\nNo jargon, no surprises.",
     next: ['quote', 'pricing'],
   },
 }
@@ -60,7 +60,7 @@ export default function ChatWidget() {
         setTyping(false)
         setMessages([{
           role: 'bot',
-          text: "G'day! 👋 I'm the BluePeek assistant. Ask me anything about websites, AI or pricing — or grab a free quote.",
+          text: "G'day! 👋 I'm the BluePeek assistant. Ask me anything about websites, AI or pricing - or grab a free quote.",
           options: ['services', 'pricing', 'turnaround', 'ai', 'quote'],
         }])
       }, 600)
@@ -85,7 +85,7 @@ export default function ChatWidget() {
     if (key === 'quote') {
       setMessages(m => [...m, { role: 'user', text: LABELS.quote }])
       setLeadMode('name')
-      botSay("Awesome — let's get you a free quote. What's your name?")
+      botSay("Awesome - let's get you a free quote. What's your name?")
       return
     }
     const intent = INTENTS[key]
@@ -126,16 +126,16 @@ export default function ChatWidget() {
     } else if (leadMode === 'contact') {
       setLead(l => ({ ...l, contact: val }))
       setLeadMode('detail')
-      botSay("Perfect. Briefly — what are you after? (e.g. new website, AI chatbot, more leads)")
+      botSay("Perfect. Briefly - what are you after? (e.g. new website, AI chatbot, more leads)")
     } else if (leadMode === 'detail') {
       const finalLead = { ...lead, detail: val }
       setLead(finalLead)
       setLeadMode('done')
       submitLead(finalLead)
-      botSay("Beauty — got it! 🎉 Zach will personally get back to you within 24 hours. Anything else I can help with?", ['services', 'pricing', 'ai'])
+      botSay("Beauty - got it! 🎉 Zach will personally get back to you within 24 hours. Anything else I can help with?", ['services', 'pricing', 'ai'])
     } else {
-      // free text outside lead flow — gentle catch-all
-      botSay("Good question! The quickest way to get a proper answer is a free quote — or pick one of these 👇", ['services', 'pricing', 'ai', 'quote'])
+      // free text outside lead flow - gentle catch-all
+      botSay("Good question! The quickest way to get a proper answer is a free quote - or pick one of these 👇", ['services', 'pricing', 'ai', 'quote'])
     }
   }
 

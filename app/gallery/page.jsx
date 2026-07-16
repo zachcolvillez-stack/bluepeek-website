@@ -8,11 +8,11 @@ import SiteFooter from '../../components/site/SiteFooter'
 import ChatWidget from '../../components/ChatWidget'
 
 export const metadata = {
-  title: 'Gallery — Client Websites We’ve Built | Bluepeek',
-  description: 'Browse the full gallery of live websites Bluepeek has built for Perth small businesses — barbers, mechanics, tradies, salons and more. Tap any to visit the real site.',
+  title: 'Gallery - Client Websites We’ve Built | Bluepeek',
+  description: 'Browse the full gallery of live websites Bluepeek has built for Perth small businesses - barbers, mechanics, tradies, salons and more. Tap any to visit the real site.',
   alternates: { canonical: '/gallery' },
   openGraph: {
-    title: 'Gallery — Client Websites We’ve Built | Bluepeek',
+    title: 'Gallery - Client Websites We’ve Built | Bluepeek',
     description: 'Every live client website Bluepeek has built, in one place.',
     url: `${SITE?.url || ''}/gallery`,
     type: 'website',

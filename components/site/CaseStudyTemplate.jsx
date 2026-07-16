@@ -5,7 +5,7 @@ import SiteHeader from './SiteHeader'
 import SiteFooter from './SiteFooter'
 import ChatWidget from '../ChatWidget'
 
-/* Case study page template — light premium, factual (no invented metrics). */
+/* Case study page template - light premium, factual (no invented metrics). */
 export default function CaseStudyTemplate({ breadcrumb = [], study, content, related = [] }) {
   return (
     <>
@@ -105,7 +105,7 @@ export default function CaseStudyTemplate({ breadcrumb = [], study, content, rel
             style={{ background: 'linear-gradient(135deg, #16335c 0%, #0c1c34 100%)', boxShadow: '0 24px 60px rgba(12,28,52,0.30)' }}>
             <h2 className="relative text-2xl md:text-3xl font-bold text-white mb-3">Want a site like this?</h2>
             <p className="relative text-base mb-7 max-w-lg mx-auto" style={{ color: 'rgba(255,255,255,0.9)' }}>
-              Tell us about your business and we’ll reply within 24 hours — free quote, no pressure.
+              Tell us about your business and we’ll reply within 24 hours - free quote, no pressure.
             </p>
             <a href="/#contact" className="relative btn-white inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm">
               Get a Free Quote <ArrowRight size={16} />

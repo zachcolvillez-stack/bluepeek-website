@@ -4,7 +4,7 @@ import { activeSocials } from '../lib/social'
 
 const CONTACT_EMAIL = 'info@bluepeek.com.au'
 
-// lucide has no TikTok glyph — Music2 is the conventional stand-in.
+// lucide has no TikTok glyph - Music2 is the conventional stand-in.
 const SOCIAL_ICONS = {
   instagram: Instagram,
   facebook: Facebook,
@@ -34,7 +34,7 @@ export default function Footer({ onNavigate }) {
             <p className="text-sm leading-relaxed max-w-xs" style={{ color: '#9bb3d9' }}>
               Premium websites and AI lead-capture systems for Perth businesses. Built to get you found, look professional, and grow.
             </p>
-            {/* Social icons — renders only the platforms with a handle set in lib/social.js */}
+            {/* Social icons - renders only the platforms with a handle set in lib/social.js */}
             {activeSocials().length > 0 && (
               <div className="flex items-center gap-3 mt-5">
                 {activeSocials().map(({ key, label, url }) => {

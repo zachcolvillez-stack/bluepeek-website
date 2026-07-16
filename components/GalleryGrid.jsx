@@ -26,7 +26,7 @@ export default function GalleryGrid({ sites = [] }) {
 
           {/* Screenshot */}
           <div className="relative aspect-[16/10] overflow-hidden" style={{ background: '#f4f3fb' }}>
-            <img src={c.image} alt={`${c.title} — ${c.industry} website in ${c.location} built by Bluepeek`}
+            <img src={c.image} alt={`${c.title} - ${c.industry} website in ${c.location} built by Bluepeek`}
               className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
               onError={(e) => { e.currentTarget.style.display = 'none' }} />
             <span className="absolute top-3 right-3 text-xs font-semibold px-2.5 py-1 rounded-full"

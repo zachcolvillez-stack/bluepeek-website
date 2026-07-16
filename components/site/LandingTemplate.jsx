@@ -7,7 +7,7 @@ import ChatWidget from '../ChatWidget'
 
 /**
  * Reusable premium landing template for service & industry pages.
- * Pure presentational server component — keeps the light pastel brand system.
+ * Pure presentational server component - keeps the light pastel brand system.
  *
  * Props:
  *   breadcrumb : [{ name, href }]
@@ -122,7 +122,7 @@ export default function LandingTemplate({ breadcrumb = [], eyebrow, h1, lead, se
             <div className="absolute -right-16 -top-16 w-56 h-56 rounded-full" style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.22) 0%, transparent 70%)' }} />
             <h2 className="relative text-2xl md:text-3xl font-bold text-white mb-3">Ready to get more leads?</h2>
             <p className="relative text-base mb-7 max-w-lg mx-auto" style={{ color: 'rgba(255,255,255,0.9)' }}>
-              Tell us about your business and we’ll reply within 24 hours — free quote, no pressure.
+              Tell us about your business and we’ll reply within 24 hours - free quote, no pressure.
             </p>
             <a href="/#contact" className="relative btn-white inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm">
               Get a Free Quote <ArrowRight size={16} />

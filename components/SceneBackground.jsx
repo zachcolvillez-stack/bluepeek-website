@@ -1,14 +1,14 @@
 'use client'
 
 /**
- * Light, premium background — crisp white with very subtle navy/blue
+ * Light, premium background - crisp white with very subtle navy/blue
  * washes that fade into the page. Sits behind all content.
  */
 export default function SceneBackground() {
   return (
     <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden"
       style={{ background: '#ffffff' }}>
-      {/* Faint blue wash — top right */}
+      {/* Faint blue wash - top right */}
       <div
         className="absolute"
         style={{
@@ -21,7 +21,7 @@ export default function SceneBackground() {
         }}
       />
 
-      {/* Faint navy wash — mid left */}
+      {/* Faint navy wash - mid left */}
       <div
         className="absolute"
         style={{

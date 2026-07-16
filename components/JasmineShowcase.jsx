@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion
 import { ArrowUpRight, ExternalLink } from 'lucide-react'
 
 /* ═══════════════════════════════════════════════════════════════
-   JASMINE SHOWCASE — cinematic scroll-driven featured project
+   JASMINE SHOWCASE - cinematic scroll-driven featured project
    Desktop: pinned full-viewport stage, the real site screenshot
    travels through a browser frame while a phone frame parallaxes in.
    Mobile / reduced-motion: simple stacked reveal, no pinning.
@@ -22,7 +22,7 @@ const META = [
 ]
 
 const DESCRIPTION =
-  'A dark, luxurious website for an authentic Thai day spa in Ascot, Perth — designed to feel as calming as the treatments it books.'
+  'A dark, luxurious website for an authentic Thai day spa in Ascot, Perth - designed to feel as calming as the treatments it books.'
 
 /* ── Shared pieces ────────────────────────────────────────────── */
 
@@ -85,7 +85,7 @@ function ShowcaseCTA({ className = '', style }) {
   )
 }
 
-/* Phone frame — navy bezel, screenshot scrolls inside */
+/* Phone frame - navy bezel, screenshot scrolls inside */
 function PhoneFrame({ imgStyle, className = '', style, autoScroll = false }) {
   const imgProps = autoScroll
     ? {
@@ -118,14 +118,14 @@ function PinnedStage() {
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end end'] })
 
-  // Main beat — screenshot travels up inside the browser frame
+  // Main beat - screenshot travels up inside the browser frame
   const frameScale = useTransform(scrollYProgress, [0, 0.22], [1.04, 1])
   const imgY       = useTransform(scrollYProgress, [0.04, 0.86], ['0%', '-86%'])
-  // Secondary beat — phone slides in and parallaxes at a different rate
+  // Secondary beat - phone slides in and parallaxes at a different rate
   const phoneOpacity = useTransform(scrollYProgress, [0.28, 0.4], [0, 1])
   const phoneY       = useTransform(scrollYProgress, [0.28, 0.48], [90, 0])
   const phoneImgY    = useTransform(scrollYProgress, [0.34, 0.92], ['0%', '-54%'])
-  // Closing beat — CTA settles in
+  // Closing beat - CTA settles in
   const ctaOpacity = useTransform(scrollYProgress, [0.78, 0.9], [0, 1])
   const ctaY       = useTransform(scrollYProgress, [0.78, 0.9], [24, 0])
   const ctaEvents  = useTransform(scrollYProgress, v => (v > 0.76 ? 'auto' : 'none'))
@@ -153,7 +153,7 @@ function PinnedStage() {
               <BrowserBar />
               <div className="relative overflow-hidden" style={{ aspectRatio: '16 / 10', background: '#141210' }}>
                 <motion.img src={DESKTOP_SHOT} width={1440} height={7968} loading="lazy"
-                  alt="Jasmine Health Spa homepage — dark luxury Thai day spa website built by Blue Peek"
+                  alt="Jasmine Health Spa homepage - dark luxury Thai day spa website built by Blue Peek"
                   className="absolute top-0 left-0 w-full h-auto"
                   style={{ y: imgY, willChange: 'transform' }} />
                 {/* soft inner vignette for depth */}
@@ -162,7 +162,7 @@ function PinnedStage() {
               </div>
             </motion.div>
 
-            {/* Phone frame — parallax companion */}
+            {/* Phone frame - parallax companion */}
             <PhoneFrame
               className="absolute bottom-2 right-[2%] lg:right-[6%] w-[168px] lg:w-[196px] z-10"
               style={{ opacity: phoneOpacity, y: phoneY }}
@@ -190,7 +190,7 @@ function StackedReveal() {
           <ShowcaseHeader align="stack" />
         </motion.div>
 
-        {/* Phone frame — the legible frame at this width; screenshot auto-scrolls once in view */}
+        {/* Phone frame - the legible frame at this width; screenshot auto-scrolls once in view */}
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.6 }}
           className="relative flex justify-center mt-12 mb-12">
@@ -218,7 +218,7 @@ function StaticLayout() {
             <BrowserBar />
             <div className="relative overflow-hidden" style={{ aspectRatio: '16 / 10', background: '#141210' }}>
               <img src={DESKTOP_SHOT} width={1440} height={7968} loading="lazy"
-                alt="Jasmine Health Spa homepage — dark luxury Thai day spa website built by Blue Peek"
+                alt="Jasmine Health Spa homepage - dark luxury Thai day spa website built by Blue Peek"
                 className="absolute top-0 left-0 w-full h-auto" />
             </div>
           </div>

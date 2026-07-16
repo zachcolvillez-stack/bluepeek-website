@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { ArrowRight } from 'lucide-react'
 
 /**
- * Sticky bottom CTA bar — mobile only.
+ * Sticky bottom CTA bar - mobile only.
  * Appears once the user scrolls past the hero, hides near the contact form.
  */
 export default function MobileCTA({ onCTA }) {

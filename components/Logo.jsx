@@ -1,13 +1,13 @@
 'use client'
 
 /**
- * Bluepeek brand mark — rounded square with blue→purple gradient
+ * Bluepeek brand mark - rounded square with blue→purple gradient
  * and a white cube outline. Matches the brand logo, scalable SVG.
  *
  * Props:
- *   size       — px size of the icon (default 36)
- *   showText   — render the "bluepeek" wordmark beside it (default true)
- *   textColor  — wordmark colour (default white)
+ *   size       - px size of the icon (default 36)
+ *   showText   - render the "bluepeek" wordmark beside it (default true)
+ *   textColor  - wordmark colour (default white)
  */
 export default function Logo({ size = 36, showText = true, textColor = '#0c1c34' }) {
   const gid = 'bp-grad'

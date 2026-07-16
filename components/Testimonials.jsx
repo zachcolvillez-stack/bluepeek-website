@@ -6,17 +6,17 @@ const PAINS = [
   {
     icon: PhoneCall,
     pain: '“I need more calls and enquiries.”',
-    solution: 'We build websites designed to convert — clear calls-to-action, click-to-call buttons and lead capture that turn visitors into real enquiries.',
+    solution: 'We build websites designed to convert - clear calls-to-action, click-to-call buttons and lead capture that turn visitors into real enquiries.',
   },
   {
     icon: Sparkles,
     pain: '“My current website looks outdated.”',
-    solution: 'A premium, modern site that makes you look as professional as you are — and instantly more trustworthy than your competitors.',
+    solution: 'A premium, modern site that makes you look as professional as you are - and instantly more trustworthy than your competitors.',
   },
   {
     icon: Clock,
     pain: '“I don’t have time to chase enquiries.”',
-    solution: 'AI assistants and automations reply, qualify and follow up for you — so leads never go cold while you’re on the job.',
+    solution: 'AI assistants and automations reply, qualify and follow up for you - so leads never go cold while you’re on the job.',
   },
   {
     icon: CheckCircle2,

@@ -8,15 +8,15 @@ const SERVICES = [
     title: 'Custom Websites',
     tag: 'Core Offer',
     featured: true,
-    description: 'Clean, mobile-first websites designed to make your business look established, build trust, and turn visitors into enquiries — and built to rank on Google.',
-    points: ['Designed around your brand', 'Built to rank locally', 'Fast and mobile-first', 'Yours to own — no lock-in'],
+    description: 'Clean, mobile-first websites designed to make your business look established, build trust, and turn visitors into enquiries - and built to rank on Google.',
+    points: ['Designed around your brand', 'Built to rank locally', 'Fast and mobile-first', 'Yours to own - no lock-in'],
   },
   {
     icon: Sparkles,
     title: 'AI & Smart Automation',
     tag: 'Core Offer',
     featured: true,
-    description: 'Useful AI and lead-capture systems that answer enquiries, book jobs and follow up automatically — so you never miss a customer while you’re on the tools.',
+    description: 'Useful AI and lead-capture systems that answer enquiries, book jobs and follow up automatically - so you never miss a customer while you’re on the tools.',
     points: ['24/7 AI enquiry assistant', 'Automatic lead follow-up', 'Online booking systems', 'Never miss a customer'],
   },
   {
@@ -24,7 +24,7 @@ const SERVICES = [
     title: 'SEO & Google Ads',
     tag: 'Available',
     featured: false,
-    description: 'Get found at the top of Google when locals search for what you do — paid and organic, built for Perth and WA.',
+    description: 'Get found at the top of Google when locals search for what you do - paid and organic, built for Perth and WA.',
     points: ['Local SEO that works', 'Google Ads management', 'Clear monthly reporting'],
   },
   {

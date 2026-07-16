@@ -56,7 +56,7 @@ export default function Contact() {
             Let’s build a website your business is proud of.
           </h2>
           <p className="text-base md:text-lg leading-relaxed mb-8" style={{ color: '#475569' }}>
-            Tell us a little about your business and we’ll reply within one business day with clear, honest advice — whether you need a new website, smarter automation, or both.
+            Tell us a little about your business and we’ll reply within one business day with clear, honest advice - whether you need a new website, smarter automation, or both.
           </p>
 
           <div className="space-y-3.5 mb-8">
@@ -88,7 +88,7 @@ export default function Contact() {
               <div className="w-14 h-14 rounded-2xl mx-auto mb-4 flex items-center justify-center" style={{ background: 'rgba(47,95,208,0.09)' }}>
                 <CheckCircle size={28} style={{ color: '#16335c' }} />
               </div>
-              <h3 className="text-xl font-bold mb-2" style={{ color: '#0c1c34' }}>Thanks — we’ve got it.</h3>
+              <h3 className="text-xl font-bold mb-2" style={{ color: '#0c1c34' }}>Thanks - we’ve got it.</h3>
               <p className="mb-6" style={{ color: '#475569' }}>We’ll be in touch within one business day.</p>
               <button onClick={() => setStatus('idle')} className="text-sm font-semibold" style={{ color: '#16335c' }}>
                 Send another enquiry

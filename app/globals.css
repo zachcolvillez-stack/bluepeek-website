@@ -140,7 +140,9 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 
 /* Eyebrow label */
 .eyebrow {
-  display: inline-flex;
+  /* House style: no decorative eyebrow badges above headings. */
+  display: none !important;
+  align-items: center;
   align-items: center;
   gap: 6px;
   font-size: 11px;

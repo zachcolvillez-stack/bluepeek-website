@@ -4,7 +4,7 @@ import { Mail, MapPin } from 'lucide-react'
 import { SITE, SERVICES, INDUSTRIES, u } from '../../lib/site'
 import Logo from '../Logo'
 
-/* Rich footer with sitewide internal links — used across all pages. */
+/* Rich footer with sitewide internal links - used across all pages. */
 export default function SiteFooter() {
   return (
     <footer className="relative px-6 pt-16 pb-10" style={{ background: 'linear-gradient(180deg, #0c1c34 0%, #0a182d 100%)', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
@@ -69,9 +69,13 @@ export default function SiteFooter() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-between gap-2 mt-8">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-3 mt-8">
           <p className="text-xs" style={{ color: '#7e889f' }}>© {new Date().getFullYear()} Bluepeek. All rights reserved.</p>
-          <p className="text-xs" style={{ color: '#7e889f' }}>Premium websites & smart systems · Built in Perth</p>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs" style={{ color: '#7e889f' }}>
+            <a href="/terms" className="transition-colors" style={{ color: '#7e889f' }} onMouseEnter={(e)=>e.currentTarget.style.color='#9fb6ff'} onMouseLeave={(e)=>e.currentTarget.style.color='#7e889f'}>Terms of Service</a>
+            <a href="/privacy" className="transition-colors" style={{ color: '#7e889f' }} onMouseEnter={(e)=>e.currentTarget.style.color='#9fb6ff'} onMouseLeave={(e)=>e.currentTarget.style.color='#7e889f'}>Privacy</a>
+            <a href="https://bluepeek.com.au" className="transition-colors" style={{ color: '#7e889f' }} onMouseEnter={(e)=>e.currentTarget.style.color='#9fb6ff'} onMouseLeave={(e)=>e.currentTarget.style.color='#7e889f'}>Powered by BluePeek</a>
+          </div>
         </div>
       </div>
     </footer>

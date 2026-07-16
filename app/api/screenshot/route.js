@@ -7,7 +7,7 @@
 // Provider is chosen by env:
 //   SCREENSHOT_PROVIDER = 'screenshotone' | 'microlink'   (optional)
 //   SCREENSHOT_API_KEY  = <key>                            (required for screenshotone)
-// Default: microlink (free tier, no key) — fine for a low-traffic gallery.
+// Default: microlink (free tier, no key) - fine for a low-traffic gallery.
 //
 // The key never leaves the server, and the response is cached hard on the CDN
 // so each site is only captured once until it changes.
@@ -37,7 +37,7 @@ function buildProviderUrl(target) {
     return `https://api.screenshotone.com/take?${p}`
   }
 
-  // microlink — returns the screenshot image bytes directly via embed
+  // microlink - returns the screenshot image bytes directly via embed
   const p = new URLSearchParams({
     url: target,
     screenshot: 'true',
