@@ -9,6 +9,7 @@ import { organizationSchema, websiteSchema } from '../lib/schema'
 import JsonLd from '../components/seo/JsonLd'
 
 export const metadata = {
+  verification: { google: ["cHdpD0nUSxKaZRO8R36srahgiZm2AkvAraSEvueRkC0", "CwTuTcWWsYurouCWrDbDmlItyxjk6FAjW8SU3dTJjD0"] },
   metadataBase: new URL(SITE.url),
   title: {
     default: 'Bluepeek - Perth Website Design & AI Automation for Local Business',
