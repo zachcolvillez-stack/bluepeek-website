@@ -12,7 +12,7 @@ export const metadata = {
   verification: { google: ["cHdpD0nUSxKaZRO8R36srahgiZm2AkvAraSEvueRkC0", "CwTuTcWWsYurouCWrDbDmlItyxjk6FAjW8SU3dTJjD0"] },
   metadataBase: new URL(SITE.url),
   title: {
-    default: 'Bluepeek - Perth Website Design & AI Automation for Local Business',
+    default: 'Bluepeek - Perth Website Design & AI Automation',
     template: '%s | Bluepeek Perth',
   },
   description: SITE.description,
