@@ -8,6 +8,25 @@ const jakarta = Plus_Jakarta_Sans({ subsets: ['latin'], weight: ['500', '600', '
 import { organizationSchema, websiteSchema } from '../lib/schema'
 import JsonLd from '../components/seo/JsonLd'
 
+const LIVE_REVIEWS_URL = 'https://bluepeekdashboard.com.au/api/public/reviews'
+
+// Fetched at request time (revalidated hourly) so the SEO schema's rating/review
+// count stays in sync with the real Google Business Profile, not a stale snapshot.
+async function getLiveReviews() {
+  try {
+    const res = await fetch(LIVE_REVIEWS_URL, { next: { revalidate: 3600 } })
+    if (!res.ok) return null
+    const j = await res.json()
+    if (!j?.ok || !j.reviews?.length) return null
+    return {
+      agg: { ratingValue: String(j.ratingValue), reviewCount: j.reviewCount, bestRating: '5' },
+      reviews: j.reviews.map(r => ({ author: r.author, rating: r.rating, text: r.text })),
+    }
+  } catch {
+    return null
+  }
+}
+
 export const metadata = {
   verification: { google: ["cHdpD0nUSxKaZRO8R36srahgiZm2AkvAraSEvueRkC0", "CwTuTcWWsYurouCWrDbDmlItyxjk6FAjW8SU3dTJjD0"] },
   metadataBase: new URL(SITE.url),
@@ -46,12 +65,13 @@ export const metadata = {
   },
 }
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const liveReviews = await getLiveReviews()
   return (
     <html lang="en-AU" className={`${inter.variable} ${jakarta.variable}`} suppressHydrationWarning>
       <body suppressHydrationWarning>
         {children}
-        <JsonLd data={organizationSchema()} />
+        <JsonLd data={organizationSchema(liveReviews)} />
         <JsonLd data={websiteSchema()} />
         <Analytics />
       </body>
