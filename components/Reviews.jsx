@@ -1,7 +1,10 @@
 'use client'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Star, ArrowUpRight } from 'lucide-react'
 import { REVIEWS, REVIEW_AGG, REVIEWS_SOURCE_URL } from '../lib/reviews'
+
+const LIVE_REVIEWS_URL = 'https://bluepeekdashboard.com.au/api/public/reviews'
 
 function Stars({ n = 5 }) {
   return (
@@ -18,6 +21,24 @@ function initials(name) {
 }
 
 export default function Reviews() {
+  const [reviews, setReviews] = useState(REVIEWS)
+  const [agg, setAgg] = useState(REVIEW_AGG)
+  const [mapsUrl, setMapsUrl] = useState(REVIEWS_SOURCE_URL)
+
+  useEffect(() => {
+    let cancelled = false
+    fetch(LIVE_REVIEWS_URL)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((j) => {
+        if (cancelled || !j?.ok || !j.reviews?.length) return
+        setReviews(j.reviews.map((r) => ({ author: r.author, rating: r.rating, text: r.text })))
+        setAgg({ ratingValue: String(j.ratingValue ?? REVIEW_AGG.ratingValue), reviewCount: j.reviewCount ?? REVIEW_AGG.reviewCount, bestRating: '5' })
+        if (j.mapsUrl) setMapsUrl(j.mapsUrl)
+      })
+      .catch(() => {})
+    return () => { cancelled = true }
+  }, [])
+
   return (
     <section id="reviews" className="relative py-28 px-6">
       <div className="max-w-6xl mx-auto">
@@ -30,16 +51,16 @@ export default function Reviews() {
 
           {/* Aggregate rating badge */}
           <div className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl" style={{ background: '#f7f9fc', border: '1px solid rgba(12,28,52,0.10)' }}>
-            <span className="text-3xl font-bold" style={{ color: '#0c1c34' }}>{REVIEW_AGG.ratingValue}</span>
+            <span className="text-3xl font-bold" style={{ color: '#0c1c34' }}>{agg.ratingValue}</span>
             <span>
               <Stars n={5} />
-              <span className="block text-xs mt-0.5" style={{ color: '#7e8aa0' }}>{REVIEW_AGG.reviewCount} Google reviews</span>
+              <span className="block text-xs mt-0.5" style={{ color: '#7e8aa0' }}>{agg.reviewCount} Google reviews</span>
             </span>
           </div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {REVIEWS.map((r, i) => (
+          {reviews.map((r, i) => (
             <motion.div key={r.author}
               initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.5, delay: (i % 3) * 0.08 }}
@@ -61,9 +82,9 @@ export default function Reviews() {
           ))}
         </div>
 
-        {REVIEWS_SOURCE_URL && (
+        {mapsUrl && (
           <div className="text-center mt-12">
-            <a href={REVIEWS_SOURCE_URL} target="_blank" rel="noopener noreferrer"
+            <a href={mapsUrl} target="_blank" rel="noopener noreferrer"
               className="btn-secondary inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm">
               Read all reviews on Google <ArrowUpRight size={15} />
             </a>

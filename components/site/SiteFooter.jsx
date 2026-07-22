@@ -1,8 +1,13 @@
 'use client'
 import Link from 'next/link'
-import { Mail, MapPin } from 'lucide-react'
+import { Mail, MapPin, Phone } from 'lucide-react'
 import { SITE, SERVICES, INDUSTRIES, u } from '../../lib/site'
 import Logo from '../Logo'
+
+const PHONES = [
+  { name: 'Jac', number: '0402 923 253' },
+  { name: 'Zach', number: '0468 955 806' },
+]
 
 /* Rich footer with sitewide internal links - used across all pages. */
 export default function SiteFooter() {
@@ -63,6 +68,14 @@ export default function SiteFooter() {
               onMouseLeave={(e) => e.currentTarget.style.color = '#aab3c9'}>
               <Mail size={15} /> {SITE.email}
             </a>
+            {PHONES.map((p) => (
+              <a key={p.name} href={`tel:${p.number.replace(/\s/g, '')}`}
+                className="inline-flex items-center gap-2 text-sm transition-colors mb-2" style={{ color: '#aab3c9' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#9fb6ff'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#aab3c9'}>
+                <Phone size={15} /> {p.name} · {p.number}
+              </a>
+            ))}
             <p className="flex items-center gap-2 text-sm" style={{ color: '#aab3c9' }}>
               <MapPin size={15} /> Perth, Western Australia
             </p>
