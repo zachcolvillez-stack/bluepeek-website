@@ -56,6 +56,12 @@ export default function SiteFooter() {
               <Link href="/" className="transition-colors" style={{ color: '#aab3c9' }}
                 onMouseEnter={(e) => e.currentTarget.style.color = '#9fb6ff'}
                 onMouseLeave={(e) => e.currentTarget.style.color = '#aab3c9'}>Home</Link>
+              <Link href="/about" className="transition-colors" style={{ color: '#aab3c9' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#9fb6ff'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#aab3c9'}>About</Link>
+              <Link href="/blog" className="transition-colors" style={{ color: '#aab3c9' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#9fb6ff'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#aab3c9'}>Blog</Link>
               <a href="/#work" className="transition-colors" style={{ color: '#aab3c9' }}
                 onMouseEnter={(e) => e.currentTarget.style.color = '#9fb6ff'}
                 onMouseLeave={(e) => e.currentTarget.style.color = '#aab3c9'}>Our Work</a>

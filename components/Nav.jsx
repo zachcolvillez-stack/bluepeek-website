@@ -17,6 +17,7 @@ export default function Nav({ onNavigate, currentScene }) {
     { label: 'Pricing',  id: 'packages' },
     { label: 'Work',     id: 'work' },
     { label: 'Gallery',  href: '/gallery' },
+    { label: 'Blog',     href: '/blog' },
     { label: 'Process',  id: 'how-it-works' },
     { label: 'Contact',  id: 'contact' },
   ]

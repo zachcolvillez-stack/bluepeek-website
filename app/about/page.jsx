@@ -1,0 +1,113 @@
+import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
+import { SITE } from '../../lib/site'
+import { aboutPageSchema, breadcrumbSchema } from '../../lib/schema'
+import SiteHeader from '../../components/site/SiteHeader'
+import SiteFooter from '../../components/site/SiteFooter'
+import ChatWidget from '../../components/ChatWidget'
+import JsonLd from '../../components/seo/JsonLd'
+
+export const metadata = {
+  title: 'About Bluepeek - Perth Web Design & AI Automation Studio',
+  description: 'Blue Peek is a Perth WA web design and AI automation studio serving businesses across Australia. Custom websites, 24/7 AI chatbots, lead capture and local SEO - 5.0 stars from 19 Google reviews.',
+  alternates: { canonical: '/about' },
+  openGraph: {
+    title: 'About Bluepeek - Perth Web Design & AI Automation Studio',
+    description: 'Blue Peek is a Perth WA web design and AI automation studio serving businesses across Australia.',
+    url: `${SITE.url}/about`,
+    type: 'website',
+  },
+}
+
+const breadcrumb = [
+  { name: 'Home', path: '/' },
+  { name: 'About', path: '/about' },
+]
+
+export default function AboutPage() {
+  return (
+    <>
+      <SiteHeader />
+      <main className="relative pt-28 pb-24 px-6">
+        <div className="hero-glow" style={{ top: '-6%', right: '-4%', width: '520px', height: '520px', background: 'radial-gradient(circle, rgba(47,95,208,0.10) 0%, transparent 70%)' }} />
+
+        <div className="relative max-w-3xl mx-auto">
+          <h1 className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.1] mb-6" style={{ color: '#0c1c34' }}>
+            About Blue Peek
+          </h1>
+
+          <p className="text-base md:text-lg leading-relaxed mb-10" style={{ color: '#475569' }}>
+            Blue Peek is a web design and AI automation studio based in Perth, Western Australia, serving small businesses across Australia.
+          </p>
+
+          <div className="space-y-9">
+            <section>
+              <h2 className="text-xl md:text-2xl font-bold tracking-tight mb-4" style={{ color: '#0c1c34' }}>Who we are</h2>
+              <p className="text-base leading-relaxed mb-4" style={{ color: '#475569' }}>
+                Blue Peek is a Perth-based web design and AI automation studio. We are a small, hands-on team - Jac and Zach - working directly with local business owners across Western Australia and the rest of Australia, rather than handing clients off between account managers.
+              </p>
+              <p className="text-base leading-relaxed" style={{ color: '#475569' }}>
+                We started in Perth building websites for tradies, mechanics, barbers and salons, and now work with small businesses right across Australia.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-xl md:text-2xl font-bold tracking-tight mb-4" style={{ color: '#0c1c34' }}>What we do</h2>
+              <p className="text-base leading-relaxed mb-4" style={{ color: '#475569' }}>
+                Blue Peek designs and builds custom websites, 24/7 AI chatbots, lead capture systems, and local SEO for small businesses. Our work includes:
+              </p>
+              <ul className="space-y-2.5">
+                {[
+                  'Custom website design and development',
+                  '24/7 AI chatbots that answer enquiries and capture leads any time of day',
+                  'Automated lead capture and follow-up systems',
+                  'Online booking and appointment systems',
+                  'Local SEO - so businesses are found on Google in their area',
+                ].map((b) => (
+                  <li key={b} className="flex items-start gap-3 text-base" style={{ color: '#475569' }}>
+                    <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-2.5" style={{ background: '#16335c' }} />
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <section>
+              <h2 className="text-xl md:text-2xl font-bold tracking-tight mb-4" style={{ color: '#0c1c34' }}>How we work</h2>
+              <p className="text-base leading-relaxed mb-4" style={{ color: '#475569' }}>
+                Blue Peek builds premium-quality websites without big-agency prices. Most projects go live within one to two weeks. There are no lock-in contracts, and clients own their website, domain and content outright - they can take it elsewhere at any time.
+              </p>
+              <p className="text-base leading-relaxed" style={{ color: '#475569' }}>
+                Blue Peek holds a 5.0-star rating from 19 Google reviews.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-xl md:text-2xl font-bold tracking-tight mb-4" style={{ color: '#0c1c34' }}>Who we work with</h2>
+              <p className="text-base leading-relaxed" style={{ color: '#475569' }}>
+                Blue Peek works primarily with local trades and small businesses - mechanics, barbers, painters, tradies, cafes, beauty salons and similar service businesses - that need a professional website and a reliable way to capture and follow up on enquiries.
+              </p>
+            </section>
+          </div>
+
+          <div className="mt-14 rounded-3xl p-10 text-center relative overflow-hidden"
+            style={{ background: 'linear-gradient(140deg, #16335c 0%, #0c1c34 100%)', boxShadow: '0 24px 60px rgba(12,28,52,0.30)' }}>
+            <div className="absolute -right-16 -top-16 w-56 h-56 rounded-full" style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.22) 0%, transparent 70%)' }} />
+            <h2 className="relative text-2xl md:text-3xl font-bold text-white mb-3">Want to talk about your business?</h2>
+            <p className="relative text-base mb-7 max-w-lg mx-auto" style={{ color: 'rgba(255,255,255,0.9)' }}>
+              Get in touch for a free, no-obligation quote - we&apos;ll reply within 24 hours.
+            </p>
+            <Link href="/#contact" className="relative btn-white inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm">
+              Get a Free Quote <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </main>
+      <SiteFooter />
+      <ChatWidget />
+
+      <JsonLd data={aboutPageSchema({ path: '/about' })} />
+      <JsonLd data={breadcrumbSchema(breadcrumb)} />
+    </>
+  )
+}
