@@ -1,10 +1,15 @@
 import './globals.css'
-import { Inter, Plus_Jakarta_Sans } from 'next/font/google'
+import { Inter, Fraunces } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { SITE } from '../lib/site'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-body', display: 'swap' })
-const jakarta = Plus_Jakarta_Sans({ subsets: ['latin'], weight: ['500', '600', '700', '800'], variable: '--font-heading', display: 'swap' })
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  axes: ['SOFT', 'WONK', 'opsz'],
+  variable: '--font-display',
+  display: 'swap',
+})
 import { organizationSchema, websiteSchema } from '../lib/schema'
 import JsonLd from '../components/seo/JsonLd'
 
@@ -68,7 +73,7 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   const liveReviews = await getLiveReviews()
   return (
-    <html lang="en-AU" className={`${inter.variable} ${jakarta.variable}`} suppressHydrationWarning>
+    <html lang="en-AU" className={`${inter.variable} ${fraunces.variable}`} suppressHydrationWarning>
       <body suppressHydrationWarning>
         {children}
         <JsonLd data={organizationSchema(liveReviews)} />
