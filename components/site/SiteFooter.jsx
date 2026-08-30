@@ -96,7 +96,7 @@ export default function SiteFooter() {
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs" style={{ color: '#7e889f' }}>
             <a href="/terms" className="transition-colors" style={{ color: '#7e889f' }} onMouseEnter={(e)=>e.currentTarget.style.color='#9fb6ff'} onMouseLeave={(e)=>e.currentTarget.style.color='#7e889f'}>Terms of Service</a>
             <a href="/privacy" className="transition-colors" style={{ color: '#7e889f' }} onMouseEnter={(e)=>e.currentTarget.style.color='#9fb6ff'} onMouseLeave={(e)=>e.currentTarget.style.color='#7e889f'}>Privacy</a>
-            <a href="https://bluepeek.com.au" className="transition-colors" style={{ color: '#7e889f' }} onMouseEnter={(e)=>e.currentTarget.style.color='#9fb6ff'} onMouseLeave={(e)=>e.currentTarget.style.color='#7e889f'}>Powered by BluePeek</a>
+            <a href="https://bluepeek.com.au" className="transition-colors" style={{ color: '#7e889f' }} onMouseEnter={(e)=>e.currentTarget.style.color='#9fb6ff'} onMouseLeave={(e)=>e.currentTarget.style.color='#7e889f'}>Powered by Bluepeek</a>
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@ import { SITE } from '../../lib/site'
 export const metadata = {
   title: 'Frequently Asked Questions',
   description:
-    'Answers about cost, timelines, ownership, AI automation, SEO and the areas Blue Peek covers. Gold Coast based, working with businesses across Australia.',
+    'Answers about cost, timelines, ownership, AI automation, SEO and the areas Bluepeek covers. Gold Coast based, working with businesses across Australia.',
   alternates: { canonical: '/faq' },
   openGraph: {
     title: 'Frequently Asked Questions | Bluepeek',

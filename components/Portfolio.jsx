@@ -61,7 +61,7 @@ export default function Portfolio() {
             Real local businesses,<br />live and online.
           </h2>
           <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: 'var(--text)' }}>
-            A selection of recent websites Blue Peek has built - click through to see each one live.
+            A selection of recent websites Bluepeek has built - click through to see each one live.
           </p>
         </motion.div>
 
@@ -72,7 +72,7 @@ export default function Portfolio() {
           <a href={featured.url} target="_blank" rel="noopener noreferrer" className="block order-1 md:order-none">
             <BrowserChrome domain={featured.domain} />
             <div className="relative aspect-[16/11] md:aspect-auto md:h-full overflow-hidden" style={{ background: 'var(--lapiz-tint)' }}>
-              <img src={featured.image} alt={`${featured.title} - ${featured.industry} website built by Blue Peek`}
+              <img src={featured.image} alt={`${featured.title} - ${featured.industry} website built by Bluepeek`}
                 className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                 onError={(e) => { e.currentTarget.style.display = 'none' }} />
               <IndustryTag>{featured.industry}</IndustryTag>
@@ -108,7 +108,7 @@ export default function Portfolio() {
               <a href={p.url} target="_blank" rel="noopener noreferrer" className="block">
                 <BrowserChrome domain={p.domain} />
                 <div className="relative aspect-[16/10] overflow-hidden" style={{ background: 'var(--lapiz-tint)' }}>
-                  <img src={p.image} alt={`${p.title} - ${p.industry} website in ${p.location} built by Blue Peek`}
+                  <img src={p.image} alt={`${p.title} - ${p.industry} website in ${p.location} built by Bluepeek`}
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                     onError={(e) => { e.currentTarget.style.display = 'none' }} />
                   <IndustryTag>{p.industry}</IndustryTag>

@@ -18,7 +18,7 @@ const SITE_STATUS = [
 
 /**
  * Lead capture for the sales call. Four fields only — every extra one costs
- * completions. Posts to BluePeek Forms with slug `quote` so these are
+ * completions. Posts to Bluepeek Forms with slug `quote` so these are
  * separable from general contact enquiries in the dashboard.
  */
 export default function QuoteForm({ compact = false, id = 'quote-form' }) {

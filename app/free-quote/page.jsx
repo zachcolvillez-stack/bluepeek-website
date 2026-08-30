@@ -27,7 +27,7 @@ export default function FreeQuotePage() {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-center gap-2.5 mb-10">
             <img src="/brand/logo-256.png" alt="" width={34} height={34} style={{ borderRadius: 9 }} />
-            <span className="font-bold text-lg tracking-tight" style={{ color: 'var(--ink)' }}>bluepeek</span>
+            <span className="font-bold text-lg tracking-tight" style={{ color: 'var(--ink)' }}>Bluepeek</span>
           </div>
 
           <div className="grid lg:grid-cols-[1.05fr_1fr] gap-12 lg:gap-16 items-start">
@@ -65,7 +65,7 @@ export default function FreeQuotePage() {
 
           <p className="text-xs text-center mt-16" style={{ color: 'var(--muted)' }}>
             © {new Date().getFullYear()} Bluepeek · <a href="/terms" style={{ color: 'var(--muted)' }}>Terms</a> ·
-            {' '}<a href="/privacy" style={{ color: 'var(--muted)' }}>Privacy</a> · Powered by BluePeek
+            {' '}<a href="/privacy" style={{ color: 'var(--muted)' }}>Privacy</a> · Powered by Bluepeek
           </p>
         </div>
       </div>

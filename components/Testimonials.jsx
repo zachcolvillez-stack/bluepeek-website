@@ -36,7 +36,7 @@ export default function Testimonials() {
             We solve the problems<br />local businesses actually have.
           </h2>
           <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: 'var(--text)' }}>
-            If any of these sound familiar, you’re exactly who Blue Peek builds for.
+            If any of these sound familiar, you’re exactly who Bluepeek builds for.
           </p>
         </motion.div>
 

@@ -16,7 +16,7 @@ export default function FAQ() {
             Questions, answered.
           </h2>
           <p className="text-base md:text-lg" style={{ color: '#475569' }}>
-            The things Perth business owners usually ask Blue Peek before getting started.
+            The things Perth business owners usually ask Bluepeek before getting started.
           </p>
         </motion.div>
 

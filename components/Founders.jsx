@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion'
 import { reveal, revealFrom } from '../lib/motion'
 
-/* Our story — the two people behind Blue Peek.
+/* Our story — the two people behind Bluepeek.
    Photos side by side on top, the story underneath.
    Facts only: names, ages, where they're from. No invented backstory. */
 
@@ -19,8 +19,8 @@ export default function Founders() {
         <motion.h2 {...reveal(0)} className="font-display text-3xl md:text-4xl lg:text-5xl text-center mb-3">
           Two of us. <span className="text-lapiz">That&rsquo;s the whole company.</span>
         </motion.h2>
-        <motion.p {...reveal(0.06)} className="text-center text-base md:text-lg mb-14 max-w-2xl mx-auto"
-          style={{ color: 'var(--text)' }}>
+        <motion.p {...reveal(0.06)} className="text-center mb-14 max-w-xl mx-auto"
+          style={{ color: '#33405e', fontSize: 'clamp(1.05rem, 1.4vw, 1.22rem)', lineHeight: 1.6 }}>
           No account managers, no outsourcing. When you call, you get one of the two people who built your site.
         </motion.p>
 
@@ -30,13 +30,13 @@ export default function Founders() {
             <motion.figure key={f.name} {...revealFrom(i === 0 ? 'left' : 'right', i * 0.1)}>
               <div className="relative rounded-2xl overflow-hidden"
                 style={{ border: '1px solid var(--hairline)', boxShadow: 'var(--shadow-lg)', aspectRatio: '4 / 5' }}>
-                <img src={f.photo} alt={`${f.name}, ${f.role} of Blue Peek`}
+                <img src={f.photo} alt={`${f.name}, ${f.role} of Bluepeek`}
                   className="w-full h-full object-cover" loading="lazy" width={900} height={1200} />
               </div>
               <figcaption className="mt-4 text-center">
                 <p className="text-base font-semibold" style={{ color: 'var(--ink)' }}>{f.name}</p>
-                <p className="text-sm mt-0.5" style={{ color: 'var(--lapiz)' }}>{f.role}</p>
-                <p className="text-xs mt-1" style={{ color: 'var(--muted)' }}>{f.age} · from {f.from}</p>
+                <p className="text-sm font-medium mt-1" style={{ color: 'var(--lapiz)' }}>{f.role}</p>
+                <p className="text-sm mt-1" style={{ color: '#5a688a' }}>{f.age} · from {f.from}</p>
               </figcaption>
             </motion.figure>
           ))}
@@ -44,10 +44,10 @@ export default function Founders() {
 
         {/* Story underneath */}
         <motion.div {...reveal(0.12)}
-          className="mt-16 max-w-2xl mx-auto space-y-5 text-base md:text-lg leading-relaxed"
-          style={{ color: 'var(--text)' }}>
+          className="mt-16 max-w-xl mx-auto space-y-6"
+          style={{ color: '#33405e', fontSize: 'clamp(1.05rem, 1.35vw, 1.19rem)', lineHeight: 1.72 }}>
           <p>
-            Blue Peek is Jac and Zach — 22 and 21, one from Wales and one from England,
+            Bluepeek is Jac and Zach — 22 and 21, one from Wales and one from England,
             both now building websites for Australian businesses.
           </p>
           <p>
@@ -67,7 +67,7 @@ export default function Founders() {
             Talk to us directly
           </a>
           <a href="/about" className="btn-secondary flex items-center justify-center px-8 py-4 rounded-full text-sm">
-            More about Blue Peek
+            More about Bluepeek
           </a>
         </motion.div>
       </div>

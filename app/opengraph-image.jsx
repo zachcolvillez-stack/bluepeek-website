@@ -53,7 +53,7 @@ export default function OpengraphImage() {
               </g>
             </svg>
           </div>
-          <div style={{ fontSize: 44, fontWeight: 700, color: '#ffffff', marginLeft: 24 }}>bluepeek</div>
+          <div style={{ fontSize: 44, fontWeight: 700, color: '#ffffff', marginLeft: 24 }}>Bluepeek</div>
         </div>
 
         {/* headline */}

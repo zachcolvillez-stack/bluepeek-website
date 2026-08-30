@@ -25,7 +25,7 @@ export default function Hero({ onCTA }) {
 
           <motion.p {...reveal(0.08)}
             className="text-base md:text-lg leading-relaxed mb-9 max-w-xl" style={{ color: 'var(--text)' }}>
-            Blue Peek builds fast, professional websites and lead-capture systems for Australian
+            Bluepeek builds fast, professional websites and lead-capture systems for Australian
             businesses — designed to win the enquiry, not just sit there looking neat.
           </motion.p>
 

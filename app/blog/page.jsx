@@ -8,7 +8,7 @@ import ChatWidget from '../../components/ChatWidget'
 
 export const metadata = {
   title: 'Blog - Perth Web Design & AI Automation Insights | Bluepeek',
-  description: 'Practical guides on web design pricing, choosing a Perth web design agency, and AI automation for small business - written by Blue Peek.',
+  description: 'Practical guides on web design pricing, choosing a Perth web design agency, and AI automation for small business - written by Bluepeek.',
   alternates: { canonical: '/blog' },
   openGraph: {
     title: 'Blog - Perth Web Design & AI Automation Insights | Bluepeek',

@@ -26,7 +26,7 @@ export default function Logo({ size = 36, showText = true, textColor = 'var(--in
         }}
       />
       {showText && (
-        <span className="font-bold text-lg tracking-tight" style={{ color: textColor }}>bluepeek</span>
+        <span className="font-bold text-lg tracking-tight" style={{ color: textColor }}>Bluepeek</span>
       )}
     </span>
   )

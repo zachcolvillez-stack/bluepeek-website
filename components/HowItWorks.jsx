@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { Search, PenTool, Rocket, LineChart } from 'lucide-react'
 
 const STEPS = [
-  { number: '01', icon: Search,    title: 'Discovery',        description: 'A relaxed conversation about your business, your goals and what success looks like. If Blue Peek isn’t the right fit, we’ll tell you upfront.' },
+  { number: '01', icon: Search,    title: 'Discovery',        description: 'A relaxed conversation about your business, your goals and what success looks like. If Bluepeek isn’t the right fit, we’ll tell you upfront.' },
   { number: '02', icon: PenTool,   title: 'Design & Build',   description: 'We design and build your site with you in the loop - drafts, feedback and refinements until it’s exactly right.' },
   { number: '03', icon: Rocket,    title: 'Launch',           description: 'Your site goes live quickly. We handle the technical details and make sure everything runs cleanly from day one.' },
   { number: '04', icon: LineChart, title: 'Support & Growth', description: 'We stay on hand - support when you need it, plus automation that keeps enquiries coming in long after launch.' },

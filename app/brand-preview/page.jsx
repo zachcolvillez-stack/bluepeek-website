@@ -44,7 +44,7 @@ export default function BrandPreview() {
   return (
     <main style={{ minHeight: '100vh', background: '#0d1117', padding: '48px 24px', fontFamily: 'system-ui, sans-serif' }}>
       <div style={{ maxWidth: 1180, margin: '0 auto' }}>
-        <h1 style={{ color: '#fff', fontSize: 30, marginBottom: 6 }}>Blue Peek animated assets</h1>
+        <h1 style={{ color: '#fff', fontSize: 30, marginBottom: 6 }}>Bluepeek animated assets</h1>
         <p style={{ color: '#8b98a9', marginBottom: 34, fontSize: 15 }}>
           Diagonal slat reveal — the artwork is cut into leaning parallelogram bands that slide in staggered, left to right. 900ms empty, then the reveal, then a hold. 6480ms loop, matching the reference.
         </p>

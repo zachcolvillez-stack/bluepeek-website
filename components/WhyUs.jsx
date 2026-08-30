@@ -8,12 +8,12 @@ export default function WhyUs() {
       <div className="max-w-6xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
-          <span className="eyebrow">Why Blue Peek</span>
+          <span className="eyebrow">Why Bluepeek</span>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: 'var(--ink)' }}>
             A premium agency<br />that feels local.
           </h2>
           <p className="text-base md:text-lg max-w-xl mx-auto leading-relaxed" style={{ color: 'var(--text)' }}>
-            Big-agency quality without the big-agency runaround. Here’s what makes Blue Peek different.
+            Big-agency quality without the big-agency runaround. Here’s what makes Bluepeek different.
           </p>
         </motion.div>
 
@@ -32,7 +32,7 @@ export default function WhyUs() {
               </div>
               <h3 className="text-2xl font-bold text-white mb-3">A two-person team - real people, real conversations.</h3>
               <p className="text-base leading-relaxed max-w-md" style={{ color: 'rgba(255,255,255,0.86)' }}>
-                You’re not a ticket number. Blue Peek is Jac and Zachary, based on the Gold Coast and working with businesses right across Australia. Every site is built around bringing you real customers - not design awards.
+                You’re not a ticket number. Bluepeek is Jac and Zachary, based on the Gold Coast and working with businesses right across Australia. Every site is built around bringing you real customers - not design awards.
               </p>
               <div className="flex flex-wrap gap-2 mt-6">
                 {['Built around leads, not vanity', 'Works Australia-wide'].map(t => (
@@ -68,10 +68,10 @@ export default function WhyUs() {
               <path d="M0 24V12C0 5 4 1 12 0L13 4C8 5 6 8 6 12H12V24H0ZM20 24V12C20 5 24 1 32 0L33 4C28 5 26 8 26 12H32V24H20Z" fill="var(--ink)"/>
             </svg>
             <p className="text-lg md:text-xl leading-relaxed font-medium mb-5" style={{ color: 'var(--ink)' }}>
-              I started Blue Peek because too many great local businesses were being held back by poor - or no - websites. Every Perth business deserves an online presence that actually works for them, without paying inflated agency prices or getting locked into contracts.
+              I started Bluepeek because too many great local businesses were being held back by poor - or no - websites. Every Perth business deserves an online presence that actually works for them, without paying inflated agency prices or getting locked into contracts.
             </p>
             <p className="text-xl font-bold" style={{ color: 'var(--ink)', fontFamily: 'Georgia, serif', fontStyle: 'italic' }}>Zach</p>
-            <p className="text-sm mt-0.5" style={{ color: 'var(--muted)' }}>Founder · Blue Peek · Perth, WA</p>
+            <p className="text-sm mt-0.5" style={{ color: 'var(--muted)' }}>Founder · Bluepeek · Perth, WA</p>
           </div>
         </motion.div>
       </div>

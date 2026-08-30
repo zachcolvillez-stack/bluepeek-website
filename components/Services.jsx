@@ -50,7 +50,7 @@ export default function Services() {
             Everything your business<br />needs to grow online.
           </h2>
           <p className="text-base md:text-lg max-w-xl mx-auto leading-relaxed" style={{ color: 'var(--text)' }}>
-            From a professional website to AI that captures every lead, Blue Peek handles the digital side so you can focus on the work.
+            From a professional website to AI that captures every lead, Bluepeek handles the digital side so you can focus on the work.
           </p>
         </motion.div>
 

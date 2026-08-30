@@ -4,7 +4,7 @@ import { MessageSquare, X, Send, Sparkles } from 'lucide-react'
 
 const BLUEPEEK_ENDPOINT = 'https://bumjkwvaeqghjspowkrd.supabase.co/functions/v1/submit-form'
 
-/* Scripted knowledge base - instant answers in BluePeek's voice.
+/* Scripted knowledge base - instant answers in Bluepeek's voice.
    Each intent has a reply and optional follow-up quick-replies. */
 const INTENTS = {
   services: {
@@ -60,7 +60,7 @@ export default function ChatWidget() {
         setTyping(false)
         setMessages([{
           role: 'bot',
-          text: "G'day! 👋 I'm the BluePeek assistant. Ask me anything about websites, AI or pricing - or grab a free quote.",
+          text: "G'day! 👋 I'm the Bluepeek assistant. Ask me anything about websites, AI or pricing - or grab a free quote.",
           options: ['services', 'pricing', 'turnaround', 'ai', 'quote'],
         }])
       }, 600)
@@ -166,7 +166,7 @@ export default function ChatWidget() {
               <Sparkles size={18} className="text-white" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="font-bold text-white leading-tight">BluePeek Assistant</p>
+              <p className="font-bold text-white leading-tight">Bluepeek Assistant</p>
               <p className="text-xs flex items-center gap-1.5" style={{ color: 'rgba(255,255,255,0.85)' }}>
                 <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#22c55e' }} /> Online · replies instantly
               </p>

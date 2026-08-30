@@ -57,7 +57,7 @@ export default function Packages({ onCTA }) {
             Built to bring you leads  -<br />priced to fit your business.
           </h2>
           <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: 'var(--text)' }}>
-            Every Blue Peek package is custom-quoted to fit your goals. No lock-in, no hidden fees - and you own everything.
+            Every Bluepeek package is custom-quoted to fit your goals. No lock-in, no hidden fees - and you own everything.
           </p>
         </motion.div>
 
