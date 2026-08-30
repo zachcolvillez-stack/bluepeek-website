@@ -8,7 +8,7 @@ import { fileURLToPath } from 'url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
-const FRAMES = 26
+const FRAMES = 16
 const who = process.argv[2] || 'jac'
 
 let sig = await fs.readFile(path.join(ROOT, 'public', 'email', `signature-${who}.html`), 'utf8')
@@ -30,14 +30,19 @@ function page(bg) {
   // Diagonal band reveal — the whole card is masked in behind a stepped
   // diagonal edge, matching the reference animation.
   const card = document.getElementById('card')
-  const STEPS = 11, ANGLE = 115
-  window.setFrame = (t) => {
-    const eased = 1 - Math.pow(1 - Math.min(1, Math.max(0, t)), 2)
-    const stepped = Math.ceil(eased * STEPS) / STEPS
-    const p = stepped * 130 - 15
+  const ANGLE = 115
+  const TARGET = document.getElementById('card')
+  // Wipe-front positions measured frame-by-frame off the reference GIF,
+  // so the motion curve is theirs rather than an approximation.
+  const CURVE = [0.0,0.0258,0.0581,0.1032,0.1806,0.2968,0.4645,0.671,0.7871,0.8645,0.9161,0.9548,0.9806,0.9871,0.9935,1.0]
+  window.setFrame = (i) => {
+    const f = CURVE[Math.min(CURVE.length - 1, Math.max(0, i))]
+    // Their first reveal frame already shows ~18% of the width, and the
+    // last is complete: map the curve onto 18%..100% so every frame differs.
+    const p = 18 + f * 82
     const mask = 'linear-gradient(' + ANGLE + 'deg, #000 ' + p + '%, rgba(0,0,0,0) ' + (p + 0.5) + '%)'
-    card.style.webkitMaskImage = mask
-    card.style.maskImage = mask
+    TARGET.style.webkitMaskImage = mask
+    TARGET.style.maskImage = mask
   }
   window.setFrame(0)
 </script></body></html>`
@@ -55,7 +60,7 @@ for (const [mode, bg] of Object.entries(MODES)) {
   const card = await p.$('#card')
 
   for (let i = 0; i < FRAMES; i++) {
-    await p.evaluate(t => window.setFrame(t), i / FRAMES)
+    await p.evaluate(i => window.setFrame(i), i)
     await card.screenshot({
       path: path.join(out, String(i).padStart(2, '0') + '.png'),
       omitBackground: !bg,

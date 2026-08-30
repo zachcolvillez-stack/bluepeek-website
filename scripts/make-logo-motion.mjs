@@ -10,8 +10,8 @@ import { fileURLToPath } from 'url'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
 const SIZE = 240
-const FRAMES = 26          // reveal frames; the hold is added at assembly time
-const STEPS = 9            // number of diagonal bands
+const FRAMES = 16          // reveal frames (reference: 16 @30ms = 480ms)
+const STEPS = 16           // diagonal bands — one per frame, no duplicates
 const ANGLE = 115          // diagonal direction
 
 const MODES = { solid: '#ffffff', alpha: null, green: '#00FF00' }
@@ -26,14 +26,19 @@ function html(bg) {
   const tile = document.getElementById('tile')
   // A hard diagonal edge, quantised into STEPS so it fills in as bands
   // rather than a smooth gradient — that is what reads as "rectangles".
-  const STEPS = ${STEPS}, ANGLE = ${ANGLE}
-  window.setFrame = (t) => {
-    const eased = 1 - Math.pow(1 - Math.min(1, Math.max(0, t)), 2)
-    const stepped = Math.ceil(eased * STEPS) / STEPS       // quantised progress
-    const p = stepped * 130 - 15                            // -15%..115% sweep
+  const ANGLE = ${ANGLE}
+  const TARGET = tile
+  // Wipe-front positions measured frame-by-frame off the reference GIF,
+  // so the motion curve is theirs rather than an approximation.
+  const CURVE = [0.0,0.0258,0.0581,0.1032,0.1806,0.2968,0.4645,0.671,0.7871,0.8645,0.9161,0.9548,0.9806,0.9871,0.9935,1.0]
+  window.setFrame = (i) => {
+    const f = CURVE[Math.min(CURVE.length - 1, Math.max(0, i))]
+    // Their first reveal frame already shows ~18% of the width, and the
+    // last is complete: map the curve onto 18%..100% so every frame differs.
+    const p = 18 + f * 82
     const mask = 'linear-gradient(' + ANGLE + 'deg, #000 ' + p + '%, rgba(0,0,0,0) ' + (p + 0.5) + '%)'
-    tile.style.webkitMaskImage = mask
-    tile.style.maskImage = mask
+    TARGET.style.webkitMaskImage = mask
+    TARGET.style.maskImage = mask
   }
   window.setFrame(0)
 </script></body></html>`
@@ -48,7 +53,7 @@ for (const [mode, bg] of Object.entries(MODES)) {
   await page.setContent(html(bg))
   await page.waitForTimeout(600)
   for (let i = 0; i < FRAMES; i++) {
-    await page.evaluate(t => window.setFrame(t), i / (FRAMES - 1))
+    await page.evaluate(i => window.setFrame(i), i)
     await page.screenshot({ path: path.join(out, String(i).padStart(2,'0') + '.png'), omitBackground: !bg })
   }
   await page.close()
