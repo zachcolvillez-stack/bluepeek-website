@@ -12,7 +12,7 @@ const PHONES = [
 /* Rich footer with sitewide internal links - used across all pages. */
 export default function SiteFooter() {
   return (
-    <footer className="relative px-6 pt-16 pb-10" style={{ background: 'linear-gradient(180deg, #0c1c34 0%, #0a182d 100%)', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+    <footer className="relative px-6 pt-16 pb-10" style={{ background: 'linear-gradient(180deg, #01197A 0%, #010f4d 100%)', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-4 gap-10 pb-10" style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
           {/* Brand */}

@@ -1,36 +1,30 @@
 'use client'
 
 /**
- * Bluepeek brand mark - rounded square with blue→purple gradient
- * and a white cube outline. Matches the brand logo, scalable SVG.
+ * Bluepeek brand mark — the real logo asset, used everywhere.
+ * Single source: /brand/logo.png. Do not redraw it in SVG.
  *
  * Props:
- *   size       - px size of the icon (default 36)
+ *   size       - px size of the tile (default 36)
  *   showText   - render the "bluepeek" wordmark beside it (default true)
- *   textColor  - wordmark colour (default white)
+ *   textColor  - wordmark colour (default the site ink; footer passes white)
  */
-export default function Logo({ size = 36, showText = true, textColor = '#0c1c34' }) {
-  const gid = 'bp-grad'
+export default function Logo({ size = 36, showText = true, textColor = 'var(--ink)' }) {
   return (
     <span className="inline-flex items-center gap-2.5 select-none">
-      <svg width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"
-        style={{ filter: 'drop-shadow(0 4px 12px rgba(12,28,52,0.30))', flexShrink: 0 }}>
-        <defs>
-          <linearGradient id={gid} x1="10" y1="6" x2="92" y2="96" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#2347c4" />
-            <stop offset="0.5" stopColor="#15306a" />
-            <stop offset="1" stopColor="#0a1730" />
-          </linearGradient>
-        </defs>
-        {/* Rounded square */}
-        <rect x="4" y="4" width="92" height="92" rx="26" fill={`url(#${gid})`} />
-        {/* Cube outline */}
-        <g stroke="#ffffff" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" fill="none">
-          <path d="M50 26 L72 38 L72 62 L50 74 L28 62 L28 38 Z" />
-          {/* vertical line straight down the middle + two top-face edges */}
-          <path d="M50 26 L50 50 L50 74 M50 50 L72 38 M50 50 L28 38" />
-        </g>
-      </svg>
+      <img
+        src="/brand/logo-256.png"
+        alt=""
+        width={size}
+        height={size}
+        style={{
+          width: size,
+          height: size,
+          borderRadius: size * 0.26,
+          flexShrink: 0,
+          boxShadow: '0 4px 12px rgba(11,62,217,0.28)',
+        }}
+      />
       {showText && (
         <span className="font-bold text-lg tracking-tight" style={{ color: textColor }}>bluepeek</span>
       )}
