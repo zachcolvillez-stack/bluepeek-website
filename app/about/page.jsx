@@ -44,7 +44,7 @@ export default function AboutPage() {
             <section>
               <h2 className="text-xl md:text-2xl font-bold tracking-tight mb-4" style={{ color: '#0c1c34' }}>Who we are</h2>
               <p className="text-base leading-relaxed mb-4" style={{ color: '#475569' }}>
-                Bluepeek is a Perth-based web design and AI automation studio. We are a small, hands-on team - Jac Thomas-Rees and Zach Colville - working directly with local business owners across Western Australia and the rest of Australia, rather than handing clients off between account managers.
+                Bluepeek is a Gold Coast-based web design and AI automation studio. We are a small, hands-on team - Jac Thomas-Rees and Zach Colville - working directly with local business owners right across Australia, rather than handing clients off between account managers.
               </p>
               <p className="text-base leading-relaxed" style={{ color: '#475569' }}>
                 We started in Perth building websites for tradies, mechanics, barbers and salons, and now work with small businesses right across Australia.

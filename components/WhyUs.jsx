@@ -32,7 +32,7 @@ export default function WhyUs() {
               </div>
               <h3 className="text-2xl font-bold text-white mb-3">A two-person team - real people, real conversations.</h3>
               <p className="text-base leading-relaxed max-w-md" style={{ color: 'rgba(255,255,255,0.86)' }}>
-                You’re not a ticket number. Bluepeek is Jac and Zachary, based on the Gold Coast and working with businesses right across Australia. Every site is built around bringing you real customers - not design awards.
+                You’re not a ticket number. Bluepeek is Jac and Zach, based on the Gold Coast and working with businesses right across Australia. Every site is built around bringing you real customers - not design awards.
               </p>
               <div className="flex flex-wrap gap-2 mt-6">
                 {['Built around leads, not vanity', 'Works Australia-wide'].map(t => (
@@ -50,7 +50,7 @@ export default function WhyUs() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           <BentoCard icon={MessageCircle} title="Clear communication" body="Plain English, no jargon. You always know what’s happening and why." delay={0.0} />
           <BentoCard icon={Zap} title="AI-ready systems" body="Lead capture and automation built in - so your site keeps working when you don’t." delay={0.08} />
-          <BentoCard icon={Target} title="Direct access to Zach" body="Talk to the person actually building your site. No account managers, no offshore teams." delay={0.16} />
+          <BentoCard icon={Target} title="Direct access to the founders" body="Talk to the people actually building your site. No account managers, no offshore teams." delay={0.16} />
         </div>
 
         {/* ── Founder card ── */}
@@ -58,9 +58,11 @@ export default function WhyUs() {
           viewport={{ once: true }} transition={{ duration: 0.6 }}
           className="card-light mt-6 p-8 md:p-12 flex flex-col md:flex-row items-center gap-8">
           <div className="flex-shrink-0">
-            <div className="w-28 h-28 rounded-3xl flex items-center justify-center"
-              style={{ background: 'linear-gradient(135deg, var(--lapiz-deep) 0%, var(--ink) 100%)', boxShadow: '0 12px 30px rgba(6,20,63,0.28)' }}>
-              <span className="text-4xl font-black text-white">Z</span>
+            <div className="w-28 h-28 rounded-3xl overflow-hidden"
+              style={{ boxShadow: '0 12px 30px rgba(6,20,63,0.28)' }}>
+              <img src="/founders/zach-square.jpg" alt="Zach Colville, Founder and Owner of Bluepeek"
+                width={440} height={440} loading="lazy"
+                className="w-full h-full object-cover" />
             </div>
           </div>
           <div className="text-center md:text-left">
@@ -68,10 +70,10 @@ export default function WhyUs() {
               <path d="M0 24V12C0 5 4 1 12 0L13 4C8 5 6 8 6 12H12V24H0ZM20 24V12C20 5 24 1 32 0L33 4C28 5 26 8 26 12H32V24H20Z" fill="var(--ink)"/>
             </svg>
             <p className="text-lg md:text-xl leading-relaxed font-medium mb-5" style={{ color: 'var(--ink)' }}>
-              I started Bluepeek because too many great local businesses were being held back by poor - or no - websites. Every Perth business deserves an online presence that actually works for them, without paying inflated agency prices or getting locked into contracts.
+              I started Bluepeek because too many great local businesses were being held back by poor - or no - websites. Every local business deserves an online presence that actually works for them, without paying inflated agency prices or getting locked into contracts.
             </p>
             <p className="text-xl font-bold" style={{ color: 'var(--ink)', fontFamily: 'Georgia, serif', fontStyle: 'italic' }}>Zach</p>
-            <p className="text-sm mt-0.5" style={{ color: 'var(--muted)' }}>Founder · Bluepeek · Perth, WA</p>
+            <p className="text-sm mt-0.5" style={{ color: 'var(--muted)' }}>Founder & Owner · Bluepeek · Gold Coast</p>
           </div>
         </motion.div>
       </div>
