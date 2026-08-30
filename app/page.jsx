@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { useReviewAgg } from '../lib/useReviews'
 import SceneBackground from '../components/SceneBackground'
 import Nav from '../components/Nav'
 import Hero from '../components/Hero'
@@ -19,6 +20,7 @@ import ChatWidget from '../components/ChatWidget'
 
 export default function Home() {
   const [scene, setScene] = useState('hero')
+  const agg = useReviewAgg()
 
   const goTo = (target) => {
     setScene(target)
@@ -39,7 +41,7 @@ export default function Home() {
           <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-center gap-x-6 gap-y-3 py-5 px-6 rounded-2xl text-center"
             style={{ background: '#f7f9fc', border: '1px solid rgba(12,28,52,0.08)' }}>
             {[
-              '5.0★ · 19 Google reviews',
+              `${agg.ratingValue}★ · ${agg.reviewCount} Google reviews`,
               '13+ Australian businesses live',
               '1–2 week turnaround',
               'No lock-in contracts',

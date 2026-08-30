@@ -2,10 +2,12 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Star } from 'lucide-react'
 import { reveal, revealFrom } from '../lib/motion'
+import { useReviewAgg } from '../lib/useReviews'
 
 const FACTS = ['Built on the Gold Coast', 'Live in 1–2 weeks', 'No lock-in', 'You own everything']
 
 export default function Hero({ onCTA }) {
+  const agg = useReviewAgg()
   return (
     <section id="hero" className="relative min-h-screen flex items-center px-6 pt-32 pb-20 overflow-hidden">
       {/* Lapiz wash — colour with intent, kept off the type */}
@@ -42,7 +44,7 @@ export default function Hero({ onCTA }) {
             <div className="flex gap-0.5">
               {[0,1,2,3,4].map(i => <Star key={i} size={14} style={{ color: 'var(--lapiz)', fill: 'var(--lapiz)' }} />)}
             </div>
-            <span className="text-sm" style={{ color: 'var(--text)' }}>5.0 from 19 Google reviews</span>
+            <span className="text-sm" style={{ color: 'var(--text)' }}>{agg.ratingValue} from {agg.reviewCount} Google reviews</span>
           </motion.div>
 
           <motion.div {...reveal(0.3)}

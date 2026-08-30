@@ -9,7 +9,7 @@ import JsonLd from '../../components/seo/JsonLd'
 
 export const metadata = {
   title: 'About Bluepeek - Perth Web Design & AI Automation Studio',
-  description: 'Blue Peek is a Perth WA web design and AI automation studio serving businesses across Australia. Custom websites, 24/7 AI chatbots, lead capture and local SEO - 5.0 stars from 19 Google reviews.',
+  description: 'Blue Peek is a Gold Coast web design and AI automation studio serving businesses across Australia. Custom websites, 24/7 AI chatbots, lead capture and local SEO.',
   alternates: { canonical: '/about' },
   openGraph: {
     title: 'About Bluepeek - Perth Web Design & AI Automation Studio',
@@ -78,7 +78,7 @@ export default function AboutPage() {
                 Blue Peek builds premium-quality websites without big-agency prices. Most projects go live within one to two weeks. There are no lock-in contracts, and clients own their website, domain and content outright - they can take it elsewhere at any time.
               </p>
               <p className="text-base leading-relaxed" style={{ color: '#475569' }}>
-                Blue Peek holds a 5.0-star rating from 19 Google reviews.
+                Blue Peek holds a 5.0-star rating on Google.
               </p>
             </section>
 
