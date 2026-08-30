@@ -84,14 +84,16 @@ function PinnedPhones() {
   // All three phones share ONE rise value and ONE scroll value, so they move
   // as a single unit. The centre phone's higher resting position is a static
   // CSS offset, not an animation difference — that keeps them in sync.
-  const rise = useTransform(scrollYProgress, [0.00, 0.40], ['66%', '4%'])
+  const rise = useTransform(scrollYProgress, [0.00, 0.28], ['66%', '2%'])
 
   // All three captures are the same size, so one shared value keeps them
   // moving at an identical rate with no desync.
-  const shot = useTransform(scrollYProgress, [0.46, 0.95], ['0%', TRAVEL])
+  // Ends at 0.78, not 0.95: the sticky stage starts leaving the viewport around
+  // 0.8, so anything after that scrolls where nobody can see it.
+  const shot = useTransform(scrollYProgress, [0.30, 0.78], ['0%', TRAVEL])
 
-  const headingY = useTransform(scrollYProgress, [0, 0.35], [0, -14])
-  const headingOpacity = useTransform(scrollYProgress, [0.25, 0.5], [1, 0.5])
+  const headingY = useTransform(scrollYProgress, [0, 0.25], [0, -12])
+  const headingOpacity = useTransform(scrollYProgress, [0.2, 0.42], [1, 0.55])
 
 
 
