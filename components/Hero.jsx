@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight, Star } from 'lucide-react'
 import { reveal, revealFrom } from '../lib/motion'
 
-const FACTS = ['Built in Perth', 'Live in 1–2 weeks', 'No lock-in', 'You own everything']
+const FACTS = ['Built on the Gold Coast', 'Live in 1–2 weeks', 'No lock-in', 'You own everything']
 
 export default function Hero({ onCTA }) {
   return (

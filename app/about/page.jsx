@@ -37,7 +37,7 @@ export default function AboutPage() {
           </h1>
 
           <p className="text-base md:text-lg leading-relaxed mb-10" style={{ color: '#475569' }}>
-            Blue Peek is a web design and AI automation studio based in Perth, Western Australia, serving small businesses across Australia.
+            Blue Peek is a web design and AI automation studio based on the Gold Coast, Queensland, serving small businesses across Australia.
           </p>
 
           <div className="space-y-9">

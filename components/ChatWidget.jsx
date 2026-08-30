@@ -9,7 +9,7 @@ const BLUEPEEK_ENDPOINT = 'https://bumjkwvaeqghjspowkrd.supabase.co/functions/v1
 const INTENTS = {
   services: {
     label: 'What do you do?',
-    reply: "We build premium websites and AI lead-capture systems for Perth businesses 🚀\n\nThat means: custom websites, 24/7 AI chat assistants (like this one!), online booking, and automations that follow up on enquiries for you.",
+    reply: "We build premium websites and AI lead-capture systems for Australian businesses 🚀\n\nThat means: custom websites, 24/7 AI chat assistants (like this one!), online booking, and automations that follow up on enquiries for you.",
     next: ['pricing', 'ai', 'quote'],
   },
   pricing: {

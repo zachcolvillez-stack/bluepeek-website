@@ -9,7 +9,7 @@ const CONTACT_EMAIL = 'info@bluepeek.com.au'
 const TRUST = [
   { icon: Gift,        label: 'Free, no-obligation quote' },
   { icon: ShieldCheck, label: 'Straight answers, no hard sell' },
-  { icon: MapPin,      label: 'Local Perth team' },
+  { icon: MapPin,      label: 'Local Gold Coast team' },
   { icon: Cpu,         label: 'Websites and automation' },
 ]
 
