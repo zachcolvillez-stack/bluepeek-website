@@ -1,18 +1,18 @@
 export const metadata = { title: 'Brand motion preview', robots: { index: false, follow: false } }
 
 const CARDS = [
-  { src: '/brand/motion/card-jac.gif',              label: 'Jac — card GIF',        note: '640px · 370KB · white background', bg: '#ffffff' },
-  { src: '/brand/motion/card-jac-alpha.webp',       label: 'Jac — transparent',     note: '640px · 95KB · true alpha',       bg: 'orange' },
-  { src: '/brand/motion/card-jac-greenscreen.gif',  label: 'Jac — green screen',    note: '640px · 382KB · #00FF00 key',      bg: '#111' },
-  { src: '/brand/motion/card-zach.gif',             label: 'Zach — card GIF',       note: '640px · 435KB · white background', bg: '#ffffff' },
-  { src: '/brand/motion/card-zach-alpha.webp',      label: 'Zach — transparent',    note: '640px · 110KB · true alpha',       bg: 'photo' },
-  { src: '/brand/motion/card-zach-greenscreen.gif', label: 'Zach — green screen',   note: '640px · 441KB · #00FF00 key',      bg: '#111' },
+  { src: '/brand/motion/card-jac.gif',              label: 'Jac — card GIF',        note: '640px · 414KB · white background', bg: '#ffffff' },
+  { src: '/brand/motion/card-jac-alpha.webp',       label: 'Jac — transparent',     note: '640px · 299KB · true alpha',       bg: 'orange' },
+  { src: '/brand/motion/card-jac-greenscreen.gif',  label: 'Jac — green screen',    note: '640px · 490KB · #00FF00 key',      bg: '#111' },
+  { src: '/brand/motion/card-zach.gif',             label: 'Zach — card GIF',       note: '640px · 493KB · white background', bg: '#ffffff' },
+  { src: '/brand/motion/card-zach-alpha.webp',      label: 'Zach — transparent',    note: '640px · 347KB · true alpha',       bg: 'photo' },
+  { src: '/brand/motion/card-zach-greenscreen.gif', label: 'Zach — green screen',   note: '640px · 562KB · #00FF00 key',      bg: '#111' },
 ]
 
 const LOGOS = [
-  { src: '/email/logo-animated.gif',           label: 'Logo — email GIF',    note: '110px · 39KB',  bg: '#ffffff' },
-  { src: '/brand/motion/logo-alpha.webp',      label: 'Logo — transparent',  note: '320px · 48KB', bg: 'orange' },
-  { src: '/brand/motion/logo-greenscreen.gif', label: 'Logo — green screen', note: '320px · 218KB', bg: '#111' },
+  { src: '/email/logo-animated.gif',           label: 'Logo — email GIF',    note: '110px · 64KB',  bg: '#ffffff' },
+  { src: '/brand/motion/logo-alpha.webp',      label: 'Logo — transparent',  note: '320px · 146KB', bg: 'orange' },
+  { src: '/brand/motion/logo-greenscreen.gif', label: 'Logo — green screen', note: '320px · 327KB', bg: '#111' },
 ]
 
 function bgStyle(bg) {
@@ -46,7 +46,7 @@ export default function BrandPreview() {
       <div style={{ maxWidth: 1180, margin: '0 auto' }}>
         <h1 style={{ color: '#fff', fontSize: 30, marginBottom: 6 }}>Blue Peek animated assets</h1>
         <p style={{ color: '#8b98a9', marginBottom: 34, fontSize: 15 }}>
-          Matched to the reference frame by frame: 900ms empty, 480ms diagonal reveal on their measured motion curve, 5100ms hold. 6480ms loop.
+          Diagonal slat reveal — the artwork is cut into leaning parallelogram bands that slide in staggered, left to right. 900ms empty, then the reveal, then a hold. 6480ms loop, matching the reference.
         </p>
 
         <h2 style={{ color: '#fff', fontSize: 18, marginBottom: 14 }}>Full signature card</h2>

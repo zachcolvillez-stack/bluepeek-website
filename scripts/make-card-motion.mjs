@@ -27,22 +27,38 @@ function page(bg) {
 
   </div>
 <script>
-  // Diagonal band reveal — the whole card is masked in behind a stepped
-  // diagonal edge, matching the reference animation.
+  // Diagonal slat reveal: the card is cloned into leaning parallelogram bands,
+  // each sliding in on its own diagonal, staggered left to right.
+  const BANDS = 8, LEAN = 16
   const card = document.getElementById('card')
-  const ANGLE = 115
-  const TARGET = document.getElementById('card')
-  // Wipe-front positions measured frame-by-frame off the reference GIF,
-  // so the motion curve is theirs rather than an approximation.
-  const CURVE = [0.0,0.0258,0.0581,0.1032,0.1806,0.2968,0.4645,0.671,0.7871,0.8645,0.9161,0.9548,0.9806,0.9871,0.9935,1.0]
+  const src = card.innerHTML
+  const rect = card.getBoundingClientRect()
+  card.innerHTML = ''
+  card.style.position = 'relative'
+  card.style.width = rect.width + 'px'
+  card.style.height = rect.height + 'px'
+  const bands = []
+  for (let i = 0; i < BANDS; i++) {
+    const w = 100 / BANDS
+    const x0 = i * w, x1 = (i + 1) * w
+    const d = document.createElement('div')
+    d.style.cssText =
+      'position:absolute;top:0;left:0;width:' + rect.width + 'px;height:' + rect.height + 'px;' +
+      'will-change:transform,opacity;clip-path:polygon(' +
+      (x0 + LEAN) + '% 0%, ' + (x1 + LEAN) + '% 0%, ' + x1 + '% 100%, ' + x0 + '% 100%)'
+    d.innerHTML = src
+    card.appendChild(d)
+    bands.push(d)
+  }
+  const ease = x => 1 - Math.pow(1 - Math.min(1, Math.max(0, x)), 3)
   window.setFrame = (i) => {
-    const f = CURVE[Math.min(CURVE.length - 1, Math.max(0, i))]
-    // Their first reveal frame already shows ~18% of the width, and the
-    // last is complete: map the curve onto 18%..100% so every frame differs.
-    const p = 18 + f * 82
-    const mask = 'linear-gradient(' + ANGLE + 'deg, #000 ' + p + '%, rgba(0,0,0,0) ' + (p + 0.5) + '%)'
-    TARGET.style.webkitMaskImage = mask
-    TARGET.style.maskImage = mask
+    const t = i / (${FRAMES} - 1)
+    bands.forEach((b, k) => {
+      const start = (k / BANDS) * 0.55
+      const p = ease((t - start) / 0.45)
+      b.style.opacity = p
+      b.style.transform = 'translate(' + ((1 - p) * 9) + '%, ' + ((1 - p) * -4) + '%)'
+    })
   }
   window.setFrame(0)
 </script></body></html>`
