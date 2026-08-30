@@ -10,6 +10,9 @@ import { ExternalLink } from 'lucide-react'
    Mobile / reduced-motion: a simple stacked row, no pinning.
    ═══════════════════════════════════════════════════════════════ */
 
+// One shared travel distance so every screenshot scrolls at the same rate.
+const TRAVEL = '-56%'
+
 const PHONES = [
   {
     slug: 'artisan',
@@ -18,7 +21,6 @@ const PHONES = [
     domain: 'artisanconcretewa.com.au',
     url: 'https://artisanconcretewa.com.au',
     shot: '/screenshots/phones/artisan.jpg',
-    travel: '-62%',
   },
   {
     slug: 'jasmine',
@@ -27,7 +29,6 @@ const PHONES = [
     domain: 'jasminehealthandspa.com.au',
     url: 'https://jasminehealthandspa.com.au',
     shot: '/screenshots/jasmine/home-mobile-full.jpg',
-    travel: '-56%',
   },
   {
     slug: 'rodano',
@@ -36,15 +37,15 @@ const PHONES = [
     domain: 'rodanoflowers.com.au',
     url: 'https://rodanoflowers.com.au',
     shot: '/screenshots/phones/rodano.jpg',
-    travel: '-68%',
   },
 ]
 
 /* A single phone. `rise` and `shotY` are motion values supplied by the
    pinned stage; when they're absent the phone renders static. */
-function Phone({ phone, rise, shotY, eager }) {
+function Phone({ phone, rise, shotY, eager, className = '' }) {
   return (
-    <motion.div style={rise ? { y: rise } : undefined} className="w-full max-w-[248px]">
+    <motion.div style={rise ? { y: rise } : undefined}
+      className={`w-full max-w-[248px] ${className}`}>
       <div className="relative rounded-[36px] p-[8px]"
         style={{ background: 'var(--ink)', boxShadow: '0 32px 70px rgba(15,26,48,0.30)' }}>
         <div className="relative rounded-[29px] overflow-hidden" style={{ background: '#fff', aspectRatio: '390 / 800' }}>
@@ -78,21 +79,20 @@ function PinnedPhones() {
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end end'] })
 
-  // Phones rise from below and settle, staggered — centre lands first and highest.
-  const riseL = useTransform(scrollYProgress, [0.05, 0.44], ['62%', '9%'])
-  const riseC = useTransform(scrollYProgress, [0.00, 0.38], ['68%', '0%'])
-  const riseR = useTransform(scrollYProgress, [0.10, 0.50], ['62%', '9%'])
+  // All three phones share ONE rise value and ONE scroll value, so they move
+  // as a single unit. The centre phone's higher resting position is a static
+  // CSS offset, not an animation difference — that keeps them in sync.
+  const rise = useTransform(scrollYProgress, [0.00, 0.40], ['66%', '4%'])
 
-  // Once settled, each screenshot scrolls inside its own frame.
-  const shotL = useTransform(scrollYProgress, [0.48, 0.94], ['0%', PHONES[0].travel])
-  const shotC = useTransform(scrollYProgress, [0.44, 0.92], ['0%', PHONES[1].travel])
-  const shotR = useTransform(scrollYProgress, [0.52, 0.96], ['0%', PHONES[2].travel])
+  // TRAVEL is capped by the shortest capture (Jasmine, 780x3900): in a 390pt
+  // frame only ~59% of that image can scroll past. Using one shared value
+  // keeps all three moving at the same speed.
+  const shot = useTransform(scrollYProgress, [0.46, 0.95], ['0%', TRAVEL])
 
   const headingY = useTransform(scrollYProgress, [0, 0.35], [0, -14])
   const headingOpacity = useTransform(scrollYProgress, [0.25, 0.5], [1, 0.5])
 
-  const rises = [riseL, riseC, riseR]
-  const shots = [shotL, shotC, shotR]
+
 
   return (
     <div ref={ref} className="relative hidden lg:block" style={{ height: '240vh' }}>
@@ -108,7 +108,8 @@ function PinnedPhones() {
 
         <div className="flex-1 flex items-start justify-center gap-10 xl:gap-16 px-6 pb-4">
           {PHONES.map((p, i) => (
-            <Phone key={p.slug} phone={p} rise={rises[i]} shotY={shots[i]} eager={i === 1} />
+            <Phone key={p.slug} phone={p} rise={rise} shotY={shot} eager={i === 1}
+              className={i === 1 ? '-mt-8' : ''} />
           ))}
         </div>
       </div>
