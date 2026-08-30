@@ -6,6 +6,15 @@ import { reveal, revealFrom } from '../lib/motion'
    Photos side by side on top, the story underneath.
    Facts only: names, ages, where they're from. No invented backstory. */
 
+/** Inline flag. PNG rather than emoji — subdivision flags do not render on
+ *  Windows or much of Android, where they fall back to letters. */
+function Flag({ src, alt }) {
+  return (
+    <img src={src} alt={alt} width={19} height={19}
+      style={{ width: 19, height: 19, objectFit: 'contain', display: 'inline-block', verticalAlign: '-4px' }} />
+  )
+}
+
 const FOUNDERS = [
   { name: 'Zach Colville',   age: 21, from: 'England', flag: '/flags/england.png', role: 'Founder & Owner', photo: '/founders/zach.jpg' },
   { name: 'Jac Thomas-Rees', age: 22, from: 'Wales',   flag: '/flags/wales.png',   role: 'Founder & Owner', photo: '/founders/jac.jpg' },
@@ -38,8 +47,7 @@ export default function Founders() {
                 <p className="text-sm font-medium mt-1" style={{ color: 'var(--lapiz)' }}>{f.role}</p>
                 <p className="text-sm mt-1 flex items-center justify-center gap-1.5" style={{ color: '#5a688a' }}>
                   {f.age} · from {f.from}
-                  <img src={f.flag} alt="" width={18} height={18}
-                    style={{ width: 18, height: 18, objectFit: 'contain', display: 'inline-block' }} />
+                  <Flag src={f.flag} alt={f.from} />
                 </p>
               </figcaption>
             </motion.figure>
@@ -51,8 +59,9 @@ export default function Founders() {
           className="mt-16 max-w-xl mx-auto space-y-6"
           style={{ color: '#33405e', fontSize: 'clamp(1.05rem, 1.35vw, 1.19rem)', lineHeight: 1.72 }}>
           <p>
-            Bluepeek is Jac and Zach — 22 and 21, one from Wales and one from England,
-            both now building websites for Australian businesses.
+            Bluepeek is Jac and Zach — 22 and 21, one from Wales <Flag src="/flags/wales.png" alt="Wales" />{' '}
+            and one from England <Flag src="/flags/england.png" alt="England" />, both now
+            building websites for Australian businesses.
           </p>
           <p>
             That size is the point. There&rsquo;s no chain for your question to travel down, and
