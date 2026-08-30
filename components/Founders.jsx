@@ -7,8 +7,8 @@ import { reveal, revealFrom } from '../lib/motion'
    Facts only: names, ages, where they're from. No invented backstory. */
 
 const FOUNDERS = [
-  { name: 'Zachary', age: 21, from: 'England', role: 'Co-Founder',            photo: '/founders/zach.jpg' },
-  { name: 'Jac',     age: 22, from: 'Wales',   role: 'Founder',               photo: '/founders/jac.jpg' },
+  { name: 'Zachary', age: 21, from: 'England', role: 'Founder & Owner',  photo: '/founders/zach.jpg' },
+  { name: 'Jac',     age: 22, from: 'Wales',   role: 'Founder & Owner',  photo: '/founders/jac.jpg' },
 ]
 
 export default function Founders() {

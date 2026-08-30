@@ -8,7 +8,7 @@ import { fileURLToPath } from 'url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
-const FRAMES = 20
+const FRAMES = 26
 const who = process.argv[2] || 'jac'
 
 let sig = await fs.readFile(path.join(ROOT, 'public', 'email', `signature-${who}.html`), 'utf8')
@@ -24,32 +24,20 @@ function page(bg) {
   return `<!doctype html><html><body style="margin:0;padding:24px;${bg ? `background:${bg}` : 'background:transparent'}">
   <div id="card" style="display:inline-block;position:relative;overflow:hidden;border-radius:14px">
     ${sig}
-    <div id="sheen" style="position:absolute;inset:0;pointer-events:none;
-         background:linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.30) 50%, transparent 60%);
-         transform:translateX(-130%)"></div>
+
   </div>
 <script>
-  const sheen = document.getElementById('sheen')
-  const logo = document.querySelector('img[alt="Blue Peek"]')
-  if (logo) {
-    const w = logo.parentElement
-    w.style.position = 'relative'; w.style.display = 'inline-block'; w.style.overflow = 'hidden'
-    w.style.borderRadius = '16px'
-    const g = document.createElement('div')
-    g.id = 'logoGloss'
-    g.style.cssText = 'position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 36%,rgba(255,255,255,0.55) 50%,transparent 64%);transform:translateX(-140%)'
-    w.appendChild(g)
-  }
+  // Diagonal band reveal — the whole card is masked in behind a stepped
+  // diagonal edge, matching the reference animation.
+  const card = document.getElementById('card')
+  const STEPS = 11, ANGLE = 115
   window.setFrame = (t) => {
-    // logo gloss leads
-    const g = document.getElementById('logoGloss')
-    if (g) {
-      const p = Math.min(1, Math.max(0, (t - 0.05) / 0.40))
-      g.style.transform = 'translateX(' + (-140 + 280 * p) + '%)'
-    }
-    // card sheen follows, slower and softer
-    const s = Math.min(1, Math.max(0, (t - 0.25) / 0.55))
-    sheen.style.transform = 'translateX(' + (-130 + 260 * s) + '%)'
+    const eased = 1 - Math.pow(1 - Math.min(1, Math.max(0, t)), 2)
+    const stepped = Math.ceil(eased * STEPS) / STEPS
+    const p = stepped * 130 - 15
+    const mask = 'linear-gradient(' + ANGLE + 'deg, #000 ' + p + '%, rgba(0,0,0,0) ' + (p + 0.5) + '%)'
+    card.style.webkitMaskImage = mask
+    card.style.maskImage = mask
   }
   window.setFrame(0)
 </script></body></html>`
