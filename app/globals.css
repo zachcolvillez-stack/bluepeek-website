@@ -8,130 +8,118 @@ html { scroll-behavior: smooth; }
 
 body {
   background: var(--bg);
-  color: var(--text-dim);
+  color: var(--text);
   font-family: var(--font-body), -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   font-feature-settings: 'ss01', 'cv01';
 }
 
 h1, h2, h3, h4, h5, h6, .font-display, .font-heading {
-  font-family: var(--font-display), Georgia, 'Times New Roman', serif;
-  color: var(--text);
-  letter-spacing: -0.015em;
-  font-weight: 600;
+  font-family: var(--font-display), var(--font-body), -apple-system, sans-serif;
+  color: var(--ink);
+  letter-spacing: -0.035em;
+  font-weight: 700;
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   BLUEPEEK v2 — Dark, cinematic, editorial
-   Deep navy canvas · one implied light source · the work is the glow
+   BLUEPEEK — Royal Lapiz blue on white
+   Lapiz (#2B4C9B, the Golf R blue) is the brand. Light canvas,
+   deep ink type, and the blue used with intent — not everywhere.
    ═══════════════════════════════════════════════════════════════ */
 :root {
-  --bg:         #070d18;
-  --surface:    #0c1c34;
-  --surface-2:  #12233f;
-  --text:       #eef3fb;
-  --text-dim:   #93a3bd;
-  --muted:      #6c7c96;
-  --accent:     #3b82f6;
-  --accent-dim: rgba(59,130,246,0.14);
-  --hairline:   rgba(255,255,255,0.08);
-  --hairline-2: rgba(255,255,255,0.16);
-  --lift:       inset 0 1px 0 rgba(255,255,255,0.06);
+  --lapiz:       #2B4C9B;   /* the brand blue */
+  --lapiz-deep:  #1B3468;   /* pressed / dark accents */
+  --lapiz-light: #4E74C8;   /* lifted lapiz — hovers, small accents */
+  --lapiz-tint:  #eef2fb;   /* faint wash panels */
+  --lapiz-tint2: #dde5f7;   /* stronger wash */
 
-  --shadow-sm:  0 1px 2px rgba(0,0,0,0.40), 0 2px 10px rgba(0,0,0,0.30);
-  --shadow-md:  0 6px 16px rgba(0,0,0,0.45), 0 14px 36px rgba(0,0,0,0.35);
-  --shadow-lg:  0 12px 28px rgba(0,0,0,0.50), 0 28px 64px rgba(0,0,0,0.45);
+  --bg:        #ffffff;
+  --bg-2:      #f6f8fd;
+  --ink:       #0f1a30;     /* headings */
+  --text:      #4a5670;     /* body */
+  --muted:     #7d8aa3;     /* labels */
+  --hairline:  rgba(15,26,48,0.10);
+  --hairline-2: rgba(15,26,48,0.18);
+
+  --shadow-sm: 0 1px 2px rgba(15,26,48,0.05), 0 2px 10px rgba(15,26,48,0.05);
+  --shadow-md: 0 6px 16px rgba(15,26,48,0.07), 0 14px 36px rgba(15,26,48,0.08);
+  --shadow-lg: 0 12px 28px rgba(15,26,48,0.10), 0 28px 64px rgba(15,26,48,0.12);
+  --shadow-lapiz: 0 18px 44px rgba(43,76,155,0.28);
 }
 
-/* Emphasis text — light → accent blue. Never blue→purple (house style). */
-.gradient-text {
-  background: linear-gradient(120deg, #eef3fb 0%, #7fa8f5 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+/* Emphasis text — lapiz, solid. No gradient fade (house style). */
+.text-lapiz { color: var(--lapiz); }
 
-.section-soft { background: var(--surface); }
-.section-tint {
-  background:
-    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(59,130,246,0.10) 0%, transparent 60%),
-    linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+.section-soft { background: var(--bg-2); }
+.section-lapiz {
+  background: var(--lapiz);
+  color: #ffffff;
 }
+.section-lapiz h1, .section-lapiz h2, .section-lapiz h3 { color: #ffffff; }
 
-/* ── Cards — raised surface, hairline, top-edge lift ───────────── */
+/* ── Cards ──────────────────────────────────────────────────── */
 .card {
-  background: var(--surface);
+  background: #ffffff;
   border: 1px solid var(--hairline);
-  border-radius: 22px;
-  box-shadow: var(--shadow-sm), var(--lift);
-  transition: transform 300ms cubic-bezier(0.22,1,0.36,1), box-shadow 300ms, border-color 300ms, background 300ms;
+  border-radius: 20px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 300ms cubic-bezier(0.22,1,0.36,1), box-shadow 300ms, border-color 300ms;
 }
 .card:hover {
   transform: translateY(-4px);
-  background: var(--surface-2);
-  border-color: var(--hairline-2);
-  box-shadow: var(--shadow-lg), var(--lift);
+  border-color: rgba(43,76,155,0.30);
+  box-shadow: var(--shadow-lg);
 }
 
 .card-light {
-  background: var(--surface-2);
+  background: #ffffff;
   border: 1px solid var(--hairline);
-  border-radius: 22px;
-  box-shadow: var(--shadow-lg), var(--lift);
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
 }
 
-/* Glass — smoked, not frosted white */
 .glass {
-  background: rgba(12,28,52,0.72);
+  background: rgba(255,255,255,0.82);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--hairline-2);
+  border: 1px solid rgba(255,255,255,0.9);
   box-shadow: var(--shadow-md);
 }
 
 /* ── Buttons ────────────────────────────────────────────────── */
-/* Primary = light on dark. Maximum contrast, unmissable. */
+/* Primary = solid lapiz. The brand colour does the selling. */
 .btn-primary {
-  background: var(--text);
-  color: #070d18;
+  background: var(--lapiz);
+  color: #ffffff;
   font-weight: 600;
-  box-shadow: 0 10px 26px rgba(0,0,0,0.45);
-  transition: transform 180ms, box-shadow 180ms, filter 180ms;
+  box-shadow: var(--shadow-lapiz);
+  transition: transform 180ms, box-shadow 180ms, background 180ms;
 }
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 16px 38px rgba(0,0,0,0.55);
-  filter: brightness(1.04);
+  background: var(--lapiz-deep);
+  box-shadow: 0 22px 52px rgba(43,76,155,0.36);
 }
 
-/* Secondary = outlined on the canvas */
 .btn-secondary {
-  background: transparent;
-  color: var(--text);
+  background: #ffffff;
+  color: var(--ink);
   border: 1px solid var(--hairline-2);
   font-weight: 600;
-  transition: transform 180ms, background 180ms, border-color 180ms;
+  box-shadow: var(--shadow-sm);
+  transition: transform 180ms, border-color 180ms, box-shadow 180ms;
 }
 .btn-secondary:hover {
   transform: translateY(-2px);
-  background: rgba(255,255,255,0.05);
-  border-color: rgba(255,255,255,0.32);
+  border-color: var(--lapiz);
+  color: var(--lapiz);
+  box-shadow: var(--shadow-md);
 }
 
-/* Accent — at most once per page */
-.btn-accent {
-  background: var(--accent);
-  color: #ffffff;
-  font-weight: 600;
-  box-shadow: 0 10px 26px rgba(59,130,246,0.28);
-  transition: transform 180ms, box-shadow 180ms;
-}
-.btn-accent:hover { transform: translateY(-2px); box-shadow: 0 16px 38px rgba(59,130,246,0.38); }
-
-/* Legacy alias — some components still reference .btn-white */
+/* White button — for use on lapiz panels */
 .btn-white {
-  background: var(--text);
-  color: #070d18;
+  background: #ffffff;
+  color: var(--lapiz);
   font-weight: 700;
   box-shadow: var(--shadow-md);
   transition: transform 180ms, box-shadow 180ms;
@@ -143,45 +131,29 @@ h1, h2, h3, h4, h5, h6, .font-display, .font-heading {
 /* House style: no decorative eyebrow badges above headings. */
 .eyebrow { display: none !important; }
 
-/* ── Focus ──────────────────────────────────────────────────── */
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--lapiz);
   outline-offset: 3px;
   border-radius: 6px;
 }
 
 /* ── Scrollbar ──────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 9px; }
-::-webkit-scrollbar-track { background: #070d18; }
-::-webkit-scrollbar-thumb { background: #1e3358; border-radius: 5px; }
-::-webkit-scrollbar-thumb:hover { background: #2c4778; }
+::-webkit-scrollbar-track { background: #eef2fb; }
+::-webkit-scrollbar-thumb { background: #b9c6e4; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--lapiz-light); }
 
-::selection { background: #eef3fb; color: #070d18; }
+::selection { background: var(--lapiz); color: #ffffff; }
 
-/* ── Soft glow blobs ────────────────────────────────────────── */
-.hero-glow {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  pointer-events: none;
-}
+.hero-glow { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; }
 
-@keyframes float-soft {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-14px); }
-}
+@keyframes float-soft { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
 .float-soft { animation: float-soft 6s ease-in-out infinite; }
 
-@keyframes float-soft-delay {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-10px); }
-}
+@keyframes float-soft-delay { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 .float-soft-delay { animation: float-soft-delay 5s ease-in-out infinite 1s; }
 
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50%      { opacity: 0.5; transform: scale(0.85); }
-}
+@keyframes pulse-dot { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.85); } }
 .pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,12 +1,11 @@
 import './globals.css'
-import { Inter, Fraunces } from 'next/font/google'
+import { Inter, Archivo } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { SITE } from '../lib/site'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-body', display: 'swap' })
-const fraunces = Fraunces({
+const archivo = Archivo({
   subsets: ['latin'],
-  axes: ['SOFT', 'WONK', 'opsz'],
   variable: '--font-display',
   display: 'swap',
 })
@@ -73,7 +72,7 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   const liveReviews = await getLiveReviews()
   return (
-    <html lang="en-AU" className={`${inter.variable} ${fraunces.variable}`} suppressHydrationWarning>
+    <html lang="en-AU" className={`${inter.variable} ${archivo.variable}`} suppressHydrationWarning>
       <body suppressHydrationWarning>
         {children}
         <JsonLd data={organizationSchema(liveReviews)} />
