@@ -14,6 +14,7 @@ export default function sitemap() {
     entry('/', 1.0, 'weekly'),
     entry('/about', 0.8, 'monthly'),
     entry('/blog', 0.8, 'weekly'),
+    entry('/faq', 0.7, 'monthly'),
     ...SERVICES.map(s => entry(u.service(s.slug), 0.9, 'monthly')),
     ...INDUSTRIES.map(i => entry(u.industry(i.slug), 0.8, 'monthly')),
     ...CASE_STUDIES.map(c => entry(u.work(c.slug), 0.7, 'monthly')),

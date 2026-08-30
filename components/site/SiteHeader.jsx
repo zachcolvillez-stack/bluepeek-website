@@ -18,6 +18,7 @@ export default function SiteHeader() {
     { label: 'Services', href: '/#services' },
     { label: 'Pricing',  href: '/#packages' },
     { label: 'Work',     href: '/#work' },
+    { label: 'FAQ',      href: '/faq' },
     { label: 'Gallery',  href: '/gallery' },
     { label: 'Blog',     href: '/blog' },
     { label: 'Process',  href: '/#how-it-works' },

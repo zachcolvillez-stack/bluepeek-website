@@ -27,15 +27,15 @@ const PROJECTS = [
 
 function BrowserChrome({ domain }) {
   return (
-    <div className="flex items-center gap-1.5 px-4 py-2.5" style={{ background: '#f7f9fc', borderBottom: '1px solid rgba(12,28,52,0.08)' }}>
-      <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#d4dcea' }} />
-      <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#d4dcea' }} />
-      <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#d4dcea' }} />
+    <div className="flex items-center gap-1.5 px-4 py-2.5" style={{ background: 'var(--bg-2)', borderBottom: '1px solid rgba(6,20,63,0.08)' }}>
+      <div className="w-2.5 h-2.5 rounded-full" style={{ background: 'var(--hairline-2)' }} />
+      <div className="w-2.5 h-2.5 rounded-full" style={{ background: 'var(--hairline-2)' }} />
+      <div className="w-2.5 h-2.5 rounded-full" style={{ background: 'var(--hairline-2)' }} />
       <div className="flex-1 mx-3 px-3 py-0.5 text-[10px] rounded text-center font-mono truncate"
-        style={{ background: '#ffffff', color: '#7e8aa0', border: '1px solid rgba(12,28,52,0.08)' }}>
+        style={{ background: '#ffffff', color: 'var(--muted)', border: '1px solid rgba(6,20,63,0.08)' }}>
         {domain}
       </div>
-      <ExternalLink size={12} style={{ color: '#a9b6c8' }} />
+      <ExternalLink size={12} style={{ color: 'var(--muted)' }} />
     </div>
   )
 }
@@ -43,7 +43,7 @@ function BrowserChrome({ domain }) {
 function IndustryTag({ children }) {
   return (
     <span className="absolute top-3 right-3 text-xs font-semibold px-2.5 py-1 rounded-full"
-      style={{ background: 'rgba(255,255,255,0.92)', color: '#0c1c34', border: '1px solid rgba(12,28,52,0.10)', backdropFilter: 'blur(8px)' }}>
+      style={{ background: 'rgba(255,255,255,0.92)', color: 'var(--ink)', border: '1px solid rgba(6,20,63,0.10)', backdropFilter: 'blur(8px)' }}>
       {children}
     </span>
   )
@@ -57,10 +57,10 @@ export default function Portfolio() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
           <span className="eyebrow">Our Work</span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#0c1c34' }}>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: 'var(--ink)' }}>
             Real local businesses,<br />live and online.
           </h2>
-          <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: '#475569' }}>
+          <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: 'var(--text)' }}>
             A selection of recent websites Blue Peek has built - click through to see each one live.
           </p>
         </motion.div>
@@ -71,7 +71,7 @@ export default function Portfolio() {
           className="card group overflow-hidden grid md:grid-cols-2 mb-6">
           <a href={featured.url} target="_blank" rel="noopener noreferrer" className="block order-1 md:order-none">
             <BrowserChrome domain={featured.domain} />
-            <div className="relative aspect-[16/11] md:aspect-auto md:h-full overflow-hidden" style={{ background: '#eff4fb' }}>
+            <div className="relative aspect-[16/11] md:aspect-auto md:h-full overflow-hidden" style={{ background: 'var(--lapiz-tint)' }}>
               <img src={featured.image} alt={`${featured.title} - ${featured.industry} website built by Blue Peek`}
                 className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                 onError={(e) => { e.currentTarget.style.display = 'none' }} />
@@ -79,18 +79,18 @@ export default function Portfolio() {
             </div>
           </a>
           <div className="p-8 md:p-10 flex flex-col justify-center">
-            <span className="text-[11px] font-bold uppercase tracking-wider mb-3" style={{ color: '#1b3c70' }}>Featured Project</span>
-            <h3 className="text-2xl font-bold mb-1.5" style={{ color: '#0c1c34' }}>{featured.title}</h3>
-            <p className="text-sm font-medium mb-4" style={{ color: '#2f5fd0' }}>{featured.location}</p>
-            <p className="text-base leading-relaxed mb-6" style={{ color: '#475569' }}>{featured.description}</p>
+            <span className="text-[11px] font-bold uppercase tracking-wider mb-3" style={{ color: 'var(--lapiz)' }}>Featured Project</span>
+            <h3 className="text-2xl font-bold mb-1.5" style={{ color: 'var(--ink)' }}>{featured.title}</h3>
+            <p className="text-sm font-medium mb-4" style={{ color: 'var(--lapiz)' }}>{featured.location}</p>
+            <p className="text-base leading-relaxed mb-6" style={{ color: 'var(--text)' }}>{featured.description}</p>
             <div className="flex items-center gap-4">
               {featured.caseStudy && (
-                <Link href={featured.caseStudy} className="inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: '#0c1c34' }}>
+                <Link href={featured.caseStudy} className="inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: 'var(--ink)' }}>
                   View case study <ArrowUpRight size={15} />
                 </Link>
               )}
               <a href={featured.url} target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm font-medium" style={{ color: '#7e8aa0' }}>
+                className="inline-flex items-center gap-1.5 text-sm font-medium" style={{ color: 'var(--muted)' }}>
                 Visit site <ExternalLink size={13} />
               </a>
             </div>
@@ -107,7 +107,7 @@ export default function Portfolio() {
             >
               <a href={p.url} target="_blank" rel="noopener noreferrer" className="block">
                 <BrowserChrome domain={p.domain} />
-                <div className="relative aspect-[16/10] overflow-hidden" style={{ background: '#eff4fb' }}>
+                <div className="relative aspect-[16/10] overflow-hidden" style={{ background: 'var(--lapiz-tint)' }}>
                   <img src={p.image} alt={`${p.title} - ${p.industry} website in ${p.location} built by Blue Peek`}
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                     onError={(e) => { e.currentTarget.style.display = 'none' }} />
@@ -115,17 +115,17 @@ export default function Portfolio() {
                 </div>
               </a>
               <div className="p-6 flex flex-col flex-1">
-                <h3 className="text-lg font-bold mb-1" style={{ color: '#0c1c34' }}>{p.title}</h3>
-                <p className="text-xs font-medium mb-3" style={{ color: '#2f5fd0' }}>{p.location}</p>
-                <p className="text-sm leading-relaxed mb-5 flex-1" style={{ color: '#475569' }}>{p.description}</p>
+                <h3 className="text-lg font-bold mb-1" style={{ color: 'var(--ink)' }}>{p.title}</h3>
+                <p className="text-xs font-medium mb-3" style={{ color: 'var(--lapiz)' }}>{p.location}</p>
+                <p className="text-sm leading-relaxed mb-5 flex-1" style={{ color: 'var(--text)' }}>{p.description}</p>
                 <div className="flex items-center gap-4">
                   {p.caseStudy && (
-                    <Link href={p.caseStudy} className="inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: '#0c1c34' }}>
+                    <Link href={p.caseStudy} className="inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: 'var(--ink)' }}>
                       Case study <ArrowUpRight size={14} />
                     </Link>
                   )}
                   <a href={p.url} target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-sm font-medium" style={{ color: '#7e8aa0' }}>
+                    className="inline-flex items-center gap-1.5 text-sm font-medium" style={{ color: 'var(--muted)' }}>
                     Visit <ExternalLink size={13} />
                   </a>
                 </div>
@@ -140,9 +140,9 @@ export default function Portfolio() {
           <Link href="/gallery" className="btn-secondary inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm">
             See the full gallery <ArrowUpRight size={15} />
           </Link>
-          <p className="text-sm" style={{ color: '#475569' }}>
+          <p className="text-sm" style={{ color: 'var(--text)' }}>
             Want to be our next case study?{' '}
-            <a href="#contact" className="font-semibold" style={{ color: '#0c1c34' }}>Get in touch →</a>
+            <a href="#contact" className="font-semibold" style={{ color: 'var(--ink)' }}>Get in touch →</a>
           </p>
         </motion.div>
       </div>

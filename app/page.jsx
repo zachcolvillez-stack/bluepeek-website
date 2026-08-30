@@ -12,13 +12,10 @@ import Reviews from '../components/Reviews'
 import HowItWorks from '../components/HowItWorks'
 import Testimonials from '../components/Testimonials'
 import WhyUs from '../components/WhyUs'
-import FAQ, { HOME_FAQS } from '../components/FAQ'
 import Contact from '../components/Contact'
 import SiteFooter from '../components/site/SiteFooter'
 import MobileCTA from '../components/MobileCTA'
 import ChatWidget from '../components/ChatWidget'
-import JsonLd from '../components/seo/JsonLd'
-import { faqSchema } from '../lib/schema'
 
 export default function Home() {
   const [scene, setScene] = useState('hero')
@@ -64,13 +61,11 @@ export default function Home() {
         <HowItWorks />
         <Testimonials />
         <WhyUs />
-        <FAQ />
         <Contact />
         <SiteFooter />
       </div>
       <MobileCTA onCTA={goTo} />
       <ChatWidget />
-      <JsonLd data={faqSchema(HOME_FAQS)} />
     </main>
   )
 }

@@ -53,10 +53,10 @@ export default function Packages({ onCTA }) {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
           <span className="eyebrow">Packages</span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: '#0c1c34' }}>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: 'var(--ink)' }}>
             Built to bring you leads  -<br />priced to fit your business.
           </h2>
-          <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: '#475569' }}>
+          <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: 'var(--text)' }}>
             Every Blue Peek package is custom-quoted to fit your goals. No lock-in, no hidden fees - and you own everything.
           </p>
         </motion.div>
@@ -68,32 +68,32 @@ export default function Packages({ onCTA }) {
               viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
               className="relative rounded-3xl p-8"
               style={p.popular
-                ? { background: '#ffffff', border: '1.5px solid #0c1c34', boxShadow: '0 24px 60px rgba(12,28,52,0.14)', transform: 'scale(1.03)' }
-                : { background: '#ffffff', border: '1px solid rgba(12,28,52,0.10)', boxShadow: '0 1px 2px rgba(12,28,52,0.04), 0 2px 10px rgba(12,28,52,0.05)' }}
+                ? { background: '#ffffff', border: '1.5px solid var(--ink)', boxShadow: '0 24px 60px rgba(6,20,63,0.14)', transform: 'scale(1.03)' }
+                : { background: '#ffffff', border: '1px solid rgba(6,20,63,0.10)', boxShadow: '0 1px 2px rgba(6,20,63,0.04), 0 2px 10px rgba(6,20,63,0.05)' }}
             >
               {p.popular && (
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full text-white"
-                  style={{ background: 'linear-gradient(135deg, #16335c 0%, #0c1c34 100%)', boxShadow: '0 6px 16px rgba(12,28,52,0.30)' }}>
+                  style={{ background: 'linear-gradient(135deg, var(--lapiz-deep) 0%, var(--ink) 100%)', boxShadow: '0 6px 16px rgba(6,20,63,0.30)' }}>
                   Most Popular
                 </span>
               )}
 
-              <h3 className="text-xl font-bold mb-1.5" style={{ color: '#0c1c34' }}>{p.name}</h3>
-              <p className="text-sm mb-6" style={{ color: '#7e8aa0' }}>{p.tagline}</p>
+              <h3 className="text-xl font-bold mb-1.5" style={{ color: 'var(--ink)' }}>{p.name}</h3>
+              <p className="text-sm mb-6" style={{ color: 'var(--muted)' }}>{p.tagline}</p>
 
               {p.hasAI && (
                 <div className="flex items-center gap-2 mb-5 px-3 py-2 rounded-xl"
-                  style={{ background: 'rgba(47,95,208,0.09)', border: '1px solid rgba(47,95,208,0.18)' }}>
-                  <Sparkles size={15} style={{ color: '#16335c' }} />
-                  <span className="text-xs font-semibold" style={{ color: '#16335c' }}>Includes 24/7 AI chatbot</span>
+                  style={{ background: 'rgba(11,62,217,0.09)', border: '1px solid rgba(11,62,217,0.18)' }}>
+                  <Sparkles size={15} style={{ color: 'var(--lapiz-deep)' }} />
+                  <span className="text-xs font-semibold" style={{ color: 'var(--lapiz-deep)' }}>Includes 24/7 AI chatbot</span>
                 </div>
               )}
 
               <ul className="space-y-3 mb-8">
                 {p.features.map(f => (
-                  <li key={f} className="flex items-start gap-2.5 text-sm" style={{ color: '#334155' }}>
+                  <li key={f} className="flex items-start gap-2.5 text-sm" style={{ color: 'var(--text)' }}>
                     <span className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                      style={{ background: 'linear-gradient(135deg, #16335c 0%, #0c1c34 100%)' }}>
+                      style={{ background: 'linear-gradient(135deg, var(--lapiz-deep) 0%, var(--ink) 100%)' }}>
                       <Check size={10} className="text-white" strokeWidth={3} />
                     </span>
                     {f}
@@ -112,8 +112,8 @@ export default function Packages({ onCTA }) {
 
         <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
           viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-center text-sm mt-10" style={{ color: '#7e8aa0' }}>
-          Need something different? <a href="#contact" onClick={(e) => { e.preventDefault(); onCTA?.('contact') }} className="font-semibold" style={{ color: '#0c1c34' }}>Ask for a custom quote →</a>
+          className="text-center text-sm mt-10" style={{ color: 'var(--muted)' }}>
+          Need something different? <a href="#contact" onClick={(e) => { e.preventDefault(); onCTA?.('contact') }} className="font-semibold" style={{ color: 'var(--ink)' }}>Ask for a custom quote →</a>
         </motion.p>
       </div>
     </section>

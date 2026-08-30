@@ -10,7 +10,7 @@ function Stars({ n = 5 }) {
   return (
     <div className="flex items-center gap-0.5">
       {Array.from({ length: 5 }).map((_, i) => (
-        <Star key={i} size={15} style={{ color: i < n ? '#0c1c34' : '#d4dcea', fill: i < n ? '#0c1c34' : '#d4dcea' }} />
+        <Star key={i} size={15} style={{ color: i < n ? 'var(--ink)' : 'var(--hairline-2)', fill: i < n ? 'var(--ink)' : 'var(--hairline-2)' }} />
       ))}
     </div>
   )
@@ -45,16 +45,16 @@ export default function Reviews() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-14">
           <span className="eyebrow">Reviews</span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-6" style={{ color: '#0c1c34' }}>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-6" style={{ color: 'var(--ink)' }}>
             What our clients say.
           </h2>
 
           {/* Aggregate rating badge */}
-          <div className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl" style={{ background: '#f7f9fc', border: '1px solid rgba(12,28,52,0.10)' }}>
-            <span className="text-3xl font-bold" style={{ color: '#0c1c34' }}>{agg.ratingValue}</span>
+          <div className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl" style={{ background: 'var(--bg-2)', border: '1px solid rgba(6,20,63,0.10)' }}>
+            <span className="text-3xl font-bold" style={{ color: 'var(--ink)' }}>{agg.ratingValue}</span>
             <span>
               <Stars n={5} />
-              <span className="block text-xs mt-0.5" style={{ color: '#7e8aa0' }}>{agg.reviewCount} Google reviews</span>
+              <span className="block text-xs mt-0.5" style={{ color: 'var(--muted)' }}>{agg.reviewCount} Google reviews</span>
             </span>
           </div>
         </motion.div>
@@ -67,15 +67,15 @@ export default function Reviews() {
               className="card p-6 flex flex-col"
             >
               <Stars n={r.rating} />
-              <p className="text-base leading-relaxed my-4 flex-1" style={{ color: '#334155' }}>“{r.text}”</p>
-              <div className="flex items-center gap-3 pt-4" style={{ borderTop: '1px solid rgba(12,28,52,0.08)' }}>
+              <p className="text-base leading-relaxed my-4 flex-1" style={{ color: 'var(--text)' }}>“{r.text}”</p>
+              <div className="flex items-center gap-3 pt-4" style={{ borderTop: '1px solid rgba(6,20,63,0.08)' }}>
                 <div className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold text-white flex-shrink-0"
-                  style={{ background: 'linear-gradient(135deg, #16335c, #0c1c34)' }}>
+                  style={{ background: 'linear-gradient(135deg, var(--lapiz-deep), var(--ink))' }}>
                   {initials(r.author)}
                 </div>
                 <div className="min-w-0">
-                  <p className="text-sm font-semibold truncate" style={{ color: '#0c1c34' }}>{r.author}</p>
-                  <p className="text-xs" style={{ color: '#7e8aa0' }}>via Google</p>
+                  <p className="text-sm font-semibold truncate" style={{ color: 'var(--ink)' }}>{r.author}</p>
+                  <p className="text-xs" style={{ color: 'var(--muted)' }}>via Google</p>
                 </div>
               </div>
             </motion.div>
