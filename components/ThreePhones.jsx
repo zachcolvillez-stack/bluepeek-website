@@ -12,12 +12,12 @@ import { ExternalLink } from 'lucide-react'
 
 const PHONES = [
   {
-    slug: 'dwright',
+    slug: 'artisan',
     industry: 'Trades',
-    name: 'D Wright Painting & Decorating',
-    domain: 'dwrightpaintinganddecorating.com.au',
-    url: 'https://www.dwrightpaintinganddecorating.com.au',
-    shot: '/screenshots/phones/dwright.jpg',
+    name: 'Artisan Concrete',
+    domain: 'artisanconcretewa.com.au',
+    url: 'https://artisanconcretewa.com.au',
+    shot: '/screenshots/phones/artisan.jpg',
     travel: '-62%',
   },
   {
@@ -79,24 +79,24 @@ function PinnedPhones() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end end'] })
 
   // Phones rise from below and settle, staggered — centre lands first and highest.
-  const riseL = useTransform(scrollYProgress, [0.05, 0.42], ['64%', '4%'])
-  const riseC = useTransform(scrollYProgress, [0.00, 0.36], ['70%', '-6%'])
-  const riseR = useTransform(scrollYProgress, [0.10, 0.48], ['64%', '4%'])
+  const riseL = useTransform(scrollYProgress, [0.05, 0.44], ['62%', '9%'])
+  const riseC = useTransform(scrollYProgress, [0.00, 0.38], ['68%', '0%'])
+  const riseR = useTransform(scrollYProgress, [0.10, 0.50], ['62%', '9%'])
 
   // Once settled, each screenshot scrolls inside its own frame.
-  const shotL = useTransform(scrollYProgress, [0.48, 1], ['0%', PHONES[0].travel])
-  const shotC = useTransform(scrollYProgress, [0.44, 1], ['0%', PHONES[1].travel])
-  const shotR = useTransform(scrollYProgress, [0.52, 1], ['0%', PHONES[2].travel])
+  const shotL = useTransform(scrollYProgress, [0.48, 0.94], ['0%', PHONES[0].travel])
+  const shotC = useTransform(scrollYProgress, [0.44, 0.92], ['0%', PHONES[1].travel])
+  const shotR = useTransform(scrollYProgress, [0.52, 0.96], ['0%', PHONES[2].travel])
 
-  const headingY = useTransform(scrollYProgress, [0, 0.3], [0, -40])
-  const headingOpacity = useTransform(scrollYProgress, [0.18, 0.4], [1, 0.35])
+  const headingY = useTransform(scrollYProgress, [0, 0.35], [0, -14])
+  const headingOpacity = useTransform(scrollYProgress, [0.25, 0.5], [1, 0.5])
 
   const rises = [riseL, riseC, riseR]
   const shots = [shotL, shotC, shotR]
 
   return (
-    <div ref={ref} className="relative hidden lg:block" style={{ height: '320vh' }}>
-      <div className="sticky top-0 h-screen overflow-hidden flex flex-col justify-start pt-24">
+    <div ref={ref} className="relative hidden lg:block" style={{ height: '240vh' }}>
+      <div className="sticky top-0 h-screen overflow-hidden flex flex-col justify-start pt-32">
         <motion.div style={{ y: headingY, opacity: headingOpacity }} className="text-center px-6 mb-4 shrink-0">
           <h2 className="font-display text-4xl xl:text-5xl mb-4">
             Built for whatever you do.

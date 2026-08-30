@@ -15,16 +15,6 @@ const PROJECTS = [
     description: 'Authentic Thai wellness and massage site - a calm, premium design with a full treatment menu, vouchers and easy online booking.',
   },
   {
-    image:       '/screenshots/bluestar.png',
-    url:         'https://bluestarmechanics.com.au',
-    domain:      'bluestarmechanics.com.au',
-    caseStudy:   '/work/bluestar-mechanics',
-    industry:    'Mechanic',
-    title:       'Bluestar Mechanics',
-    location:    'Coburg, VIC',
-    description: 'Family-owned mechanic site for all makes and models - servicing, roadworthy certificates and diagnostics, built to earn local trust.',
-  },
-  {
     image:       '/screenshots/stsbgardening.png',
     url:         'https://stsbgardening.com.au',
     domain:      'stsbgardening.com.au',
@@ -33,16 +23,7 @@ const PROJECTS = [
     location:    'Albury, NSW',
     description: 'Gardening, landscaping and lawn care site for the Albury–Wodonga area - clean, friendly design built to turn local searches into quote requests.',
   },
-  {
-    image:       '/screenshots/barberzden.png',
-    url:         'https://barberz-den.vercel.app',
-    domain:      'barberz-den.vercel.app',
-    industry:    'Barbershop',
-    title:       'Barberz Den',
-    location:    'Kiara, Perth WA',
-    description: 'Modern barbershop site with online bookings, gallery and service menu - designed to fill the chairs and grow the brand.',
-  },
-]
+  ]
 
 function BrowserChrome({ domain }) {
   return (
