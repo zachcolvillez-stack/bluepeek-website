@@ -7,8 +7,8 @@ import { reveal, revealFrom } from '../lib/motion'
    Facts only: names, ages, where they're from. No invented backstory. */
 
 const FOUNDERS = [
-  { name: 'Zach Colville', age: 21, from: 'England', role: 'Founder & Owner',  photo: '/founders/zach.jpg' },
-  { name: 'Jac Thomas-Rees', age: 22, from: 'Wales',   role: 'Founder & Owner',  photo: '/founders/jac.jpg' },
+  { name: 'Zach Colville',   age: 21, from: 'England', flag: '/flags/england.png', role: 'Founder & Owner', photo: '/founders/zach.jpg' },
+  { name: 'Jac Thomas-Rees', age: 22, from: 'Wales',   flag: '/flags/wales.png',   role: 'Founder & Owner', photo: '/founders/jac.jpg' },
 ]
 
 export default function Founders() {
@@ -36,7 +36,11 @@ export default function Founders() {
               <figcaption className="mt-4 text-center">
                 <p className="text-base font-semibold" style={{ color: 'var(--ink)' }}>{f.name}</p>
                 <p className="text-sm font-medium mt-1" style={{ color: 'var(--lapiz)' }}>{f.role}</p>
-                <p className="text-sm mt-1" style={{ color: '#5a688a' }}>{f.age} · from {f.from}</p>
+                <p className="text-sm mt-1 flex items-center justify-center gap-1.5" style={{ color: '#5a688a' }}>
+                  {f.age} · from {f.from}
+                  <img src={f.flag} alt="" width={18} height={18}
+                    style={{ width: 18, height: 18, objectFit: 'contain', display: 'inline-block' }} />
+                </p>
               </figcaption>
             </motion.figure>
           ))}
