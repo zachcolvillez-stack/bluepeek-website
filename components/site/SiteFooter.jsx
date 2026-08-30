@@ -83,7 +83,7 @@ export default function SiteFooter() {
               </a>
             ))}
             <p className="flex items-center gap-2 text-sm" style={{ color: '#aab3c9' }}>
-              <MapPin size={15} /> Gold Coast, Queensland
+              <MapPin size={15} /> 7 Gidgee Court, Molendinar QLD 4214
             </p>
           </div>
         </div>
