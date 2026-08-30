@@ -9,7 +9,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const OUT = path.resolve(__dirname, '..', 'public', 'email')
 await fs.mkdir(OUT, { recursive: true })
 
-const LAPIZ = '#2B4C9B'
+const LAPIZ = '#0B3ED9'
 
 const ICONS = {
   web: `<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18a15 15 0 010-18"/>`,
