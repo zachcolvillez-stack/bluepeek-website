@@ -66,11 +66,22 @@ export const metadata = {
     description: SITE.description,
     // twitter image falls back to app/opengraph-image.jsx
   },
+  icons: {
+    icon: [
+      { url: '/favicon-16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    other: [{ rel: 'mask-icon', url: '/mask-icon.svg', color: '#0B3ED9' }],
+  },
   robots: {
     index: true,
     follow: true,
     googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
   },
+}
+
+export const viewport = {
+  themeColor: '#0B3ED9',
 }
 
 export default async function RootLayout({ children }) {

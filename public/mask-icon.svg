@@ -1,0 +1,5 @@
+<!-- Safari pinned-tab icon: monochrome silhouette, single colour, no gradients. -->
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <path fill="black" d="M50 20 4 8l30 17.3v34.6L50 88l32-18.1V35.3L50 20Zm0 8.6 24 13.6v27.2L50 79 26 65.4V38.2l24-13.6Z"/>
+  <path fill="black" d="M50 33.6 34.6 42.5 50 51.4l15.4-8.9L50 33.6ZM32 47.2v18.1L47 74V56L32 47.2Zm21 8.8v18l15-8.7V47.2L53 56Z"/>
+</svg>
