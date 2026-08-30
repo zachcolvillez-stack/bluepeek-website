@@ -1,4 +1,4 @@
-// Blue Peek animated mark — DIAGONAL SLAT REVEAL.
+// Bluepeek animated mark — DIAGONAL SLAT REVEAL.
 // The artwork is cut into leaning parallelogram bands. Each band slides in
 // along its own diagonal and fades up, staggered left to right, so mid-way
 // you see alternating revealed / empty diagonal rectangles.
