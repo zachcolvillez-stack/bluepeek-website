@@ -7,8 +7,8 @@ import { reveal, revealFrom } from '../lib/motion'
    Facts only: names, ages, where they're from. No invented backstory. */
 
 const FOUNDERS = [
-  { name: 'Zachary', age: 21, from: 'England', role: 'Founder & Owner',  photo: '/founders/zach.jpg' },
-  { name: 'Jac',     age: 22, from: 'Wales',   role: 'Founder & Owner',  photo: '/founders/jac.jpg' },
+  { name: 'Zach Colville', age: 21, from: 'England', role: 'Founder & Owner',  photo: '/founders/zach.jpg' },
+  { name: 'Jac Thomas-Rees', age: 22, from: 'Wales',   role: 'Founder & Owner',  photo: '/founders/jac.jpg' },
 ]
 
 export default function Founders() {
@@ -47,7 +47,7 @@ export default function Founders() {
           className="mt-16 max-w-2xl mx-auto space-y-5 text-base md:text-lg leading-relaxed"
           style={{ color: 'var(--text)' }}>
           <p>
-            Blue Peek is Jac and Zachary — 22 and 21, one from Wales and one from England,
+            Blue Peek is Jac and Zach — 22 and 21, one from Wales and one from England,
             both now building websites for Australian businesses.
           </p>
           <p>
