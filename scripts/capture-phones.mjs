@@ -10,7 +10,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const OUT = path.resolve(__dirname, '..', 'public', 'screenshots', 'phones')
 
 const TARGETS = [
-  { slug: 'artisan', url: 'https://artisanconcretewa.com.au' },
+  { slug: 'jasmine', url: 'https://jasminehealthandspa.com.au' },
 ]
 
 await fs.mkdir(OUT, { recursive: true })

@@ -11,7 +11,9 @@ import { ExternalLink } from 'lucide-react'
    ═══════════════════════════════════════════════════════════════ */
 
 // One shared travel distance so every screenshot scrolls at the same rate.
-const TRAVEL = '-56%'
+// All three captures are now 780x7000, so the same value is safe for each
+// and shows far more of every page than the old 56% cap allowed.
+const TRAVEL = '-70%'
 
 const PHONES = [
   {
@@ -28,7 +30,7 @@ const PHONES = [
     name: 'Jasmine Health Spa',
     domain: 'jasminehealthandspa.com.au',
     url: 'https://jasminehealthandspa.com.au',
-    shot: '/screenshots/jasmine/home-mobile-full.jpg',
+    shot: '/screenshots/phones/jasmine.jpg',
   },
   {
     slug: 'rodano',
@@ -84,9 +86,8 @@ function PinnedPhones() {
   // CSS offset, not an animation difference — that keeps them in sync.
   const rise = useTransform(scrollYProgress, [0.00, 0.40], ['66%', '4%'])
 
-  // TRAVEL is capped by the shortest capture (Jasmine, 780x3900): in a 390pt
-  // frame only ~59% of that image can scroll past. Using one shared value
-  // keeps all three moving at the same speed.
+  // All three captures are the same size, so one shared value keeps them
+  // moving at an identical rate with no desync.
   const shot = useTransform(scrollYProgress, [0.46, 0.95], ['0%', TRAVEL])
 
   const headingY = useTransform(scrollYProgress, [0, 0.35], [0, -14])

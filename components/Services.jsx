@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
-import { Globe, Sparkles, Search, Megaphone, ArrowRight } from 'lucide-react'
+import { Globe, Sparkles, Search, ArrowRight } from 'lucide-react'
+import { SocialMarks } from './BrandIcons'
 
 const SERVICES = [
   {
@@ -24,15 +25,16 @@ const SERVICES = [
     title: 'SEO & Google Ads',
     tag: 'Available',
     featured: false,
-    description: 'Get found at the top of Google when locals search for what you do - paid and organic, built for Perth and WA.',
+    description: 'Get found at the top of Google when locals search for what you do - paid and organic, built for your area.',
     points: ['Local SEO that works', 'Google Ads management', 'Clear monthly reporting'],
   },
   {
-    icon: Megaphone,
+    icon: SocialMarks,
+    wideIcon: true,
     title: 'Social Media',
     tag: 'Available',
     featured: false,
-    description: 'Consistent, professional posts that keep your business front of mind across Facebook and Instagram.',
+    description: 'Consistent, professional posts that keep your business front of mind across Instagram, Facebook and TikTok.',
     points: ['Content creation & posting', 'Brand-consistent design', 'Local growth strategies'],
   },
 ]
@@ -65,11 +67,11 @@ export default function Services() {
               )}
 
               <div className="flex items-start justify-between mb-6">
-                <div className="w-12 h-12 rounded-2xl flex items-center justify-center"
+                <div className={`${s.wideIcon ? 'px-3.5 h-12' : 'w-12 h-12'} rounded-2xl flex items-center justify-center`}
                   style={s.featured
                     ? { background: 'linear-gradient(135deg, var(--lapiz-deep) 0%, var(--ink) 100%)', boxShadow: '0 8px 20px rgba(6,20,63,0.25)' }
                     : { background: 'rgba(11,62,217,0.09)' }}>
-                  <s.icon size={22} className={s.featured ? 'text-white' : ''} style={s.featured ? {} : { color: 'var(--lapiz-deep)' }} />
+                  <s.icon size={s.wideIcon ? 17 : 22} className={s.featured ? 'text-white' : ''} style={s.featured ? {} : { color: 'var(--lapiz-deep)' }} />
                 </div>
                 <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full"
                   style={s.featured
