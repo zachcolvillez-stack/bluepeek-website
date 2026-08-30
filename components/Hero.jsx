@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight, Star } from 'lucide-react'
 import { reveal, revealFrom } from '../lib/motion'
 import { useReviewAgg } from '../lib/useReviews'
+import QuoteForm from './QuoteForm'
 
 const FACTS = ['Built on the Gold Coast', 'Live in 1–2 weeks', 'No lock-in', 'You own everything']
 
@@ -29,7 +30,7 @@ export default function Hero({ onCTA }) {
           </motion.p>
 
           <motion.div {...reveal(0.16)} className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-9">
-            <button onClick={() => onCTA('contact')}
+            <button onClick={() => onCTA('quote-form')}
               className="group btn-primary flex items-center gap-2 px-8 py-4 rounded-full text-sm justify-center">
               Get a website
               <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
@@ -58,27 +59,9 @@ export default function Hero({ onCTA }) {
           </motion.div>
         </div>
 
-        {/* Real work, framed */}
-        <motion.div {...revealFrom('right', 0.12)} className="relative hidden lg:block">
-          <div className="absolute -right-4 top-10 bottom-10 left-12 rounded-3xl"
-            style={{ background: 'var(--lapiz-tint)', border: '1px solid var(--hairline)', transform: 'rotate(3deg)' }} />
-          <div className="relative rounded-3xl overflow-hidden"
-            style={{ background: '#fff', border: '1px solid var(--hairline)', boxShadow: 'var(--shadow-lg)' }}>
-            <div className="flex items-center gap-1.5 px-4 py-2.5"
-              style={{ background: 'var(--bg-2)', borderBottom: '1px solid var(--hairline)' }}>
-              <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#d4dcea' }} />
-              <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#d4dcea' }} />
-              <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#d4dcea' }} />
-              <div className="flex-1 mx-3 px-3 py-0.5 text-[10px] rounded text-center font-mono truncate"
-                style={{ background: '#fff', color: 'var(--muted)', border: '1px solid var(--hairline)' }}>
-                jasminehealthandspa.com.au
-              </div>
-            </div>
-            <div className="relative aspect-[16/11] overflow-hidden" style={{ background: 'var(--lapiz-tint)' }}>
-              <img src="/screenshots/jasmine.png" alt="A website Blue Peek built for a Perth day spa"
-                className="w-full h-full object-cover object-top" />
-            </div>
-          </div>
+        {/* Lead capture, above the fold */}
+        <motion.div {...revealFrom('right', 0.12)} className="w-full">
+          <QuoteForm />
         </motion.div>
       </div>
     </section>
