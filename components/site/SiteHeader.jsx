@@ -28,7 +28,7 @@ export default function SiteHeader() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={scrolled
-        ? { background: 'rgba(255,255,255,0.82)', backdropFilter: 'blur(18px)', WebkitBackdropFilter: 'blur(18px)', borderBottom: '1px solid rgba(99,91,168,0.12)', boxShadow: '0 8px 30px rgba(91,77,168,0.10)' }
+        ? { background: 'rgba(255,255,255,0.82)', backdropFilter: 'blur(18px)', WebkitBackdropFilter: 'blur(18px)', borderBottom: '1px solid rgba(11,62,217,0.14)', boxShadow: '0 8px 30px rgba(6,20,63,0.08)' }
         : { background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(8px)' }}>
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link href="/" aria-label="Bluepeek home"><Logo size={38} /></Link>
@@ -59,7 +59,7 @@ export default function SiteHeader() {
 
       {menuOpen && (
         <div className="md:hidden px-6 py-4 space-y-1"
-          style={{ background: 'rgba(255,255,255,0.98)', backdropFilter: 'blur(18px)', borderBottom: '1px solid rgba(99,91,168,0.12)' }}>
+          style={{ background: 'rgba(255,255,255,0.98)', backdropFilter: 'blur(18px)', borderBottom: '1px solid rgba(11,62,217,0.14)' }}>
           {links.map(l => (
             <a key={l.label} href={l.href} onClick={() => setMenuOpen(false)}
               className="block py-2.5 font-medium" style={{ color: '#4a4767' }}>{l.label}</a>

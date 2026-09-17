@@ -43,7 +43,7 @@ export default function OpengraphImage() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              background: 'linear-gradient(135deg, #4f86f7, #6f6ff5 55%, #9b6bf2)',
+              background: 'linear-gradient(135deg, #1667FC, #0B3ED9 55%, #01197A)',
             }}
           >
             <svg width="46" height="46" viewBox="0 0 100 100" fill="none">
