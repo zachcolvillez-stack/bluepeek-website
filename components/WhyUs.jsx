@@ -32,7 +32,7 @@ export default function WhyUs() {
               </div>
               <h3 className="text-2xl font-bold text-white mb-3">A local Perth team - real people, real conversations.</h3>
               <p className="text-base leading-relaxed max-w-md" style={{ color: 'rgba(255,255,255,0.86)' }}>
-                You’re not a ticket number. Blue Peek is based in Perth, we know the local market, and we’ll grab a coffee in person if you’re nearby. Every site is built around bringing you real customers - not design awards.
+                You’re not a ticket number. Blue Peek is based on the Gold Coast, we know the local market, and we’ll grab a coffee in person if you’re nearby. Every site is built around bringing you real customers - not design awards.
               </p>
               <div className="flex flex-wrap gap-2 mt-6">
                 {['Built around leads, not vanity', 'Knows the WA market'].map(t => (

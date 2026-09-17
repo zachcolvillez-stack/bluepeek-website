@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og'
 
-export const alt = 'Bluepeek - Perth Website Design & AI Automation'
+export const alt = 'Bluepeek - Gold Coast Website Design & AI Automation'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -73,7 +73,7 @@ export default function OpengraphImage() {
 
         {/* tagline */}
         <div style={{ display: 'flex', fontSize: 30, color: '#9fb6ff', marginTop: 32 }}>
-          Perth Web Design & AI Automation · Built to bring you leads
+          Gold Coast Web Design & AI Automation · Australia-wide
         </div>
       </div>
     ),

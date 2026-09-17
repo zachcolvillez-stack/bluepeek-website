@@ -9,7 +9,7 @@ import JsonLd from '../../components/seo/JsonLd'
 
 export const metadata = {
   title: 'About Bluepeek - Perth Web Design & AI Automation Studio',
-  description: 'Blue Peek is a Perth WA web design and AI automation studio serving businesses across Australia. Custom websites, 24/7 AI chatbots, lead capture and local SEO - 5.0 stars from 19 Google reviews.',
+  description: 'Blue Peek is a Perth WA web design and AI automation studio serving businesses across Australia. Custom websites, 24/7 AI chatbots, lead capture and local SEO - 5.0 stars from 38 Google reviews.',
   alternates: { canonical: '/about' },
   openGraph: {
     title: 'About Bluepeek - Perth Web Design & AI Automation Studio',
@@ -37,14 +37,14 @@ export default function AboutPage() {
           </h1>
 
           <p className="text-base md:text-lg leading-relaxed mb-10" style={{ color: '#475569' }}>
-            Blue Peek is a web design and AI automation studio based in Perth, Western Australia, serving small businesses across Australia.
+            Blue Peek is a web design and AI automation studio based on the Gold Coast, Queensland, serving small businesses across Australia.
           </p>
 
           <div className="space-y-9">
             <section>
               <h2 className="text-xl md:text-2xl font-bold tracking-tight mb-4" style={{ color: '#0c1c34' }}>Who we are</h2>
               <p className="text-base leading-relaxed mb-4" style={{ color: '#475569' }}>
-                Blue Peek is a Perth-based web design and AI automation studio. We are a small, hands-on team - Jac and Zach - working directly with local business owners across Western Australia and the rest of Australia, rather than handing clients off between account managers.
+                Blue Peek is a Gold Coast based web design and AI automation studio. We are a small, hands-on team - Jac and Zach - working directly with local business owners right across Australia, from Queensland to Western Australia, rather than handing clients off between account managers.
               </p>
               <p className="text-base leading-relaxed" style={{ color: '#475569' }}>
                 We started in Perth building websites for tradies, mechanics, barbers and salons, and now work with small businesses right across Australia.
@@ -78,7 +78,7 @@ export default function AboutPage() {
                 Blue Peek builds premium-quality websites without big-agency prices. Most projects go live within one to two weeks. There are no lock-in contracts, and clients own their website, domain and content outright - they can take it elsewhere at any time.
               </p>
               <p className="text-base leading-relaxed" style={{ color: '#475569' }}>
-                Blue Peek holds a 5.0-star rating from 19 Google reviews.
+                Blue Peek holds a 5.0-star rating from 38 Google reviews.
               </p>
             </section>
 

@@ -7,12 +7,12 @@ import SiteFooter from '../../components/site/SiteFooter'
 import ChatWidget from '../../components/ChatWidget'
 
 export const metadata = {
-  title: 'Blog - Perth Web Design & AI Automation Insights | Bluepeek',
-  description: 'Practical guides on web design pricing, choosing a Perth web design agency, and AI automation for small business - written by Blue Peek.',
+  title: 'Blog - Web Design & AI Automation Insights | Bluepeek',
+  description: 'Practical guides on web design pricing, choosing a web design agency, and AI automation for small business - written by Blue Peek.',
   alternates: { canonical: '/blog' },
   openGraph: {
-    title: 'Blog - Perth Web Design & AI Automation Insights | Bluepeek',
-    description: 'Practical guides on web design pricing, choosing a Perth web design agency, and AI automation for small business.',
+    title: 'Blog - Web Design & AI Automation Insights | Bluepeek',
+    description: 'Practical guides on web design pricing, choosing a web design agency, and AI automation for small business.',
     url: `${SITE.url}/blog`,
     type: 'website',
   },
@@ -28,7 +28,7 @@ export default function BlogIndexPage() {
         <div className="relative max-w-4xl mx-auto">
           <div className="mb-14">
             <h1 className="text-3xl md:text-5xl font-bold tracking-tight mb-5" style={{ color: '#0c1c34' }}>
-              Guides for Perth business owners.
+              Guides for Australian business owners.
             </h1>
             <p className="text-base md:text-lg max-w-xl" style={{ color: '#475569' }}>
               Practical, factual reading on web design, pricing and AI automation - no fluff.

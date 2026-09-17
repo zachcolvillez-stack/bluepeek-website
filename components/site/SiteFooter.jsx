@@ -21,7 +21,7 @@ export default function SiteFooter() {
               <Logo size={36} textColor="#ffffff" />
             </div>
             <p className="text-sm leading-relaxed max-w-xs" style={{ color: '#aab3c9' }}>
-              Premium websites and intelligent lead-capture systems for Perth businesses. Built to get you found, look established, and grow.
+              Premium websites and intelligent lead-capture systems for Australian businesses. Built to get you found, look established, and grow.
             </p>
           </div>
 
@@ -83,7 +83,7 @@ export default function SiteFooter() {
               </a>
             ))}
             <p className="flex items-center gap-2 text-sm" style={{ color: '#aab3c9' }}>
-              <MapPin size={15} /> Perth, Western Australia
+              <MapPin size={15} /> Gold Coast, Queensland
             </p>
           </div>
         </div>
