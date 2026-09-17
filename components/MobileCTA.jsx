@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Phone } from 'lucide-react'
 
 /**
  * Sticky bottom CTA bar - mobile only.
@@ -32,13 +32,24 @@ export default function MobileCTA({ onCTA }) {
         background: 'transparent',
       }}
     >
-      <button
-        onClick={() => onCTA('contact')}
-        className="btn-primary w-full flex items-center justify-center gap-2 py-3.5 rounded-full text-sm font-semibold"
-      >
-        Get a Free Quote
-        <ArrowRight size={16} />
-      </button>
+      <div className="flex gap-2">
+        <a
+          href="tel:0402923253"
+          className="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-full text-sm font-semibold"
+          style={{ background: '#ffffff', color: '#0c1c34', border: '1px solid #0c1c34' }}
+        >
+          <Phone size={16} />
+          Call
+        </a>
+        <button
+          onClick={() => onCTA('contact')}
+          className="flex-[1.4] flex items-center justify-center gap-2 py-3.5 rounded-full text-sm font-semibold"
+          style={{ background: '#0c1c34', color: '#ffffff', border: '1px solid transparent' }}
+        >
+          Get a Free Quote
+          <ArrowRight size={16} />
+        </button>
+      </div>
     </div>
   )
 }

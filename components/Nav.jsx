@@ -56,7 +56,8 @@ export default function Nav({ onNavigate, currentScene }) {
 
         {/* CTA */}
         <a href="#contact" onClick={(e) => handleClick(e, 'contact')}
-          className="hidden md:inline-flex items-center btn-primary px-5 py-2.5 rounded-full text-sm">
+          className="hidden md:inline-flex items-center px-5 py-2.5 rounded-full text-sm font-semibold transition-opacity hover:opacity-90"
+          style={{ background: '#0c1c34', color: '#ffffff' }}>
           Get a Free Quote
         </a>
 
@@ -81,7 +82,8 @@ export default function Nav({ onNavigate, currentScene }) {
             </a>
           ))}
           <a href="#contact" onClick={(e) => handleClick(e, 'contact')}
-            className="block w-full text-center btn-primary px-5 py-3 rounded-full text-sm mt-3">
+            className="block w-full text-center px-5 py-3 rounded-full text-sm font-semibold mt-3"
+            style={{ background: '#0c1c34', color: '#ffffff' }}>
             Get a Free Quote
           </a>
         </div>

@@ -41,7 +41,7 @@ export default function Home() {
           <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-center gap-x-6 gap-y-3 py-5 px-6 rounded-2xl text-center"
             style={{ background: '#f7f9fc', border: '1px solid rgba(12,28,52,0.08)' }}>
             {[
-              '5.0★ · 19 Google reviews',
+              '5.0★ · 38 Google reviews',
               '13+ Australian businesses live',
               '1–2 week turnaround',
               'No lock-in contracts',
