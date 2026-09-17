@@ -89,6 +89,12 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en-AU" className={`${inter.variable} ${archivo.variable}`} suppressHydrationWarning>
       <body suppressHydrationWarning>
+        {/* Scroll reveals are framer-motion, which renders them at opacity:0 until
+            hydration. Without JS that leaves the page body blank, so force every
+            inline-hidden element visible. JS users are unaffected. */}
+        <noscript>
+          <style>{`[style*="opacity:0"],[style*="opacity: 0"]{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
         {children}
         <JsonLd data={organizationSchema(liveReviews)} />
         <JsonLd data={websiteSchema()} />
