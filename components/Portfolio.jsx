@@ -1,11 +1,12 @@
 'use client'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowUpRight, ExternalLink } from 'lucide-react'
 
 const PROJECTS = [
   {
-    image:       '/screenshots/jasmine.png',
+    image:       '/screenshots/jasmine.webp',
     url:         'https://jasminehealthandspa.com.au',
     domain:      'jasminehealthandspa.com.au',
     caseStudy:   '/work/jasmine-health-and-spa',
@@ -15,7 +16,7 @@ const PROJECTS = [
     description: 'Authentic Thai wellness and massage site - a calm, premium design with a full treatment menu, vouchers and easy online booking.',
   },
   {
-    image:       '/screenshots/bluestar.png',
+    image:       '/screenshots/bluestar.webp',
     url:         'https://bluestarmechanics.com.au',
     domain:      'bluestarmechanics.com.au',
     caseStudy:   '/work/bluestar-mechanics',
@@ -25,7 +26,7 @@ const PROJECTS = [
     description: 'Family-owned mechanic site for all makes and models - servicing, roadworthy certificates and diagnostics, built to earn local trust.',
   },
   {
-    image:       '/screenshots/stsbgardening.png',
+    image:       '/screenshots/stsbgardening.webp',
     url:         'https://stsbgardening.com.au',
     domain:      'stsbgardening.com.au',
     industry:    'Gardening',
@@ -34,7 +35,7 @@ const PROJECTS = [
     description: 'Gardening, landscaping and lawn care site for the Albury–Wodonga area - clean, friendly design built to turn local searches into quote requests.',
   },
   {
-    image:       '/screenshots/barberzden.png',
+    image:       '/screenshots/barberzden.webp',
     url:         'https://barberz-den.vercel.app',
     domain:      'barberz-den.vercel.app',
     industry:    'Barbershop',
@@ -91,9 +92,9 @@ export default function Portfolio() {
           <a href={featured.url} target="_blank" rel="noopener noreferrer" className="block order-1 md:order-none">
             <BrowserChrome domain={featured.domain} />
             <div className="relative aspect-[16/11] md:aspect-auto md:h-full overflow-hidden" style={{ background: '#eff4fb' }}>
-              <img src={featured.image} alt={`${featured.title} - ${featured.industry} website built by Blue Peek`}
-                className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
-                onError={(e) => { e.currentTarget.style.display = 'none' }} />
+              <Image src={featured.image} alt={`${featured.title} - ${featured.industry} website built by Blue Peek`}
+                fill sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-top group-hover:scale-105 transition-transform duration-700" />
               <IndustryTag>{featured.industry}</IndustryTag>
             </div>
           </a>
@@ -127,9 +128,9 @@ export default function Portfolio() {
               <a href={p.url} target="_blank" rel="noopener noreferrer" className="block">
                 <BrowserChrome domain={p.domain} />
                 <div className="relative aspect-[16/10] overflow-hidden" style={{ background: '#eff4fb' }}>
-                  <img src={p.image} alt={`${p.title} - ${p.industry} website in ${p.location} built by Blue Peek`}
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
-                    onError={(e) => { e.currentTarget.style.display = 'none' }} />
+                  <Image src={p.image} alt={`${p.title} - ${p.industry} website in ${p.location} built by Blue Peek`}
+                    fill sizes="(max-width: 768px) 100vw, 33vw" loading="lazy"
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-700" />
                   <IndustryTag>{p.industry}</IndustryTag>
                 </div>
               </a>

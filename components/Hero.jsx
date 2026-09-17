@@ -1,4 +1,6 @@
 'use client'
+
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { ArrowRight, MapPin, Check, Star, ExternalLink } from 'lucide-react'
 
@@ -79,9 +81,9 @@ export default function Hero({ onCTA }) {
               <ExternalLink size={12} style={{ color: '#a9b6c8' }} />
             </div>
             <div className="relative aspect-[16/11] overflow-hidden" style={{ background: '#eff4fb' }}>
-              <img src="/screenshots/jasmine.png" alt="A premium website Blue Peek designed for a local business"
-                className="w-full h-full object-cover object-top"
-                onError={(e) => { e.currentTarget.style.display = 'none' }} />
+              <Image src="/screenshots/jasmine.webp" alt="A premium website Blue Peek designed for a local business"
+                fill sizes="(max-width: 1024px) 0px, 560px" priority
+                className="object-cover object-top" />
             </div>
           </div>
 
