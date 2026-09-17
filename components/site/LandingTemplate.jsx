@@ -29,13 +29,13 @@ export default function LandingTemplate({ breadcrumb = [], eyebrow, h1, lead, se
 
         {/* Breadcrumb */}
         <div className="relative max-w-4xl mx-auto px-6">
-          <nav aria-label="Breadcrumb" className="flex items-center flex-wrap gap-1.5 text-xs mb-6" style={{ color: '#8c8aa3' }}>
+          <nav aria-label="Breadcrumb" className="flex items-center flex-wrap gap-1.5 text-xs mb-6" style={{ color: '#7e8aa0' }}>
             {breadcrumb.map((b, i) => (
               <span key={b.href} className="flex items-center gap-1.5">
-                {i > 0 && <ChevronRight size={12} style={{ color: '#8c8aa3' }} />}
+                {i > 0 && <ChevronRight size={12} style={{ color: '#7e8aa0' }} />}
                 {i < breadcrumb.length - 1
-                  ? <Link href={b.href} className="transition-colors" style={{ color: '#8c8aa3' }} onMouseEnter={(e) => e.currentTarget.style.color = '#7c5fe0'} onMouseLeave={(e) => e.currentTarget.style.color = '#8c8aa3'}>{b.name}</Link>
-                  : <span style={{ color: '#565471' }}>{b.name}</span>}
+                  ? <Link href={b.href} className="transition-colors" style={{ color: '#7e8aa0' }} onMouseEnter={(e) => e.currentTarget.style.color = '#2f5fd0'} onMouseLeave={(e) => e.currentTarget.style.color = '#7e8aa0'}>{b.name}</Link>
+                  : <span style={{ color: '#475569' }}>{b.name}</span>}
               </span>
             ))}
           </nav>
@@ -45,7 +45,7 @@ export default function LandingTemplate({ breadcrumb = [], eyebrow, h1, lead, se
         <section className="relative max-w-4xl mx-auto px-6 pb-12">
           <span className="eyebrow">{eyebrow}</span>
           <h1 className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.1] mt-5 mb-5" style={{ color: '#1a1730' }}>{h1}</h1>
-          <p className="text-base md:text-lg leading-relaxed max-w-2xl mb-8" style={{ color: '#565471' }}>{lead}</p>
+          <p className="text-base md:text-lg leading-relaxed max-w-2xl mb-8" style={{ color: '#475569' }}>{lead}</p>
           <div className="flex flex-col sm:flex-row gap-3">
             <a href="/#contact" className="group btn-primary inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-sm">
               Get a Free Quote <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
@@ -62,12 +62,12 @@ export default function LandingTemplate({ breadcrumb = [], eyebrow, h1, lead, se
             <section key={i}>
               <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4" style={{ color: '#1a1730' }}>{s.h2}</h2>
               {s.paragraphs?.map((p, j) => (
-                <p key={j} className="text-base leading-relaxed mb-4" style={{ color: '#565471' }}>{p}</p>
+                <p key={j} className="text-base leading-relaxed mb-4" style={{ color: '#475569' }}>{p}</p>
               ))}
               {s.bullets?.length > 0 && (
                 <ul className="space-y-2.5 mt-5">
                   {s.bullets.map((b, k) => (
-                    <li key={k} className="flex items-start gap-3 text-base" style={{ color: '#565471' }}>
+                    <li key={k} className="flex items-start gap-3 text-base" style={{ color: '#475569' }}>
                       <span className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
                         style={{ background: 'linear-gradient(135deg, #16335c 0%, #0c1c34 100%)' }}>
                         <Check size={11} className="text-white" strokeWidth={3} />
@@ -90,9 +90,9 @@ export default function LandingTemplate({ breadcrumb = [], eyebrow, h1, lead, se
                 <details key={i} className="card p-5 group" style={{ borderRadius: '16px' }}>
                   <summary className="flex items-center justify-between cursor-pointer list-none font-semibold" style={{ color: '#1a1730' }}>
                     {f.q}
-                    <ChevronRight size={18} className="transition-transform group-open:rotate-90 flex-shrink-0 ml-3" style={{ color: '#8c8aa3' }} />
+                    <ChevronRight size={18} className="transition-transform group-open:rotate-90 flex-shrink-0 ml-3" style={{ color: '#7e8aa0' }} />
                   </summary>
-                  <p className="text-sm leading-relaxed mt-3" style={{ color: '#565471' }}>{f.a}</p>
+                  <p className="text-sm leading-relaxed mt-3" style={{ color: '#475569' }}>{f.a}</p>
                 </details>
               ))}
             </div>

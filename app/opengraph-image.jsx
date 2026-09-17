@@ -43,13 +43,13 @@ export default function OpengraphImage() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              background: 'linear-gradient(135deg, #4f86f7, #6f6ff5 55%, #9b6bf2)',
+              background: 'linear-gradient(135deg, #2347c4, #15306a 50%, #0a1730)',
             }}
           >
             <svg width="46" height="46" viewBox="0 0 100 100" fill="none">
               <g stroke="#ffffff" strokeWidth="6" strokeLinejoin="round" strokeLinecap="round" fill="none">
                 <path d="M50 26 L72 38 L72 62 L50 74 L28 62 L28 38 Z" />
-                <path d="M50 26 L50 50 M50 50 L72 38 M50 50 L28 38" />
+                <path d="M50 26 L50 50 L50 74 M50 50 L72 38 M50 50 L28 38" />
               </g>
             </svg>
           </div>
