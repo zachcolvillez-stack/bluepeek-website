@@ -43,10 +43,6 @@ h1, h2, h3, h4, h5, h6, .font-display, .font-heading {
   --shadow-lapiz: 0 3px 12px #293e7018;
 }
 
-/* Emphasis text — lapiz, solid. No gradient fade (house style). */
-.text-lapiz { color: var(--lapiz); }
-
-.section-soft { background: var(--bg-2); }
 .section-lapiz {
   background: var(--lapiz);
   color: #ffffff;
