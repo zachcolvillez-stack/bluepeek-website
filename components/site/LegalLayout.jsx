@@ -8,9 +8,9 @@ export default function LegalLayout({ title, updated, children }) {
     <>
       <SiteHeader />
       <main className="mx-auto max-w-3xl px-5 sm:px-6 pt-28 pb-24">
-        <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2">{title}</h1>
-        <p className="text-sm mb-10" style={{ color: '#7e889f' }}>Last updated: {updated}</p>
-        <div className="space-y-6 text-[15px] leading-relaxed" style={{ color: '#c4ccdd' }}>
+        <h1 className="text-3xl sm:text-4xl font-bold mb-2">{title}</h1>
+        <p className="text-sm mb-10" style={{ color: 'var(--muted)' }}>Last updated: {updated}</p>
+        <div className="space-y-6 text-[15px] leading-relaxed" style={{ color: 'var(--text)' }}>
           {children}
         </div>
       </main>

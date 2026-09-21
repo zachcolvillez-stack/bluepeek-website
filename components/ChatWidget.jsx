@@ -144,34 +144,32 @@ export default function ChatWidget() {
       {/* Floating launcher */}
       <button
         onClick={() => setOpen(o => !o)}
-        aria-label="Open chat"
-        className="fixed z-50 bottom-24 right-4 md:bottom-6 md:right-6 w-14 h-14 rounded-full flex items-center justify-center transition-transform hover:scale-105"
-        style={{ background: 'linear-gradient(135deg, #16335c, #0c1c34)', boxShadow: '0 10px 30px rgba(12,28,52,0.4)' }}
+        aria-label={open ? "Close chat" : "Open chat"}
+        className="bp-chat-launcher fixed z-50 bottom-5 right-4 md:bottom-6 md:right-6 w-12 h-12 rounded-full flex items-center justify-center transition-transform hover:scale-105"
+        style={{ background: 'var(--lapiz)', boxShadow: 'var(--shadow-sm)' }}
       >
         {open ? <X size={24} className="text-white" /> : <MessageSquare size={22} className="text-white" />}
-        {!open && (
-          <span className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 rounded-full pulse-dot" style={{ background: '#22c55e', border: '2px solid #081b3e' }} />
-        )}
+
       </button>
 
       {/* Chat panel */}
       {open && (
         <div
-          className="fixed z-50 bottom-40 right-4 md:bottom-24 md:right-6 w-[calc(100vw-2rem)] max-w-sm rounded-3xl overflow-hidden flex flex-col"
-          style={{ height: '540px', maxHeight: 'calc(100vh - 12rem)', background: '#0b2350', border: '1px solid rgba(255,255,255,0.14)', boxShadow: '0 24px 60px rgba(0,0,0,0.5)' }}
+          className="fixed z-50 bottom-20 right-4 md:bottom-24 md:right-6 w-[calc(100vw-2rem)] max-w-sm rounded-xl overflow-hidden flex flex-col"
+          style={{ height: '540px', maxHeight: 'calc(100vh - 12rem)', background: 'var(--bg)', border: '1px solid var(--hairline)', boxShadow: 'var(--shadow-lg)' }}
         >
           {/* Header */}
-          <div className="px-5 py-4 flex items-center gap-3" style={{ background: 'linear-gradient(135deg, #16335c, #0c1c34)' }}>
-            <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(255,255,255,0.2)' }}>
-              <Sparkles size={18} className="text-white" />
+          <div className="px-5 py-4 flex items-center gap-3" style={{ background: 'var(--bg-2)', color: 'var(--ink)' }}>
+            <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'var(--surface)' }}>
+              <Sparkles size={18} />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="font-bold text-white leading-tight">Bluepeek Assistant</p>
-              <p className="text-xs flex items-center gap-1.5" style={{ color: 'rgba(255,255,255,0.85)' }}>
+              <p className="font-semibold leading-tight">Bluepeek Assistant</p>
+              <p className="text-xs flex items-center gap-1.5" style={{ color: 'var(--text)' }}>
                 <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#22c55e' }} /> Online · replies instantly
               </p>
             </div>
-            <button onClick={() => setOpen(false)} aria-label="Close" className="text-white/80 hover:text-white">
+            <button onClick={() => setOpen(false)} aria-label="Close" className="text-current">
               <X size={20} />
             </button>
           </div>
@@ -183,8 +181,8 @@ export default function ChatWidget() {
                 <div className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                   <div className="max-w-[82%] px-3.5 py-2.5 rounded-2xl text-sm whitespace-pre-line leading-relaxed"
                     style={m.role === 'user'
-                      ? { background: 'linear-gradient(135deg, #16335c, #0c1c34)', color: '#fff', borderBottomRightRadius: '4px' }
-                      : { background: 'rgba(255,255,255,0.08)', color: '#e3ebf9', borderBottomLeftRadius: '4px' }}>
+                      ? { background: 'var(--lapiz)', color: '#fff', borderBottomRightRadius: '4px' }
+                      : { background: 'var(--surface)', color: 'var(--ink)', borderBottomLeftRadius: '4px' }}>
                     {m.text}
                   </div>
                 </div>
@@ -194,9 +192,9 @@ export default function ChatWidget() {
                     {m.options.map(opt => (
                       <button key={opt} onClick={() => handleIntent(opt)}
                         className="text-xs font-medium px-3 py-1.5 rounded-full transition-colors"
-                        style={{ background: 'rgba(255,255,255,0.08)', color: '#c2d2ee', border: '1px solid rgba(255,255,255,0.14)' }}
-                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.16)' }}
-                        onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)' }}>
+                        style={{ background: 'var(--surface)', color: 'var(--text)', border: '1px solid var(--hairline)' }}
+                        onMouseEnter={e => { e.currentTarget.style.background = 'var(--bg-2)' }}
+                        onMouseLeave={e => { e.currentTarget.style.background = 'var(--surface)' }}>
                         {LABELS[opt]}
                       </button>
                     ))}
@@ -206,28 +204,28 @@ export default function ChatWidget() {
             ))}
             {typing && (
               <div className="flex justify-start">
-                <div className="px-4 py-3 rounded-2xl flex gap-1" style={{ background: 'rgba(255,255,255,0.08)' }}>
-                  <span className="w-1.5 h-1.5 rounded-full pulse-dot" style={{ background: '#8ba0c6' }} />
-                  <span className="w-1.5 h-1.5 rounded-full pulse-dot" style={{ background: '#8ba0c6', animationDelay: '0.2s' }} />
-                  <span className="w-1.5 h-1.5 rounded-full pulse-dot" style={{ background: '#8ba0c6', animationDelay: '0.4s' }} />
+                <div className="px-4 py-3 rounded-2xl flex gap-1" style={{ background: 'var(--surface)' }}>
+                  <span className="w-1.5 h-1.5 rounded-full pulse-dot" style={{ background: 'var(--muted)' }} />
+                  <span className="w-1.5 h-1.5 rounded-full pulse-dot" style={{ background: 'var(--muted)', animationDelay: '0.2s' }} />
+                  <span className="w-1.5 h-1.5 rounded-full pulse-dot" style={{ background: 'var(--muted)', animationDelay: '0.4s' }} />
                 </div>
               </div>
             )}
           </div>
 
           {/* Input */}
-          <div className="px-3 py-3 flex items-center gap-2" style={{ borderTop: '1px solid rgba(255,255,255,0.10)' }}>
+          <div className="px-3 py-3 flex items-center gap-2" style={{ borderTop: '1px solid var(--hairline)' }}>
             <input
               value={input}
               onChange={e => setInput(e.target.value)}
               onKeyDown={e => { if (e.key === 'Enter') handleSend() }}
               placeholder={leadMode && leadMode !== 'done' ? 'Type your answer…' : 'Type a message…'}
               className="flex-1 px-4 py-2.5 rounded-full text-sm focus:outline-none"
-              style={{ background: 'rgba(255,255,255,0.08)', color: '#fff', border: '1px solid rgba(255,255,255,0.14)' }}
+              style={{ background: 'var(--surface)', color: 'var(--ink)', border: '1px solid var(--hairline)' }}
             />
             <button onClick={handleSend} aria-label="Send"
               className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
-              style={{ background: 'linear-gradient(135deg, #16335c, #0c1c34)' }}>
+              style={{ background: 'var(--lapiz)' }}>
               <Send size={16} className="text-white" />
             </button>
           </div>
