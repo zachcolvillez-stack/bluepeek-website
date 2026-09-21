@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { ArrowRight, Check, ChevronRight, ExternalLink } from 'lucide-react'
 import SiteHeader from './SiteHeader'
 import SiteFooter from './SiteFooter'
-import ChatWidget from '../ChatWidget'
+import EnquireWidget from '../EnquireWidget'
 
 /* Case study page template - light premium, factual (no invented metrics). */
 export default function CaseStudyTemplate({ breadcrumb = [], study, content, related = [] }) {
@@ -117,7 +117,7 @@ export default function CaseStudyTemplate({ breadcrumb = [], study, content, rel
       </main>
 
       <SiteFooter />
-      <ChatWidget />
+      <EnquireWidget />
     </>
   )
 }

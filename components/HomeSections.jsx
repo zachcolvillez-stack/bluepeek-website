@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import MarketingShowcase from './MarketingShowcase'
 const projects = [
-  { name: 'Coastal 2PAC', category: 'Kitchens & joinery', image: '/images/coastal-2pac-preview.webp', url: 'https://coastal-2pac.vercel.app/', description: 'A bold, considered website for a Gold Coast 2PAC spray painting specialist, with clear services and a guided job estimate.' },
-  { name: 'Rodano Flowers', category: 'Floristry & retail', image: '/screenshots/showcase/rodanoflowers.jpg', url: 'https://rodanoflowers.com.au', description: 'A fresh online home for a Wattleup florist, with a portal to keep their own content up to date.' },
+  { name: 'Ceramic Coating Gold Coast', category: 'Ceramic coating & detailing', image: '/images/ceramic-coating-preview.webp', url: 'https://ceramic-coating-gold-coast-preview.vercel.app', description: 'A considered website for a Nerang coating studio, with the coating, correction and detailing work set out plainly.' },
+  { name: 'Marlin Glass Fencing', category: 'Glass fencing & balustrades', image: '/screenshots/showcase/marlinsglass.jpg', url: 'https://marlinsglassfencing.com.au', description: 'A Hervey Bay pool fencing and balustrade specialist, with the service area mapped out and a measure-and-quote request in one tap.' },
   { name: 'Jasmine Health & Spa', category: 'Health & wellness', image: '/screenshots/jasmine.webp', url: 'https://jasminehealthandspa.com.au', description: 'A calm, considered website with a full treatment menu, gift vouchers and easy online booking.', caseStudy: '/work/jasmine-health-and-spa' },
 ]
 const services = [

@@ -1,12 +1,8 @@
 import Image from 'next/image'
-import { ArrowUpRight, Search, Heart, MessageCircle, Send, Bookmark, MoreHorizontal, Wrench, House } from 'lucide-react'
+import { ArrowUpRight, Search, MoreHorizontal, Wrench, House } from 'lucide-react'
 
 function Platform({ name, icon }) {
   return <span className="bp-platform"><img src={`/brand/platforms/${icon}.svg`} alt="" width="24" height="24" /><span>{name}</span></span>
-}
-
-function PostActions() {
-  return <div className="bp-post-actions" aria-hidden="true"><Heart /><MessageCircle /><Send /><Bookmark /></div>
 }
 
 export default function MarketingShowcase() {
@@ -72,19 +68,6 @@ export default function MarketingShowcase() {
               <div className="bp-studio-footer"><span>Websites with presence.</span><ArrowUpRight aria-hidden="true" /></div>
             </div>
             <figcaption><strong>Your work. Front and centre.</strong><span>Rayan Tiling · Website showcase concept</span></figcaption>
-          </figure>
-          <figure className="bp-social-piece bp-team-piece">
-            <div className="bp-team-post">
-              <div className="bp-social-profile"><Image src="/brand/logo-256.png" alt="" width={32} height={32} /><div><strong>Bluepeek</strong><span>Behind the business · Post concept</span></div><MoreHorizontal size={20} aria-hidden="true" /></div>
-              <div className="bp-team-portraits">
-                <Image src="/founders/jac.jpg" alt="Jac Thomas-Rees, Bluepeek co-founder" width={900} height={1200} sizes="(max-width: 760px) 45vw, 15vw" />
-                <Image src="/founders/zach.jpg" alt="Zach Colville, Bluepeek co-founder" width={900} height={1200} sizes="(max-width: 760px) 45vw, 15vw" />
-              </div>
-              <div className="bp-team-intro">Real people.<br />Your next project.</div>
-              <PostActions />
-              <p className="bp-post-caption"><strong>Bluepeek</strong> Meet Jac &amp; Zach. Websites, content and campaigns for local businesses, with a team you can talk to.</p>
-            </div>
-            <figcaption><strong>Put people behind the brand.</strong><span>Bluepeek · Team introduction concept</span></figcaption>
           </figure>
         </div>
         <div className="bp-social-bottom"><p>Sample creative concepts, including AI-generated campaign photography.</p><a href="#contact" className="bp-button">Let’s create your content <span aria-hidden="true">↗</span></a></div>

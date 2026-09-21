@@ -4,7 +4,7 @@ import { SITE } from '../../lib/site'
 import { aboutPageSchema, breadcrumbSchema } from '../../lib/schema'
 import SiteHeader from '../../components/site/SiteHeader'
 import SiteFooter from '../../components/site/SiteFooter'
-import ChatWidget from '../../components/ChatWidget'
+import EnquireWidget from '../../components/EnquireWidget'
 import JsonLd from '../../components/seo/JsonLd'
 
 export const metadata = {
@@ -102,7 +102,7 @@ export default function AboutPage() {
         </div>
       </main>
       <SiteFooter />
-      <ChatWidget />
+      <EnquireWidget />
 
       <JsonLd data={aboutPageSchema({ path: '/about' })} />
       <JsonLd data={breadcrumbSchema(breadcrumb)} />

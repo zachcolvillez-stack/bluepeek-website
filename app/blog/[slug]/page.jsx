@@ -6,7 +6,7 @@ import { BLOG_POSTS, getPostBySlug } from '../../../lib/blog'
 import { articleSchema, faqSchema, breadcrumbSchema } from '../../../lib/schema'
 import SiteHeader from '../../../components/site/SiteHeader'
 import SiteFooter from '../../../components/site/SiteFooter'
-import ChatWidget from '../../../components/ChatWidget'
+import EnquireWidget from '../../../components/EnquireWidget'
 import JsonLd from '../../../components/seo/JsonLd'
 
 export function generateStaticParams() {
@@ -156,7 +156,7 @@ export default async function BlogArticlePage({ params }) {
         </div>
       </main>
       <SiteFooter />
-      <ChatWidget />
+      <EnquireWidget />
 
       <JsonLd data={articleSchema({ title: post.title, description: post.description, path, datePublished: post.date, dateModified: post.updated })} />
       {post.faqs?.length > 0 && <JsonLd data={faqSchema(post.faqs)} />}

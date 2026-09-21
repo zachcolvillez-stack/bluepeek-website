@@ -4,7 +4,7 @@ import { SITE } from '../../lib/site'
 import { BLOG_POSTS } from '../../lib/blog'
 import SiteHeader from '../../components/site/SiteHeader'
 import SiteFooter from '../../components/site/SiteFooter'
-import ChatWidget from '../../components/ChatWidget'
+import EnquireWidget from '../../components/EnquireWidget'
 
 export const metadata = {
   title: 'Blog - Perth Web Design & AI Automation Insights | Bluepeek',
@@ -55,7 +55,7 @@ export default function BlogIndexPage() {
         </div>
       </main>
       <SiteFooter />
-      <ChatWidget />
+      <EnquireWidget />
     </>
   )
 }

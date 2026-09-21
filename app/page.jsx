@@ -5,7 +5,7 @@ import Packages from '../components/Packages'
 import Reviews from '../components/Reviews'
 import Contact from '../components/Contact'
 import HomeFooter from '../components/HomeFooter'
-import ChatWidget from '../components/ChatWidget'
+import EnquireWidget from '../components/EnquireWidget'
 
 export default function Home() {
   return (
@@ -20,7 +20,7 @@ export default function Home() {
         <Contact />
       </main>
       <HomeFooter />
-      <ChatWidget />
+      <EnquireWidget />
     </div>
   )
 }

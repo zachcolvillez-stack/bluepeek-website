@@ -5,7 +5,7 @@ import { getGallerySites } from '../../lib/gallery'
 import GalleryGrid from '../../components/GalleryGrid'
 import SiteHeader from '../../components/site/SiteHeader'
 import SiteFooter from '../../components/site/SiteFooter'
-import ChatWidget from '../../components/ChatWidget'
+import EnquireWidget from '../../components/EnquireWidget'
 
 export const metadata = {
   title: 'Gallery - Client Websites We’ve Built | Bluepeek',
@@ -53,7 +53,7 @@ export default async function GalleryPage() {
         </div>
       </main>
       <SiteFooter />
-      <ChatWidget />
+      <EnquireWidget />
     </>
   )
 }

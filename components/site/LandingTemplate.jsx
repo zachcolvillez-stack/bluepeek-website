@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { ArrowRight, Check, ChevronRight } from 'lucide-react'
 import SiteHeader from './SiteHeader'
 import SiteFooter from './SiteFooter'
-import ChatWidget from '../ChatWidget'
+import EnquireWidget from '../EnquireWidget'
 
 /**
  * Reusable premium landing template for service & industry pages.
@@ -130,7 +130,7 @@ export default function LandingTemplate({ breadcrumb = [], eyebrow, h1, lead, se
       </main>
 
       <SiteFooter />
-      <ChatWidget />
+      <EnquireWidget />
     </>
   )
 }
