@@ -1,4 +1,5 @@
 import LaptopVisual from './LaptopVisual'
+import HeroQuickPicks from './HeroQuickPicks'
 export default function Hero() {
   return (
     <section id="hero" className="bp-hero" aria-labelledby="hero-heading">
@@ -7,6 +8,7 @@ export default function Hero() {
         <h1 id="hero-heading"><span>A better website.</span><span>A bigger first</span><span>impression.</span></h1>
         <p className="bp-hero-description">Custom websites, AI automation and local SEO for Australian businesses.</p>
         <div className="bp-actions"><a href="#contact" className="bp-button">Get a free quote</a><a href="#work" className="bp-text-link">See our work <span aria-hidden="true">→</span></a></div>
+        <HeroQuickPicks />
       </div></div>
       <LaptopVisual />
     </section>
