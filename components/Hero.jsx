@@ -6,8 +6,8 @@ export default function Hero() {
       <div className="bp-wrap bp-hero-layout"><div className="bp-hero-copy">
         <h1 id="hero-heading" className="bp-hero-lede"><span>Modern websites</span><span>Real business growth</span></h1>
         <p className="bp-hero-description">Custom websites, AI automation and local SEO for Australian businesses.</p>
-        <div className="bp-actions"><a href="#contact" className="bp-button">Get a free quote</a><a href="#work" className="bp-text-link">See our work <span aria-hidden="true">→</span></a></div>
         <HeroQuickPicks />
+        <div className="bp-actions"><a href="#work" className="bp-text-link">See our work <span aria-hidden="true">→</span></a></div>
       </div></div>
       <LaptopVisual />
     </section>
