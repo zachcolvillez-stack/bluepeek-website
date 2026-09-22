@@ -16,6 +16,9 @@ import { ENQUIRE_EVENT } from '../lib/enquire'
 export default function EnquireWidget() {
   const [open, setOpen] = useState(false)
   const [service, setService] = useState(null)
+  // Extra detail from whatever opened the panel (the SEO audit sends the
+  // domain and score). Cleared on close with everything else.
+  const [context, setContext] = useState(null)
   const [status, setStatus] = useState('idle')
   const [tucked, setTucked] = useState(false)
   const onStatus = useCallback(value => setStatus(value), [])
@@ -26,6 +29,7 @@ export default function EnquireWidget() {
   useEffect(() => {
     function onOpen(event) {
       setService(event.detail?.service ?? null)
+      setContext(event.detail?.context ?? null)
       setOpen(true)
     }
     function onClick(event) {
@@ -34,6 +38,7 @@ export default function EnquireWidget() {
       if (!link) return
       event.preventDefault()
       setService(null)
+      setContext(null)
       setOpen(true)
     }
     window.addEventListener(ENQUIRE_EVENT, onOpen)
@@ -72,6 +77,7 @@ export default function EnquireWidget() {
     // reopening should start from the top rather than a half-filled step.
     setOpen(false)
     setService(null)
+    setContext(null)
     setStatus('idle')
     launcherRef.current?.focus()
   }
@@ -109,7 +115,7 @@ export default function EnquireWidget() {
             </button>
           </div>
           <div className="bp-enquire-body">
-            <EnquireFlow variant="panel" service={service} onService={setService} onStatus={onStatus} />
+            <EnquireFlow variant="panel" service={service} onService={setService} onStatus={onStatus} context={context} />
           </div>
         </div>
       )}

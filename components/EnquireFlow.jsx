@@ -8,7 +8,7 @@ import { CHOICES, OTHER_CHOICE, ENQUIRE_ENDPOINT } from '../lib/enquire'
  * Used by the floating panel and, in `inline` form, by the contact section -
  * one flow, so a visitor never meets two different versions of it.
  */
-export default function EnquireFlow({ variant = 'panel', service, onService, onStatus, autoFocus = true }) {
+export default function EnquireFlow({ variant = 'panel', service, onService, onStatus, autoFocus = true, context = null }) {
   const [form, setForm] = useState({ name: '', phone: '', email: '' })
   const [errors, setErrors] = useState({})
   const [status, setStatus] = useState('idle')   // idle | sending | sent | error
@@ -61,7 +61,10 @@ export default function EnquireFlow({ variant = 'panel', service, onService, onS
             phone: form.phone.trim(),
             email: form.email.trim(),
             enquiry: service,
-            source: variant === 'inline' ? 'enquire section' : 'enquire panel',
+            source: context?.source ?? (variant === 'inline' ? 'enquire section' : 'enquire panel'),
+            // Field order is preserved in the notification email, so the audit
+            // findings sit after the contact details and before the honeypot.
+            ...(context?.fields ?? {}),
             _hp: hp.current,
           },
         }),
