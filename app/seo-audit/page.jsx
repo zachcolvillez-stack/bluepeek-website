@@ -7,9 +7,9 @@ import JsonLd from '../../components/seo/JsonLd'
 import { SITE } from '../../lib/site'
 import { breadcrumbSchema, faqSchema } from '../../lib/schema'
 
-const TITLE = 'Free SEO Audit — Check Your Website in 10 Seconds'
+const TITLE = 'Free SEO Audit: Check Your Website in 10 Seconds'
 const DESCRIPTION =
-  'Enter your domain and get an instant, free SEO score for your website. We check titles, headings, schema, mobile, speed, sitemap and more — no email required.'
+  'Enter your domain and get an instant, free SEO score for your website. We check titles, headings, schema, mobile, speed, sitemap and more. No email required.'
 
 export const metadata = {
   title: TITLE,
@@ -65,7 +65,7 @@ export default function SeoAuditPage() {
             <h1 className="bp-audit-h1">Audit your site&rsquo;s SEO now.</h1>
             <p className="bp-audit-lede">
               Enter your domain. We read your homepage exactly the way Google does and score the twelve things
-              that decide whether local customers ever find you. No email, no signup — the result is on the screen
+              that decide whether local customers ever find you. No email, no signup: the result is on the screen
               in about ten seconds.
             </p>
             <SeoAudit />
@@ -78,7 +78,7 @@ export default function SeoAuditPage() {
               <p className="bp-kicker">Common questions</p>
               <h2>Straight answers.</h2>
               <p className="bp-section-intro">
-                Still wondering something? Ask us — we&rsquo;ll tell you honestly whether your site needs work.
+                Still wondering something? Ask us and we&rsquo;ll tell you honestly whether your site needs work.
               </p>
               <a className="bp-text-link" href="#contact">Get a free quote <span aria-hidden="true">&rarr;</span></a>
             </div>

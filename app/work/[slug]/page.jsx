@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
-import { CASE_STUDIES, SERVICES, SITE, u } from '../../../lib/site'
+import { CASE_STUDIES, SITE, u } from '../../../lib/site'
+import { linkFor } from '../../../lib/growth'
 import { CASE_CONTENT } from '../../../lib/content'
 import { breadcrumbSchema } from '../../../lib/schema'
 import CaseStudyTemplate from '../../../components/site/CaseStudyTemplate'
@@ -16,11 +17,11 @@ export async function generateMetadata({ params }) {
   if (!c || !study) return {}
   const path = u.work(slug)
   return {
-    title: c.metaTitle,
+    title: { absolute: c.metaTitle },
     description: c.metaDescription,
     alternates: { canonical: path },
     openGraph: {
-      title: c.metaTitle,
+      title: { absolute: c.metaTitle },
       description: c.metaDescription,
       url: `${SITE.url}${path}`,
       type: 'article',
@@ -39,19 +40,23 @@ export default async function CaseStudyPage({ params }) {
   const path = u.work(slug)
   const breadcrumb = [
     { name: 'Home', href: '/' },
-    { name: 'Work', href: '/#work' },
+    { name: 'Work', href: '/work' },
     { name: study.title, href: path },
   ]
 
-  // Internal links to other case studies + a couple of services
+  // Services this project used, the industry hub it proves, then sibling studies
+  const services = (study.services || []).map(linkFor).filter(Boolean)
+  const hub = study.industryHub && linkFor(study.industryHub)
   const related = [
+    ...(hub ? [{ label: hub.label, href: hub.href }] : []),
     ...CASE_STUDIES.filter(x => x.slug !== slug).slice(0, 2).map(x => ({ label: x.title, href: u.work(x.slug) })),
-    ...SERVICES.slice(0, 2).map(s => ({ label: s.title, href: u.service(s.slug) })),
+    { label: 'Google Ads management', href: '/google-ads-management' },
+    { label: 'Google review system', href: '/google-reviews' },
   ]
 
   return (
     <>
-      <CaseStudyTemplate breadcrumb={breadcrumb} study={study} content={content} related={related} />
+      <CaseStudyTemplate breadcrumb={breadcrumb} study={study} content={content} related={related} services={services} />
       <JsonLd data={breadcrumbSchema(breadcrumb.map(b => ({ name: b.name, path: b.href })))} />
     </>
   )

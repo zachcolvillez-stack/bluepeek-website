@@ -1,53 +1,53 @@
 # Bluepeek
 
-> Bluepeek is a web design and AI automation studio based on the Gold Coast, Queensland, servicing businesses across all of Australia. We build clean, professional, high-converting websites and smart lead-capture systems (including 24/7 AI chat assistants) for local and small businesses — built to get found on Google, look established, and turn visitors into enquiries.
+> Bluepeek is a digital growth agency based on the Gold Coast, Queensland, working with local businesses across Australia. It helps businesses get found, generate leads, convert customers and build their online reputation through Google Ads, Meta Ads, high-converting websites, Google Reviews, Google Business Profile management, SEO, social media and AI follow-up automation.
 
 ## Key facts
 - Business name: Bluepeek
-- Based in: Molendinar, Gold Coast, Queensland 4214
-- Also serves: Perth and Western Australia, where much of our client work is
-- Services: all of Australia
-- Contact: info@bluepeek.com.au
+- Founders and owners: Jac Thomas-Rees and Zach Colville. Clients deal directly with the founders.
+- Based at: 7 Gidgee Court, Molendinar QLD 4214 (Gold Coast)
+- Serves: the Gold Coast and all of Australia
+- Contact: info@bluepeek.com.au, Jac 0402 923 253, Zach 0468 955 806
 - Website: https://www.bluepeek.com.au
-- Positioning: premium quality without big-agency prices; no lock-in contracts; clients own their domain, site and content; most websites go live in 1–2 weeks.
-- Rating: 5.0 out of 5 stars on Google.
+- Websites: custom built, mobile-first, most go live in 1 to 2 weeks once content is ready; clients own their domain, site and content; no lock-in contracts.
+- Reviews: Bluepeek never gates Google reviews by star rating and does not publish invented results or testimonials.
 
-## Services
-- Custom website design — mobile-first, fast, built to rank on Google and convert visitors into enquiries.
-- AI & smart automation — 24/7 AI enquiry assistants, automated lead capture and follow-up, online booking systems.
-- Local SEO & Google Ads — getting found when nearby customers search.
-- Social media — consistent, brand-consistent content.
+## The Bluepeek growth system
+1. Get found: Google Ads, SEO, Google Business Profile
+2. Get attention: Meta Ads (Facebook and Instagram), organic social media
+3. Convert: websites, landing pages, lead forms, calls
+4. Follow up: AI automation, CRM, automated lead follow-up
+5. Build trust: Google Reviews, NFC review cards and plaques, reputation
 
-## Packages
-- Starter — a professional website that makes a business look established.
-- Growth (most popular) — website + 24/7 AI chatbot + automated lead capture and follow-up + local SEO.
-- Scale — full site + advanced AI automation + lead pipeline/CRM setup.
-Every package is custom-quoted. No lock-in, no hidden fees.
-
-## Key pages
-- Home: https://www.bluepeek.com.au
-- Website Design: https://www.bluepeek.com.au/website-design
+## Core service pages
+- Google Ads agency Gold Coast: https://www.bluepeek.com.au/google-ads-gold-coast
+- Google Ads management Australia: https://www.bluepeek.com.au/google-ads-management
+- Meta Ads agency Gold Coast: https://www.bluepeek.com.au/meta-ads-gold-coast
+- Social media marketing Gold Coast: https://www.bluepeek.com.au/social-media-marketing-gold-coast
+- Google review system and management: https://www.bluepeek.com.au/google-reviews
+- NFC Google review cards and plaques: https://www.bluepeek.com.au/google-review-cards
+- Google Business Profile management: https://www.bluepeek.com.au/google-business-profile-management
+- Website design Gold Coast: https://www.bluepeek.com.au/website-design-gold-coast
+- AI automation Gold Coast: https://www.bluepeek.com.au/ai-automation-gold-coast
+- AI automation agency Australia: https://www.bluepeek.com.au/ai-automation-australia
 - Local SEO: https://www.bluepeek.com.au/local-seo
-- GEO Optimisation: https://www.bluepeek.com.au/geo-optimisation
-- Google Ads Management: https://www.bluepeek.com.au/google-ads-management
-- Customer Review Systems: https://www.bluepeek.com.au/review-systems
-- Missed Call Recovery: https://www.bluepeek.com.au/missed-call-recovery
-- AI Phone Agents: https://www.bluepeek.com.au/ai-phone-agents
-- AI Chatbots: https://www.bluepeek.com.au/ai-chatbots
-- Lead Follow-up Automation: https://www.bluepeek.com.au/lead-follow-up-automation
-- Website Design (Perth): https://www.bluepeek.com.au/website-design-perth
-- AI Automation (Perth): https://www.bluepeek.com.au/ai-automation-perth
-- Small Business Websites: https://www.bluepeek.com.au/small-business-websites-perth
-- Lead Capture Websites: https://www.bluepeek.com.au/lead-capture-websites
-- Gallery of work: https://www.bluepeek.com.au/gallery
+- GEO optimisation: https://www.bluepeek.com.au/geo-optimisation
+- All services: https://www.bluepeek.com.au/services
 
-## Selected client websites (live)
-- Jasmine Health Spa (Thai massage, Ascot, Perth WA) — https://jasminehealthandspa.com.au
-- Bluestar Mechanics (mechanic, Coburg VIC) — https://bluestarmechanics.com.au
-- Rayan Tiling Services (tiling, Perth WA) — https://rayantilingservices.com.au
-- STSB Gardening (gardening & landscaping, Albury-Wodonga) — https://stsbgardening.com.au
-- Artisan Concrete (concrete & driveways, Perth WA) — https://artisanconcretewa.com.au
-- Superior Garage (auto workshop, Malaga WA) — https://superiorgarage.com.au
+## Industries
+- Marketing for mechanics: https://www.bluepeek.com.au/industries/mechanics
+- Marketing for car detailers: https://www.bluepeek.com.au/industries/car-detailers
+- Marketing for tradies: https://www.bluepeek.com.au/industries/tradies
+- Marketing for tilers: https://www.bluepeek.com.au/industries/tilers
+- Marketing for landscapers: https://www.bluepeek.com.au/industries/landscapers
+
+## NFC review product
+Bluepeek Reviews cards and plaques (https://bluepeekreviews.com) open a business's Google review form with a tap or QR scan. Peek Card $39, Peek Wall Plaque $49, Peek Stand $59 (prices as of September 2026). Links are managed server-side, so a card never needs reprogramming. Tracking counts taps and clicks through to Google, not reviews posted.
+
+## Evidence
+- Case studies: https://www.bluepeek.com.au/work
+- Gallery of live client websites: https://www.bluepeek.com.au/gallery
+- Guides: https://www.bluepeek.com.au/blog
 
 ## Contact
-Email info@bluepeek.com.au for a free, no-obligation quote. Bluepeek replies within one business day.
+Email info@bluepeek.com.au or call Jac on 0402 923 253 for a free audit. Bluepeek replies within one business day.

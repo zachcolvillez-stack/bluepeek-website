@@ -2,6 +2,7 @@
 import { useRef, useState, useEffect } from 'react'
 import { ArrowRight, Check } from 'lucide-react'
 import { CHOICES, OTHER_CHOICE, ENQUIRE_ENDPOINT } from '../lib/enquire'
+import { track } from '../lib/track'
 
 /**
  * The whole enquiry in two steps: click the job, then leave a number.
@@ -71,6 +72,7 @@ export default function EnquireFlow({ variant = 'panel', service, onService, onS
       })
       if (!response.ok) throw new Error('Enquiry submission failed')
       setStatus('sent')
+      track('generate_lead', { form_variant: variant, enquiry: service })
     } catch {
       setStatus('error')
     } finally {
@@ -82,7 +84,7 @@ export default function EnquireFlow({ variant = 'panel', service, onService, onS
     return (
       <div className={`bp-enq bp-enq-${variant} bp-enq-done`} ref={doneRef} tabIndex={-1} role="status">
         <span className="bp-enq-tick" aria-hidden="true"><Check size={22} /></span>
-        <h3>Thanks — we’ve got it.</h3>
+        <h3>Thanks, we’ve got it.</h3>
         <p>We’ll call you about <strong>{service}</strong> within one business day.</p>
         <button type="button" className="bp-enq-again" onClick={restart}>
           Send another enquiry <ArrowRight size={15} aria-hidden="true" />

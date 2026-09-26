@@ -4,7 +4,11 @@ const nextConfig = {
     return [
       // Flattened SEO URLs — old nested paths 301 to root-level slugs
       { source: '/services/:slug', destination: '/:slug', permanent: true },
-      { source: '/industries/:slug', destination: '/:slug', permanent: true },
+      // Only old nested website-industry paths; /industries/<trade> are live growth hubs.
+      { source: '/industries/:slug(websites-for-.*)', destination: '/:slug', permanent: true },
+
+      // Review systems page consolidated into the Google review system hub
+      { source: '/review-systems', destination: '/google-reviews', permanent: true },
 
       // NFC review chips. A chip is physical and cannot be reprogrammed once it
       // is on a client's counter, so a card written with this domain instead of

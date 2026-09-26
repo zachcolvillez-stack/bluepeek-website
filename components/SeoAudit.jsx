@@ -141,7 +141,7 @@ export default function SeoAudit() {
         </div>
 
         <button type="submit" className="bp-button bp-audit-go" disabled={status === 'running'}>
-          {status === 'running' ? 'Auditing…' : 'Audit my SEO — free'}
+          {status === 'running' ? 'Auditing…' : 'Audit my SEO for free'}
           {status !== 'running' && <ArrowRight size={16} aria-hidden="true" />}
         </button>
       </form>
@@ -183,7 +183,7 @@ function Report({ result, onEnquire, onRestart }) {
           <h2>{verdict.headline}</h2>
           <p className="bp-audit-summary">
             {result.issues === 0
-              ? 'Every check passed. That is rare — nicely done.'
+              ? 'Every check passed. That is rare. Nicely done.'
               : <>We found <strong>{result.issues}</strong> {result.issues === 1 ? 'issue' : 'issues'} holding your
                  search visibility back.</>}
           </p>
@@ -212,7 +212,7 @@ function Report({ result, onEnquire, onRestart }) {
 
       <p className="bp-audit-caveat">
         This grades the on-page technical SEO a search engine reads on your homepage. It does not measure your
-        rankings, your backlinks or your Google Business Profile — we cover those in the call.
+        rankings, your backlinks or your Google Business Profile. We cover those in the call.
       </p>
 
       {/* The pitch. Everything claimed here is either measured above or already
@@ -229,9 +229,9 @@ function Report({ result, onEnquire, onRestart }) {
             ? <>Every check on this page passed, so the next gains are in content, local search and your Google
                Business Profile rather than the code. That is a conversation worth having.</>
             : result.issues === 1
-              ? <>That issue is on-page, and it gets fixed in a Bluepeek rebuild — a {result.projectedScore}/100 on
+              ? <>That issue is on-page, and it gets fixed in a Bluepeek rebuild: a {result.projectedScore}/100 on
                  these {result.checks.length} checks, on a site that loads in under a second.</>
-              : <>Every one of those issues is on-page, and all of them get fixed in a Bluepeek rebuild — a{' '}
+              : <>Every one of those issues is on-page, and all of them get fixed in a Bluepeek rebuild: a{' '}
                  {result.projectedScore}/100 on these {result.checks.length} checks, on a site that loads in under
                  a second.</>}
         </p>

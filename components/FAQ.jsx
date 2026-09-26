@@ -11,12 +11,11 @@ export default function FAQ() {
       <div className="max-w-3xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12">
-          <span className="eyebrow">FAQ</span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: 'var(--ink)' }}>
+          <h1 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-5" style={{ color: 'var(--ink)' }}>
             Questions, answered.
-          </h2>
+          </h1>
           <p className="text-base md:text-lg" style={{ color: 'var(--text)' }}>
-            The things Perth business owners usually ask Bluepeek before getting started.
+            The things business owners usually ask Bluepeek before getting started.
           </p>
         </motion.div>
 

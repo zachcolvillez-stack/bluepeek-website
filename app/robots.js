@@ -19,8 +19,8 @@ const AI_BOTS = [
 export default function robots() {
   return {
     rules: [
-      { userAgent: '*', allow: '/' },
-      ...AI_BOTS.map(userAgent => ({ userAgent, allow: '/' })),
+      { userAgent: '*', allow: '/', disallow: '/api/' },
+      ...AI_BOTS.map(userAgent => ({ userAgent, allow: '/', disallow: '/api/' })),
     ],
     sitemap: `${SITE.url}/sitemap.xml`,
     host: SITE.url,

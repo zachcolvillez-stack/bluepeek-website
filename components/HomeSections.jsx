@@ -1,14 +1,10 @@
 import Image from 'next/image'
 import MarketingShowcase from './MarketingShowcase'
+import GrowthSystem from './site/GrowthSystem'
 const projects = [
   { name: 'Ceramic Coating Gold Coast', category: 'Ceramic coating & detailing', image: '/images/ceramic-coating-preview.webp', url: 'https://ceramic-coating-gold-coast-preview.vercel.app', description: 'A considered website for a Nerang coating studio, with the coating, correction and detailing work set out plainly.' },
   { name: 'Marlin Glass Fencing', category: 'Glass fencing & balustrades', image: '/screenshots/showcase/marlinsglass.jpg', url: 'https://marlinsglassfencing.com.au', description: 'A Hervey Bay pool fencing and balustrade specialist, with the service area mapped out and a measure-and-quote request in one tap.' },
   { name: 'Jasmine Health & Spa', category: 'Health & wellness', image: '/screenshots/jasmine.webp', url: 'https://jasminehealthandspa.com.au', description: 'A calm, considered website with a full treatment menu, gift vouchers and easy online booking.', caseStudy: '/work/jasmine-health-and-spa' },
-]
-const services = [
-  ['Custom websites', 'A website that feels like your business. Designed around your brand, fast on every device and built to turn visitors into enquiries.', '/website-design-gold-coast', 'Explore website design'],
-  ['AI & automation', 'Answer enquiries, capture leads and follow up automatically. Practical systems that keep working while you get on with your day.', '/ai-automation-gold-coast', 'Explore automation'],
-  ['Local SEO', 'Help nearby customers find you when they search. Clear local foundations and ongoing support for your visibility on Google.', '/#contact', 'Talk about local SEO'],
 ]
 const process = [
   ['A conversation', 'We get to know your business, your goals and what you need from your website.'],
@@ -29,16 +25,16 @@ export default function HomeSections() {
     </section>
     <MarketingShowcase />
     <section id="services" className="bp-section bp-soft"><div className="bp-wrap">
-      <div className="bp-section-heading"><div><p className="bp-kicker">What we do</p><h2>Built to look the part.<br />Made to work harder.</h2></div><p className="bp-section-intro">The right website. Smarter systems.<br />More ways for customers to find you.</p></div>
-      <div className="bp-service-grid">{services.map(([title, description, href, label], i) => <article key={title}><span className="bp-index">0{i + 1}</span><h3>{title}</h3><p>{description}</p><a href={href} className="bp-text-link">{label}<span aria-hidden="true">↗</span></a></article>)}</div>
-      <div className="bp-additional"><p>Need a little more? We also help with <strong>Google Ads</strong> and <strong>social media</strong>.</p><a href="#contact" className="bp-text-link">Let’s talk <span aria-hidden="true">→</span></a></div>
+      <div className="bp-section-heading"><div><p className="bp-kicker">One growth system</p><h2>Get found. Get leads.<br />Get chosen.</h2></div><p className="bp-section-intro">Bluepeek helps Australian businesses grow through Google Ads, Meta Ads, high-converting websites, Google Reviews, SEO, social media and AI automation.</p></div>
+      <GrowthSystem headingLevel="h2" />
+      <div className="bp-additional"><p>Not sure which stage is costing you work? <strong>Start with a free audit.</strong></p><a href="/services" className="bp-text-link">See all services <span aria-hidden="true">→</span></a></div>
     </div></section>
     <section id="how-it-works" className="bp-section bp-process"><div className="bp-wrap">
       <div className="bp-section-heading"><div><p className="bp-kicker">The process</p><h2>A clear path from<br />first chat to launch.</h2></div><p className="bp-section-intro">You work directly with the people<br />who design and build your site.</p></div>
       <ol className="bp-process-grid">{process.map(([title, description], i) => <li key={title}><span className="bp-index">0{i + 1}</span><h3>{title}</h3><p>{description}</p></li>)}</ol>
     </div></section>
     <section id="our-story" className="bp-section bp-about bp-soft"><div className="bp-wrap bp-about-grid">
-      <div className="bp-about-copy"><p className="bp-kicker">Meet Bluepeek</p><h2>Two people.<br />Personally invested.</h2><p>We’re Jac and Zach, the founders of Bluepeek. Based on the Gold Coast, we build websites for businesses across Australia.</p><p>No account managers or outsourcing. When you call, you speak to one of the two people who built your site.</p><a href="/about" className="bp-text-link">More about us <span aria-hidden="true">→</span></a></div>
+      <div className="bp-about-copy"><p className="bp-kicker">Meet Bluepeek</p><h2>Two people.<br />Personally invested.</h2><p>We’re Jac and Zach, the founders of Bluepeek. Based on the Gold Coast, we run Google Ads, build websites and set up review and follow-up systems for businesses across Australia.</p><p>No account managers or outsourcing. When you call, you speak to one of the two people who built your site.</p><a href="/about" className="bp-text-link">More about us <span aria-hidden="true">→</span></a></div>
       <div className="bp-founders">{[['Zach Colville', '/founders/zach.jpg'], ['Jac Thomas-Rees', '/founders/jac.jpg']].map(([name, photo]) => <figure key={name}><Image src={photo} alt={`${name}, founder and owner of Bluepeek`} width={900} height={1200} sizes="(max-width: 760px) 44vw, 24vw" /><figcaption><strong>{name}</strong><span>Founder & Owner</span></figcaption></figure>)}</div>
     </div></section>
   </>)

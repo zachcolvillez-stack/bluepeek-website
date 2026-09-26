@@ -8,6 +8,9 @@ import SiteHeader from '../../../components/site/SiteHeader'
 import SiteFooter from '../../../components/site/SiteFooter'
 import EnquireWidget from '../../../components/EnquireWidget'
 import JsonLd from '../../../components/seo/JsonLd'
+import ContentBlocks from '../../../components/site/ContentBlocks'
+import RichText, { plainText } from '../../../components/site/RichText'
+import { linkFor } from '../../../lib/growth'
 
 export function generateStaticParams() {
   return BLOG_POSTS.map((p) => ({ slug: p.slug }))
@@ -19,7 +22,7 @@ export async function generateMetadata({ params }) {
   if (!post) return {}
   const path = `/blog/${slug}`
   return {
-    title: `${post.title} | Bluepeek Blog`,
+    title: { absolute: `${post.metaTitle || post.title} | Bluepeek` },
     description: post.description,
     alternates: { canonical: path },
     openGraph: {
@@ -39,6 +42,7 @@ export default async function BlogArticlePage({ params }) {
   if (!post) notFound()
 
   const path = `/blog/${slug}`
+  const service = post.primaryService && linkFor(post.primaryService)
   const breadcrumb = [
     { name: 'Home', path: '/' },
     { name: 'Blog', path: '/blog' },
@@ -72,54 +76,30 @@ export default async function BlogArticlePage({ params }) {
           </h1>
 
           <p className="text-base md:text-lg leading-relaxed mb-10" style={{ color: 'var(--text)' }}>
-            {post.intro}
+            <RichText text={post.intro} />
           </p>
 
-          <div className="space-y-10">
+          <div className="space-y-10 bp-article">
             {post.sections.map((s, i) => (
               <section key={i}>
                 <h2 className="text-xl md:text-2xl font-bold tracking-tight mb-4" style={{ color: 'var(--ink)' }}>{s.h2}</h2>
-
-                {s.table && (
-                  <div className="overflow-x-auto mb-5 card p-0" style={{ borderRadius: '8px' }}>
-                    <table className="w-full text-sm" style={{ borderCollapse: 'collapse' }}>
-                      <thead>
-                        <tr style={{ background: 'var(--bg-2)' }}>
-                          {s.table.headers.map((h) => (
-                            <th key={h} className="text-left font-semibold px-4 py-3" style={{ color: 'var(--ink)', borderBottom: '1px solid var(--hairline)' }}>{h}</th>
-                          ))}
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {s.table.rows.map((row, ri) => (
-                          <tr key={ri} style={{ borderTop: ri > 0 ? '1px solid rgba(12,28,52,0.08)' : undefined }}>
-                            {row.map((cell, ci) => (
-                              <td key={ci} className="px-4 py-3" style={{ color: 'var(--text)' }}>{cell}</td>
-                            ))}
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
+                <ContentBlocks block={s} />
+                {s.subsections?.map((sub, j) => (
+                  <div key={j} className="mt-6">
+                    <h3 className="text-lg font-bold tracking-tight mb-3" style={{ color: 'var(--ink)' }}>{sub.h3}</h3>
+                    <ContentBlocks block={sub} />
                   </div>
-                )}
-
-                {s.paragraphs?.map((p, j) => (
-                  <p key={j} className="text-base leading-relaxed mb-4" style={{ color: 'var(--text)' }}>{p}</p>
                 ))}
-
-                {s.bullets?.length > 0 && (
-                  <ul className="space-y-2.5 mt-2">
-                    {s.bullets.map((b, k) => (
-                      <li key={k} className="flex items-start gap-3 text-base" style={{ color: 'var(--text)' }}>
-                        <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-2.5" style={{ background: '#16335c' }} />
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                )}
               </section>
             ))}
           </div>
+
+          {service && (
+            <aside className="bp-mp-answer mt-12" aria-label="Related Bluepeek service">
+              <h2>Want this done for you?</h2>
+              <p>{service.blurb} <Link className="bp-inline-link" href={service.href}>See our {service.label} service</Link>.</p>
+            </aside>
+          )}
 
           {post.faqs?.length > 0 && (
             <section className="mt-14">
@@ -131,7 +111,7 @@ export default async function BlogArticlePage({ params }) {
                       {f.q}
                       <ChevronRight size={18} className="transition-transform group-open:rotate-90 flex-shrink-0 ml-3" style={{ color: 'var(--muted)' }} />
                     </summary>
-                    <p className="text-sm leading-relaxed mt-3" style={{ color: 'var(--text)' }}>{f.a}</p>
+                    <p className="text-sm leading-relaxed mt-3" style={{ color: 'var(--text)' }}><RichText text={f.a} /></p>
                   </details>
                 ))}
               </div>
@@ -143,7 +123,7 @@ export default async function BlogArticlePage({ params }) {
             <p className="relative text-base mb-7 max-w-lg mx-auto" style={{ color: 'var(--text)' }}>
               Tell us about your business and we&apos;ll reply within 24 hours - free quote, no pressure.
             </p>
-            <a href="/#contact" className="relative btn-white inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm">
+            <a href={service ? `${service.href}#audit` : '/#contact'} className="relative btn-white inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm">
               Get a Free Quote <ArrowRight size={16} />
             </a>
           </div>
@@ -159,7 +139,7 @@ export default async function BlogArticlePage({ params }) {
       <EnquireWidget />
 
       <JsonLd data={articleSchema({ title: post.title, description: post.description, path, datePublished: post.date, dateModified: post.updated })} />
-      {post.faqs?.length > 0 && <JsonLd data={faqSchema(post.faqs)} />}
+      {post.faqs?.length > 0 && <JsonLd data={faqSchema(post.faqs.map(f => ({ q: f.q, a: plainText(f.a) })))} />}
       <JsonLd data={breadcrumbSchema(breadcrumb)} />
     </>
   )

@@ -7,12 +7,12 @@ import SiteFooter from '../../components/site/SiteFooter'
 import EnquireWidget from '../../components/EnquireWidget'
 
 export const metadata = {
-  title: 'Blog - Perth Web Design & AI Automation Insights | Bluepeek',
-  description: 'Practical guides on web design pricing, choosing a Perth web design agency, and AI automation for small business - written by Bluepeek.',
+  title: 'Guides: Google Ads, Google Reviews, Websites & AI',
+  description: 'Practical guides for Australian business owners on Google Ads costs, Meta Ads, Google reviews, Business Profile optimisation, websites and AI follow-up.',
   alternates: { canonical: '/blog' },
   openGraph: {
-    title: 'Blog - Perth Web Design & AI Automation Insights | Bluepeek',
-    description: 'Practical guides on web design pricing, choosing a Perth web design agency, and AI automation for small business.',
+    title: 'Bluepeek guides for business owners',
+    description: 'Practical guides on Google Ads, Meta Ads, Google reviews, websites and AI follow-up.',
     url: `${SITE.url}/blog`,
     type: 'website',
   },
@@ -28,10 +28,10 @@ export default function BlogIndexPage() {
         <div className="relative max-w-4xl mx-auto">
           <div className="mb-14">
             <h1 className="text-3xl md:text-5xl font-bold tracking-tight mb-5" style={{ color: 'var(--ink)' }}>
-              Guides for Perth business owners.
+              Guides for business owners.
             </h1>
             <p className="text-base md:text-lg max-w-xl" style={{ color: 'var(--text)' }}>
-              Practical, factual reading on web design, pricing and AI automation - no fluff.
+              Practical, factual reading on Google Ads, Meta Ads, Google reviews, websites and AI automation. No fluff.
             </p>
           </div>
 
