@@ -10,10 +10,12 @@ export const metadata = {
 
 export default function PrivacyPage() {
   return (
-    <LegalLayout title="Privacy Policy" updated="July 2026">
+    <LegalLayout title="Privacy Policy" updated="September 2026">
       <p>{SITE.name} respects your privacy. This policy explains what personal information we collect and how we use it, in line with the Australian Privacy Principles.</p>
       <h2 className="text-xl font-semibold pt-2">What we collect</h2>
       <p>When you contact us or submit an enquiry form, we collect the details you provide, such as your name, business name, email, phone number and message. We may also collect basic analytics about how visitors use this site.</p>
+      <h2 className="text-xl font-semibold pt-2">Analytics, advertising and cookies</h2>
+      <p>We may use Google Analytics, Google Ads and Meta (Facebook and Instagram) tools on this site. They use cookies and similar technologies to measure visits, tell us which ads and pages led to an enquiry, and show our ads to people who have visited this site. When you submit an enquiry, we record how you arrived (for example the campaign, ad or search that brought you here) alongside your details so we can see which marketing works. We do not send your name, email or phone number to Google or Meta. You can opt out of personalised ads in your Google and Meta ad settings, or block cookies in your browser.</p>
       <h2 className="text-xl font-semibold pt-2">How we use it</h2>
       <p>We use your information solely to respond to your enquiry, provide our services, and improve our site. We do not sell your personal information to third parties.</p>
       <h2 className="text-xl font-semibold pt-2">Storage and security</h2>

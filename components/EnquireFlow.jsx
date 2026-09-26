@@ -2,7 +2,8 @@
 import { useRef, useState, useEffect } from 'react'
 import { ArrowRight, Check } from 'lucide-react'
 import { CHOICES, OTHER_CHOICE, ENQUIRE_ENDPOINT } from '../lib/enquire'
-import { track } from '../lib/track'
+import { track, trackFormStart, newLeadId } from '../lib/track'
+import { attributionFields } from '../lib/attribution'
 
 /**
  * The whole enquiry in two steps: click the job, then leave a number.
@@ -49,6 +50,7 @@ export default function EnquireFlow({ variant = 'panel', service, onService, onS
     setStatus('sending')
     const controller = new AbortController()
     const timeout = setTimeout(() => controller.abort(), 15000)
+    const leadId = newLeadId()
     try {
       const response = await fetch(ENQUIRE_ENDPOINT, {
         method: 'POST',
@@ -66,13 +68,15 @@ export default function EnquireFlow({ variant = 'panel', service, onService, onS
             // Field order is preserved in the notification email, so the audit
             // findings sit after the contact details and before the honeypot.
             ...(context?.fields ?? {}),
+            ...attributionFields(),
+            lead_id: leadId,
             _hp: hp.current,
           },
         }),
       })
       if (!response.ok) throw new Error('Enquiry submission failed')
       setStatus('sent')
-      track('generate_lead', { form_variant: variant, enquiry: service })
+      track('generate_lead', { form_variant: variant, enquiry: service, lead_id: leadId })
     } catch {
       setStatus('error')
     } finally {
@@ -114,7 +118,7 @@ export default function EnquireFlow({ variant = 'panel', service, onService, onS
   }
 
   return (
-    <form className={`bp-enq bp-enq-${variant}`} onSubmit={submit} noValidate aria-busy={status === 'sending'}>
+    <form className={`bp-enq bp-enq-${variant}`} onSubmit={submit} onFocus={() => trackFormStart(`enquire-${variant}`)} noValidate aria-busy={status === 'sending'}>
       <div className="bp-enq-picked">
         <span>{service}</span>
         <button type="button" onClick={() => onService(null)}>Change</button>

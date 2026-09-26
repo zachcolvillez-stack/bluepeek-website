@@ -2,24 +2,26 @@
 import { useRef, useState } from 'react'
 import { ArrowRight, Check } from 'lucide-react'
 import { ENQUIRE_ENDPOINT } from '../../lib/enquire'
-import { track } from '../../lib/track'
+import { track, trackFormStart, newLeadId } from '../../lib/track'
+import { attributionFields } from '../../lib/attribution'
 
 // Short audit / enquiry form for money pages. Each variant asks only for what
 // that audit needs; everything lands in BluePeek Forms under the `contact` form.
 const BUDGETS = ['Not running ads yet', 'Under $500 / month', '$500 - $1,500 / month', '$1,500 - $5,000 / month', '$5,000+ / month']
 
 const VARIANTS = {
-  ads:     { enquiry: 'Free Google Ads audit',     fields: ['business', 'website', 'industry', 'budget', 'phone', 'email'] },
-  meta:    { enquiry: 'Free Meta Ads audit',       fields: ['business', 'website', 'industry', 'budget', 'phone', 'email'] },
-  reviews: { enquiry: 'Google reviews enquiry',    fields: ['business', 'website', 'phone', 'email'] },
-  gbp:     { enquiry: 'Free Google visibility audit', fields: ['business', 'website', 'phone', 'email'] },
-  website: { enquiry: 'Free website audit',        fields: ['business', 'website', 'phone', 'email'] },
-  social:  { enquiry: 'Social media enquiry',      fields: ['business', 'website', 'phone', 'email'] },
-  ai:      { enquiry: 'AI automation enquiry',     fields: ['business', 'website', 'phone', 'email'] },
-  general: { enquiry: 'Free growth audit',         fields: ['business', 'website', 'industry', 'phone', 'email'] },
+  ads:     { enquiry: 'Free Google Ads audit',     fields: ['name', 'business', 'website', 'industry', 'budget', 'phone', 'email'] },
+  meta:    { enquiry: 'Free Meta Ads audit',       fields: ['name', 'business', 'website', 'industry', 'budget', 'phone', 'email'] },
+  reviews: { enquiry: 'Google reviews enquiry',    fields: ['name', 'business', 'website', 'phone', 'email'] },
+  gbp:     { enquiry: 'Free Google visibility audit', fields: ['name', 'business', 'website', 'phone', 'email'] },
+  website: { enquiry: 'Free website audit',        fields: ['name', 'business', 'website', 'phone', 'email'] },
+  social:  { enquiry: 'Social media enquiry',      fields: ['name', 'business', 'website', 'phone', 'email'] },
+  ai:      { enquiry: 'AI automation enquiry',     fields: ['name', 'business', 'website', 'phone', 'email'] },
+  general: { enquiry: 'Free growth audit',         fields: ['name', 'business', 'website', 'industry', 'phone', 'email'] },
 }
 
 const LABELS = {
+  name: 'Your name',
   business: 'Business name',
   website: 'Website or Google profile link',
   industry: 'Industry',
@@ -46,6 +48,7 @@ export default function LeadForm({ variant = 'general', submitLabel = 'Send', so
     if (status === 'sending') return
     const v = k => (form[k] || '').trim()
     const next = {}
+    if (!v('name')) next.name = 'Please enter your name.'
     if (!v('business')) next.business = 'Please enter your business name.'
     if (!/^[+\d\s().-]{8,25}$/.test(v('phone'))) next.phone = 'Please enter a phone number we can call.'
     if (v('email') && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('email'))) next.email = 'Please check this email address.'
@@ -58,8 +61,10 @@ export default function LeadForm({ variant = 'general', submitLabel = 'Send', so
     const controller = new AbortController()
     const timeout = setTimeout(() => controller.abort(), 15000)
     try {
-      const data = { name: v('business'), phone: v('phone'), email: v('email'), enquiry: config.enquiry, source: source || window.location.pathname }
+      const leadId = newLeadId()
+      const data = { name: v('name'), phone: v('phone'), email: v('email'), enquiry: config.enquiry, source: source || window.location.pathname }
       for (const key of ['business', 'website', 'industry', 'budget']) if (v(key)) data[LABELS[key].toLowerCase()] = v(key)
+      Object.assign(data, attributionFields(), { lead_id: leadId })
       data._hp = hp.current
       const res = await fetch(ENQUIRE_ENDPOINT, {
         method: 'POST',
@@ -69,7 +74,7 @@ export default function LeadForm({ variant = 'general', submitLabel = 'Send', so
       })
       if (!res.ok) throw new Error('submit failed')
       setStatus('sent')
-      track('generate_lead', { form_variant: variant, enquiry: config.enquiry, budget: v('budget') || undefined })
+      track('generate_lead', { form_variant: variant, enquiry: config.enquiry, budget: v('budget') || undefined, lead_id: leadId })
     } catch {
       setStatus('error')
     } finally {
@@ -88,7 +93,7 @@ export default function LeadForm({ variant = 'general', submitLabel = 'Send', so
   }
 
   return (
-    <form className="bp-lf" onSubmit={submit} noValidate aria-busy={status === 'sending'}>
+    <form className="bp-lf" onSubmit={submit} onFocus={() => trackFormStart(variant)} noValidate aria-busy={status === 'sending'}>
       <div className="bp-lf-grid">
         {config.fields.map(key => (
           <div className={`bp-lf-field ${key === 'website' ? 'bp-lf-wide' : ''}`} key={key}>
@@ -103,7 +108,7 @@ export default function LeadForm({ variant = 'general', submitLabel = 'Send', so
                 id={`${id}-${key}`}
                 type={key === 'phone' ? 'tel' : key === 'email' ? 'email' : 'text'}
                 inputMode={key === 'phone' ? 'tel' : key === 'website' ? 'url' : undefined}
-                autoComplete={{ business: 'organization', phone: 'tel', email: 'email', website: 'url' }[key] || 'off'}
+                autoComplete={{ name: 'name', business: 'organization', phone: 'tel', email: 'email', website: 'url' }[key] || 'off'}
                 maxLength={key === 'phone' ? 25 : 200}
                 value={form[key] || ''}
                 onChange={e => change(key, e.target.value)}
