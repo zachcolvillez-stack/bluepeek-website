@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 import Logo from './Logo'
-const links = [['Work', '#work'], ['Services', '#services'], ['About', '#our-story'], ['Free SEO Audit', '/seo-audit']]
+const links = [['Services', '/services'], ['Industries', '/industries'], ['Work', '/work'], ['About', '/about'], ['Free SEO Audit', '/seo-audit']]
 export default function Nav({ home = true }) {
   const sectionHref = (href) => (href.startsWith('/') || home) ? href : `/${href}`
   const [open, setOpen] = useState(false)

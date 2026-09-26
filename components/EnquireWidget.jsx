@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { X, Sparkles } from 'lucide-react'
 import EnquireFlow from './EnquireFlow'
-import { ENQUIRE_EVENT } from '../lib/enquire'
+import { ENQUIRE_EVENT, CHOICE_TITLES } from '../lib/enquire'
 
 /**
  * The floating enquiry panel, and the site's single answer to "get a quote".
@@ -53,7 +53,13 @@ export default function EnquireWidget() {
     if (!open) return
     function onKey(event) { if (event.key === 'Escape') close() }
     document.addEventListener('keydown', onKey)
-    return () => document.removeEventListener('keydown', onKey)
+    // The drawer covers the page, so the page behind it shouldn't scroll.
+    const overflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = overflow
+    }
   }, [open])
 
   // While the contact section's own copy of this flow is on screen, the
@@ -84,30 +90,34 @@ export default function EnquireWidget() {
 
   return (
     <>
+      {/* The panel's own X is the only close control, so the launcher
+          steps aside while it is open instead of becoming a second one. */}
       <button
         ref={launcherRef}
         type="button"
-        className={`bp-enquire-launcher${tucked && !open ? ' bp-enquire-tucked' : ''}`}
+        className={`bp-enquire-launcher${tucked || open ? ' bp-enquire-tucked' : ''}`}
         aria-expanded={open}
         aria-controls="bp-enquire-panel"
-        tabIndex={tucked && !open ? -1 : 0}
-        onClick={() => { open ? close() : setOpen(true) }}
+        tabIndex={tucked || open ? -1 : 0}
+        onClick={() => setOpen(true)}
       >
-        {open ? <X size={18} aria-hidden="true" /> : <Sparkles size={17} aria-hidden="true" />}
-        <span>{open ? 'Close' : 'Enquire'}</span>
+        <Sparkles size={17} aria-hidden="true" />
+        <span>Enquire</span>
       </button>
 
+      {open && <div className="bp-enquire-backdrop" onClick={close} aria-hidden="true" />}
       {open && (
         <div
           id="bp-enquire-panel"
           ref={panelRef}
           className="bp-enquire-panel"
           role="dialog"
+          aria-modal="true"
           aria-labelledby="bp-enquire-title"
         >
           <div className="bp-enquire-head">
             <div>
-              <h2 id="bp-enquire-title">Start your project now</h2>
+              <h2 id="bp-enquire-title">{CHOICE_TITLES[service] ?? 'Start your project now'}</h2>
               <p>{subhead(service, status)}</p>
             </div>
             <button type="button" onClick={close} aria-label="Close enquiry">
@@ -125,6 +135,6 @@ export default function EnquireWidget() {
 
 function subhead(service, status) {
   if (status === 'sent') return 'One of us will call you personally.'
-  if (service) return 'Two details and we\u2019ll call you back.'
+  if (service) return 'Two details and we\u2019ll call you within one business day.'
   return 'Pick what you need. We\u2019ll reply within one business day.'
 }

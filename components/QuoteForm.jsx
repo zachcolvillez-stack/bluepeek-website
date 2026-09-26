@@ -2,6 +2,8 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, CheckCircle, AlertCircle, Phone } from 'lucide-react'
+import { track, trackFormStart, newLeadId } from '../lib/track'
+import { attributionFields } from '../lib/attribution'
 
 const ENDPOINT = 'https://bumjkwvaeqghjspowkrd.supabase.co/functions/v1/submit-form'
 
@@ -35,6 +37,7 @@ export default function QuoteForm({ compact = false, id = 'quote-form' }) {
     setTouched(true)
     if (!ready) return
     setStatus('sending')
+    const leadId = newLeadId()
     try {
       const res = await fetch(ENDPOINT, {
         method: 'POST',
@@ -48,10 +51,13 @@ export default function QuoteForm({ compact = false, id = 'quote-form' }) {
             trade: form.trade || 'Not specified',
             existingSite: form.site || 'Not specified',
             source: typeof window !== 'undefined' ? window.location.pathname : '/',
+            ...attributionFields(),
+            lead_id: leadId,
           },
         }),
       })
       setStatus(res.ok ? 'sent' : 'error')
+      if (res.ok) track('generate_lead', { form_variant: 'quote', enquiry: 'Free quote', lead_id: leadId })
     } catch { setStatus('error') }
   }
 
@@ -61,7 +67,7 @@ export default function QuoteForm({ compact = false, id = 'quote-form' }) {
         <CheckCircle size={40} className="mx-auto mb-4" style={{ color: 'var(--lapiz)' }} />
         <h3 className="text-2xl mb-3">You’re in, {form.name.split(' ')[0]}.</h3>
         <p className="text-base leading-relaxed" style={{ color: 'var(--text)' }}>
-          One of us — Jac or Zach — will call you on <strong style={{ color: 'var(--ink)' }}>{form.phone}</strong> within
+          One of us, Jac or Zach, will call you on <strong style={{ color: 'var(--ink)' }}>{form.phone}</strong> within
           one business day. No hard sell, just a straight conversation about what your business needs.
         </p>
       </div>
@@ -76,10 +82,10 @@ export default function QuoteForm({ compact = false, id = 'quote-form' }) {
   })
 
   return (
-    <form onSubmit={submit} id={id} className={`card-light ${compact ? 'p-6' : 'p-7 md:p-8'}`} noValidate>
+    <form onSubmit={submit} onFocus={() => trackFormStart('quote')} id={id} className={`card-light ${compact ? 'p-6' : 'p-7 md:p-8'}`} noValidate>
       <h3 className={`${compact ? 'text-xl' : 'text-2xl'} mb-1.5`}>Get a free quote</h3>
       <p className="text-sm mb-6" style={{ color: 'var(--text)' }}>
-        Takes 20 seconds. We’ll call you back — no obligation.
+        Takes 20 seconds. We’ll call you back, no obligation.
       </p>
 
       <div className="space-y-3.5">

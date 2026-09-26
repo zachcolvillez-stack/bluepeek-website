@@ -5,9 +5,10 @@ import { ArrowRight, Check, ChevronRight, ExternalLink } from 'lucide-react'
 import SiteHeader from './SiteHeader'
 import SiteFooter from './SiteFooter'
 import EnquireWidget from '../EnquireWidget'
+import CaseStudyResults from './CaseStudyResults'
 
 /* Case study page template - light premium, factual (no invented metrics). */
-export default function CaseStudyTemplate({ breadcrumb = [], study, content, related = [] }) {
+export default function CaseStudyTemplate({ breadcrumb = [], study, content, related = [], services = [] }) {
   return (
     <>
       <SiteHeader />
@@ -30,9 +31,8 @@ export default function CaseStudyTemplate({ breadcrumb = [], study, content, rel
 
         {/* Header */}
         <section className="relative max-w-4xl mx-auto px-6 pb-10">
-          <span className="eyebrow">Case Study · {study.industry}</span>
-          <h1 className="text-3xl md:text-5xl font-bold tracking-tight mt-5 mb-4" style={{ color: 'var(--ink)' }}>{study.title}</h1>
-          <p className="text-base md:text-lg" style={{ color: 'var(--text)' }}>{study.location}</p>
+          <h1 className="text-3xl md:text-5xl font-bold tracking-tight mb-4" style={{ color: 'var(--ink)' }}>{study.title}</h1>
+          <p className="text-base md:text-lg" style={{ color: 'var(--text)' }}>Case study · {study.industry} · {study.location}</p>
         </section>
 
         {/* Live screenshot */}
@@ -83,6 +83,15 @@ export default function CaseStudyTemplate({ breadcrumb = [], study, content, rel
               ))}
             </ul>
           </section>
+          <CaseStudyResults results={study.results} />
+          {services.length > 0 && (
+            <section>
+              <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4" style={{ color: 'var(--ink)' }}>Services used</h2>
+              <ul className="bp-mp-cards">
+                {services.map(sv => <li key={sv.href}><Link href={sv.href}><strong>{sv.label}</strong>{sv.blurb && <span>{sv.blurb}</span>}</Link></li>)}
+              </ul>
+            </section>
+          )}
         </div>
 
         {/* Related */}

@@ -1,7 +1,9 @@
 'use client'
 import { useRef, useState, useEffect } from 'react'
 import { ArrowRight, Check } from 'lucide-react'
-import { CHOICES, OTHER_CHOICE, ENQUIRE_ENDPOINT } from '../lib/enquire'
+import { CHOICES, ENQUIRE_ENDPOINT } from '../lib/enquire'
+import { track, trackFormStart, newLeadId } from '../lib/track'
+import { attributionFields } from '../lib/attribution'
 
 /**
  * The whole enquiry in two steps: click the job, then leave a number.
@@ -48,6 +50,7 @@ export default function EnquireFlow({ variant = 'panel', service, onService, onS
     setStatus('sending')
     const controller = new AbortController()
     const timeout = setTimeout(() => controller.abort(), 15000)
+    const leadId = newLeadId()
     try {
       const response = await fetch(ENQUIRE_ENDPOINT, {
         method: 'POST',
@@ -65,12 +68,15 @@ export default function EnquireFlow({ variant = 'panel', service, onService, onS
             // Field order is preserved in the notification email, so the audit
             // findings sit after the contact details and before the honeypot.
             ...(context?.fields ?? {}),
+            ...attributionFields(),
+            lead_id: leadId,
             _hp: hp.current,
           },
         }),
       })
       if (!response.ok) throw new Error('Enquiry submission failed')
       setStatus('sent')
+      track('generate_lead', { form_variant: variant, enquiry: service, lead_id: leadId })
     } catch {
       setStatus('error')
     } finally {
@@ -82,7 +88,7 @@ export default function EnquireFlow({ variant = 'panel', service, onService, onS
     return (
       <div className={`bp-enq bp-enq-${variant} bp-enq-done`} ref={doneRef} tabIndex={-1} role="status">
         <span className="bp-enq-tick" aria-hidden="true"><Check size={22} /></span>
-        <h3>Thanks — we’ve got it.</h3>
+        <h3>Thanks, we’ve got it.</h3>
         <p>We’ll call you about <strong>{service}</strong> within one business day.</p>
         <button type="button" className="bp-enq-again" onClick={restart}>
           Send another enquiry <ArrowRight size={15} aria-hidden="true" />
@@ -102,17 +108,13 @@ export default function EnquireFlow({ variant = 'panel', service, onService, onS
             </button>
           ))}
         </div>
-        <button type="button" className="bp-enq-choice bp-enq-wide" onClick={() => onService(OTHER_CHOICE)}>
-          <span>{OTHER_CHOICE}</span>
-          <ArrowRight size={16} aria-hidden="true" />
-        </button>
         <p className="bp-enq-note">Free quote · No obligation · No lock-in</p>
       </div>
     )
   }
 
   return (
-    <form className={`bp-enq bp-enq-${variant}`} onSubmit={submit} noValidate aria-busy={status === 'sending'}>
+    <form className={`bp-enq bp-enq-${variant}`} onSubmit={submit} onFocus={() => trackFormStart(`enquire-${variant}`)} noValidate aria-busy={status === 'sending'}>
       <div className="bp-enq-picked">
         <span>{service}</span>
         <button type="button" onClick={() => onService(null)}>Change</button>
