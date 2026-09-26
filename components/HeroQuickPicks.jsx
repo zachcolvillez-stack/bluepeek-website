@@ -1,6 +1,6 @@
 'use client'
 import { ArrowRight } from 'lucide-react'
-import { CHOICES, OTHER_CHOICE, openEnquire } from '../lib/enquire'
+import { CHOICES, openEnquire } from '../lib/enquire'
 
 /**
  * The same tiles the contact section uses, in glass over the hero photo.
@@ -19,10 +19,6 @@ export default function HeroQuickPicks() {
             </button>
           ))}
         </div>
-        <button type="button" className="bp-enq-choice bp-enq-wide" onClick={() => openEnquire(OTHER_CHOICE)}>
-          <span>{OTHER_CHOICE}</span>
-          <ArrowRight size={16} aria-hidden="true" />
-        </button>
       </div>
     </div>
   )

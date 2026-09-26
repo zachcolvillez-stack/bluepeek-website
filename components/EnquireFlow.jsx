@@ -1,7 +1,7 @@
 'use client'
 import { useRef, useState, useEffect } from 'react'
 import { ArrowRight, Check } from 'lucide-react'
-import { CHOICES, OTHER_CHOICE, ENQUIRE_ENDPOINT } from '../lib/enquire'
+import { CHOICES, ENQUIRE_ENDPOINT } from '../lib/enquire'
 import { track, trackFormStart, newLeadId } from '../lib/track'
 import { attributionFields } from '../lib/attribution'
 
@@ -108,10 +108,6 @@ export default function EnquireFlow({ variant = 'panel', service, onService, onS
             </button>
           ))}
         </div>
-        <button type="button" className="bp-enq-choice bp-enq-wide" onClick={() => onService(OTHER_CHOICE)}>
-          <span>{OTHER_CHOICE}</span>
-          <ArrowRight size={16} aria-hidden="true" />
-        </button>
         <p className="bp-enq-note">Free quote · No obligation · No lock-in</p>
       </div>
     )

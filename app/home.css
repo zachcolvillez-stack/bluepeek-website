@@ -280,7 +280,6 @@
 .bp-enq-choice:hover{background:var(--bg);border-color:var(--lapiz);transform:translateY(-1px)}
 .bp-enq-choice:hover svg{color:var(--lapiz);transform:translateX(3px)}
 .bp-enq-choice:focus-visible{outline:2px solid var(--lapiz);outline-offset:2px}
-.bp-enq-wide{margin-top:10px;background:var(--lapiz-tint);border-color:var(--lapiz-tint2)}
 .bp-enq-note{margin:16px 0 0;font-size:11.5px;line-height:1.6;color:var(--muted);text-align:center}
 .bp-enq-note a{color:var(--muted);text-decoration:underline;text-underline-offset:3px}
 .bp-enq-picked{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px;padding:12px 14px;background:var(--lapiz-tint);border-radius:8px;font-size:13.5px;font-weight:600;letter-spacing:-.02em;color:var(--ink)}
@@ -307,12 +306,10 @@
 
 /* Inline: the contact section has room for wider tiles and paired fields */
 .bp-enq-inline .bp-enq-choice{min-height:74px;font-size:15px}
-.bp-enq-inline .bp-enq-wide{min-height:62px}
 .bp-enq-inline .bp-enq-fields{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
 .bp-enq-inline .bp-enq-field input{background:var(--surface)}
 .bp-enq-inline .bp-enq-note{text-align:left}
 .bp-enq-panel .bp-enq-choice{min-height:82px}
-.bp-enq-panel .bp-enq-wide{min-height:60px}
 
 /* Contact section card */
 .bp-enq-card{padding:30px 32px 32px;background:var(--surface);border:1px solid var(--hairline);border-radius:12px;box-shadow:0 10px 30px #383c3010}
@@ -324,22 +321,22 @@
 .bp-hero-copy .bp-actions{margin-top:22px}
 .bp-hero-picks>p{margin:0 0 13px;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
 .bp-enq-hero .bp-enq-choice{min-height:74px;font-size:15px}
-.bp-enq-hero .bp-enq-wide{min-height:62px}
-
 /* Floating shell */
 .bp-enquire-launcher{position:fixed;z-index:60;right:20px;bottom:20px;display:inline-flex;align-items:center;gap:10px;padding:14px 22px;min-height:52px;border:0;border-radius:100px;background:var(--lapiz);color:#fff;font-family:var(--font-body),Arial,sans-serif;font-size:14px;font-weight:600;letter-spacing:-.01em;box-shadow:0 6px 20px #0b3ed936;cursor:pointer;transition:background .2s,transform .2s,box-shadow .2s}
 .bp-enquire-launcher:hover{background:var(--lapiz-deep);transform:translateY(-1px);box-shadow:0 8px 24px #0b3ed942}
 .bp-enquire-launcher:active{transform:translateY(1px)}
 .bp-enquire-launcher:focus-visible{outline:2px solid var(--lapiz);outline-offset:4px}
-.bp-enquire-panel{position:fixed;z-index:60;right:20px;bottom:86px;width:min(380px,calc(100vw - 40px));max-height:calc(100vh - 120px);overflow-y:auto;background:var(--surface);color:var(--text);font-family:var(--font-body),Arial,sans-serif;border:1px solid var(--hairline);border-radius:12px;box-shadow:0 20px 45px #383c3026;animation:bp-enquire-in .22s ease-out}
-@keyframes bp-enquire-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-@media(prefers-reduced-motion:reduce){.bp-enquire-panel{animation:none}}
-.bp-enquire-head{display:flex;align-items:flex-start;gap:14px;padding:22px 22px 16px;border-bottom:1px solid var(--hairline)}
-.bp-enquire-head h2{margin:0 0 6px;font-family:var(--font-body),Arial,sans-serif;font-size:21px;font-weight:600;letter-spacing:-.045em;line-height:1.15;color:var(--ink)}
+.bp-enquire-backdrop{position:fixed;z-index:59;inset:0;background:#15171599;animation:bp-enquire-fade .22s ease-out}
+.bp-enquire-panel{position:fixed;z-index:60;top:0;right:0;bottom:0;width:min(420px,100vw);overflow-y:auto;background:var(--surface);color:var(--text);font-family:var(--font-body),Arial,sans-serif;border-left:1px solid var(--hairline);box-shadow:-20px 0 45px #383c3026;animation:bp-enquire-in .26s ease-out}
+@keyframes bp-enquire-in{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
+@keyframes bp-enquire-fade{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.bp-enquire-panel,.bp-enquire-backdrop{animation:none}}
+.bp-enquire-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;padding:28px 26px 18px;border-bottom:1px solid var(--hairline)}
+.bp-enquire-head h2{margin:0 0 6px;font-family:var(--font-body),Arial,sans-serif;font-size:23px;font-weight:600;letter-spacing:-.045em;line-height:1.15;color:var(--ink)}
 .bp-enquire-head p{margin:0;font-size:13px;line-height:1.5;color:var(--muted)}
-.bp-enquire-head>button{flex-shrink:0;display:grid;place-items:center;width:32px;height:32px;margin:-4px -6px 0 0;border:0;border-radius:50%;background:transparent;color:var(--muted);cursor:pointer}
+.bp-enquire-head>button{flex-shrink:0;display:grid;place-items:center;width:36px;height:36px;margin:-5px -9px 0 0;border:0;border-radius:50%;background:transparent;color:var(--muted);cursor:pointer}
 .bp-enquire-head>button:hover{background:var(--bg-2);color:var(--ink)}
-.bp-enquire-body{padding:20px 22px 22px}
+.bp-enquire-body{padding:22px 26px 28px}
 
 @media(min-width:761px) and (max-width:1150px){
   /* The laptop photo reaches into the copy column at these widths, so the
@@ -349,12 +346,13 @@
   .bp-enq-hero .bp-enq-grid{grid-template-columns:1fr;gap:7px}
   .bp-enq-hero .bp-enq-choice{min-height:44px;font-size:11.5px;padding:10px 12px;gap:8px}
   .bp-enq-hero .bp-enq-choice svg{width:13px;height:13px}
-  .bp-enq-hero .bp-enq-wide{margin-top:7px;min-height:44px}
 }
 @media(max-width:900px){.bp-enq-card{padding:26px 22px 28px}.bp-enq-inline .bp-enq-choice{min-height:68px;font-size:14px}}
 @media(max-width:760px){
   .bp-enquire-launcher{right:16px;bottom:16px;padding:13px 20px}
-  .bp-enquire-panel{right:12px;left:12px;bottom:80px;width:auto;max-height:calc(100dvh - 110px)}
+  .bp-enquire-panel{width:100vw;border-left:0}
+  .bp-enquire-head{padding:22px 20px 16px}
+  .bp-enquire-body{padding:20px 20px 24px}
   .bp-enq-panel .bp-enq-choice{min-height:76px;font-size:13.5px}
   .bp-enq-inline .bp-enq-fields{grid-template-columns:1fr;gap:0}
   .bp-hero-picks{margin-top:24px}
