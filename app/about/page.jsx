@@ -8,12 +8,12 @@ import EnquireWidget from '../../components/EnquireWidget'
 import JsonLd from '../../components/seo/JsonLd'
 
 export const metadata = {
-  title: 'About Bluepeek - Perth Web Design & AI Automation Studio',
+  title: 'About Bluepeek - Gold Coast Web Design & AI Studio',
   description: 'Bluepeek is a Gold Coast web design and AI automation studio serving businesses across Australia. Custom websites, 24/7 AI chatbots, lead capture and local SEO.',
   alternates: { canonical: '/about' },
   openGraph: {
-    title: 'About Bluepeek - Perth Web Design & AI Automation Studio',
-    description: 'Bluepeek is a Perth WA web design and AI automation studio serving businesses across Australia.',
+    title: 'About Bluepeek - Gold Coast Web Design & AI Studio',
+    description: 'Bluepeek is a Gold Coast web design and AI automation studio serving businesses across Australia.',
     url: `${SITE.url}/about`,
     type: 'website',
   },

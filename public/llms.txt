@@ -26,6 +26,15 @@ Every package is custom-quoted. No lock-in, no hidden fees.
 
 ## Key pages
 - Home: https://www.bluepeek.com.au
+- Website Design: https://www.bluepeek.com.au/website-design
+- Local SEO: https://www.bluepeek.com.au/local-seo
+- GEO Optimisation: https://www.bluepeek.com.au/geo-optimisation
+- Google Ads Management: https://www.bluepeek.com.au/google-ads-management
+- Customer Review Systems: https://www.bluepeek.com.au/review-systems
+- Missed Call Recovery: https://www.bluepeek.com.au/missed-call-recovery
+- AI Phone Agents: https://www.bluepeek.com.au/ai-phone-agents
+- AI Chatbots: https://www.bluepeek.com.au/ai-chatbots
+- Lead Follow-up Automation: https://www.bluepeek.com.au/lead-follow-up-automation
 - Website Design (Perth): https://www.bluepeek.com.au/website-design-perth
 - AI Automation (Perth): https://www.bluepeek.com.au/ai-automation-perth
 - Small Business Websites: https://www.bluepeek.com.au/small-business-websites-perth
