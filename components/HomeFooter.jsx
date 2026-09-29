@@ -6,7 +6,7 @@ const inStages = new Set(STAGES.flatMap(s => s.pages))
 
 export default function HomeFooter() {
   return (<footer className="bp-footer"><div className="bp-wrap">
-    <div className="bp-footer-top"><a href="/" aria-label="Bluepeek home" className="bp-logo"><Logo size={34} /></a><p>Built on the Gold Coast.<br />Working Australia-wide.</p><nav aria-label="Footer navigation">{[['Services', '/services'], ['Industries', '/industries'], ['Work', '/work'], ['About', '/about'], ['Blog', '/blog'], ['FAQ', '/faq']].map(([label, href]) => <a href={href} key={href}>{label}</a>)}</nav></div>
+    <div className="bp-footer-top"><a href="/" aria-label="Bluepeek home" className="bp-logo"><Logo size={34} /></a><p>A <a href="/marketing-agency-gold-coast">Gold Coast marketing agency</a>.<br />Working Australia-wide.</p><nav aria-label="Footer navigation">{[['Services', '/services'], ['Industries', '/industries'], ['Work', '/work'], ['About', '/about'], ['Blog', '/blog'], ['FAQ', '/faq']].map(([label, href]) => <a href={href} key={href}>{label}</a>)}</nav></div>
     <nav className="bp-footer-stages" aria-label="Services by stage">
       {STAGES.map(s => (
         <div key={s.id}><p>{s.name}</p>{s.pages.map(slug => <a key={slug} href={PAGES[slug].path}>{PAGES[slug].label}</a>)}</div>
