@@ -17,6 +17,7 @@ const VARIANTS = {
   website: { enquiry: 'Free website audit',        fields: ['name', 'business', 'website', 'phone', 'email'] },
   social:  { enquiry: 'Social media enquiry',      fields: ['name', 'business', 'website', 'phone', 'email'] },
   ai:      { enquiry: 'AI automation enquiry',     fields: ['name', 'business', 'website', 'phone', 'email'] },
+  seo: { enquiry: 'Free SEO audit', fields: ['name', 'business', 'website', 'phone', 'email'] },
   general: { enquiry: 'Free growth audit',         fields: ['name', 'business', 'website', 'industry', 'phone', 'email'] },
 }
 
