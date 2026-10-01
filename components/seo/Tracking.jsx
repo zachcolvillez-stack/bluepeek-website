@@ -1,6 +1,7 @@
 'use client'
 import { useEffect } from 'react'
 import Script from 'next/script'
+import { usePathname } from 'next/navigation'
 import { track } from '../../lib/track'
 import { captureAttribution } from '../../lib/attribution'
 
@@ -19,8 +20,9 @@ function MetaPixel() {
 }
 
 export default function Tracking() {
+  const pathname = usePathname()
+  useEffect(() => { captureAttribution() }, [pathname])
   useEffect(() => {
-    captureAttribution()
     function onClick(event) {
       const el = event.target.closest?.('a, button')
       if (!el) return

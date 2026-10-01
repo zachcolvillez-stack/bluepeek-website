@@ -481,3 +481,9 @@
   .bp-audit-actions{gap:16px}
   .bp-home .bp-audit-pitch .bp-button{width:100%}
 }
+
+/* Keep the three core services directly reachable at desktop and mobile sizes. */
+@media(min-width:1024px){.bp-header-row{grid-template-columns:auto 1fr;gap:32px}.bp-desktop-nav{justify-content:flex-end;gap:24px;white-space:nowrap}}
+.bp-proof-cards .bp-proof-image{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;object-position:top;border-radius:6px;margin-bottom:8px}
+.bp-proof-cards .bp-proof-link{color:var(--lapiz);font-weight:600;margin-top:8px}
+.bp-mobile-nav:not([hidden]){max-height:calc(100dvh - 76px);overflow-y:auto}

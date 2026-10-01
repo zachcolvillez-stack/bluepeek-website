@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import Image from 'next/image'
+import { CASE_CONTENT } from '../../lib/content'
 import { ArrowRight, ChevronRight, Phone } from 'lucide-react'
 import SiteHeader from './SiteHeader'
 import SiteFooter from './SiteFooter'
@@ -77,10 +79,16 @@ export default function MoneyPageTemplate({ page, breadcrumb }) {
           <div className="bp-mp-wrap">
             <section className="bp-mp-section">
               <h2>{page.caseStudiesTitle || 'Related client work'}</h2>
-              <ul className="bp-mp-cards">
+              {page.proofIntro && <p>{page.proofIntro}</p>}
+              <ul className="bp-mp-cards bp-proof-cards">
                 {studies.map(c => (
                   <li key={c.slug}>
-                    <Link href={u.work(c.slug)}><strong>{c.title}</strong><span>{c.industry} · {c.location}</span></Link>
+                    <Link href={u.work(c.slug)}>
+                      <Image src={c.image} alt={`${c.title} website by Bluepeek`} width={640} height={360} sizes="(max-width: 700px) 100vw, 300px" className="bp-proof-image" />
+                      <strong>{c.title}</strong><span>{c.industry} · {c.location}</span>
+                      {CASE_CONTENT[c.slug]?.features?.slice(0, 2).map(feature => <span key={feature}>{feature}</span>)}
+                      <span className="bp-proof-link">Read the case study →</span>
+                    </Link>
                   </li>
                 ))}
               </ul>
