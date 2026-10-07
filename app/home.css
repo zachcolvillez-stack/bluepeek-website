@@ -334,7 +334,7 @@
 .bp-qual-opt:hover svg{color:var(--lapiz)}
 .bp-qual-goals .bp-qual-opt:not(.bp-qual-help){flex-direction:column;align-items:flex-start;min-height:88px}
 .bp-qual-icon{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:var(--lapiz-tint)}
-.bp-home .bp-qual-icon svg{color:var(--lapiz)}
+.bp-qual-icon img{display:block;width:16px;height:16px}
 .bp-qual-help{grid-column:1/-1;background:transparent;border-style:dashed}
 .bp-qual-help:hover svg{transform:translateX(3px)}
 .bp-qual-rec{padding:16px;border-radius:11px;background:var(--lapiz-tint)}

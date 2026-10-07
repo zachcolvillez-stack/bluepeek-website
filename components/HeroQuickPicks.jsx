@@ -1,9 +1,10 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
-import { ArrowRight, MapPin, Megaphone, Phone, Star } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { QUALIFY_GOALS, QUALIFY_HELP, QUALIFY_SITES, openEnquire, qualify } from '../lib/enquire'
 
-const GOAL_ICONS = { calls: Phone, maps: MapPin, reviews: Star, social: Megaphone }
+// Real platform marks from /brand/platforms, never stand-in icons.
+const GOAL_LOGOS = { calls: 'googleads', maps: 'google', reviews: 'google', social: 'instagram' }
 const goalLabel = id => QUALIFY_GOALS.find(goal => goal.id === id)?.label ?? 'Not sure yet'
 const siteLabel = id => QUALIFY_SITES.find(site => site.id === id)?.label
 
@@ -43,10 +44,9 @@ export default function HeroQuickPicks() {
         <p id="bp-qual-q" ref={question} tabIndex={-1} className="bp-qual-q">What do you want more of?</p>
         <div className="bp-qual-goals" role="group" aria-labelledby="bp-qual-q">
           {QUALIFY_GOALS.map(({ id, label }) => {
-            const Icon = GOAL_ICONS[id]
             return (
               <button key={id} type="button" className="bp-qual-opt" onClick={() => setGoal(id)}>
-                <span className="bp-qual-icon"><Icon size={16} aria-hidden="true" /></span>
+                <span className="bp-qual-icon"><img src={`/brand/platforms/${GOAL_LOGOS[id]}.svg`} alt="" width={16} height={16} /></span>
                 <span>{label}</span>
               </button>
             )
