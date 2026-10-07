@@ -15,37 +15,32 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, .font-display, .font-heading {
-  font-family: var(--font-display), var(--font-body), -apple-system, sans-serif;
+  font-family: var(--font-body), -apple-system, sans-serif;
   color: var(--ink);
   letter-spacing: -0.035em;
-  font-weight: 700;
+  font-weight: 600;
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   BLUEPEEK — Royal Lapiz blue on white
-   Lapiz (var(--lapiz), the Golf R blue) is the brand. Light canvas,
-   deep ink type, and the blue used with intent — not everywhere.
-   ═══════════════════════════════════════════════════════════════ */
+/* Shared site palette: warm paper, charcoal and small Bluepeek blue accents. */
 :root {
-  /* Sampled from the brand logo tile — vivid royal lapiz, not navy. */
-  --lapiz:       #0B3ED9;   /* the brand blue */
-  --lapiz-deep:  #01197A;   /* pressed / deep accents */
-  --lapiz-light: #1667FC;   /* highlight, hovers */
-  --lapiz-tint:  #e9eeff;   /* faint wash panels */
-  --lapiz-tint2: #d3ddfd;   /* stronger wash */
-
-  --bg:        #ffffff;
-  --bg-2:      #f4f7ff;
-  --ink:       #06143f;     /* headings — blue-black, not grey-navy */
-  --text:      #46557d;     /* body */
-  --muted:     #7c89a8;     /* labels */
-  --hairline:  rgba(11,62,217,0.14);
-  --hairline-2: rgba(11,62,217,0.26);
-
-  --shadow-sm: 0 1px 2px rgba(6,20,63,0.05), 0 2px 10px rgba(6,20,63,0.05);
-  --shadow-md: 0 6px 16px rgba(6,20,63,0.07), 0 14px 36px rgba(6,20,63,0.08);
-  --shadow-lg: 0 12px 28px rgba(6,20,63,0.10), 0 28px 64px rgba(6,20,63,0.12);
-  --shadow-lapiz: 0 18px 44px rgba(11,62,217,0.30);
+  --lapiz: #0B3ED9;
+  --lapiz-deep: #0732b5;
+  --lapiz-light: #3056ba;
+  --lapiz-tint: #edf0f6;
+  --lapiz-tint2: #dce2ec;
+  --bg: #f8f7f4;
+  --bg-2: #efeee8;
+  --surface: #fffefa;
+  --ink: #292c29;
+  --text: #5c6059;
+  --muted: #6c7067;
+  --accent-muted: #67755c;
+  --hairline: #dbddd3;
+  --hairline-2: #c6cbbd;
+  --shadow-sm: 0 2px 12px #383c3010;
+  --shadow-md: 0 8px 24px #383c3012;
+  --shadow-lg: 0 16px 35px #383c3018;
+  --shadow-lapiz: 0 3px 12px #293e7018;
 }
 
 /* Emphasis text — lapiz, solid. No gradient fade (house style). */
@@ -60,22 +55,22 @@ h1, h2, h3, h4, h5, h6, .font-display, .font-heading {
 
 /* ── Cards ──────────────────────────────────────────────────── */
 .card {
-  background: #ffffff;
+  background: var(--surface);
   border: 1px solid var(--hairline);
-  border-radius: 20px;
+  border-radius: 8px;
   box-shadow: var(--shadow-sm);
   transition: transform 300ms cubic-bezier(0.22,1,0.36,1), box-shadow 300ms, border-color 300ms;
 }
 .card:hover {
   transform: translateY(-4px);
-  border-color: rgba(11,62,217,0.30);
+  border-color: var(--hairline-2);
   box-shadow: var(--shadow-lg);
 }
 
 .card-light {
-  background: #ffffff;
+  background: var(--surface);
   border: 1px solid var(--hairline);
-  border-radius: 20px;
+  border-radius: 8px;
   box-shadow: var(--shadow-lg);
 }
 
@@ -99,11 +94,11 @@ h1, h2, h3, h4, h5, h6, .font-display, .font-heading {
 .btn-primary:hover {
   transform: translateY(-2px);
   background: var(--lapiz-deep);
-  box-shadow: 0 22px 52px rgba(11,62,217,0.36);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-secondary {
-  background: #ffffff;
+  background: var(--surface);
   color: var(--ink);
   border: 1px solid var(--hairline-2);
   font-weight: 600;
@@ -119,7 +114,7 @@ h1, h2, h3, h4, h5, h6, .font-display, .font-heading {
 
 /* White button — for use on lapiz panels */
 .btn-white {
-  background: #ffffff;
+  background: var(--surface);
   color: var(--lapiz);
   font-weight: 700;
   box-shadow: var(--shadow-md);
@@ -140,8 +135,8 @@ h1, h2, h3, h4, h5, h6, .font-display, .font-heading {
 
 /* ── Scrollbar ──────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 9px; }
-::-webkit-scrollbar-track { background: #eef2fb; }
-::-webkit-scrollbar-thumb { background: #b9c6e4; border-radius: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-2); }
+::-webkit-scrollbar-thumb { background: var(--hairline-2); border-radius: 5px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--lapiz-light); }
 
 ::selection { background: var(--lapiz); color: #ffffff; }
@@ -161,3 +156,14 @@ h1, h2, h3, h4, h5, h6, .font-display, .font-heading {
   .float-soft, .float-soft-delay, .pulse-dot { animation: none !important; }
   html { scroll-behavior: auto; }
 }
+
+/* Shared chrome and quiet callouts across the supporting pages. */
+.bp-site-header{overflow:visible!important;background:var(--bg)!important;z-index:20}
+.bp-site-header .bp-header{background:var(--bg);border-bottom:1px solid var(--hairline)}
+.bp-site-header + main,.bp-site-header + .pt-24{padding-top:140px}
+.site-callout{background:var(--bg-2);border:1px solid var(--hairline);border-radius:8px;box-shadow:none}
+.site-callout h2{color:var(--ink)}
+.site-callout p{color:var(--text)}
+.site-callout .btn-white{background:var(--lapiz);color:white;font-weight:600;box-shadow:none}
+.hero-glow{display:none}
+@media(max-width:1023px){.bp-site-header + main,.bp-site-header + .pt-24{padding-top:110px}}

@@ -52,41 +52,41 @@ export default async function BlogArticlePage({ params }) {
         <div className="hero-glow" style={{ top: '-6%', right: '-4%', width: '480px', height: '480px', background: 'radial-gradient(circle, rgba(47,95,208,0.10) 0%, transparent 70%)' }} />
 
         <div className="relative max-w-3xl mx-auto">
-          <nav aria-label="Breadcrumb" className="flex items-center flex-wrap gap-1.5 text-xs mb-6" style={{ color: '#7e8aa0' }}>
+          <nav aria-label="Breadcrumb" className="flex items-center flex-wrap gap-1.5 text-xs mb-6" style={{ color: 'var(--muted)' }}>
             {breadcrumb.map((b, i) => (
               <span key={b.path} className="flex items-center gap-1.5">
-                {i > 0 && <ChevronRight size={12} style={{ color: '#7e8aa0' }} />}
+                {i > 0 && <ChevronRight size={12} style={{ color: 'var(--muted)' }} />}
                 {i < breadcrumb.length - 1
-                  ? <Link href={b.path} className="transition-colors" style={{ color: '#7e8aa0' }}>{b.name}</Link>
-                  : <span style={{ color: '#475569' }}>{b.name}</span>}
+                  ? <Link href={b.path} className="transition-colors" style={{ color: 'var(--muted)' }}>{b.name}</Link>
+                  : <span style={{ color: 'var(--text)' }}>{b.name}</span>}
               </span>
             ))}
           </nav>
 
-          <p className="text-xs font-semibold uppercase tracking-wider mb-4" style={{ color: '#7e8aa0' }}>
+          <p className="text-xs font-semibold uppercase tracking-wider mb-4" style={{ color: 'var(--muted)' }}>
             {new Date(post.date).toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })} · {post.readTime}
           </p>
 
-          <h1 className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.1] mb-6" style={{ color: '#0c1c34' }}>
+          <h1 className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.1] mb-6" style={{ color: 'var(--ink)' }}>
             {post.title}
           </h1>
 
-          <p className="text-base md:text-lg leading-relaxed mb-10" style={{ color: '#475569' }}>
+          <p className="text-base md:text-lg leading-relaxed mb-10" style={{ color: 'var(--text)' }}>
             {post.intro}
           </p>
 
           <div className="space-y-10">
             {post.sections.map((s, i) => (
               <section key={i}>
-                <h2 className="text-xl md:text-2xl font-bold tracking-tight mb-4" style={{ color: '#0c1c34' }}>{s.h2}</h2>
+                <h2 className="text-xl md:text-2xl font-bold tracking-tight mb-4" style={{ color: 'var(--ink)' }}>{s.h2}</h2>
 
                 {s.table && (
-                  <div className="overflow-x-auto mb-5 card p-0" style={{ borderRadius: '16px' }}>
+                  <div className="overflow-x-auto mb-5 card p-0" style={{ borderRadius: '8px' }}>
                     <table className="w-full text-sm" style={{ borderCollapse: 'collapse' }}>
                       <thead>
-                        <tr style={{ background: '#f7f9fc' }}>
+                        <tr style={{ background: 'var(--bg-2)' }}>
                           {s.table.headers.map((h) => (
-                            <th key={h} className="text-left font-semibold px-4 py-3" style={{ color: '#0c1c34', borderBottom: '1px solid rgba(12,28,52,0.10)' }}>{h}</th>
+                            <th key={h} className="text-left font-semibold px-4 py-3" style={{ color: 'var(--ink)', borderBottom: '1px solid var(--hairline)' }}>{h}</th>
                           ))}
                         </tr>
                       </thead>
@@ -94,7 +94,7 @@ export default async function BlogArticlePage({ params }) {
                         {s.table.rows.map((row, ri) => (
                           <tr key={ri} style={{ borderTop: ri > 0 ? '1px solid rgba(12,28,52,0.08)' : undefined }}>
                             {row.map((cell, ci) => (
-                              <td key={ci} className="px-4 py-3" style={{ color: '#475569' }}>{cell}</td>
+                              <td key={ci} className="px-4 py-3" style={{ color: 'var(--text)' }}>{cell}</td>
                             ))}
                           </tr>
                         ))}
@@ -104,13 +104,13 @@ export default async function BlogArticlePage({ params }) {
                 )}
 
                 {s.paragraphs?.map((p, j) => (
-                  <p key={j} className="text-base leading-relaxed mb-4" style={{ color: '#475569' }}>{p}</p>
+                  <p key={j} className="text-base leading-relaxed mb-4" style={{ color: 'var(--text)' }}>{p}</p>
                 ))}
 
                 {s.bullets?.length > 0 && (
                   <ul className="space-y-2.5 mt-2">
                     {s.bullets.map((b, k) => (
-                      <li key={k} className="flex items-start gap-3 text-base" style={{ color: '#475569' }}>
+                      <li key={k} className="flex items-start gap-3 text-base" style={{ color: 'var(--text)' }}>
                         <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-2.5" style={{ background: '#16335c' }} />
                         {b}
                       </li>
@@ -123,26 +123,24 @@ export default async function BlogArticlePage({ params }) {
 
           {post.faqs?.length > 0 && (
             <section className="mt-14">
-              <h2 className="text-xl md:text-2xl font-bold tracking-tight mb-6" style={{ color: '#0c1c34' }}>Frequently asked questions</h2>
+              <h2 className="text-xl md:text-2xl font-bold tracking-tight mb-6" style={{ color: 'var(--ink)' }}>Frequently asked questions</h2>
               <div className="space-y-3">
                 {post.faqs.map((f, i) => (
-                  <details key={i} className="card p-5 group" style={{ borderRadius: '16px' }}>
-                    <summary className="flex items-center justify-between cursor-pointer list-none font-semibold" style={{ color: '#0c1c34' }}>
+                  <details key={i} className="card p-5 group" style={{ borderRadius: '8px' }}>
+                    <summary className="flex items-center justify-between cursor-pointer list-none font-semibold" style={{ color: 'var(--ink)' }}>
                       {f.q}
-                      <ChevronRight size={18} className="transition-transform group-open:rotate-90 flex-shrink-0 ml-3" style={{ color: '#7e8aa0' }} />
+                      <ChevronRight size={18} className="transition-transform group-open:rotate-90 flex-shrink-0 ml-3" style={{ color: 'var(--muted)' }} />
                     </summary>
-                    <p className="text-sm leading-relaxed mt-3" style={{ color: '#475569' }}>{f.a}</p>
+                    <p className="text-sm leading-relaxed mt-3" style={{ color: 'var(--text)' }}>{f.a}</p>
                   </details>
                 ))}
               </div>
             </section>
           )}
 
-          <div className="mt-16 rounded-3xl p-10 text-center relative overflow-hidden"
-            style={{ background: 'linear-gradient(140deg, #16335c 0%, #0c1c34 100%)', boxShadow: '0 24px 60px rgba(12,28,52,0.30)' }}>
-            <div className="absolute -right-16 -top-16 w-56 h-56 rounded-full" style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.22) 0%, transparent 70%)' }} />
-            <h2 className="relative text-2xl md:text-3xl font-bold text-white mb-3">Ready to get more leads?</h2>
-            <p className="relative text-base mb-7 max-w-lg mx-auto" style={{ color: 'rgba(255,255,255,0.9)' }}>
+          <div className="mt-16 site-callout p-10 text-center relative overflow-hidden">
+            <h2 className="relative text-2xl md:text-3xl font-bold mb-3">Ready to get more leads?</h2>
+            <p className="relative text-base mb-7 max-w-lg mx-auto" style={{ color: 'var(--text)' }}>
               Tell us about your business and we&apos;ll reply within 24 hours - free quote, no pressure.
             </p>
             <a href="/#contact" className="relative btn-white inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm">

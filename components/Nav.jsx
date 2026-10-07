@@ -1,92 +1,29 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Logo from './Logo'
-
-export default function Nav({ onNavigate, currentScene }) {
-  const [scrolled, setScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
-
+const links = [['Work', '#work'], ['Services', '#services'], ['About', '#our-story']]
+export default function Nav({ home = true }) {
+  const sectionHref = (href) => home ? href : `/${href}`
+  const [open, setOpen] = useState(false)
+  const toggle = useRef(null)
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  const links = [
-    { label: 'Services', id: 'services' },
-    { label: 'Pricing',  id: 'packages' },
-    { label: 'Work',     id: 'work' },
-    { label: 'Gallery',  href: '/gallery' },
-    { label: 'Blog',     href: '/blog' },
-    { label: 'FAQ',      href: '/faq' },
-    { label: 'Process',  id: 'how-it-works' },
-    { label: 'Contact',  id: 'contact' },
-  ]
-
-  const handleClick = (e, id) => {
-    e.preventDefault()
-    onNavigate(id)
-    setMenuOpen(false)
-  }
-
+    function escape(event) {
+      if (event.key === 'Escape' && open) { setOpen(false); toggle.current?.focus() }
+    }
+    document.addEventListener('keydown', escape)
+    return () => document.removeEventListener('keydown', escape)
+  }, [open])
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-      style={scrolled
-        ? { background: 'rgba(255,255,255,0.82)', backdropFilter: 'blur(18px)', WebkitBackdropFilter: 'blur(18px)', borderBottom: '1px solid rgba(6,20,63,0.08)', boxShadow: '0 6px 24px rgba(6,20,63,0.06)' }
-        : { background: 'transparent' }}>
-      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Logo */}
-        <a href="#" onClick={(e) => handleClick(e, 'hero')}>
-          <Logo size={38} />
-        </a>
-
-        {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-1">
-          {links.map(l => (
-            <a key={l.label} href={l.href || `#${l.id}`} onClick={l.href ? undefined : (e) => handleClick(e, l.id)}
-              className="text-sm font-medium transition-all px-4 py-2 rounded-lg"
-              style={currentScene === l.id
-                ? { color: 'var(--ink)', background: 'rgba(6,20,63,0.06)' }
-                : { color: 'var(--text)' }}
-              onMouseEnter={(e) => { if (currentScene !== l.id) e.currentTarget.style.color = 'var(--ink)' }}
-              onMouseLeave={(e) => { if (currentScene !== l.id) e.currentTarget.style.color = 'var(--text)' }}>
-              {l.label}
-            </a>
-          ))}
-        </div>
-
-        {/* CTA */}
-        <a href="#contact" onClick={(e) => handleClick(e, 'contact')}
-          className="hidden md:inline-flex items-center btn-primary px-5 py-2.5 rounded-full text-sm">
-          Get a Free Quote
-        </a>
-
-        {/* Mobile menu button */}
-        <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)} style={{ color: 'var(--ink)' }} aria-label="Menu">
-          <div className="space-y-1.5">
-            <span className={`block w-6 h-0.5 bg-current transition-all ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-            <span className={`block w-6 h-0.5 bg-current transition-all ${menuOpen ? 'opacity-0' : ''}`} />
-            <span className={`block w-6 h-0.5 bg-current transition-all ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
-          </div>
-        </button>
+    <header className="bp-header">
+      <div className="bp-wrap bp-header-row">
+        <a href="/" aria-label="Bluepeek home" className="bp-logo"><Logo size={36} /></a>
+        <nav className="bp-desktop-nav" aria-label="Main navigation">{links.map(([label, href]) => <a key={href} href={sectionHref(href)}>{label}</a>)}</nav>
+        <a className="bp-button bp-header-quote" href={sectionHref('#contact')}>Get a free quote</a>
+        <button ref={toggle} className="bp-menu-toggle" type="button" aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(!open)}>{open ? 'Close' : 'Menu'}<span aria-hidden="true">{open ? '×' : '☰'}</span></button>
       </div>
-
-      {/* Mobile menu */}
-      {menuOpen && (
-        <div className="md:hidden px-6 py-4 space-y-1"
-          style={{ background: 'rgba(255,255,255,0.97)', backdropFilter: 'blur(18px)', borderBottom: '1px solid rgba(6,20,63,0.08)' }}>
-          {links.map(l => (
-            <a key={l.label} href={l.href || `#${l.id}`} onClick={l.href ? () => setMenuOpen(false) : (e) => handleClick(e, l.id)}
-              className="block py-2.5 font-medium transition-colors" style={{ color: 'var(--text)' }}>
-              {l.label}
-            </a>
-          ))}
-          <a href="#contact" onClick={(e) => handleClick(e, 'contact')}
-            className="block w-full text-center btn-primary px-5 py-3 rounded-full text-sm mt-3">
-            Get a Free Quote
-          </a>
-        </div>
-      )}
-    </nav>
+      <nav id="mobile-navigation" className="bp-mobile-nav" aria-label="Mobile navigation" hidden={!open}>
+        {[...links, ['Packages', '#packages'], ['Get a free quote', '#contact']].map(([label, href]) => <a key={href} href={sectionHref(href)} onClick={() => setOpen(false)}>{label}<span aria-hidden="true">↗</span></a>)}
+      </nav>
+    </header>
   )
 }

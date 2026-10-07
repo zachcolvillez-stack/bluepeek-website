@@ -1,4 +1,5 @@
 import './globals.css'
+import './home.css'
 import { Inter, Archivo } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { SITE } from '../lib/site'
