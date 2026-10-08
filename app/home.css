@@ -328,9 +328,9 @@
 .bp-qual-opt:hover{border-color:var(--lapiz);box-shadow:0 0 0 3px var(--lapiz-tint)}
 .bp-qual-opt:hover svg{color:var(--lapiz);transform:translateX(3px)}
 .bp-qual-goals .bp-qual-opt:not(.bp-qual-help){flex-direction:column;align-items:flex-start;justify-content:flex-start;min-height:104px}
-.bp-qual-icon{display:grid;place-items:center;flex-shrink:0;width:32px;height:32px;border-radius:8px;background:#fff;border:1px solid var(--hairline);overflow:hidden}
+.bp-qual-icon{display:grid;place-items:center;flex-shrink:0;width:32px;height:32px;border-radius:8px;background:#fff;border:1px solid var(--hairline);overflow:hidden;font-size:18px;line-height:1}
 .bp-qual-icon img{display:block;width:18px;height:18px;object-fit:contain}
-.bp-qual-icon.bp-qual-fill img{width:100%;height:100%;object-fit:cover;object-position:top}
+
 .bp-qual-help{grid-column:1/-1;background:transparent;border-style:dashed}
 .bp-qual-opt:focus-visible{outline:2px solid var(--lapiz);outline-offset:3px}
 /* Floating shell */
