@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react'
 import { QUALIFY_GOALS, QUALIFY_HELP, QUALIFY_SITES, openEnquire, qualify } from '../lib/enquire'
 
 // Real platform marks from /brand/platforms, never stand-in icons.
-const GOAL_LOGOS = { calls: 'googleads', maps: 'google', reviews: 'google', social: 'instagram' }
+const GOAL_LOGOS = { calls: 'googleads-color', maps: 'google-maps-color', reviews: 'google-color', social: 'instagram-color' }
 const goalLabel = id => QUALIFY_GOALS.find(goal => goal.id === id)?.label ?? 'Not sure yet'
 const siteLabel = id => QUALIFY_SITES.find(site => site.id === id)?.label
 
@@ -46,7 +46,7 @@ export default function HeroQuickPicks() {
           {QUALIFY_GOALS.map(({ id, label }) => {
             return (
               <button key={id} type="button" className="bp-qual-opt" onClick={() => setGoal(id)}>
-                <span className="bp-qual-icon"><img src={`/brand/platforms/${GOAL_LOGOS[id]}.svg`} alt="" width={16} height={16} /></span>
+                <span className="bp-qual-icon"><img src={`/brand/platforms/${GOAL_LOGOS[id]}.svg`} alt="" width={18} height={18} /></span>
                 <span>{label}</span>
               </button>
             )
