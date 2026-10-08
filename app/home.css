@@ -274,6 +274,7 @@
 
 /* Shared two-step flow */
 .bp-enq-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.bp-enq-grid>:last-child:nth-child(odd){grid-column:1/-1;min-height:0}
 .bp-enq-choice{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;padding:15px;text-align:left;background:var(--surface);border:1px solid var(--hairline);border-radius:9px;color:var(--ink);font-family:var(--font-body),Arial,sans-serif;font-size:14px;font-weight:600;letter-spacing:-.025em;line-height:1.25;cursor:pointer;transition:border-color .18s,background .18s,transform .18s,box-shadow .18s}
 .bp-enq-choice svg{flex-shrink:0;color:var(--muted);transition:transform .18s,color .18s}
 .bp-enq-choice:hover{background:var(--bg);border-color:var(--lapiz);transform:translateY(-1px)}
