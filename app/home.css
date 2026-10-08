@@ -315,36 +315,24 @@
 .bp-enq-card-title{font-size:20px;font-weight:600;letter-spacing:-.045em;color:var(--ink);margin-bottom:7px}
 .bp-enq-card-sub{font-size:13.5px;line-height:1.6;color:var(--muted);margin-bottom:22px}
 
-/* Hero qualifier: two questions, then a recommendation that opens the panel */
+/* Hero offers: four real offers, one tap opens the enquiry panel */
 .bp-home .bp-hero-title{font-size:clamp(38px,3.4vw,54px);letter-spacing:-.05em;line-height:1.06;margin:0 0 18px;max-width:540px}
 .bp-hero-copy .bp-hero-description{margin-bottom:0;max-width:430px}
 .bp-hero-copy .bp-actions{margin-top:20px}
 .bp-qual{margin-top:24px;max-width:490px;padding:20px;background:var(--surface);border:1px solid var(--hairline);border-radius:16px;box-shadow:0 20px 50px -28px #383c3059}
-@media(min-width:1151px){.bp-qual{min-height:356px}} /* tallest step, so the hero copy does not jump between steps */
-.bp-qual-top{display:flex;align-items:center;justify-content:space-between;font-size:12.5px;font-weight:500;color:var(--muted)}
-.bp-qual-dots{display:flex;gap:5px}
-.bp-qual-dots i{width:22px;height:4px;border-radius:4px;background:var(--lapiz-tint2)}
-.bp-qual-dots i.on{background:var(--lapiz)}
-.bp-qual-q{margin:8px 0 14px;font-size:20px;font-weight:600;letter-spacing:-.035em;color:var(--ink);outline:0}
+.bp-qual-q{margin:0 0 14px;font-size:20px;font-weight:600;letter-spacing:-.035em;color:var(--ink)}
 .bp-qual-goals{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-.bp-qual-sites{display:grid;gap:9px}
 .bp-qual-opt{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;padding:13px 14px;text-align:left;background:#fff;border:1px solid var(--hairline);border-radius:11px;color:var(--ink);font-family:var(--font-body),Arial,sans-serif;font-size:14.5px;font-weight:600;letter-spacing:-.02em;line-height:1.25;cursor:pointer;transition:border-color .18s,box-shadow .18s}
+.bp-qual-opt small{display:block;margin-top:4px;font-size:12.5px;font-weight:500;letter-spacing:-.01em;color:var(--lapiz)}
 .bp-qual-opt svg{flex-shrink:0;color:var(--muted);transition:transform .18s,color .18s}
 .bp-qual-opt:hover{border-color:var(--lapiz);box-shadow:0 0 0 3px var(--lapiz-tint)}
-.bp-qual-opt:hover svg{color:var(--lapiz)}
-.bp-qual-goals .bp-qual-opt:not(.bp-qual-help){flex-direction:column;align-items:flex-start;min-height:88px}
-.bp-qual-icon{display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:#fff;border:1px solid var(--hairline)}
+.bp-qual-opt:hover svg{color:var(--lapiz);transform:translateX(3px)}
+.bp-qual-goals .bp-qual-opt:not(.bp-qual-help){flex-direction:column;align-items:flex-start;justify-content:flex-start;min-height:104px}
+.bp-qual-icon{display:grid;place-items:center;flex-shrink:0;width:32px;height:32px;border-radius:8px;background:#fff;border:1px solid var(--hairline);overflow:hidden}
 .bp-qual-icon img{display:block;width:18px;height:18px;object-fit:contain}
+.bp-qual-icon.bp-qual-fill img{width:100%;height:100%;object-fit:cover;object-position:top}
 .bp-qual-help{grid-column:1/-1;background:transparent;border-style:dashed}
-.bp-qual-help:hover svg{transform:translateX(3px)}
-.bp-qual-rec{padding:16px;border-radius:11px;background:var(--lapiz-tint)}
-.bp-qual-rec strong{display:block;font-size:17px;font-weight:600;letter-spacing:-.03em;color:var(--ink)}
-.bp-qual-rec p{margin:6px 0 0;font-size:13.5px;line-height:1.55;color:var(--text)}
-.bp-qual-rec span{display:block;margin-top:10px;font-size:12.5px;font-weight:600;color:var(--lapiz)}
-.bp-qual-go{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;margin-top:14px;padding:15px 22px;min-height:52px;border:0;border-radius:100px;background:var(--lapiz);color:#fff;font-family:var(--font-body),Arial,sans-serif;font-size:14.5px;font-weight:600;cursor:pointer}
-.bp-home .bp-qual-go:hover{background:var(--lapiz-deep)}
-.bp-qual-back{display:block;margin:12px auto 0;padding:4px 8px;border:0;background:none;color:var(--muted);font-family:inherit;font-size:12.5px;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
-.bp-qual-opt:focus-visible,.bp-qual-go:focus-visible,.bp-qual-back:focus-visible{outline:2px solid var(--lapiz);outline-offset:3px}
+.bp-qual-opt:focus-visible{outline:2px solid var(--lapiz);outline-offset:3px}
 /* Floating shell */
 .bp-enquire-launcher{position:fixed;z-index:60;right:20px;bottom:20px;display:inline-flex;align-items:center;gap:10px;padding:14px 22px;min-height:52px;border:0;border-radius:100px;background:var(--lapiz);color:#fff;font-family:var(--font-body),Arial,sans-serif;font-size:14px;font-weight:600;letter-spacing:-.01em;box-shadow:0 6px 20px #0b3ed936;cursor:pointer;transition:background .2s,transform .2s,box-shadow .2s}
 .bp-enquire-launcher:hover{background:var(--lapiz-deep);transform:translateY(-1px);box-shadow:0 8px 24px #0b3ed942}
@@ -366,13 +354,14 @@
   /* The laptop photo reaches into the copy column at these widths, so the
      tiles drop to a single narrow stack rather than sit on a black screen. */
   .bp-home .bp-hero-title{font-size:clamp(28px,3.3vw,38px)}
+  .bp-hero-copy .bp-hero-description{max-width:320px}
   .bp-qual{margin-top:18px;padding:16px;max-width:330px}
   .bp-qual-q{font-size:17px;margin-bottom:11px}
   .bp-qual-goals{grid-template-columns:1fr;gap:7px}
-  .bp-qual-goals .bp-qual-opt:not(.bp-qual-help){flex-direction:row;justify-content:flex-start;min-height:0}
-  .bp-hero-copy .bp-hero-description{max-width:320px}
-  .bp-qual-opt{padding:7px 10px;font-size:13px}
-  .bp-qual-icon{width:24px;height:24px}
+  .bp-qual-goals .bp-qual-opt:not(.bp-qual-help){flex-direction:row;align-items:center;min-height:0}
+  .bp-qual-opt{padding:8px 10px;font-size:13px}
+  .bp-qual-opt small{margin-top:2px;font-size:11.5px}
+  .bp-qual-icon{width:28px;height:28px}
   .bp-hero-copy .bp-actions{margin-top:12px}
 }
 @media(max-width:900px){.bp-enq-card{padding:26px 22px 28px}.bp-enq-inline .bp-enq-choice{min-height:68px;font-size:14px}}
@@ -385,7 +374,7 @@
   .bp-enq-inline .bp-enq-fields{grid-template-columns:1fr;gap:0}
   .bp-home .bp-hero-title{font-size:clamp(32px,8.4vw,44px)}
   .bp-qual{margin-top:22px;padding:16px}
-  .bp-qual-goals .bp-qual-opt:not(.bp-qual-help){min-height:80px}
+  .bp-qual-goals .bp-qual-opt:not(.bp-qual-help){min-height:96px}
 }
 .bp-enquire-tucked{opacity:0;transform:translateY(120%);pointer-events:none}
 
