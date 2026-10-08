@@ -4,8 +4,8 @@ export default function Hero() {
   return (
     <section id="hero" className="bp-hero" aria-labelledby="hero-heading">
       <div className="bp-wrap bp-hero-layout"><div className="bp-hero-copy">
-        <h1 id="hero-heading" className="bp-hero-lede"><span>Get found.</span><span>Get leads.</span><span>Get chosen.</span></h1>
-        <p className="bp-hero-description">Google Ads, Meta Ads, website design, Google Reviews, SEO and AI follow-up for Australian businesses. Based on the Gold Coast.</p>
+        <h1 id="hero-heading" className="bp-hero-title">More local customers, without the agency runaround.</h1>
+        <p className="bp-hero-description">Websites, Google Reviews, ads and AI automations for Australian businesses. Gold Coast based, working Australia-wide.</p>
         <HeroQuickPicks />
         <div className="bp-actions"><a href="#work" className="bp-text-link">See our work <span aria-hidden="true">→</span></a></div>
       </div></div>

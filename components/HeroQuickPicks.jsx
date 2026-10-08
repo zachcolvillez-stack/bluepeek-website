@@ -1,24 +1,29 @@
 'use client'
 import { ArrowRight } from 'lucide-react'
-import { CHOICES, openEnquire } from '../lib/enquire'
+import { HERO_OFFERS, openEnquire } from '../lib/enquire'
 
 /**
- * The same tiles the contact section uses, in glass over the hero photo.
- * One tap opens the enquiry with the service already chosen.
+ * The four things we lead with, each with its published offer, over the hero
+ * photo. One tap opens the enquiry panel with that service already picked.
+ * Platform offers use the real colour logos; website and AI use the computer
+ * and robot emoji, since neither has a platform logo.
  */
 export default function HeroQuickPicks() {
+  const source = { source: 'hero offers' }
   return (
-    <div className="bp-hero-picks">
-      <p id="bp-hero-picks-label">What do you need?</p>
-      <div className="bp-enq bp-enq-hero" role="group" aria-labelledby="bp-hero-picks-label">
-        <div className="bp-enq-grid">
-          {CHOICES.map(choice => (
-            <button key={choice} type="button" className="bp-enq-choice" onClick={() => openEnquire(choice)}>
-              <span>{choice}</span>
-              <ArrowRight size={15} aria-hidden="true" />
-            </button>
-          ))}
-        </div>
+    <div className="bp-qual">
+      <p id="bp-qual-q" className="bp-qual-q">What do you need?</p>
+      <div className="bp-qual-goals" role="group" aria-labelledby="bp-qual-q">
+        {HERO_OFFERS.map(({ service, title, offer, logo, emoji }) => (
+          <button key={service} type="button" className="bp-qual-opt" onClick={() => openEnquire(service, source)}>
+            <span className="bp-qual-icon" aria-hidden="true">{emoji ?? <img src={logo} alt="" width={18} height={18} />}</span>
+            <span>{title}<small>{offer}</small></span>
+          </button>
+        ))}
+        <button type="button" className="bp-qual-opt bp-qual-help" onClick={() => openEnquire('Not sure yet, help me choose', source)}>
+          <span>Not sure yet, help me choose</span>
+          <ArrowRight size={15} aria-hidden="true" />
+        </button>
       </div>
     </div>
   )
