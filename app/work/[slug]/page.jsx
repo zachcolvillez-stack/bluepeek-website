@@ -25,7 +25,7 @@ export async function generateMetadata({ params }) {
       description: c.metaDescription,
       url: `${SITE.url}${path}`,
       type: 'article',
-      images: [{ url: study.image, alt: `${study.title} website by Bluepeek` }],
+      images: [{ url: study.image, alt: study.imageAlt || `${study.title} website by Bluepeek` }],
     },
     twitter: { card: 'summary_large_image', title: c.metaTitle, description: c.metaDescription },
   }
