@@ -1,5 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async rewrites() {
+    return [
+      // Business-specific SMS URLs. The dashboard owns the public preview
+      // metadata and sends visitors to that business's existing demo homepage.
+      { source: '/demo/:code', destination: 'https://bluepeekdashboard.com.au/d/:code' },
+    ]
+  },
   async redirects() {
     return [
       // Flattened SEO URLs — old nested paths 301 to root-level slugs
