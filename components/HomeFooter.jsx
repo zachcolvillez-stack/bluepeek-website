@@ -12,7 +12,7 @@ export default function HomeFooter() {
         <div key={s.id}><p>{s.name}</p>{s.pages.map(slug => <a key={slug} href={PAGES[slug].path}>{PAGES[slug].label}</a>)}</div>
       ))}
     </nav>
-    <div className="bp-footer-contact"><a href={`mailto:${SITE.email}`}>{SITE.email}</a><a href="tel:0402923253">Jac · 0402 923 253</a><a href="tel:0468955806">Zach · 0468 955 806</a><span>7 Gidgee Court, Molendinar QLD 4214</span></div>
+    <div className="bp-footer-contact"><a href={`mailto:${SITE.email}`}>{SITE.email}</a><a href="tel:0402923253">Jac · 0402 923 253</a><a href="tel:0468955806">Zach · 0468 955 806</a><span>Gold Coast, QLD · Australia-wide</span></div>
     <details className="bp-footer-directory"><summary>All services & industries</summary><nav aria-label="Services and industries">
       {Object.entries(PAGES).filter(([slug]) => !inStages.has(slug)).map(([slug, p]) => <a key={slug} href={p.path}>{p.label}</a>)}
       {SERVICES.filter(s => !PAGES[s.slug]).map(s => <a key={s.slug} href={u.service(s.slug)}>{s.title}</a>)}
