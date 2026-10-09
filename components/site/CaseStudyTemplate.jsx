@@ -49,7 +49,7 @@ export default function CaseStudyTemplate({ breadcrumb = [], study, content, rel
               <ExternalLink size={12} style={{ color: 'var(--muted)' }} />
             </div>
             <div className="relative aspect-[16/9] overflow-hidden" style={{ background: 'var(--bg-2)' }}>
-              <Image src={study.image} alt={`${study.title} website homepage built by Bluepeek`}
+              <Image src={study.image} alt={study.imageAlt || `${study.title} website homepage built by Bluepeek`}
                 fill sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover object-top group-hover:scale-105 transition-transform duration-700" />
             </div>
