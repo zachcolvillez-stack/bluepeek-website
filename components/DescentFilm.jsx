@@ -499,7 +499,7 @@ export default function DescentFilm() {
       {/* Intro: shown while <html data-film-intro> is set (2.5 s at most). */}
       <div className="film-intro">
         <div className="film-intro-main">
-          <Logo size={64} textColor="#fff" />
+          <Logo size={60} tone="dark" />
           <div aria-hidden="true" className="film-intro-track">
             {loading === null
               ? <div className="film-intro-bar film-intro-bar--indeterminate" />

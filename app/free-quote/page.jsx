@@ -1,6 +1,7 @@
 import QuoteForm from '../../components/QuoteForm'
 import { SITE } from '../../lib/site'
 import { Star, Check } from 'lucide-react'
+import Logo from '../../components/Logo'
 
 export const metadata = {
   title: 'Get a free website quote',
@@ -25,9 +26,8 @@ export default function FreeQuotePage() {
       {/* No nav — nothing to click away to. */}
       <div className="px-6 py-10 md:py-16">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-center gap-2.5 mb-10">
-            <img src="/brand/logo-256.png" alt="" width={34} height={34} style={{ borderRadius: 9 }} />
-            <span className="font-bold text-lg tracking-tight" style={{ color: 'var(--ink)' }}>Bluepeek</span>
+          <div className="flex items-center mb-10" aria-label="Bluepeek">
+            <Logo size={34} />
           </div>
 
           <div className="grid lg:grid-cols-[1.05fr_1fr] gap-12 lg:gap-16 items-start">
