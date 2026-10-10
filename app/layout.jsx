@@ -60,6 +60,10 @@ export const metadata = {
     icon: [
       { url: '/favicon-16.png', sizes: '16x16', type: 'image/png' },
       { url: '/favicon-32.png', sizes: '32x32', type: 'image/png' },
+      // Google Search shows a site icon only at 48px or larger (multiples of 48).
+      { url: '/favicon-48.png', sizes: '48x48', type: 'image/png' },
+      { url: '/favicon-96.png', sizes: '96x96', type: 'image/png' },
+      { url: '/favicon-192.png', sizes: '192x192', type: 'image/png' },
     ],
     other: [{ rel: 'mask-icon', url: '/mask-icon.svg', color: '#0B3ED9' }],
   },
