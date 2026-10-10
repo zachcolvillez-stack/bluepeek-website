@@ -1,0 +1,158 @@
+/* Homepage film: "Bluepeek Descent" (components/DescentFilm.jsx).
+   Engine styles from the scroll-film kit; layout is Bluepeek's own:
+   laptop centred, copy centred above it, the screen phase after the landing. */
+
+/* Later copy stays hidden until the film loop takes over its opacity, so it
+   never flashes stacked on first paint. Without JS everything stays readable. */
+.bp-film-ch--later{opacity:0;visibility:hidden}
+.bp-film-ch{will-change:opacity,transform}
+
+.bp-film{position:relative;background:#04060c;color:#fff}
+.bp-film-stage{position:sticky;top:0;height:100svh;width:100%;overflow:hidden;--sp:0}
+.bp-film-camera{position:absolute;inset:0;will-change:transform}
+.film-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.bp-film-layer{position:absolute;inset:0}
+.film-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;opacity:0}
+.film-video[data-on]{opacity:1}
+.bp-film-frame{position:absolute;left:0;top:0;transform-origin:0 0;pointer-events:none}
+
+/* The laptop screen: live HTML, projected onto the screen corners. */
+.bp-screen{position:absolute;left:0;top:0;transform-origin:0 0;overflow:hidden;background:#05070b;opacity:0;font-family:var(--font-tight),Inter,Arial,sans-serif;color:#10141c}
+.bp-screen:after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,rgba(255,255,255,.07),transparent 46%,rgba(255,255,255,.02));z-index:5}
+.bp-screen-boot{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:48px;background:#05070b;z-index:3}
+.bp-screen-mark{font-size:88px;font-weight:300;letter-spacing:-.045em;color:#fff}
+.bp-screen-mark span{color:#6f8fff}
+.bp-screen-bootbar{width:300px;height:4px;border-radius:4px;background:rgba(255,255,255,.14);overflow:hidden}
+.bp-screen-bootbar i{display:block;height:100%;background:#fff;transform:scaleX(0);transform-origin:0 50%}
+
+/* Build sequence: wireframe (1) → words (2) → photos (3) → live (4). */
+.bp-build{position:absolute;inset:0;background:#f6f5f1;padding:34px 56px;z-index:2}
+.bp-build-nav{display:flex;align-items:center;gap:28px;height:46px}
+.bp-build-nav b{width:150px;height:22px;border-radius:6px;background:#d9dce2;transition:background .5s}
+.bp-build-nav span{width:70px;height:10px;border-radius:5px;background:#e3e5ea}
+.bp-build-nav span:first-of-type{margin-left:auto}
+.bp-build-nav em{width:130px;height:40px;border-radius:40px;background:#d9dce2;transition:background .5s}
+.bp-build-hero{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:46px}
+.bp-build-copy{display:grid;gap:22px}
+.bp-build-kicker span,.bp-build h3 span,.bp-build-text span{display:block;color:transparent;background:#e1e3e8;border-radius:8px;transition:color .5s,background .5s}
+.bp-build-kicker{font-size:18px;letter-spacing:.14em;text-transform:uppercase;font-family:var(--font-mono),monospace}
+.bp-build-kicker span{width:max-content}
+.bp-build h3{font-size:64px;line-height:1;font-weight:300;letter-spacing:-.045em;display:grid;gap:10px;margin:0}
+.bp-build h3 span{width:max-content}
+.bp-build-text{font-size:22px;line-height:1.5;max-width:470px}
+.bp-build-buttons{display:flex;gap:14px;margin-top:6px}
+.bp-build-buttons i,.bp-build-buttons em{font-style:normal;font-size:19px;padding:16px 30px;border-radius:40px;color:transparent;background:#e1e3e8;transition:color .5s,background .5s,border-color .5s;border:1px solid transparent}
+.bp-build-photo{aspect-ratio:4/3.3;border-radius:14px;background:#e1e3e8;overflow:hidden;position:relative}
+.bp-build-photo img{width:100%;height:100%;object-fit:cover;object-position:62% 50%;opacity:0;transform:scale(1.06);transition:opacity .7s,transform 1.2s}
+.bp-build-live{position:absolute;right:40px;bottom:30px;display:flex;align-items:center;gap:10px;font:500 18px/1 var(--font-mono),monospace;letter-spacing:.1em;text-transform:uppercase;background:#0e1420;color:#fff;padding:14px 22px;border-radius:40px;opacity:0;transform:translateY(12px);transition:opacity .5s,transform .5s}
+.bp-build-live i{width:10px;height:10px;border-radius:50%;background:#2fd27a;box-shadow:0 0 0 6px rgba(47,210,122,.18)}
+.bp-screen[data-step="2"] .bp-build-kicker span,.bp-screen[data-step="3"] .bp-build-kicker span,.bp-screen[data-step="4"] .bp-build-kicker span{color:#0B3ED9;background:transparent}
+.bp-screen[data-step="2"] .bp-build h3 span,.bp-screen[data-step="3"] .bp-build h3 span,.bp-screen[data-step="4"] .bp-build h3 span{color:#10141c;background:transparent}
+.bp-screen[data-step="2"] .bp-build-text span,.bp-screen[data-step="3"] .bp-build-text span,.bp-screen[data-step="4"] .bp-build-text span{color:#4a505c;background:transparent}
+.bp-screen[data-step="2"] .bp-build-nav b,.bp-screen[data-step="3"] .bp-build-nav b,.bp-screen[data-step="4"] .bp-build-nav b{background:#10141c}
+.bp-screen[data-step="3"] .bp-build-photo img,.bp-screen[data-step="4"] .bp-build-photo img{opacity:1;transform:none}
+.bp-screen[data-step="3"] .bp-build-buttons i,.bp-screen[data-step="4"] .bp-build-buttons i{color:#fff;background:#0B3ED9}
+.bp-screen[data-step="3"] .bp-build-buttons em,.bp-screen[data-step="4"] .bp-build-buttons em{color:#10141c;background:transparent;border-color:#c9ccd3}
+.bp-screen[data-step="3"] .bp-build-nav em,.bp-screen[data-step="4"] .bp-build-nav em{background:#0B3ED9}
+.bp-screen[data-step="4"] .bp-build-live{opacity:1;transform:none}
+
+/* Real work: a full-length capture scrolled by the page, then a reel. */
+.bp-screen-strip,.bp-screen-railwrap{position:absolute;inset:0;opacity:0;z-index:2;overflow:hidden;background:#fff}
+.bp-screen-strip img{display:block;width:100%;height:auto;will-change:transform}
+.bp-screen-rail{display:flex;height:100%;will-change:transform}
+.bp-screen-rail img{flex:0 0 100%;width:100%;height:100%;object-fit:cover;object-position:top}
+
+/* Cloud wisps drifting around the laptop's base (in film-frame pixels). */
+.bp-wisps{position:absolute;left:300px;top:640px;width:1320px;height:440px;opacity:calc(min(1,var(--sp)*20))}
+.bp-wisps i{position:absolute;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.9),rgba(255,255,255,0));filter:blur(10px);animation:bp-drift linear infinite alternate}
+.bp-wisps i:nth-child(1){left:0;top:70px;width:520px;height:150px;animation-duration:19s}
+.bp-wisps i:nth-child(2){left:420px;top:120px;width:640px;height:170px;animation-duration:26s;animation-direction:alternate-reverse}
+.bp-wisps i:nth-child(3){left:860px;top:40px;width:460px;height:140px;animation-duration:22s}
+.bp-wisps i:nth-child(4){left:180px;top:230px;width:900px;height:210px;animation-duration:31s;animation-direction:alternate-reverse}
+@keyframes bp-drift{from{transform:translateX(-90px)}to{transform:translateX(90px)}}
+
+.bp-film-fade{position:absolute;inset:0;background:var(--bg,#f8f7f4);opacity:0;pointer-events:none}
+
+/* Copy, centred above the laptop. */
+.bp-film-copy{position:absolute;inset:0;display:flex;justify-content:center;padding:clamp(108px,15svh,150px) 20px 0;pointer-events:none}
+.bp-film-copy>div{position:absolute;left:50%;top:clamp(108px,15svh,150px);width:min(920px,calc(100% - 40px));translate:-50% 0;text-align:center;pointer-events:auto}
+.bp-film h1.t-display,.bp-film h2.t-display{color:#fff;text-shadow:0 2px 30px rgba(4,10,30,.25);margin:22px 0 0}
+.bp-film h1.t-display{font-size:clamp(46px,6.6vw,98px)}
+.bp-film h2.t-display{font-size:clamp(38px,5vw,74px)}
+.bp-film .t-display span{display:block;color:rgba(255,255,255,.62)}
+.bp-film h1.t-display span{font-size:.42em;letter-spacing:-.02em;margin-top:18px;line-height:1.2}
+.bp-film h2.t-display span{font-size:.5em;letter-spacing:-.025em;margin-top:14px;line-height:1.2}
+.film-accent{color:#9fb6ff}
+.film-dim{color:rgba(255,255,255,.55)}
+.bp-film-actions{display:flex;justify-content:center;gap:12px;margin-top:34px;flex-wrap:wrap}
+.bp-film-actions .t-pill{min-height:50px;padding:0 28px}
+
+.bp-film-proof{position:absolute;left:50%;translate:-50% 0;bottom:clamp(24px,5svh,48px);width:min(1100px,calc(100% - 40px));display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin:0}
+.bp-film-proof>div{border-top:1px solid rgba(255,255,255,.18);padding-top:16px;display:flex;align-items:baseline;gap:14px}
+.bp-film-proof dd{margin:0}
+.bp-film-proof .t-display{font-size:28px;color:#fff}
+.bp-film-ring{position:absolute;right:32px;bottom:32px;display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.55)}
+.bp-film-ring svg{width:40px;height:40px;transform:rotate(-90deg)}
+.bp-film-ring circle{fill:none;stroke:rgba(255,255,255,.18);stroke-width:1.2}
+.bp-film-ring circle[data-ring]{stroke:#fff;stroke-width:1.6}
+
+/* Intro loading screen + scroll hold (DescentFilm HOLD_SCRIPT). */
+.film-intro{position:fixed;inset:0;z-index:60;display:flex;flex-direction:column;background:#04060c;color:#fff;opacity:0;visibility:hidden;transition:opacity .6s cubic-bezier(.22,1,.36,1),visibility 0s linear .6s}
+[data-film-intro] .film-intro{opacity:1;visibility:visible;transition:none}
+.film-intro-main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;padding:0 24px}
+.film-intro-main .text-lg{font-size:30px;letter-spacing:-.04em}
+.film-intro-track{position:relative;width:190px;height:1px;background:rgba(255,255,255,.14);overflow:hidden}
+.film-intro-bar{position:absolute;inset:0 auto 0 0;background:#fff;transition:width .2s}
+.film-intro-bar--indeterminate{width:35%;animation:film-indeterminate 1.4s cubic-bezier(.76,0,.24,1) infinite}
+@keyframes film-indeterminate{from{transform:translateX(-100%)}to{transform:translateX(290%)}}
+.film-intro-foot{border-top:1px solid rgba(255,255,255,.1);padding:16px 24px max(16px,env(safe-area-inset-bottom));display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.film-intro-foot p{font-size:14px;color:rgba(255,255,255,.55);margin:0}
+.film-intro-actions{display:flex;gap:8px}
+.film-intro-actions .t-pill{min-height:46px;padding:0 22px}
+.film-loading{display:none;position:absolute;left:50%;translate:-50% 0;bottom:32px;align-items:center;gap:12px;padding:8px 18px 8px 14px;border-radius:99px;border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.45);backdrop-filter:blur(12px);color:rgba(255,255,255,.8);white-space:nowrap}
+.film-loading-track{position:relative;width:60px;height:1px;background:rgba(255,255,255,.15);overflow:hidden}
+.film-loading-track span{position:absolute;inset:0 auto 0 0;background:#fff;transition:width .2s}
+[data-film-hold]:not([data-film-intro]) .film-loading,[data-film-wall] .film-loading{display:flex}
+
+/* "Technical" type. */
+.t-display{font-family:var(--font-tight),Inter,Arial,sans-serif;font-weight:300;letter-spacing:-.045em;line-height:.98}
+.t-label{font-family:var(--font-mono),ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin:0}
+.t-pill{display:inline-flex;align-items:center;justify-content:center;gap:12px;border-radius:999px;font-family:var(--font-tight),Inter,Arial,sans-serif;font-weight:500;font-size:14px;white-space:nowrap;transition:background-color .2s,border-color .2s,color .2s}
+.t-pill--solid{background:#f4f3ef;color:#0b0d10}
+.t-pill--solid:hover{background:#fff;color:#0b0d10}
+.t-pill--line{border:1px solid rgba(255,255,255,.3);color:#fff}
+.t-pill--line:hover{border-color:rgba(255,255,255,.7);color:#fff}
+.bp-film :focus-visible{outline:2px solid #fff;outline-offset:4px}
+
+/* Header over the film. */
+.bp-header--film .bp-desktop-nav,.bp-header--film .bp-menu-toggle{color:#fff}
+.bp-header--film .bp-desktop-nav a:hover{color:#c8d4ff}
+
+@media (max-width:760px){
+  .bp-film-proof{grid-template-columns:1fr 1fr;gap:16px}
+  .bp-film-proof-3{display:none!important}
+  .bp-film-proof .t-display{font-size:22px}
+  .bp-film-proof>div{flex-direction:column;gap:4px}
+  .bp-film-ring{display:none}
+  .film-intro-foot{justify-content:center}
+  .film-intro-actions{width:100%}
+  .film-intro-actions .t-pill{flex:1}
+}
+@media (prefers-reduced-motion:reduce){.bp-wisps i{animation:none}}
+
+/* Beat the site-wide .bp-home h1/h2/h3 and link-hover rules inside the film. */
+.bp-film h1.t-display,.bp-film h2.t-display{font-family:var(--font-tight),Inter,Arial,sans-serif;font-weight:300;letter-spacing:-.045em;line-height:.98}
+.bp-film .bp-build h3{font-family:var(--font-tight),Inter,Arial,sans-serif;font-weight:300;font-size:64px;letter-spacing:-.045em;line-height:1;color:#10141c}
+.bp-film .t-pill--solid,.bp-film .t-pill--solid:hover{color:#0b0d10}
+.bp-film .t-pill--line,.bp-film .t-pill--line:hover{color:#fff}
+
+/* Readability: top scrim in the daylight chapters, dark copy over the pale screen-phase sky. */
+.bp-film-scrim{position:absolute;inset:0 0 auto;height:58%;background:linear-gradient(to bottom,rgba(8,22,70,.5),rgba(8,22,70,.18) 55%,rgba(8,22,70,0));opacity:0;pointer-events:none}
+.bp-film-ch[data-tone="ink"] h2.t-display{color:#0c1733;text-shadow:0 1px 24px rgba(255,255,255,.5)}
+.bp-film-ch[data-tone="ink"] .t-display span{color:rgba(12,23,51,.58)}
+.bp-film-ch[data-tone="ink"] .film-accent{color:#0B3ED9}
+.bp-film-proof .t-display,.bp-film-proof .t-label{white-space:nowrap}
+@media (max-width:760px){.bp-film-proof .t-label{white-space:normal;line-height:1.5}.bp-film-proof{bottom:max(20px,env(safe-area-inset-bottom))}}
+/* Phones in the screen phase: camera eased back, edges feathered into the sky. */
+.bp-film-stage{background:linear-gradient(to bottom,#3f7bdc 0%,#8db6ee 38%,#e9eff8 62%,#f6f7fa 100%)}
+.bp-film-stage[data-fit] .bp-film-frame{-webkit-mask-image:linear-gradient(to bottom,transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(to bottom,transparent,#000 9%,#000 91%,transparent)}

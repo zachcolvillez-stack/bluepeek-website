@@ -1,11 +1,14 @@
 import './globals.css'
 import './home.css'
 import './money.css'
-import { Inter, Archivo } from 'next/font/google'
+import './film.css'
+import { Inter, Archivo, Inter_Tight, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { SITE } from '../lib/site'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-body', display: 'swap' })
+const interTight = Inter_Tight({ subsets: ['latin'], weight: ['300', '400', '500'], variable: '--font-tight', display: 'swap' })
+const mono = JetBrains_Mono({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-mono', display: 'swap' })
 const archivo = Archivo({
   subsets: ['latin'],
   variable: '--font-display',
@@ -77,7 +80,7 @@ export const viewport = {
 export default async function RootLayout({ children }) {
   const liveProfile = await getLiveProfile()
   return (
-    <html lang="en-AU" className={`${inter.variable} ${archivo.variable}`} suppressHydrationWarning>
+    <html lang="en-AU" className={`${inter.variable} ${archivo.variable} ${interTight.variable} ${mono.variable}`} suppressHydrationWarning>
       <body suppressHydrationWarning>
         {/* Scroll reveals are framer-motion, which renders them at opacity:0 until
             hydration. Without JS that leaves the page body blank, so force every

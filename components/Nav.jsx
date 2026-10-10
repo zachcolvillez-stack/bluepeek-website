@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react'
 import Logo from './Logo'
 const links = [['Web Design', '/website-design-gold-coast'], ['SEO', '/seo-gold-coast'], ['Marketing', '/marketing-agency-gold-coast'], ['Services', '/services'], ['Work', '/work'], ['Free SEO Audit', '/seo-audit']]
-export default function Nav({ home = true }) {
+export default function Nav({ home = true, film = false }) {
   const sectionHref = (href) => (href.startsWith('/') || home) ? href : `/${href}`
   const [open, setOpen] = useState(false)
   const toggle = useRef(null)
@@ -14,9 +14,9 @@ export default function Nav({ home = true }) {
     return () => document.removeEventListener('keydown', escape)
   }, [open])
   return (
-    <header className="bp-header">
+    <header className={film ? 'bp-header bp-header--film' : 'bp-header'}>
       <div className="bp-wrap bp-header-row">
-        <a href="/" aria-label="Bluepeek home" className="bp-logo"><Logo size={36} /></a>
+        <a href="/" aria-label="Bluepeek home" className="bp-logo"><Logo size={36} textColor={film ? '#fff' : undefined} /></a>
         <nav className="bp-desktop-nav" aria-label="Main navigation">{links.map(([label, href]) => <a key={href} href={sectionHref(href)}>{label}</a>)}</nav>
         <button ref={toggle} className="bp-menu-toggle" type="button" aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(!open)}>{open ? 'Close' : 'Menu'}<span aria-hidden="true">{open ? '×' : '☰'}</span></button>
       </div>

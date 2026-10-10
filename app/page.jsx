@@ -1,5 +1,5 @@
 import Nav from '../components/Nav'
-import Hero from '../components/Hero'
+import DescentFilm from '../components/DescentFilm'
 import HomeSections from '../components/HomeSections'
 import Packages from '../components/Packages'
 import Reviews from '../components/Reviews'
@@ -11,9 +11,9 @@ export default function Home() {
   return (
     <div className="bp-home">
       <a className="bp-skip" href="#main-content">Skip to content</a>
-      <Nav />
+      <Nav film />
       <main id="main-content">
-        <div className="bp-masthead"><Hero /></div>
+        <DescentFilm />
         <HomeSections />
         <Packages />
         <Reviews />

@@ -1,5 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async headers() {
+    return [
+      // Homepage film: every URL carries ?v=<hash> from scripts/build-film.mjs.
+      { source: '/film/:path*', headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }] },
+    ]
+  },
   async rewrites() {
     return [
       // Business-specific SMS URLs. The dashboard owns the public preview
