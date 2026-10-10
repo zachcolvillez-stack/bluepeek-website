@@ -45,17 +45,17 @@ const SCREEN_H = 664
 const [B1, B2, B3, B4] = film.clipStarts.map((c) => c * FILM_END)
 // Copy windows, in whole-section progress. The fall's follow the clip joins.
 const CHAPTERS = [
-  { id: 'c1', from: 0.035 * FILM_END, to: B1, kicker: 'From scratch', title: 'Designed from scratch.', dim: 'No templates. Ever.' },
-  { id: 'c2', from: B1, to: B2, kicker: 'Search', title: 'Built to be found.', dim: 'SEO in every page we ship.' },
-  { id: 'c3', from: B2, to: B3, kicker: 'Speed', title: 'Fast on every phone.', dim: 'Because that’s where your customers are.' },
-  { id: 'c4', from: B3, to: B4 + (FILM_END - B4) * 0.55, kicker: 'The offer', title: 'First month free.', dim: 'Then from $99 a month.' },
+  { id: 'c1', from: 0.035 * FILM_END, to: B1, title: 'Designed from scratch.', dim: 'No templates. Ever.' },
+  { id: 'c2', from: B1, to: B2, title: 'Built to be found.', dim: 'SEO in every page we ship.' },
+  { id: 'c3', from: B2, to: B3, title: 'Fast on every phone.', dim: 'Because that’s where your customers are.' },
+  { id: 'c4', from: B3, to: B4 + (FILM_END - B4) * 0.55, title: 'First month free.', dim: 'Then from $99 a month.' },
 ]
 // The screen phase, in screen-phase progress (0–1).
 const S = { boot: 0.02, build: 0.1, live: 0.34, work: 0.4, more: 0.68, dive: 0.86 }
 const SCREEN_COPY = [
-  { id: 's1', from: 0.0, to: S.work, kicker: 'How we build', title: 'Watch a site come together.', dim: 'Layout, words, photos, live.' },
-  { id: 's2', from: S.work, to: S.more, kicker: 'Coastal 2PAC', title: 'Real sites.', dim: 'For real Australian businesses.' },
-  { id: 's3', from: S.more, to: S.dive, kicker: 'Selected work', title: 'Every one, built by hand.', dim: 'Ceramic Coating · Marlin Glass · Jasmine Spa' },
+  { id: 's1', from: 0.0, to: S.work, title: 'Watch a site come together.', dim: 'Layout, words, photos, live.' },
+  { id: 's2', from: S.work, to: S.more, title: 'Real sites.', dim: 'For real Australian businesses.' },
+  { id: 's3', from: S.more, to: S.dive, title: 'Every one, built by hand.', dim: 'Ceramic Coating · Marlin Glass · Jasmine Spa' },
 ]
 const WORK = [
   { src: '/images/ceramic-coating-preview.webp', name: 'Ceramic Coating Gold Coast' },
@@ -343,6 +343,7 @@ export default function DescentFilm() {
       target = span > 0 ? Math.min(1, Math.max(0, -r.top / span)) : 0
       const limit = playableUntil()
       const pinned = r.top <= 0 && r.bottom >= window.innerHeight
+      root.toggleAttribute('data-film-on', r.bottom > window.innerHeight * 0.4)
       let wall = !held() && !wallSpent && pinned && limit > 0 && limit < 1 && target > limit && target - limit < 0.2
       const now = performance.now()
       if (wall && !walled) wallSince = now
@@ -476,6 +477,7 @@ export default function DescentFilm() {
       ro.disconnect()
       pendingRelease = window.setTimeout(() => window.__filmHold?.release(), 0)
       document.documentElement.removeAttribute('data-film-wall')
+      document.documentElement.removeAttribute('data-film-on')
       window.removeEventListener('scroll', load)
       stills.forEach((st) => st.img.remove())
       for (const t of tracks) {
@@ -559,7 +561,7 @@ export default function DescentFilm() {
         {/* Copy: centred above the laptop. */}
         <div className="bp-film-copy">
           <div data-intro="" data-from="0" data-to={0.04 * FILM_END} className="bp-film-ch">
-            <p className="t-label film-accent">[ Bluepeek · Gold Coast ]</p>
+            <p className="film-eyebrow">Bluepeek <i aria-hidden="true" /> Gold Coast</p>
             <h1 className="t-display">Websites that land.<span>Gold Coast web design by Bluepeek.</span></h1>
             <div className="bp-film-actions">
               <a href="#contact" className="t-pill t-pill--solid" onClick={(e) => { e.preventDefault(); openEnquire('New website or redesign') }}>Get a free quote <span aria-hidden="true">→</span></a>
@@ -568,7 +570,6 @@ export default function DescentFilm() {
           </div>
           {CHAPTERS.map((c) => (
             <div key={c.id} data-from={c.from} data-to={c.to} className="bp-film-ch bp-film-ch--later">
-              <p className="t-label film-accent">[ {c.kicker} ]</p>
               <h2 className="t-display">{c.title}<span>{c.dim}</span></h2>
               {c.id === 'c4' && (
                 <div className="bp-film-actions">
@@ -579,16 +580,14 @@ export default function DescentFilm() {
           ))}
           {SCREEN_COPY.map((c) => (
             <div key={c.id} data-phase="screen" data-tone="ink" data-from={c.from} data-to={c.to} className="bp-film-ch bp-film-ch--later">
-              <p className="t-label film-accent">[ {c.kicker} ]</p>
               <h2 className="t-display">{c.title}<span>{c.dim}</span></h2>
             </div>
           ))}
         </div>
 
         {/* Opening proof points: fade out with the opening chapter. */}
-        <dl data-intro="" data-from="0" data-to={0.04 * FILM_END} className="bp-film-ch bp-film-proof">
+        <dl data-intro="" data-from="0" data-to={0.04 * FILM_END} className="bp-film-ch bp-film-proof bp-film-proof--two">
           <div><dt className="sr-only">Google rating</dt><dd className="t-display">{agg.ratingValue}★</dd><dd className="t-label film-dim">Google · {agg.reviewCount} reviews</dd></div>
-          <div><dt className="sr-only">Offer</dt><dd className="t-display">1st month</dd><dd className="t-label film-dim">Free, then from $99/mo</dd></div>
           <div className="bp-film-proof-3"><dt className="sr-only">Where</dt><dd className="t-display">Gold Coast</dd><dd className="t-label film-dim">Working Australia-wide</dd></div>
         </dl>
 

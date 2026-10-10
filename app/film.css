@@ -156,3 +156,12 @@
 /* Phones in the screen phase: camera eased back, edges feathered into the sky. */
 .bp-film-stage{background:linear-gradient(to bottom,#3f7bdc 0%,#8db6ee 38%,#e9eff8 62%,#f6f7fa 100%)}
 .bp-film-stage[data-fit] .bp-film-frame{-webkit-mask-image:linear-gradient(to bottom,transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(to bottom,transparent,#000 9%,#000 91%,transparent)}
+
+/* Opening eyebrow: quiet spaced caps, no brackets. */
+.film-eyebrow{display:inline-flex;align-items:center;gap:14px;margin:0;font-family:var(--font-tight),Inter,Arial,sans-serif;font-weight:400;font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:rgba(255,255,255,.72);padding-left:.34em}
+.film-eyebrow i{width:22px;height:1px;background:rgba(255,255,255,.4)}
+.bp-film-proof--two{grid-template-columns:repeat(2,minmax(0,360px));justify-content:center}
+@media (max-width:760px){.bp-film-proof--two{grid-template-columns:1fr 1fr}.bp-film-proof--two .bp-film-proof-3{display:flex!important}}
+/* No floating Enquire over the film. */
+[data-film-on] .bp-enquire-launcher{opacity:0!important;pointer-events:none!important;transform:translateY(16px)}
+@media (max-height:640px){.bp-film-proof{display:none!important}}
