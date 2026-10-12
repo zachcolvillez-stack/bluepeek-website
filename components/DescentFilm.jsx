@@ -107,7 +107,7 @@ function quadMatrix(w, h, q) {
  * that hasn't loaded. DescentFilm takes both over once it hydrates.
  */
 const HOLD_SCRIPT = `(function(){
-if(window.__filmHold)return;
+if(window.__filmHold||window.location.hash)return;
 var c=navigator.connection;if(c&&c.saveData)return;
 var held=true,y=window.scrollY,d=document.documentElement,
 k={" ":1,PageDown:1,PageUp:1,ArrowDown:1,ArrowUp:1,End:1,Home:1},
@@ -363,6 +363,7 @@ export default function DescentFilm() {
     const boot = screen.querySelector('[data-boot]')
     const bootBar = screen.querySelector('[data-boot-bar]')
     const ring = stage.querySelector('[data-ring]')
+    const ringWrap = stage.querySelector('.bp-film-ring')
     const fade = stage.querySelector('[data-fade]')
     const scrim = stage.querySelector('[data-scrim]')
     const poster = stage.querySelector('.film-poster')
@@ -466,6 +467,8 @@ export default function DescentFilm() {
           el.style.visibility = v < 0.01 ? 'hidden' : 'visible'
         }
         if (ring) ring.style.strokeDashoffset = String(1 - current)
+        // The scroll ring belongs to the film: gone before the hand-off to the page below.
+        if (ringWrap) ringWrap.style.opacity = String(1 - ss(0.86, 0.95, sp))
       }
       raf = requestAnimationFrame(tick)
     }

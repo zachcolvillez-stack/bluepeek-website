@@ -1,0 +1,184 @@
+/* P4 · Closing + contact. Dark (space) surface; tokens come from .bh (app/bottom.css).
+   Selectors are .root-prefixed where needed to beat `.bh p{margin:0}` and `.bp-home h2`. */
+
+.root {
+  position: relative;
+  isolation: isolate;
+  background: var(--space);
+  color: var(--snow);
+  padding-top: clamp(104px, 8.9vw, 128px);
+}
+.wrap { width: min(var(--wrap), calc(100% - 2 * var(--gutter))); margin-inline: auto; }
+
+/* ── Headline ───────────────────────────────────────────────── */
+.head { text-align: center; }
+.root .eyebrow {
+  margin: 0 0 28px; padding-left: 0.34em;      /* balance the trailing tracking so it centres */
+  font-size: 12px; font-weight: 400; line-height: 1;
+  letter-spacing: 0.34em; text-transform: uppercase; color: var(--snow-dim);
+}
+.root .title {
+  font-family: var(--display); font-weight: 300;
+  font-size: clamp(40px, 5.6vw, 80px); line-height: 1.02; letter-spacing: -0.045em;
+  color: var(--snow);
+}
+.title span { display: block; }
+.root .title .dim { color: var(--snow-dim); }
+.root .lede {
+  max-width: 31em; margin: 36px auto 0;
+  font-size: clamp(17px, 1.46vw, 21px); line-height: 1.5; letter-spacing: -0.01em;
+  color: var(--snow-dim);
+}
+.root .lede b { font-weight: 400; color: var(--snow); }
+
+/* ── The closing stage: founders + form above the horizon ───── */
+.scene { position: relative; margin-top: clamp(72px, 6.4vw, 92px); }
+.stage { position: relative; }
+.row {
+  display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+  column-gap: clamp(40px, 7.8vw, 112px); align-items: start;
+}
+.founders { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(12px, 1.4vw, 20px); min-width: 0; margin: 0; padding: 0; list-style: none; }
+.founder { min-width: 0; }
+.photo { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--r-lg); background: var(--space-2); }
+.root .name {
+  margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--hair-dark);
+  font-size: 15px; line-height: 1.4; color: var(--snow);
+}
+.root .name span { margin-left: 8px; color: var(--snow-dim); }
+.root .phone {
+  display: inline-block; margin-top: 6px;
+  font-family: var(--display); font-weight: 300; font-size: clamp(24px, 2.7vw, 40px);
+  line-height: 1.1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums;
+  color: var(--snow); text-decoration: none; white-space: nowrap;
+}
+.root .phone:hover { color: #fff; }
+
+/* The enquiry form (EnquireInline, global .bp-enq-* classes) re-skinned for space:
+   no card, a typographic list of services, outline fields and a snow pill. */
+.form :global(.bp-enq-card) { padding: 0; background: none; border: 0; border-radius: 0; box-shadow: none; }
+.form :global(.bp-enq-card-title) {
+  margin-bottom: 8px; font-family: var(--display); font-size: clamp(20px, 1.7vw, 24px);
+  font-weight: 400; letter-spacing: -0.02em; line-height: 1.2; color: var(--snow);
+}
+.form :global(.bp-enq-card-sub) { margin-bottom: 22px; font-size: 17px; line-height: 1.5; color: var(--snow-dim); }
+/* The lede already promises the call-back, so the idle subline would repeat it.
+   It returns, with its step-specific wording, once a service is picked or sent. */
+.form :global(.bp-enq-card:has(.bp-enq-grid) .bp-enq-card-sub) { display: none; }
+.form :global(.bp-enq-card:has(.bp-enq-grid) .bp-enq-card-title) { margin-bottom: 22px; }
+.form :global(.bp-enq) { font-family: var(--display); }
+.form :global(.bp-enq-inline .bp-enq-grid) { grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--hair-dark); }
+.form :global(.bp-enq-inline .bp-enq-grid .bp-enq-choice) {
+  min-height: clamp(56px, 4.6vw, 66px); padding: 0 2px;
+  background: none; border: 0; border-bottom: 1px solid var(--hair-dark); border-radius: 0;
+  font-family: var(--display); font-size: clamp(18px, 1.6vw, 23px); font-weight: 300;
+  letter-spacing: -0.02em; color: var(--snow); transform: none;
+}
+.form :global(.bp-enq-inline .bp-enq-grid .bp-enq-choice svg) { width: 18px; height: 18px; color: var(--snow-dim); }
+.form :global(.bp-enq-inline .bp-enq-grid .bp-enq-choice:hover) { background: none; border-color: var(--hair-dark); transform: none; color: #fff; }
+.form :global(.bp-enq-inline .bp-enq-grid .bp-enq-choice:hover svg) { color: var(--snow); transform: translateX(3px); }
+.form :global(.bp-enq-inline .bp-enq-note) { margin-top: 18px; font-size: 13px; color: var(--snow-dim); text-align: left; }
+.form :global(.bp-enq-inline .bp-enq-note a),
+.form :global(.bp-enq-inline .bp-enq-note a:hover) { color: var(--snow-dim); }
+
+.form :global(.bp-enq-inline .bp-enq-picked) {
+  min-height: 48px; margin-bottom: 22px; padding: 0 22px;
+  background: none; border: 1px solid var(--hair-dark); border-radius: 999px;
+  font-size: 16px; font-weight: 400; letter-spacing: -0.01em; color: var(--snow);
+}
+.form :global(.bp-enq-inline .bp-enq-picked button) { color: var(--snow-dim); font-size: 13px; font-weight: 400; }
+.form :global(.bp-enq-inline .bp-enq-field label) { margin-bottom: 8px; font-size: 13px; font-weight: 400; color: var(--snow-dim); }
+.form :global(.bp-enq-inline .bp-enq-field label span) { color: var(--snow-dim); opacity: 0.7; }
+.form :global(.bp-enq-inline .bp-enq-field input) {
+  min-height: 52px; padding: 13px 16px;
+  background: transparent; border: 1px solid var(--hair-dark); border-radius: 999px;
+  font-family: var(--display); font-size: 16px; color: var(--snow);
+}
+.form :global(.bp-enq-inline .bp-enq-field input:focus) { outline: 2px solid var(--blue-on-dark); outline-offset: -1px; background: rgba(255, 255, 255, 0.04); }
+.form :global(.bp-enq-inline .bp-enq-field input[aria-invalid=true]) { border-color: #ff9c9c; }
+.form :global(.bp-enq-inline .bp-enq-error) { color: #ff9c9c; }
+.form :global(.bp-enq-inline .bp-enq-send) {
+  min-height: 54px; margin-top: 10px; border-radius: 999px;
+  background: var(--snow); color: var(--ink);
+  font-family: var(--display); font-size: 16px; font-weight: 500; letter-spacing: -0.01em;
+}
+.form :global(.bp-enq-inline .bp-enq-send:hover) { background: #fff; transform: none; }
+.form :global(.bp-enq-inline.bp-enq-done) { text-align: left; }
+.form :global(.bp-enq-inline .bp-enq-tick) { margin: 0 0 18px; background: rgba(255, 255, 255, 0.08); color: var(--snow); }
+.form :global(.bp-enq-inline.bp-enq-done h3) { font-family: var(--display); font-size: 24px; font-weight: 400; letter-spacing: -0.02em; color: var(--snow); }
+.form :global(.bp-enq-inline.bp-enq-done p) { font-size: 16px; color: var(--snow-dim); }
+.form :global(.bp-enq-inline.bp-enq-done strong) { font-weight: 400; color: var(--snow); }
+.form :global(.bp-enq-inline .bp-enq-again) { color: var(--snow); font-family: var(--display); font-weight: 400; font-size: 15px; }
+
+.root.root :focus-visible { outline: 2px solid var(--blue-on-dark); outline-offset: 4px; }
+
+/* ── Horizon: the film's first frame, as the page's last ─────── */
+.horizon { position: relative; margin-top: clamp(80px, 7vw, 104px); }
+.root .email {
+  position: relative; z-index: 1; padding-inline: var(--gutter); text-align: center;
+  font-size: clamp(15px, 1.2vw, 17px); line-height: 1.5; color: var(--snow-dim);
+}
+.root .email a { margin-left: 6px; color: var(--snow); text-decoration: none; white-space: nowrap; }
+.email a span { display: inline-block; margin-left: 8px; transition: transform 0.2s; }
+.email a:hover span { transform: translateX(3px); }
+
+.planet { --p: 1; position: relative; aspect-ratio: 2400 / 612; margin-top: -28px; overflow: hidden; }
+.frame {
+  position: absolute; inset: 0; isolation: isolate;
+  transform: translate3d(0, calc((1 - var(--p)) * 20%), 0);
+  will-change: transform;
+}
+.earth {
+  display: block; width: 100%; height: 100%; object-fit: cover;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 38%);
+          mask-image: linear-gradient(to bottom, transparent 0, #000 38%);
+}
+/* Lift the frame's pure black to the page's space black, so there is no seam. */
+.frame::after { content: ''; position: absolute; inset: 0; background: var(--space); mix-blend-mode: lighten; pointer-events: none; }
+.night { position: absolute; inset: 0; background: var(--space); opacity: calc((1 - var(--p)) * 0.8); }
+.sun {
+  position: absolute; left: 82.5%; top: 44.3%; width: 30%; aspect-ratio: 1;
+  transform: translate(-50%, -50%) scale(calc(0.25 + var(--p) * 0.75));
+  background: radial-gradient(closest-side, rgba(255, 244, 226, 0.42), rgba(255, 230, 196, 0.12) 30%, rgba(255, 226, 190, 0.04) 55%, rgba(255, 220, 180, 0) 100%);
+  mix-blend-mode: screen; opacity: var(--p);
+}
+
+/* ── Desktop with room: the stage pins while the sun rises ──── */
+@media (min-width: 1081px) and (min-height: 820px) {
+  .scene { height: 186vh; }
+  .stage { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+  .row { padding-top: 9vh; }
+  /* The horizon owns the bottom of the screen; the email sits in its starfield like an end title. */
+  .horizon { position: absolute; left: 0; right: 0; bottom: 0; margin: 0; }
+  .root .email { position: absolute; top: 12%; left: 0; right: 0; }
+  .planet { margin-top: 0; }
+}
+
+/* ── Tablet ─────────────────────────────────────────────────── */
+@media (max-width: 1080px) {
+  .row { grid-template-columns: minmax(0, 1fr); row-gap: 80px; max-width: 640px; }
+}
+
+/* ── Phone ──────────────────────────────────────────────────── */
+@media (max-width: 760px) {
+  .root { padding-top: 136px; }
+  .root .eyebrow { margin-bottom: 22px; }
+  .root .title { font-size: clamp(36px, 11.2vw, 46px); }
+  .root .lede { margin-top: 24px; font-size: 17px; }
+  .scene { margin-top: 104px; }
+  .row { row-gap: 136px; }
+  .founders { column-gap: 24px; }
+  .form { min-width: 0; }
+  .root .name { margin-top: 16px; padding-top: 14px; font-size: 14px; }
+  .root .name span { display: block; margin: 2px 0 0; }
+  .root .phone { font-size: clamp(18px, 5.2vw, 22px); letter-spacing: -0.02em; }
+  .horizon { margin-top: 160px; }
+  .planet { aspect-ratio: 1000 / 724; margin-top: -72px; }
+  .sun { left: 61.4%; top: 56.7%; width: 60%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .planet { --p: 1 !important; }
+  .frame { transform: none; will-change: auto; }
+  .email a span { transition: none; }
+}

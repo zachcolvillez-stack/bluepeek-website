@@ -71,7 +71,7 @@
 .bp-wisps i:nth-child(4){left:180px;top:230px;width:900px;height:210px;animation-duration:31s;animation-direction:alternate-reverse}
 @keyframes bp-drift{from{transform:translateX(-90px)}to{transform:translateX(90px)}}
 
-.bp-film-fade{position:absolute;inset:0;background:var(--bg,#f8f7f4);opacity:0;pointer-events:none}
+.bp-film-fade{position:absolute;inset:0;background:#f6f8fc;opacity:0;pointer-events:none}
 
 /* Copy, centred above the laptop. */
 .bp-film-copy{position:absolute;inset:0;display:flex;justify-content:center;padding:clamp(108px,15svh,150px) 20px 0;pointer-events:none}
@@ -165,3 +165,12 @@
 /* No floating Enquire over the film. */
 [data-film-on] .bp-enquire-launcher{opacity:0!important;pointer-events:none!important;transform:translateY(16px)}
 @media (max-height:640px){.bp-film-proof{display:none!important}}
+
+/* Homepage: the floating Enquire button follows the design system (ink pill,
+   hairline edge so it still reads over the dark sections; no blue fill, no icon). */
+.bp-home--film .bp-enquire-launcher{background:rgba(12,23,51,.92);color:#fff;box-shadow:none;border:1px solid rgba(255,255,255,.16);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);font-family:var(--font-tight),Inter,Arial,sans-serif;font-weight:500;letter-spacing:0}
+.bp-home--film .bp-enquire-launcher:hover{background:#0c1733;color:#fff;box-shadow:none}
+.bp-home--film .bp-enquire-launcher svg{display:none}
+/* Homepage: no floating Enquire at all. Every section carries its own call to
+   action and the closing section holds the enquiry form (like Apple's pages). */
+.bp-home--film .bp-enquire-launcher{display:none!important}

@@ -21,7 +21,7 @@ export default function Nav({ home = true, film = false }) {
         <button ref={toggle} className="bp-menu-toggle" type="button" aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(!open)}>{open ? 'Close' : 'Menu'}<span aria-hidden="true">{open ? '×' : '☰'}</span></button>
       </div>
       <nav id="mobile-navigation" className="bp-mobile-nav" aria-label="Mobile navigation" hidden={!open}>
-        {[...links, ['Industries', '/industries'], ['About', '/about'], ['Packages', '#packages'], ['Get a free quote', '#contact']].map(([label, href]) => <a key={href} href={sectionHref(href)} onClick={() => setOpen(false)}>{label}<span aria-hidden="true">↗</span></a>)}
+        {[...links, ['Industries', '/industries'], ['About', '/about'], ['Get a free quote', '#contact']].map(([label, href]) => <a key={href} href={sectionHref(href)} onClick={() => setOpen(false)}>{label}<span aria-hidden="true">↗</span></a>)}
       </nav>
     </header>
   )

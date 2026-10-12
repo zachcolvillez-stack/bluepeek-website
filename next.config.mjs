@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Local dev only: hide the Next.js badge so design screenshots are clean.
+  devIndicators: false,
   async headers() {
     return [
       // Homepage film: every URL carries ?v=<hash> from scripts/build-film.mjs.
