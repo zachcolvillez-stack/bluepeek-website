@@ -1,0 +1,19 @@
+/* Bottom half of the homepage (after the Descent film).
+   Shared tokens only; each section styles itself in its own CSS module.
+   Source of truth: ~/Developer/bluepeek/bluepeek-film/loop/design-system.md */
+.bh{
+  --space:#04060c; --space-2:#0b1020;
+  --cloud:#f6f8fc; --paper:#ffffff;
+  --ink:#0c1733; --ink-dim:rgba(12,23,51,.55);
+  --snow:#f4f3ef; --snow-dim:rgba(255,255,255,.55);
+  --blue:#0B3ED9; --blue-on-dark:#6f8fff; --live:#2fd27a;
+  --hair-light:rgba(12,23,51,.1); --hair-dark:rgba(255,255,255,.14);
+  --display:var(--font-tight),"Inter Tight",Inter,Arial,sans-serif;
+  --mono:var(--font-mono),ui-monospace,SFMono-Regular,Menlo,monospace;
+  --wrap:1240px; --gutter:max(20px,4vw);
+  --r-lg:28px; --r-sm:14px;
+  font-family:var(--display);
+  -webkit-font-smoothing:antialiased;
+}
+.bh *{box-sizing:border-box}
+.bh h1,.bh h2,.bh h3,.bh h4,.bh p{margin:0}
