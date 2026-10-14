@@ -102,6 +102,11 @@ export default function Closing() {
             </ul>
 
             <div id="quote-form" className={s.form}>
+              <ol className={s.steps} aria-label="Two steps">
+                <li data-on="">1 · Choose a service</li>
+                <li>2 · Your details</li>
+              </ol>
+              <h3 className={s.formHead}>Start your project.<span>It takes a minute.</span></h3>
               <EnquireInline />
             </div>
           </div>

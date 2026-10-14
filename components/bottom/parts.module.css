@@ -1,0 +1,25 @@
+/* Shared bottom-half parts. Two-class selectors so the site-wide
+   `.bp-home h2` (Inter 600) can't override the display face. */
+
+/* Size via --h-size so each section can set it with a single class. */
+:global(.bh) .h{font-family:var(--display);font-weight:300;letter-spacing:-.045em;line-height:1.02;margin:0;text-wrap:balance;color:inherit;font-size:var(--h-size,clamp(40px,5.4vw,80px))}
+.dim{display:block;opacity:.48}
+
+.eyebrow{display:inline-flex;align-items:center;gap:14px;font-family:var(--display);font-size:12px;font-weight:400;letter-spacing:.34em;text-transform:uppercase;opacity:.6;margin:0 0 26px;padding-left:.34em}
+.eyebrow::before{content:'';width:22px;height:1px;background:currentColor;opacity:.6}
+
+/* Phone: titanium band, black bezel, Dynamic Island, glass sheen. */
+.phone{position:relative;aspect-ratio:9/19.3;border-radius:15.5%/7.4%;padding:2.6%;background:linear-gradient(145deg,#d9dde4 0%,#8e939c 22%,#e9ecf0 46%,#7d828b 72%,#c7cbd2 100%);box-shadow:0 0 0 1px rgba(0,0,0,.35) inset}
+.phone::before{content:'';position:absolute;inset:.9%;border-radius:15%/7.1%;background:#050607}
+.screen{position:absolute;inset:3.3%;border-radius:12.8%/6.1%;overflow:hidden;background:#000;isolation:isolate}
+.screen::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(118deg,rgba(255,255,255,.12),rgba(255,255,255,0) 38%);z-index:3}
+.island{position:absolute;top:1.6%;left:50%;width:31%;height:3.4%;transform:translateX(-50%);border-radius:99px;background:#000;z-index:4}
+
+/* Browser window. */
+.browser{border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px rgba(12,23,51,.1),0 40px 80px -40px rgba(12,23,51,.35)}
+.chrome{display:grid;grid-template-columns:72px 1fr 72px;align-items:center;height:38px;padding:0 14px;background:#f1f2f5;border-bottom:1px solid rgba(12,23,51,.08)}
+.lights{display:flex;gap:7px}
+.lights i{width:11px;height:11px;border-radius:50%;background:#dcdfe5}
+.url{justify-self:center;font:500 12px/1 var(--display);color:#5b6478;background:#e6e8ec;border-radius:7px;padding:7px 22px;min-width:min(340px,60%);text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.viewport{position:relative;overflow:hidden;background:#fff}
+@media (max-width:600px){.chrome{height:30px;grid-template-columns:44px 1fr 44px;padding:0 10px}.lights i{width:8px;height:8px}.url{font-size:10px;padding:5px 12px}}

@@ -54,61 +54,40 @@
 }
 .root .phone:hover { color: #fff; }
 
-/* The enquiry form (EnquireInline, global .bp-enq-* classes) re-skinned for space:
-   no card, a typographic list of services, outline fields and a snow pill. */
-.form :global(.bp-enq-card) { padding: 0; background: none; border: 0; border-radius: 0; box-shadow: none; }
-.form :global(.bp-enq-card-title) {
-  margin-bottom: 8px; font-family: var(--display); font-size: clamp(20px, 1.7vw, 24px);
-  font-weight: 400; letter-spacing: -0.02em; line-height: 1.2; color: var(--snow);
-}
-.form :global(.bp-enq-card-sub) { margin-bottom: 22px; font-size: 17px; line-height: 1.5; color: var(--snow-dim); }
-/* The lede already promises the call-back, so the idle subline would repeat it.
-   It returns, with its step-specific wording, once a service is picked or sent. */
-.form :global(.bp-enq-card:has(.bp-enq-grid) .bp-enq-card-sub) { display: none; }
-.form :global(.bp-enq-card:has(.bp-enq-grid) .bp-enq-card-title) { margin-bottom: 22px; }
-.form :global(.bp-enq) { font-family: var(--display); }
-.form :global(.bp-enq-inline .bp-enq-grid) { grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--hair-dark); }
-.form :global(.bp-enq-inline .bp-enq-grid .bp-enq-choice) {
-  min-height: clamp(56px, 4.6vw, 66px); padding: 0 2px;
-  background: none; border: 0; border-bottom: 1px solid var(--hair-dark); border-radius: 0;
-  font-family: var(--display); font-size: clamp(18px, 1.6vw, 23px); font-weight: 300;
-  letter-spacing: -0.02em; color: var(--snow); transform: none;
-}
-.form :global(.bp-enq-inline .bp-enq-grid .bp-enq-choice svg) { width: 18px; height: 18px; color: var(--snow-dim); }
-.form :global(.bp-enq-inline .bp-enq-grid .bp-enq-choice:hover) { background: none; border-color: var(--hair-dark); transform: none; color: #fff; }
-.form :global(.bp-enq-inline .bp-enq-grid .bp-enq-choice:hover svg) { color: var(--snow); transform: translateX(3px); }
-.form :global(.bp-enq-inline .bp-enq-note) { margin-top: 18px; font-size: 13px; color: var(--snow-dim); text-align: left; }
-.form :global(.bp-enq-inline .bp-enq-note a),
-.form :global(.bp-enq-inline .bp-enq-note a:hover) { color: var(--snow-dim); }
-
-.form :global(.bp-enq-inline .bp-enq-picked) {
-  min-height: 48px; margin-bottom: 22px; padding: 0 22px;
-  background: none; border: 1px solid var(--hair-dark); border-radius: 999px;
-  font-size: 16px; font-weight: 400; letter-spacing: -0.01em; color: var(--snow);
-}
-.form :global(.bp-enq-inline .bp-enq-picked button) { color: var(--snow-dim); font-size: 13px; font-weight: 400; }
-.form :global(.bp-enq-inline .bp-enq-field label) { margin-bottom: 8px; font-size: 13px; font-weight: 400; color: var(--snow-dim); }
-.form :global(.bp-enq-inline .bp-enq-field label span) { color: var(--snow-dim); opacity: 0.7; }
-.form :global(.bp-enq-inline .bp-enq-field input) {
-  min-height: 52px; padding: 13px 16px;
-  background: transparent; border: 1px solid var(--hair-dark); border-radius: 999px;
-  font-family: var(--display); font-size: 16px; color: var(--snow);
-}
-.form :global(.bp-enq-inline .bp-enq-field input:focus) { outline: 2px solid var(--blue-on-dark); outline-offset: -1px; background: rgba(255, 255, 255, 0.04); }
-.form :global(.bp-enq-inline .bp-enq-field input[aria-invalid=true]) { border-color: #ff9c9c; }
-.form :global(.bp-enq-inline .bp-enq-error) { color: #ff9c9c; }
-.form :global(.bp-enq-inline .bp-enq-send) {
-  min-height: 54px; margin-top: 10px; border-radius: 999px;
-  background: var(--snow); color: var(--ink);
-  font-family: var(--display); font-size: 16px; font-weight: 500; letter-spacing: -0.01em;
-}
-.form :global(.bp-enq-inline .bp-enq-send:hover) { background: #fff; transform: none; }
-.form :global(.bp-enq-inline.bp-enq-done) { text-align: left; }
-.form :global(.bp-enq-inline .bp-enq-tick) { margin: 0 0 18px; background: rgba(255, 255, 255, 0.08); color: var(--snow); }
-.form :global(.bp-enq-inline.bp-enq-done h3) { font-family: var(--display); font-size: 24px; font-weight: 400; letter-spacing: -0.02em; color: var(--snow); }
-.form :global(.bp-enq-inline.bp-enq-done p) { font-size: 16px; color: var(--snow-dim); }
-.form :global(.bp-enq-inline.bp-enq-done strong) { font-weight: 400; color: var(--snow); }
-.form :global(.bp-enq-inline .bp-enq-again) { color: var(--snow); font-family: var(--display); font-weight: 400; font-size: 15px; }
+/* The enquiry form: the newer two-step pill design, re-skinned for space. */
+.form{min-width:0}
+.steps{list-style:none;margin:0 0 22px;padding:0;display:flex;flex-wrap:wrap;gap:10px 30px;font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:rgba(244,243,239,.32)}
+.steps li[data-on]{color:rgba(244,243,239,.72)}
+.form .formHead{font-family:var(--display);font-weight:300;font-size:clamp(32px,3.2vw,48px);letter-spacing:-.045em;line-height:1.02;color:var(--snow);margin:0 0 22px}
+.form .formHead span{display:block;opacity:.48}
+.form :global(.bp-enq-card){padding:0;background:none;border:0;box-shadow:none;border-radius:0}
+.form :global(.bp-enq-card-title){position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.form :global(.bp-enq-card:has(.bp-enq-grid) .bp-enq-card-sub){display:none}
+.form :global(.bp-enq-card-sub){font-size:17px;color:var(--snow-dim);margin-bottom:20px}
+.form :global(.bp-enq-grid){grid-template-columns:1fr;gap:8px}
+.form :global(.bp-enq-grid > .bp-enq-choice.bp-enq-choice){min-height:50px;grid-column:auto}
+.form :global(.bp-enq-choice){padding:0 26px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.18);color:var(--snow);font-family:var(--display);font-size:17px;font-weight:400;letter-spacing:-.01em;justify-content:flex-start;gap:16px}
+.form :global(.bp-enq-choice)::before{content:'';flex:none;width:18px;height:18px;border-radius:50%;border:1.5px solid rgba(255,255,255,.45)}
+.form :global(.bp-enq-choice) > span{flex:1}
+.form :global(.bp-enq-choice svg){color:rgba(255,255,255,.45)}
+.form :global(.bp-enq-choice:hover){background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.45);transform:none;color:var(--snow)}
+.form :global(.bp-enq-choice:hover)::before{border-color:var(--snow);box-shadow:inset 0 0 0 3px var(--space),inset 0 0 0 9px var(--snow)}
+.form :global(.bp-enq-note){color:var(--snow-dim);font-size:14px;text-align:left;margin-top:20px}
+.form :global(.bp-enq-note a){color:var(--snow-dim)}
+.form :global(.bp-enq-picked){background:rgba(255,255,255,.06);color:var(--snow);border-radius:999px;padding:14px 22px}
+.form :global(.bp-enq-picked button){color:var(--snow)}
+.form :global(.bp-enq-fields){grid-template-columns:1fr}
+.form :global(.bp-enq-field label){color:var(--snow);font-weight:500;font-size:13px}
+.form :global(.bp-enq-field label span){color:var(--snow-dim)}
+.form :global(.bp-enq-field input){min-height:56px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:0 22px;color:var(--snow)}
+.form :global(.bp-enq-field input:focus){outline:2px solid var(--snow);background:rgba(255,255,255,.07)}
+.form :global(.bp-enq-send){min-height:58px;background:var(--snow);color:#0b0d10;font-family:var(--display);font-weight:500;font-size:16px}
+.form :global(.bp-enq-send:hover){background:#fff}
+.form :global(.bp-enq-error){color:#ff9c86}
+.form :global(.bp-enq-done h3){color:var(--snow)}
+.form :global(.bp-enq-done p){color:var(--snow-dim)}
+.form :global(.bp-enq-tick){background:rgba(255,255,255,.08);color:var(--snow)}
+.form :global(.bp-enq-again){color:var(--snow)}
 
 .root.root :focus-visible { outline: 2px solid var(--blue-on-dark); outline-offset: 4px; }
 

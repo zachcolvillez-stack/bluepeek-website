@@ -27,7 +27,7 @@ import { SITE } from '../lib/site'
 
 // Section length in viewport heights: the fall, then the screen.
 const FILM_SCREENS = film.scrollScreens
-const SCREEN_SCREENS = 6
+const SCREEN_SCREENS = 2.2
 const TOTAL = FILM_SCREENS + SCREEN_SCREENS
 const FILM_END = FILM_SCREENS / TOTAL
 
@@ -50,18 +50,9 @@ const CHAPTERS = [
   { id: 'c3', from: B2, to: B3, title: 'Fast on every phone.', dim: 'Because that’s where your customers are.' },
   { id: 'c4', from: B3, to: B4 + (FILM_END - B4) * 0.55, title: 'First month free.', dim: 'Then from $99 a month.' },
 ]
-// The screen phase, in screen-phase progress (0–1).
-const S = { boot: 0.02, build: 0.1, live: 0.34, work: 0.4, more: 0.68, dive: 0.86 }
-const SCREEN_COPY = [
-  { id: 's1', from: 0.0, to: S.work, title: 'Watch a site come together.', dim: 'Layout, words, photos, live.' },
-  { id: 's2', from: S.work, to: S.more, title: 'Real sites.', dim: 'For real Australian businesses.' },
-  { id: 's3', from: S.more, to: S.dive, title: 'Every one, built by hand.', dim: 'Ceramic Coating · Marlin Glass · Jasmine Spa' },
-]
-const WORK = [
-  { src: '/images/ceramic-coating-preview.webp', name: 'Ceramic Coating Gold Coast' },
-  { src: '/screenshots/showcase/marlinsglass.jpg', name: 'Marlin Glass Fencing' },
-  { src: '/screenshots/jasmine.webp', name: 'Jasmine Health & Spa' },
-]
+// The screen phase, in screen-phase progress (0–1): the open screen lights up
+// in the page colour, then the camera glides through it into the page.
+const S = { light: 0.22, dive: 0.08 }
 
 /** Scroll progress → (fractional) film frame, through the pacing map. */
 function frameAt(p) {
@@ -357,17 +348,11 @@ export default function DescentFilm() {
     }
 
     const copyEls = Array.from(stage.querySelectorAll('[data-from]'))
-    const workEls = Array.from(screen.querySelectorAll('[data-work]'))
-    const strip = screen.querySelector('[data-strip]')
-    const rail = screen.querySelector('[data-rail]')
-    const boot = screen.querySelector('[data-boot]')
-    const bootBar = screen.querySelector('[data-boot-bar]')
     const ring = stage.querySelector('[data-ring]')
     const ringWrap = stage.querySelector('.bp-film-ring')
     const fade = stage.querySelector('[data-fade]')
     const scrim = stage.querySelector('[data-scrim]')
     const poster = stage.querySelector('.film-poster')
-    let lastStep = -1
     let raf = 0
     let last = performance.now()
 
@@ -412,44 +397,23 @@ export default function DescentFilm() {
         // Screen phase progress.
         const sp = Math.max(0, (current - FILM_END) / (1 - FILM_END))
         stage.style.setProperty('--sp', sp.toFixed(4))
-        // The screen wakes as the lid finishes opening.
-        screen.style.opacity = String(ss(FILM_END - 0.01, FILM_END + 0.004, current))
-        // Camera: a gentle push-in while the screen works, then the dive.
+        // The screen lights up as the lid finishes opening.
+        screen.style.opacity = current < FILM_END - 0.01 ? '0' : String(ss(0, S.light, sp))
+        // Camera: one continuous glide into the screen.
         // Phones: the screen is wider than the viewport, so ease back until it
         // fits (the stage's sky-to-cloud backdrop shows at the feathered edges).
         const fit = Math.min(1, (0.92 * vw) / scr.w)
-        const push = portrait ? (fit - 1) * ss(0, S.build, sp) : 0.28 * ss(S.boot, S.build + 0.06, sp)
+        const push = portrait ? (fit - 1) * ss(0, 0.12, sp) : 0
         if (portrait) stage.toggleAttribute('data-fit', sp > 0 && sp < 0.97)
         const fill = Math.max(vw / scr.w, vh / scr.h) * 1.04
-        const dive = reduce ? 0 : ss(S.dive, 1, sp)
+        const dive = reduce ? 0 : ss(S.dive, 0.97, sp)
         const base = 1 + push
         const scale = base + (fill - base) * dive * dive
-        // Phones: also slide the screen to the exact centre while easing back.
-        const tx = portrait ? (vw / 2 - scr.cx) * ss(0, S.build, sp) : 0
+        const tx = portrait ? (vw / 2 - scr.cx) * ss(0, 0.12, sp) : 0
         camera.style.transform = sp > 0 ? `translateX(${tx}px) scale(${scale})` : ''
-        if (fade) fade.style.opacity = String(ss(0.93, 1, sp))
+        if (fade) fade.style.opacity = String(ss(0.82, 0.99, sp))
         // Daylight chapters: a soft top scrim keeps white copy readable on the sky.
         if (scrim) scrim.style.opacity = String(ss(B1, B2, current) * (1 - ss(FILM_END - 0.03, FILM_END, current)))
-
-        // Screen content.
-        if (boot) boot.style.opacity = String(1 - ss(S.build - 0.02, S.build + 0.01, sp))
-        if (bootBar) bootBar.style.transform = `scaleX(${ss(S.boot, S.build - 0.03, sp)})`
-        const step = sp < S.build ? 0 : sp < S.build + 0.06 ? 1 : sp < S.build + 0.12 ? 2 : sp < S.build + 0.18 ? 3 : 4
-        if (step !== lastStep) { lastStep = step; screen.dataset.step = String(step) }
-        const workIn = ss(S.work - 0.02, S.work + 0.02, sp)
-        for (const el of workEls) {
-          const which = el.dataset.work
-          if (which === 'build') el.style.opacity = String(1 - workIn)
-          if (which === 'strip') el.style.opacity = String(workIn * (1 - ss(S.more - 0.02, S.more + 0.01, sp)))
-          if (which === 'rail') el.style.opacity = String(ss(S.more - 0.02, S.more + 0.01, sp))
-        }
-        if (strip) strip.style.transform = `translate3d(0,${-ss(S.work + 0.02, S.more - 0.03, sp) * 79.25}%,0)`
-        if (rail) {
-          const c = Math.min(1, Math.max(0, (sp - S.more) / (S.dive - S.more))) * (WORK.length - 1)
-          const ci = Math.floor(c)
-          const pos = Math.min(WORK.length - 1, ci + ss(0.45, 1, c - ci))
-          rail.style.transform = `translate3d(${-pos * 100}%,0,0)`
-        }
 
         // Copy: each block eases in and out across its own window.
         for (const el of copyEls) {
@@ -529,33 +493,8 @@ export default function DescentFilm() {
           <div ref={frameRef} className="bp-film-frame" aria-hidden="true">
             <div ref={filmRef} className="bp-film-layer" />
             <div className="bp-wisps"><i /><i /><i /><i /></div>
-            <div ref={screenRef} className="bp-screen" data-step="0" style={{ width: SCREEN_W, height: SCREEN_H }}>
-              <div data-boot className="bp-screen-boot">
-                <span className="bp-screen-mark">Blue<span>peek</span></span>
-                <span className="bp-screen-bootbar"><i data-boot-bar /></span>
-              </div>
-              <div data-work="build" className="bp-build">
-                <div className="bp-build-nav"><b /><span /><span /><span /><em /></div>
-                <div className="bp-build-hero">
-                  <div className="bp-build-copy">
-                    <p className="bp-build-kicker"><span>Nerang · Gold Coast</span></p>
-                    <h3><span>Ceramic coating,</span><span>done properly.</span></h3>
-                    <p className="bp-build-text"><span>Paint correction, coating and detailing from a studio that takes its time.</span></p>
-                    <div className="bp-build-buttons"><i>Get a quote</i><em>Our work</em></div>
-                  </div>
-                  <div className="bp-build-photo"><img src="/images/ceramic-coating-preview.webp" alt="" /></div>
-                </div>
-                <div className="bp-build-live"><i />Live</div>
-              </div>
-              <div data-work="strip" className="bp-screen-strip">
-                <img data-strip src="/images/coastal-2pac-scroll-3200.webp" alt="" />
-              </div>
-              <div data-work="rail" className="bp-screen-railwrap">
-                <div data-rail className="bp-screen-rail">
-                  {WORK.map((w) => <img key={w.src} src={w.src} alt="" />)}
-                </div>
-              </div>
-            </div>
+            {/* The screen lights up in the page's own colour, so the dive lands on the page itself. */}
+            <div ref={screenRef} className="bp-screen" style={{ width: SCREEN_W, height: SCREEN_H }} />
           </div>
         </div>
         <div data-scrim className="bp-film-scrim" aria-hidden="true" />
@@ -579,11 +518,6 @@ export default function DescentFilm() {
                   <a href="#contact" className="t-pill t-pill--solid" onClick={(e) => { e.preventDefault(); openEnquire('New website or redesign') }}>Start my website <span aria-hidden="true">→</span></a>
                 </div>
               )}
-            </div>
-          ))}
-          {SCREEN_COPY.map((c) => (
-            <div key={c.id} data-phase="screen" data-tone="ink" data-from={c.from} data-to={c.to} className="bp-film-ch bp-film-ch--later">
-              <h2 className="t-display">{c.title}<span>{c.dim}</span></h2>
             </div>
           ))}
         </div>

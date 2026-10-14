@@ -17,50 +17,12 @@
 .bp-film-frame{position:absolute;left:0;top:0;transform-origin:0 0;pointer-events:none}
 
 /* The laptop screen: live HTML, projected onto the screen corners. */
-.bp-screen{position:absolute;left:0;top:0;transform-origin:0 0;overflow:hidden;background:#05070b;opacity:0;font-family:var(--font-tight),Inter,Arial,sans-serif;color:#10141c}
+.bp-screen{position:absolute;left:0;top:0;transform-origin:0 0;overflow:hidden;background:#f6f8fc;opacity:0;font-family:var(--font-tight),Inter,Arial,sans-serif;color:#10141c}
 .bp-screen:after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,rgba(255,255,255,.07),transparent 46%,rgba(255,255,255,.02));z-index:5}
-.bp-screen-boot{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:48px;background:#05070b;z-index:3}
-.bp-screen-mark{font-size:88px;font-weight:300;letter-spacing:-.045em;color:#fff}
-.bp-screen-mark span{color:#6f8fff}
-.bp-screen-bootbar{width:300px;height:4px;border-radius:4px;background:rgba(255,255,255,.14);overflow:hidden}
-.bp-screen-bootbar i{display:block;height:100%;background:#fff;transform:scaleX(0);transform-origin:0 50%}
 
 /* Build sequence: wireframe (1) → words (2) → photos (3) → live (4). */
-.bp-build{position:absolute;inset:0;background:#f6f5f1;padding:34px 56px;z-index:2}
-.bp-build-nav{display:flex;align-items:center;gap:28px;height:46px}
-.bp-build-nav b{width:150px;height:22px;border-radius:6px;background:#d9dce2;transition:background .5s}
-.bp-build-nav span{width:70px;height:10px;border-radius:5px;background:#e3e5ea}
-.bp-build-nav span:first-of-type{margin-left:auto}
-.bp-build-nav em{width:130px;height:40px;border-radius:40px;background:#d9dce2;transition:background .5s}
-.bp-build-hero{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:46px}
-.bp-build-copy{display:grid;gap:22px}
-.bp-build-kicker span,.bp-build h3 span,.bp-build-text span{display:block;color:transparent;background:#e1e3e8;border-radius:8px;transition:color .5s,background .5s}
-.bp-build-kicker{font-size:18px;letter-spacing:.14em;text-transform:uppercase;font-family:var(--font-mono),monospace}
-.bp-build-kicker span{width:max-content}
-.bp-build h3{font-size:64px;line-height:1;font-weight:300;letter-spacing:-.045em;display:grid;gap:10px;margin:0}
-.bp-build h3 span{width:max-content}
-.bp-build-text{font-size:22px;line-height:1.5;max-width:470px}
-.bp-build-buttons{display:flex;gap:14px;margin-top:6px}
-.bp-build-buttons i,.bp-build-buttons em{font-style:normal;font-size:19px;padding:16px 30px;border-radius:40px;color:transparent;background:#e1e3e8;transition:color .5s,background .5s,border-color .5s;border:1px solid transparent}
-.bp-build-photo{aspect-ratio:4/3.3;border-radius:14px;background:#e1e3e8;overflow:hidden;position:relative}
-.bp-build-photo img{width:100%;height:100%;object-fit:cover;object-position:62% 50%;opacity:0;transform:scale(1.06);transition:opacity .7s,transform 1.2s}
-.bp-build-live{position:absolute;right:40px;bottom:30px;display:flex;align-items:center;gap:10px;font:500 18px/1 var(--font-mono),monospace;letter-spacing:.1em;text-transform:uppercase;background:#0e1420;color:#fff;padding:14px 22px;border-radius:40px;opacity:0;transform:translateY(12px);transition:opacity .5s,transform .5s}
-.bp-build-live i{width:10px;height:10px;border-radius:50%;background:#2fd27a;box-shadow:0 0 0 6px rgba(47,210,122,.18)}
-.bp-screen[data-step="2"] .bp-build-kicker span,.bp-screen[data-step="3"] .bp-build-kicker span,.bp-screen[data-step="4"] .bp-build-kicker span{color:#0B3ED9;background:transparent}
-.bp-screen[data-step="2"] .bp-build h3 span,.bp-screen[data-step="3"] .bp-build h3 span,.bp-screen[data-step="4"] .bp-build h3 span{color:#10141c;background:transparent}
-.bp-screen[data-step="2"] .bp-build-text span,.bp-screen[data-step="3"] .bp-build-text span,.bp-screen[data-step="4"] .bp-build-text span{color:#4a505c;background:transparent}
-.bp-screen[data-step="2"] .bp-build-nav b,.bp-screen[data-step="3"] .bp-build-nav b,.bp-screen[data-step="4"] .bp-build-nav b{background:#10141c}
-.bp-screen[data-step="3"] .bp-build-photo img,.bp-screen[data-step="4"] .bp-build-photo img{opacity:1;transform:none}
-.bp-screen[data-step="3"] .bp-build-buttons i,.bp-screen[data-step="4"] .bp-build-buttons i{color:#fff;background:#0B3ED9}
-.bp-screen[data-step="3"] .bp-build-buttons em,.bp-screen[data-step="4"] .bp-build-buttons em{color:#10141c;background:transparent;border-color:#c9ccd3}
-.bp-screen[data-step="3"] .bp-build-nav em,.bp-screen[data-step="4"] .bp-build-nav em{background:#0B3ED9}
-.bp-screen[data-step="4"] .bp-build-live{opacity:1;transform:none}
 
 /* Real work: a full-length capture scrolled by the page, then a reel. */
-.bp-screen-strip,.bp-screen-railwrap{position:absolute;inset:0;opacity:0;z-index:2;overflow:hidden;background:#fff}
-.bp-screen-strip img{display:block;width:100%;height:auto;will-change:transform}
-.bp-screen-rail{display:flex;height:100%;will-change:transform}
-.bp-screen-rail img{flex:0 0 100%;width:100%;height:100%;object-fit:cover;object-position:top}
 
 /* Cloud wisps drifting around the laptop's base (in film-frame pixels). */
 .bp-wisps{position:absolute;left:300px;top:640px;width:1320px;height:440px;opacity:calc(min(1,var(--sp)*20))}
@@ -142,7 +104,6 @@
 
 /* Beat the site-wide .bp-home h1/h2/h3 and link-hover rules inside the film. */
 .bp-film h1.t-display,.bp-film h2.t-display{font-family:var(--font-tight),Inter,Arial,sans-serif;font-weight:300;letter-spacing:-.045em;line-height:.98}
-.bp-film .bp-build h3{font-family:var(--font-tight),Inter,Arial,sans-serif;font-weight:300;font-size:64px;letter-spacing:-.045em;line-height:1;color:#10141c}
 .bp-film .t-pill--solid,.bp-film .t-pill--solid:hover{color:#0b0d10}
 .bp-film .t-pill--line,.bp-film .t-pill--line:hover{color:#fff}
 
