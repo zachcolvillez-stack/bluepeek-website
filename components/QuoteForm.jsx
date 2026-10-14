@@ -29,7 +29,8 @@ export default function QuoteForm({ compact = false, id = 'quote-form' }) {
   const [touched, setTouched] = useState(false)
 
   const set = (k, v) => setForm(f => ({ ...f, [k]: v }))
-  const phoneOk = /^0[45]\d{2}\s?\d{3}\s?\d{3}$|^0[2-8]\s?\d{4}\s?\d{4}$/.test(form.phone.replace(/\s/g, ''))
+  const phoneOk = /^[+\d\s().-]{8,25}$/.test(form.phone.trim())
+    && /^(?:0[2-8]\d{8}|61[2-8]\d{8})$/.test(form.phone.replace(/\D/g, ''))
   const ready = form.name.trim().length > 1 && phoneOk
 
   const submit = async (e) => {
@@ -99,11 +100,11 @@ export default function QuoteForm({ compact = false, id = 'quote-form' }) {
         <div>
           <input
             className={inp} style={inpStyle(touched && !phoneOk)}
-            placeholder="Mobile number" value={form.phone} inputMode="tel"
+            placeholder="Phone number" value={form.phone} inputMode="tel"
             onChange={e => set('phone', e.target.value)} autoComplete="tel" />
           {touched && !phoneOk && (
             <p className="text-xs mt-1.5" style={{ color: '#c04545' }}>
-              Enter an Australian number, e.g. 0412 345 678
+              Enter an Australian number, e.g. 0412 345 678 or +61 412 345 678
             </p>
           )}
         </div>
