@@ -163,6 +163,12 @@ export default async function BlogArticlePage({ params }) {
             </section>
           )}
 
+          {client && (
+            <p className="mt-12 text-sm leading-relaxed" style={{ color: 'var(--muted)' }}>
+              Written by Bluepeek, a <Link className="bp-inline-link" href="/website-design-gold-coast">web design</Link> and <Link className="bp-inline-link" href="/seo-gold-coast">SEO</Link> studio on the Gold Coast run by Jac Thomas-Rees and Zach Colville. Search results were checked on Google on 14 October 2026; positions change daily and vary by where you search from.
+            </p>
+          )}
+
           <div className="mt-16 site-callout p-10 text-center relative overflow-hidden">
             <h2 className="relative text-2xl md:text-3xl font-bold mb-3">Ready to get more leads?</h2>
             <p className="relative text-base mb-7 max-w-lg mx-auto" style={{ color: 'var(--text)' }}>
