@@ -2,7 +2,9 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { ChevronRight, ArrowRight } from 'lucide-react'
 import { SITE } from '../../../lib/site'
-import { BLOG_POSTS, getPostBySlug } from '../../../lib/blog'
+import { BLOG_POSTS, getPostBySlug, clientPostsIn } from '../../../lib/blog'
+import { HUBS, CLIENT_SHOTS } from '../../../lib/hubs'
+import Image from 'next/image'
 import { articleSchema, faqSchema, breadcrumbSchema } from '../../../lib/schema'
 import SiteHeader from '../../../components/site/SiteHeader'
 import SiteFooter from '../../../components/site/SiteFooter'
@@ -43,6 +45,10 @@ export default async function BlogArticlePage({ params }) {
 
   const path = `/blog/${slug}`
   const service = post.primaryService && linkFor(post.primaryService)
+  const client = post.client
+  const hub = post.hub && HUBS[post.hub]
+  const shot = client && CLIENT_SHOTS[client.id]
+  const more = client ? clientPostsIn(post.hub, post.slug).slice(0, 6) : []
   const breadcrumb = [
     { name: 'Home', path: '/' },
     { name: 'Blog', path: '/blog' },
@@ -78,6 +84,26 @@ export default async function BlogArticlePage({ params }) {
           <p className="text-base md:text-lg leading-relaxed mb-10" style={{ color: 'var(--text)' }}>
             <RichText text={post.intro} />
           </p>
+
+          {client && (
+            <aside className="card p-5 mb-12 flex flex-col sm:flex-row gap-5 items-start" style={{ borderRadius: '12px' }} aria-label="About this client">
+              {shot && (
+                <a href={client.url} target="_blank" rel="noopener noreferrer" className="block shrink-0 w-full sm:w-56 overflow-hidden" style={{ borderRadius: '8px' }}>
+                  <Image src={shot} alt={`${client.name} website, built by Bluepeek`} width={960} height={600} sizes="(max-width: 640px) 100vw, 224px" className="w-full h-auto" />
+                </a>
+              )}
+              <div className="text-sm leading-relaxed" style={{ color: 'var(--text)' }}>
+                <p className="text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: 'var(--muted)' }}>Bluepeek client</p>
+                <p className="text-lg font-bold mb-1" style={{ color: 'var(--ink)' }}>{client.name}</p>
+                <p className="mb-3">{client.trade}{client.suburb ? ` · ${client.suburb}, ${client.state}` : ''}</p>
+                <p className="flex flex-wrap gap-x-5 gap-y-1">
+                  <a className="bp-inline-link" href={client.url} target="_blank" rel="noopener noreferrer">{client.url.replace(/^https?:\/\/(www\.)?/, '')} ↗</a>
+                  {client.work && <Link className="bp-inline-link" href={`/work/${client.work}`}>Read the case study</Link>}
+                  {hub && <Link className="bp-inline-link" href={hub.path}>Web design in {hub.label === 'Australia-wide' ? 'Australia' : hub.label}</Link>}
+                </p>
+              </div>
+            </aside>
+          )}
 
           <div className="space-y-10 bp-article">
             {post.sections.map((s, i) => (
@@ -118,6 +144,25 @@ export default async function BlogArticlePage({ params }) {
             </section>
           )}
 
+          {more.length > 0 && (
+            <section className="mt-14" aria-labelledby="more-stories">
+              <h2 id="more-stories" className="text-xl md:text-2xl font-bold tracking-tight mb-5" style={{ color: 'var(--ink)' }}>
+                More client stories from {hub.region}
+              </h2>
+              <ul className="grid sm:grid-cols-2 gap-3">
+                {more.map((p) => (
+                  <li key={p.slug}>
+                    <Link href={`/blog/${p.slug}`} className="card block p-5 h-full" style={{ borderRadius: '8px' }}>
+                      <strong className="block mb-1" style={{ color: 'var(--ink)' }}>{p.client.name}</strong>
+                      <span className="text-sm" style={{ color: 'var(--muted)' }}>{p.client.trade}{p.client.suburb ? ` · ${p.client.suburb}` : ''}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-5 text-sm"><Link className="bp-inline-link" href={hub.path}>See every business we have built for in {hub.region}</Link></p>
+            </section>
+          )}
+
           <div className="mt-16 site-callout p-10 text-center relative overflow-hidden">
             <h2 className="relative text-2xl md:text-3xl font-bold mb-3">Ready to get more leads?</h2>
             <p className="relative text-base mb-7 max-w-lg mx-auto" style={{ color: 'var(--text)' }}>
@@ -138,7 +183,7 @@ export default async function BlogArticlePage({ params }) {
       <SiteFooter />
       <EnquireWidget />
 
-      <JsonLd data={articleSchema({ title: post.title, description: post.description, path, datePublished: post.date, dateModified: post.updated })} />
+      <JsonLd data={articleSchema({ title: post.title, description: post.description, path, datePublished: post.date, dateModified: post.updated, client })} />
       {post.faqs?.length > 0 && <JsonLd data={faqSchema(post.faqs.map(f => ({ q: f.q, a: plainText(f.a) })))} />}
       <JsonLd data={breadcrumbSchema(breadcrumb)} />
     </>

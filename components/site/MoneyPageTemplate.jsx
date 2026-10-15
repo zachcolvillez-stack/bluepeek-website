@@ -10,7 +10,8 @@ import ContentBlocks from './ContentBlocks'
 import LeadForm from './LeadForm'
 import GrowthSystem from './GrowthSystem'
 import { linkFor, stageOf } from '../../lib/growth'
-import { getPostBySlug } from '../../lib/blog'
+import { getPostBySlug, CLIENT_POSTS } from '../../lib/blog'
+import { HUBS, HUB_ORDER } from '../../lib/hubs'
 import { CASE_STUDIES, u } from '../../lib/site'
 
 /**
@@ -24,6 +25,9 @@ export default function MoneyPageTemplate({ page, breadcrumb }) {
   const guides = (page.guides || []).map(getPostBySlug).filter(Boolean)
   const studies = (page.caseStudies || []).map(s => CASE_STUDIES.find(c => c.slug === s)).filter(Boolean)
   const cta = page.cta || { label: 'Get a Free Growth Audit', form: 'general' }
+  // Location pages list the client stories in their hub; the national page lists every hub.
+  const hubs = page.hub === 'all' ? HUB_ORDER : page.hub ? [page.hub] : []
+  const hubGroups = hubs.map(h => ({ hub: h, posts: CLIENT_POSTS.filter(p => p.hub === h) })).filter(g => g.posts.length)
 
   return (
     <>
@@ -74,6 +78,31 @@ export default function MoneyPageTemplate({ page, breadcrumb }) {
             </section>
           ))}
         </div>
+
+        {hubGroups.length > 0 && (
+          <div className="bp-mp-wrap">
+            <section className="bp-mp-section" id="local-clients">
+              <h2>{page.clientsTitle || `Local businesses we have built for in ${HUBS[page.hub]?.region || 'Australia'}`}</h2>
+              {page.clientsIntro && <p><RichText text={page.clientsIntro} /></p>}
+              {hubGroups.map(g => (
+                <div key={g.hub} className="bp-mp-sub">
+                  {hubs.length > 1 && <h3><Link href={HUBS[g.hub].path}>{HUBS[g.hub].region.replace(/^the /, '').replace(/^./, c => c.toUpperCase())}</Link> · {g.posts.length}</h3>}
+                  <ul className="bp-mp-cards">
+                    {g.posts.map(p => (
+                      <li key={p.slug}>
+                        <Link href={`/blog/${p.slug}`}>
+                          <strong>{p.client.name}</strong>
+                          <span>{p.client.trade}{p.client.suburb ? ` · ${p.client.suburb}, ${p.client.state}` : ''}</span>
+                          <span className="bp-proof-link">How local search works for them →</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </section>
+          </div>
+        )}
 
         {studies.length > 0 && (
           <div className="bp-mp-wrap">
