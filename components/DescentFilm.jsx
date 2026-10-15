@@ -268,8 +268,20 @@ export default function DescentFilm() {
       video.src = url
       video.load()
     })
+    // Chrome counts a video as the LCP element even while it is hidden, so the
+    // downloaded clips are only attached on the first interaction (scroll,
+    // wheel, touch, key). LCP stops being recorded at that moment, which keeps
+    // the poster as the LCP element; until then it already shows frame 0.
+    const firstInput = new Promise((resolve) => {
+      if (window.scrollY > 0 || window.location.hash) return resolve()
+      const events = ['scroll', 'wheel', 'touchstart', 'keydown', 'pointerdown']
+      const go = () => { events.forEach((e) => window.removeEventListener(e, go, true)); resolve() }
+      events.forEach((e) => window.addEventListener(e, go, { capture: true, passive: true }))
+    })
     const loadTrack = async (t, onProgress) => {
       const url = await blobUrl(t.url, onProgress)
+      if (cancelled) return
+      await firstInput
       if (cancelled) return
       objectUrls.push(url)
       await attach(t.video, url)
@@ -374,7 +386,10 @@ export default function DescentFilm() {
         const seg = segs[i]
         if (seg.ready) {
           seg.seeker.seek(Math.min(f - seg.start, seg.frames - 1) / film.fps)
-          show(seg)
+          // At the very top the poster already is frame 0. Keep the video hidden
+          // until the first scroll, so the poster stays the page's LCP element
+          // instead of a multi-megabyte video painting over it seconds later.
+          show(fp > 0.002 ? seg : null)
           const next = segs[i + 1]
           if (next?.ready && next !== shown) next.seeker.seek(0)
           const prevSeg = segs[i - 1]
@@ -459,8 +474,8 @@ export default function DescentFilm() {
 
   return (
     <section ref={sectionRef} className="bp-film" aria-label="Bluepeek: a laptop falls from space and lands in the clouds" style={{ height: `${TOTAL * 100}svh` }}>
-      <link rel="preload" as="fetch" href={film.segments[0].lg} crossOrigin="anonymous" media="(min-aspect-ratio: 1001/1000)" />
-      <link rel="preload" as="fetch" href={film.segments[0].sm} crossOrigin="anonymous" media="(max-aspect-ratio: 1/1)" />
+      <link rel="preload" as="fetch" href={film.segments[0].lg} crossOrigin="anonymous" fetchPriority="low" media="(min-aspect-ratio: 1001/1000)" />
+      <link rel="preload" as="fetch" href={film.segments[0].sm} crossOrigin="anonymous" fetchPriority="low" media="(max-aspect-ratio: 1/1)" />
       <script dangerouslySetInnerHTML={{ __html: HOLD_SCRIPT }} />
 
       {/* Intro: shown while <html data-film-intro> is set (2.5 s at most). */}

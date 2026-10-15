@@ -12,8 +12,10 @@
 .bp-film-camera{position:absolute;inset:0;will-change:transform}
 .film-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
 .bp-film-layer{position:absolute;inset:0}
-.film-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;opacity:0}
-.film-video[data-on]{opacity:1}
+/* Hidden layers are visibility:hidden, not just transparent: a transparent video still
+   paints its first frame, and Chrome then counts it as the LCP element over the poster. */
+.film-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;opacity:0;visibility:hidden}
+.film-video[data-on]{opacity:1;visibility:visible}
 .bp-film-frame{position:absolute;left:0;top:0;transform-origin:0 0;pointer-events:none}
 
 /* The laptop screen: live HTML, projected onto the screen corners. */
