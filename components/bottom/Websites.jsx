@@ -25,7 +25,6 @@ const SITES = [
   { title: "Beauty Escape", where: "Massage & waxing", url: "https://beautyescapemassage.com.au", image: '/bottom/wall/beauty-escape.webp' },
   { title: "Bluestar Mechanics", where: "Coburg, VIC", url: "https://bluestarmechanics.com.au", image: '/bottom/wall/bluestar-mechanics.webp' },
   { title: "Bo Butcher", where: "Girrawheen, WA", url: "https://www.bobutcher.com.au", image: '/bottom/wall/bo-butcher.webp' },
-  { title: "Byron Bay Tiles & Bathrooms", where: "Byron Bay", url: "https://byronbaytiles.com.au", image: '/bottom/wall/byron-bay-tiles-bathrooms.webp' },
   { title: "Ceramics Gold Coast", where: "Gold Coast", url: "https://ceramicsgoldcoast.com.au", image: '/bottom/wall/ceramics-gold-coast.webp' },
   { title: "Coastal 2PAC", where: "Molendinar", url: "https://coastal2pac.com.au", image: '/bottom/wall/coastal-2pac.webp' },
   { title: "D Wright Painting & Decorating", where: "Heathridge, WA", url: "https://dwrightpaintinganddecorating.com.au", image: '/bottom/wall/d-wright-painting-decorating.webp' },
