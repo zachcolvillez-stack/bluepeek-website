@@ -42,9 +42,9 @@ export default function Systems() {
         </header>
         <div className={s.cards} role="img" aria-label="Bluepeek tap-to-review NFC cards in black and white">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className={`${s.card} ${s.cardBlack}`} src="/bottom/sys/card-black.webp" alt="" decoding="async" />
+          <img className={`${s.card} ${s.cardBlack}`} src="/bottom/sys/card-black.webp" alt="" loading="lazy" decoding="async" />
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className={`${s.card} ${s.cardWhite}`} src="/bottom/sys/card-white.webp" alt="" decoding="async" />
+          <img className={`${s.card} ${s.cardWhite}`} src="/bottom/sys/card-white.webp" alt="" loading="lazy" decoding="async" />
           <span className={s.floor} aria-hidden="true" />
         </div>
         <p className={s.lit}>Customers tap their phone on the card and land <b>straight on your Google review page</b>. No searching, no typing. Cards and plaques <b>from $39</b>.</p>

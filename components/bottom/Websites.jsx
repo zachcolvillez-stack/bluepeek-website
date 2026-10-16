@@ -175,7 +175,7 @@ export default function Websites() {
       {/* Beat 3: how local search works. */}
       <div className={s.local}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className={s.map} src="/bottom/p1/nerang-map.svg" alt="" aria-hidden="true" />
+        <img className={s.map} src="/bottom/p1/nerang-map.svg" alt="" aria-hidden="true" loading="lazy" decoding="async" />
         <div className={s.localInner}>
           <div className={s.localCopy}>
             <Eyebrow>Local SEO · Google Maps</Eyebrow>

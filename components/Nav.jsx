@@ -18,6 +18,7 @@ export default function Nav({ home = true, film = false }) {
       <div className="bp-wrap bp-header-row">
         <a href="/" aria-label="Bluepeek home" className="bp-logo"><Logo size={34} tone={film ? 'dark' : 'light'} /></a>
         <nav className="bp-desktop-nav" aria-label="Main navigation">{links.map(([label, href]) => <a key={href} href={sectionHref(href)}>{label}</a>)}</nav>
+        <a href={sectionHref('#contact')} className="bp-header-cta"><span className="bp-header-cta-long">Get a free quote</span><span className="bp-header-cta-short" aria-hidden="true">Free quote</span></a>
         <button ref={toggle} className="bp-menu-toggle" type="button" aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(!open)}>{open ? 'Close' : 'Menu'}<span aria-hidden="true">{open ? '×' : '☰'}</span></button>
       </div>
       <nav id="mobile-navigation" className="bp-mobile-nav" aria-label="Mobile navigation" hidden={!open}>
