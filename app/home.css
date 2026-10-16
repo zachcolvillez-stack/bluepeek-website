@@ -503,7 +503,13 @@
 }
 
 /* Keep the three core services directly reachable at desktop and mobile sizes. */
-@media(min-width:1024px){.bp-header-row{grid-template-columns:auto 1fr;gap:32px}.bp-desktop-nav{justify-content:flex-end;gap:24px;white-space:nowrap}}
+@media(min-width:1024px){.bp-header-row{grid-template-columns:auto 1fr auto;gap:32px}.bp-desktop-nav{justify-content:flex-end;gap:24px;white-space:nowrap}}
 .bp-proof-cards .bp-proof-image{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;object-position:top;border-radius:6px;margin-bottom:8px}
 .bp-proof-cards .bp-proof-link{color:var(--lapiz);font-weight:600;margin-top:8px}
 .bp-mobile-nav:not([hidden]){max-height:calc(100dvh - 76px);overflow-y:auto}
+
+/* Header CTA: one always-visible way to enquire, on every page and over the film. */
+.bp-header-cta{justify-self:end;display:inline-flex;align-items:center;min-height:40px;padding:0 18px;border-radius:999px;background:var(--ink);color:#fff;font-size:13px;font-weight:500;white-space:nowrap;transition:background .2s,color .2s}
+.bp-header-cta:hover{background:#1f2b45}
+.bp-header-cta-short{display:none}
+@media(max-width:760px){.bp-header-cta{min-height:34px;padding:0 13px;font-size:12px;margin-left:auto;margin-right:12px}.bp-header-cta-long{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.bp-header-cta-short{display:inline}}

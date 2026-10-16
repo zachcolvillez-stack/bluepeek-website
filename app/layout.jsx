@@ -9,11 +9,12 @@ import { SITE } from '../lib/site'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-body', display: 'swap' })
 const interTight = Inter_Tight({ subsets: ['latin'], weight: ['300', '400', '500'], variable: '--font-tight', display: 'swap' })
-const mono = JetBrains_Mono({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-mono', display: 'swap' })
+const mono = JetBrains_Mono({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-mono', display: 'swap', preload: false })
 const archivo = Archivo({
   subsets: ['latin'],
   variable: '--font-display',
   display: 'swap',
+  preload: false,
 })
 import { organizationSchema, websiteSchema } from '../lib/schema'
 import JsonLd from '../components/seo/JsonLd'

@@ -89,6 +89,11 @@
 .bp-film :focus-visible{outline:2px solid #fff;outline-offset:4px}
 
 /* Header over the film. */
+/* Header over the film. It stays pinned while the film plays, so the quote
+   button is always one tap away (the floating Enquire stays off the film). */
+[data-film-on] .bp-header--film{position:fixed}
+.bp-header--film .bp-header-cta{background:#fff;color:#0b0d10}
+.bp-header--film .bp-header-cta:hover{background:#c8d4ff;color:#0b0d10}
 .bp-header--film .bp-desktop-nav,.bp-header--film .bp-menu-toggle{color:#fff}
 .bp-header--film .bp-desktop-nav a:hover{color:#c8d4ff}
 
