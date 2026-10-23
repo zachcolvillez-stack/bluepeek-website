@@ -12,6 +12,8 @@
 // The key never leaves the server, and the response is cached hard on the CDN
 // so each site is only captured once until it changes.
 
+import { getScreenshotHosts, screenshotHost } from '../../../lib/gallery'
+
 export const runtime = 'nodejs'
 
 const ONE_MONTH = 60 * 60 * 24 * 30
@@ -61,6 +63,12 @@ export async function GET(request) {
   }
   if (parsed.protocol !== 'https:') {
     return new Response('Only https urls are allowed', { status: 400 })
+  }
+  // Only capture sites that are actually on the gallery (same source the
+  // gallery page renders from, cached hourly) - never an arbitrary URL.
+  const host = screenshotHost(parsed.toString())
+  if (!host || !(await getScreenshotHosts()).has(host)) {
+    return new Response('url not allowed', { status: 400 })
   }
 
   try {
