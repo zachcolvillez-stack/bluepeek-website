@@ -159,10 +159,15 @@ export default function EnquireFlow({ variant = 'panel', service, onService, onS
       </div>
 
       {/* Hidden from people, tempting to bots. */}
-      <input
-        className="bp-enq-hp" tabIndex={-1} autoComplete="off" aria-hidden="true"
-        onChange={e => { hp.current = e.target.value }}
-      />
+      {/* Named so browser autofill never matches it (a filled honeypot
+          silently drops a real lead). */}
+      <div className="bp-enq-hp" aria-hidden="true">
+        <label htmlFor={`${id}-hp`}>Leave this field empty</label>
+        <input
+          id={`${id}-hp`} name="bp_hp_field" type="text" tabIndex={-1} autoComplete="off"
+          onChange={e => { hp.current = e.target.value }}
+        />
+      </div>
 
       {status === 'error' && (
         <p className="bp-enq-error" role="alert">

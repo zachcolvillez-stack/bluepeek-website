@@ -122,7 +122,11 @@ export default function LeadForm({ variant = 'general', submitLabel = 'Send', so
           </div>
         ))}
       </div>
-      <input className="bp-enq-hp" tabIndex={-1} autoComplete="off" aria-hidden="true" onChange={e => { hp.current = e.target.value }} />
+      {/* Hidden from people, tempting to bots. Named so browser autofill never matches it. */}
+      <div className="bp-enq-hp" aria-hidden="true">
+        <label htmlFor={`${id}-hp`}>Leave this field empty</label>
+        <input id={`${id}-hp`} name="bp_hp_field" type="text" tabIndex={-1} autoComplete="off" onChange={e => { hp.current = e.target.value }} />
+      </div>
       {status === 'error' && <p className="bp-lf-error" role="alert">That did not send. Please try again, or call Jac on <a href="tel:0402923253">0402 923 253</a>.</p>}
       <button className="bp-lf-send" type="submit" disabled={status === 'sending'}>
         {status === 'sending' ? 'Sending...' : submitLabel} <ArrowRight size={16} aria-hidden="true" />

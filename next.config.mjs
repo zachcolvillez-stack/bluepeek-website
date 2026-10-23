@@ -2,8 +2,22 @@
 const nextConfig = {
   // Local dev only: hide the Next.js badge so design screenshots are clean.
   devIndicators: false,
+  poweredByHeader: false,
   async headers() {
     return [
+      // Baseline security headers. Deliberately no script-src CSP: GA, GTM,
+      // Meta Pixel and Google Ads inject scripts a strict policy would block.
+      {
+        source: '/:path*',
+        headers: [
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          { key: 'Content-Security-Policy', value: "frame-ancestors 'self'" },
+          { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+          { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains' },
+        ],
+      },
       // Homepage film: every URL carries ?v=<hash> from scripts/build-film.mjs.
       { source: '/film/:path*', headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }] },
     ]
