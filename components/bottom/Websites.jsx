@@ -57,7 +57,6 @@ const SITES = [
   { title: "Union Road Mechanic", where: "Invergordon, VIC", url: "https://unionroadmechanic.com.au", image: '/bottom/wall/union-road-mechanic.webp' },
   { title: "Westside Cycles", where: "Adelaide", url: "https://www.westsidecycle.com.au", image: '/bottom/wall/westside-cycles.webp' },
   { title: "Whitech Utility Locates", where: "East Perth", url: "https://whitech.net.au", image: '/bottom/wall/whitech-utility-locates.webp' },
-  { title: "Premier Autotune", where: "Gold Coast", url: "https://www.premierautotune.com.au", image: '/bottom/wall/premier-autotune.webp' },
   { title: "A S Panel Repair", where: "Southport", url: "https://www.aspanelrepair.com.au", image: '/bottom/wall/a-s-panel-repair.webp' },
 ]
 // Four rows, each with its own share of the sites (shuffled so trades mix).
