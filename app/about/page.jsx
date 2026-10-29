@@ -51,6 +51,20 @@ export default function AboutPage() {
               </p>
             </section>
 
+            <section aria-labelledby="founders">
+              <h2 id="founders" className="text-xl md:text-2xl font-bold tracking-tight mb-4" style={{ color: 'var(--ink)' }}>Meet the founders</h2>
+              <p className="text-base leading-relaxed mb-5" style={{ color: 'var(--text)' }}>
+                Jac Thomas-Rees and Zach Colville are Bluepeek’s co-founders. Both work directly with clients on their websites and marketing systems. Your brief, feedback and questions go to the people doing the work.
+              </p>
+              <ul className="space-y-3 text-base" style={{ color: 'var(--text)' }}>
+                <li><strong>Jac Thomas-Rees</strong> · Co-founder · <a className="bp-inline-link" href="tel:+61402923253">0402 923 253</a></li>
+                <li><strong>Zach Colville</strong> · Co-founder · <a className="bp-inline-link" href="tel:+61468955806">0468 955 806</a></li>
+              </ul>
+              <p className="text-base leading-relaxed mt-5" style={{ color: 'var(--text)' }}>
+                Our work includes workshop websites such as <Link className="bp-inline-link" href="/work/superior-garage">Superior Garage</Link>, the <Link className="bp-inline-link" href="/work/attention-detailing">Attention Detailing quote website</Link> and the <Link className="bp-inline-link" href="/work/jasmine-health-and-spa">Jasmine Health &amp; Spa website</Link>. Each case study explains the brief, the build and the limits of any reported results.
+              </p>
+            </section>
+
             <section>
               <h2 className="text-xl md:text-2xl font-bold tracking-tight mb-4" style={{ color: 'var(--ink)' }}>What we do</h2>
               <p className="text-base leading-relaxed mb-4" style={{ color: 'var(--text)' }}>
@@ -75,7 +89,7 @@ export default function AboutPage() {
             <section>
               <h2 className="text-xl md:text-2xl font-bold tracking-tight mb-4" style={{ color: 'var(--ink)' }}>How we work</h2>
               <p className="text-base leading-relaxed mb-4" style={{ color: 'var(--text)' }}>
-                Bluepeek builds premium-quality websites without big-agency prices. Most projects go live within one to two weeks. There are no lock-in contracts, and clients own their website, domain and content outright - they can take it elsewhere at any time.
+                Bluepeek builds premium-quality websites without big-agency prices. Most straightforward projects go live within one to two weeks once content is ready. There are no lock-in contracts, and clients own their website, domain and content outright - they can take it elsewhere at any time.
               </p>
               <p className="text-base leading-relaxed" style={{ color: 'var(--text)' }}>
                 Bluepeek holds a 5.0-star rating on Google.
@@ -93,7 +107,7 @@ export default function AboutPage() {
           <div className="mt-14 site-callout p-10 text-center relative overflow-hidden">
             <h2 className="relative text-2xl md:text-3xl font-bold mb-3">Want to talk about your business?</h2>
             <p className="relative text-base mb-7 max-w-lg mx-auto" style={{ color: 'var(--text)' }}>
-              Get in touch for a free, no-obligation quote - we&apos;ll reply within 24 hours.
+              Get in touch for a free, no-obligation quote - we&apos;ll reply within one business day.
             </p>
             <Link href="/#contact" className="relative btn-white inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm">
               Get a Free Quote <ArrowRight size={16} />

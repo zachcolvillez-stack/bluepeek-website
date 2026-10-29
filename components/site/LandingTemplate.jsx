@@ -4,6 +4,7 @@ import { ArrowRight, Check, ChevronRight } from 'lucide-react'
 import SiteHeader from './SiteHeader'
 import SiteFooter from './SiteFooter'
 import EnquireWidget from '../EnquireWidget'
+import RichText from './RichText'
 
 /**
  * Reusable premium landing template for service & industry pages.
@@ -62,7 +63,7 @@ export default function LandingTemplate({ breadcrumb = [], eyebrow, h1, lead, se
             <section key={i}>
               <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4" style={{ color: 'var(--ink)' }}>{s.h2}</h2>
               {s.paragraphs?.map((p, j) => (
-                <p key={j} className="text-base leading-relaxed mb-4" style={{ color: 'var(--text)' }}>{p}</p>
+                <p key={j} className="text-base leading-relaxed mb-4" style={{ color: 'var(--text)' }}><RichText text={p} /></p>
               ))}
               {s.bullets?.length > 0 && (
                 <ul className="space-y-2.5 mt-5">
