@@ -6,6 +6,7 @@ import SiteHeader from './SiteHeader'
 import SiteFooter from './SiteFooter'
 import EnquireWidget from '../EnquireWidget'
 import CaseStudyResults from './CaseStudyResults'
+import RichText from './RichText'
 
 /* Case study page template - light premium, factual (no invented metrics). */
 export default function CaseStudyTemplate({ breadcrumb = [], study, content, related = [], services = [] }) {
@@ -84,6 +85,16 @@ export default function CaseStudyTemplate({ breadcrumb = [], study, content, rel
             </ul>
           </section>
           <CaseStudyResults results={study.results} />
+          {content.evidence && (
+            <section>
+              <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4" style={{ color: 'var(--ink)' }}>{content.evidence.heading}</h2>
+              <div className="space-y-4">
+                {content.evidence.paragraphs.map((paragraph, i) => (
+                  <p key={i} className="text-base leading-relaxed" style={{ color: 'var(--text)' }}><RichText text={paragraph} /></p>
+                ))}
+              </div>
+            </section>
+          )}
           {services.length > 0 && (
             <section>
               <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4" style={{ color: 'var(--ink)' }}>Services used</h2>

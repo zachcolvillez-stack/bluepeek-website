@@ -37,6 +37,7 @@ export default function Closing() {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)')
     const pinned = window.matchMedia(PINNED)
     let frame = 0
+    let visible = false
     const update = () => {
       frame = 0
       if (reduce.matches) { planetEl.style.setProperty('--p', '1'); return }
@@ -55,7 +56,12 @@ export default function Closing() {
       t = Math.min(1, Math.max(0, t))
       planetEl.style.setProperty('--p', (1 - (1 - t) * (1 - t)).toFixed(4))
     }
-    const queue = () => { if (!frame) frame = requestAnimationFrame(update) }
+    const queue = () => { if (visible && !frame) frame = requestAnimationFrame(update) }
+    const observer = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting
+      if (visible) queue()
+    }, { rootMargin: '200px' })
+    observer.observe(sceneEl)
     update()
     window.addEventListener('scroll', queue, { passive: true })
     window.addEventListener('resize', queue)
@@ -63,6 +69,7 @@ export default function Closing() {
     pinned.addEventListener?.('change', queue)
     return () => {
       cancelAnimationFrame(frame)
+      observer.disconnect()
       window.removeEventListener('scroll', queue)
       window.removeEventListener('resize', queue)
       reduce.removeEventListener?.('change', queue)

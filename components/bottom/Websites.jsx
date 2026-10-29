@@ -69,9 +69,9 @@ const WEEKS = [2, 3, 12, 14, 11, 19, 29, 18, 24, 30, 29, 41, 42, 48, 48, 65, 75,
 const WEEK0 = new Date(2026, 5, 8)
 const TOTAL = 649 // to 14 October 2026, including the part week
 const STORIES = [
-  { name: 'Attention Detailing', where: 'Nerang', url: 'https://attentiondetailing.com.au', domain: 'attentiondetailing.com.au', num: '75', what: 'enquiries in its first four weeks online', img: '/bottom/proof/attention.webp', alt: 'A black four-wheel drive inside the Attention Detailing workshop', weeks: [12, 17, 33] },
-  { name: 'Textured Barber Lounge', where: 'Beeliar, WA', url: 'https://www.texturedbarberlounge.com.au', domain: 'texturedbarberlounge.com.au', num: '282', what: 'bookings and enquiries since June', img: '/bottom/proof/textured.webp', alt: 'Barber chairs inside Textured Barber Lounge', weeks: [5, 9, 9, 16, 16, 10, 12, 15, 16, 18, 29, 29, 22, 20, 25, 25] },
-  { name: 'S.T.S.B Gardening', where: 'Albury', url: 'https://stsbgardening.com.au', domain: 'stsbgardening.com.au', num: '20', what: 'quote requests since July, in a regional town', img: '/bottom/proof/stsb.webp', alt: 'An S.T.S.B gardener edging a lawn', weeks: [2, 0, 1, 0, 1, 1, 2, 2, 4, 4, 1, 2] },
+  { name: 'Attention Detailing', where: 'Nerang', url: 'https://attentiondetailing.com.au', domain: 'attentiondetailing.com.au', num: '54', what: 'quote form submissions, 17 September–9 October 2026', img: '/bottom/proof/attention.webp', alt: 'A black four-wheel drive inside the Attention Detailing workshop', story: '/work/attention-detailing' },
+  { name: 'Textured Barber Lounge', where: 'Beeliar, WA', url: 'https://www.texturedbarberlounge.com.au', domain: 'texturedbarberlounge.com.au', num: '282', what: 'booking requests and enquiries, 26 June–14 October 2026', story: '/blog/textured-barber-lounge-beeliar-local-seo', img: '/bottom/proof/textured.webp', alt: 'Barber chairs inside Textured Barber Lounge', weeks: [5, 9, 9, 16, 16, 10, 12, 15, 16, 18, 29, 29, 22, 20, 25, 25] },
+  { name: 'S.T.S.B Gardening', where: 'Albury', url: 'https://stsbgardening.com.au', domain: 'stsbgardening.com.au', num: '20', what: 'quote requests from July to 14 October 2026', story: '/blog/stsb-gardening-albury-wodonga-local-seo', img: '/bottom/proof/stsb.webp', alt: 'An S.T.S.B gardener edging a lawn', weeks: [2, 0, 1, 0, 1, 1, 2, 2, 4, 4, 1, 2] },
 ]
 
 function WeeklyChart() {
@@ -163,12 +163,13 @@ export default function Websites() {
               <p className={s.storyWho}>{c.name} · {c.where}</p>
               <p className={s.storyNum}>{c.num}</p>
               <p className={s.storyWhat}>{c.what}</p>
-              <Bars data={c.weeks} />
+              {c.weeks && <Bars data={c.weeks} />}
+              <a className={s.storyLink} href={c.story}>Read {c.name}’s case study <span aria-hidden="true">→</span></a>
               <a className={s.storyLink} href={c.url} target="_blank" rel="noopener noreferrer">{c.domain} <span aria-hidden="true">↗</span></a>
             </li>
           ))}
         </ul>
-        <p className={s.source}>Source: BluePeek Forms, genuine submissions only (spam and test entries removed), to 14 October 2026. Enquiries are requests, not confirmed jobs.</p>
+        <p className={s.source}>Source: BluePeek Forms, genuine submissions only (spam and test entries removed), to 14 October 2026 unless a different reporting period is shown on the card. Counts can cover different periods; case studies explain each result. Enquiries are requests, not confirmed jobs.</p>
       </div>
 
       {/* Beat 3: how local search works. */}

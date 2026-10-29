@@ -77,6 +77,11 @@ export default async function BlogArticlePage({ params }) {
             {new Date(post.date).toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })} · {post.readTime}
           </p>
 
+          <p className="text-base leading-relaxed mb-5" style={{ color: 'var(--text)' }}>
+            Published by <Link className="bp-inline-link" href="/about">Bluepeek</Link>, the Gold Coast studio run by co-founders Jac Thomas-Rees and Zach Colville.
+            {post.updated && post.updated !== post.date && <> Updated <time dateTime={post.updated}>{new Date(post.updated).toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}</time>.</>}
+          </p>
+
           <h1 className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.1] mb-6" style={{ color: 'var(--ink)' }}>
             {post.title}
           </h1>
