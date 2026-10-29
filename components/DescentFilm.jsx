@@ -177,6 +177,7 @@ export default function DescentFilm() {
     let target = 0
     let current = 0
     let dirty = true
+    let scrollDirty = true
     let wallSpent = false
     const halfFrame = 0.5 / film.fps
 
@@ -325,6 +326,7 @@ export default function DescentFilm() {
       scr = { cx: offX + ((x0 + x1) / 2) * coverScale, cy: offY + ((y0 + y1) / 2) * coverScale, w: (x1 - x0) * coverScale, h: (y1 - y0) * coverScale }
       camera.style.transformOrigin = `${scr.cx}px ${scr.cy}px`
       dirty = true
+      scrollDirty = true
     }
     measure()
     const ro = new ResizeObserver(measure)
@@ -359,6 +361,10 @@ export default function DescentFilm() {
       }
     }
 
+    // Scroll events invalidate geometry; easing can continue without re-reading it.
+    const onScroll = () => { scrollDirty = true }
+    window.addEventListener('scroll', onScroll, { passive: true })
+
     const copyEls = Array.from(stage.querySelectorAll('[data-from]'))
     const ring = stage.querySelector('[data-ring]')
     const ringWrap = stage.querySelector('.bp-film-ring')
@@ -371,7 +377,10 @@ export default function DescentFilm() {
     const tick = (now) => {
       const dt = Math.min(1000, now - last)
       last = now
-      readScroll()
+      if (scrollDirty || dirty || walled) {
+        scrollDirty = false
+        readScroll()
+      }
       const k = reduce ? 1 : 1 - Math.exp(-dt / 55)
       const prev = current
       current += (target - current) * k
@@ -461,6 +470,7 @@ export default function DescentFilm() {
       document.documentElement.removeAttribute('data-film-wall')
       document.documentElement.removeAttribute('data-film-on')
       window.removeEventListener('scroll', load)
+      window.removeEventListener('scroll', onScroll)
       stills.forEach((st) => st.img.remove())
       for (const t of tracks) {
         t.seeker.dispose()
