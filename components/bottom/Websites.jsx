@@ -2,6 +2,7 @@
 import { openEnquire } from '../../lib/enquire'
 import { Headline, Eyebrow } from './parts'
 import s from './Websites.module.css'
+import { FEATURED_SITES } from '../../lib/site'
 
 /**
  * 1 · Websites & local SEO. Three beats, one idea each:
@@ -13,20 +14,18 @@ import s from './Websites.module.css'
  */
 
 // Every live client site. Add a new one here (screenshot in /public) and the wall grows.
-const SITES = [
+const OTHER_SITES = [
   { title: "A Grade Tyre & Auto", where: "Nerang", url: "https://agradeauto.com.au", image: '/bottom/wall/a-grade-tyre-auto.webp' },
-  { title: "Airborne Suspension & Mechanical", where: "Malaga, WA", url: "https://www.airbornesuspensionandmechanical.com.au", image: '/bottom/wall/airborne-suspension-mechanical.webp' },
-  { title: "Adiza Hair Collections", where: "Wagga Wagga", url: "https://adizahaircollections.com.au", image: '/bottom/wall/adiza-hair-collections.webp' },
+  { title: "Airborne Suspension & Mechanical", where: "Malaga, WA", url: "https://www.airbornesuspensionandmechanical.com.au", image: '/screenshots/gallery-20261102/airborne.webp' },
+  { title: "Adiza Hair Collections", where: "Wagga Wagga", url: "https://adizahaircollections.com.au", image: '/screenshots/gallery-20261102/adiza.webp' },
   { title: "Anytime Laser & Beauty", where: "Liverpool, Sydney", url: "https://anytimelaser.com.au", image: '/bottom/wall/anytime-laser-beauty.webp' },
   { title: "Artisan Concrete", where: "Stoneville, WA", url: "https://artisanconcretewa.com.au", image: '/bottom/wall/artisan-concrete.webp' },
   { title: "Attention Detailing", where: "Nerang", url: "https://attentiondetailing.com.au", image: '/bottom/wall/attention-detailing.webp' },
   { title: "B Yoga", where: "Shepparton", url: "https://www.byoga.com.au", image: '/bottom/wall/b-yoga.webp' },
-  { title: "Barberz Den", where: "Kiara, WA", url: "https://www.barberzden.com.au", image: '/bottom/wall/barberz-den.webp' },
   { title: "Beauty Escape", where: "Massage & waxing", url: "https://beautyescapemassage.com.au", image: '/bottom/wall/beauty-escape.webp' },
-  { title: "Bluestar Mechanics", where: "Coburg, VIC", url: "https://bluestarmechanics.com.au", image: '/bottom/wall/bluestar-mechanics.webp' },
   { title: "Bo Butcher", where: "Girrawheen, WA", url: "https://www.bobutcher.com.au", image: '/bottom/wall/bo-butcher.webp' },
   { title: "Ceramics Gold Coast", where: "Gold Coast", url: "https://ceramicsgoldcoast.com.au", image: '/bottom/wall/ceramics-gold-coast.webp' },
-  { title: "Coastal 2PAC", where: "Molendinar", url: "https://coastal2pac.com.au", image: '/bottom/wall/coastal-2pac.webp' },
+  { title: "Coastal 2PAC", where: "Molendinar", url: "https://coastal2pac.com.au", image: '/screenshots/gallery-20261102/coastal.webp' },
   { title: "D Wright Painting & Decorating", where: "Heathridge, WA", url: "https://dwrightpaintinganddecorating.com.au", image: '/bottom/wall/d-wright-painting-decorating.webp' },
   { title: "Egg Decorating Supplies", where: "Gold Coast", url: "https://www.eggdecoratingsupplies.com.au", image: '/bottom/wall/egg-decorating-supplies.webp' },
   { title: "Empire Cuts", where: "Taigum, QLD", url: "https://empirecuts.com.au", image: '/bottom/wall/empire-cuts.webp' },
@@ -43,13 +42,12 @@ const SITES = [
   { title: "Lui's Mechanical Repairs", where: "Hamilton Hill, WA", url: "https://luismechanicalrepairs.com.au", image: '/bottom/wall/lui-s-mechanical-repairs.webp' },
   { title: "Malaga Smash Repair", where: "Malaga, WA", url: "http://www.malagasmashrepair.com.au/", image: '/bottom/wall/malaga-smash-repair.webp' },
   { title: "Marlin Glass Fencing", where: "Hervey Bay", url: "https://marlinsglassfencing.com.au", image: '/bottom/wall/marlin-glass-fencing.webp' },
-  { title: "Rayan Tiling Services", where: "Gosnells, WA", url: "https://www.rayantilingservices.com.au", image: '/bottom/wall/rayan-tiling-services.webp' },
   { title: "Renz Auto Panel Repairs", where: "Malaga, WA", url: "https://renzautopanelrepairs.com.au", image: '/bottom/wall/renz-auto-panel-repairs.webp' },
   { title: "Rodano Flowers", where: "Wattleup, WA", url: "https://rodanoflowers.com.au", image: '/bottom/wall/rodano-flowers.webp' },
   { title: "Signmakers Gold Coast", where: "Burleigh Heads", url: "https://www.signmakers.com.au", image: '/bottom/wall/signmakers-gold-coast.webp' },
   { title: "SPR Performance", where: "Queensland", url: "https://sprperformance.com.au", image: '/bottom/wall/spr-performance.webp' },
   { title: "S.T.S.B Gardening", where: "Albury", url: "https://stsbgardening.com.au", image: '/bottom/wall/s-t-s-b-gardening.webp' },
-  { title: "Superior Garage", where: "Malaga, WA", url: "https://superiorgarage.com.au", image: '/bottom/wall/superior-garage.webp' },
+  { title: "Superior Garage", where: "Malaga, WA", url: "https://superiorgarage.com.au", image: '/screenshots/gallery-20261102/superior.webp' },
   { title: "Super Painting", where: "Maddington, WA", url: "https://superpaintingwa.com.au", image: '/bottom/wall/super-painting.webp' },
   { title: "Textured Barber Lounge", where: "Beeliar, WA", url: "https://www.texturedbarberlounge.com.au", image: '/bottom/wall/textured-barber-lounge.webp' },
   { title: "The Blend Boss Barber Shop", where: "Spearwood, WA", url: "https://theblendbossbarbershop.com.au", image: '/bottom/wall/the-blend-boss-barber-shop.webp' },
@@ -59,9 +57,13 @@ const SITES = [
   { title: "Whitech Utility Locates", where: "East Perth", url: "https://whitech.net.au", image: '/bottom/wall/whitech-utility-locates.webp' },
   { title: "A S Panel Repair", where: "Southport", url: "https://www.aspanelrepair.com.au", image: '/bottom/wall/a-s-panel-repair.webp' },
 ]
-// Four rows, each with its own share of the sites (shuffled so trades mix).
-const MIXED = SITES.map((x, i) => [((i * 37) % SITES.length), x]).sort((a, b) => a[0] - b[0]).map(([, x]) => x)
-const ROWS = [0, 1, 2, 3].map((r) => MIXED.filter((_, i) => i % 4 === r))
+// Lead every row with freshly captured selected work, then the wider collection.
+const domain = url => new URL(url).hostname.replace(/^www\./, '')
+const SITES = [
+  ...FEATURED_SITES.map(site => ({ ...site, where: site.location })),
+  ...OTHER_SITES.filter(site => !FEATURED_SITES.some(featured => domain(featured.url) === domain(site.url))),
+]
+const ROWS = [0, 1, 2, 3].map(r => SITES.filter((_, i) => i % 4 === r))
 
 // Real weekly enquiry counts from BluePeek Forms (genuine submissions only,
 // BluePeek's own site excluded), complete weeks starting Monday 8 June 2026.
