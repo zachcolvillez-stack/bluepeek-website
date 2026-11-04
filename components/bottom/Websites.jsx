@@ -189,7 +189,7 @@ export default function Websites() {
             </ol>
             <div className={s.cta}>
               <a href="#contact" className={s.pill} onClick={(e) => { e.preventDefault(); openEnquire('New website or redesign') }}>Start my website <span aria-hidden="true">→</span></a>
-              <span className={s.offer}>First month free, then from $99/mo.</span>
+              <span className={s.offer}>First month free, then from $149/mo.</span>
             </div>
           </div>
           <figure className={s.pack} aria-label="Example Google search for mechanic near me, showing a map with three businesses and Your Business ranked first">
