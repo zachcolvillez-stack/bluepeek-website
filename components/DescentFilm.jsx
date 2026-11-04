@@ -48,7 +48,7 @@ const CHAPTERS = [
   { id: 'c1', from: 0.035 * FILM_END, to: B1, title: 'Designed from scratch.', dim: 'No templates. Ever.' },
   { id: 'c2', from: B1, to: B2, title: 'Built to be found.', dim: 'SEO in every page we ship.' },
   { id: 'c3', from: B2, to: B3, title: 'Fast on every phone.', dim: 'Because that’s where your customers are.' },
-  { id: 'c4', from: B3, to: B4 + (FILM_END - B4) * 0.55, title: 'First month free.', dim: 'Then from $99 a month.' },
+  { id: 'c4', from: B3, to: B4 + (FILM_END - B4) * 0.55, title: 'First month free.', dim: 'Then from $149 a month.' },
 ]
 // The screen phase, in screen-phase progress (0–1): the open screen lights up
 // in the page colour, then the camera glides through it into the page.
