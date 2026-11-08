@@ -22,7 +22,7 @@ export default function ReviewProvider({ initialFeed, children }) {
         if (next && !cancelled) setFeed(previous => ({
           ...next,
           mapsUrl: next.mapsUrl || previous.mapsUrl,
-          reviews: next.reviews.length ? next.reviews : previous.reviews,
+          reviews: next.reviewCount === 0 || next.reviews.length ? next.reviews : previous.reviews,
         }))
       } catch { /* Keep the verified snapshot while the upstream recovers. */ }
       finally { inFlight = false }

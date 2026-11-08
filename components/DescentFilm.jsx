@@ -165,6 +165,7 @@ export default function DescentFilm() {
     if (!section || !stage || !camera || !layer || !frame || !screen) return
 
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const touch = window.matchMedia('(pointer: coarse)').matches
     const portrait = window.matchMedia('(max-aspect-ratio: 1/1)').matches
     const size = portrait ? 'sm' : 'lg'
     const FW = portrait ? SM_W : SRC_W
@@ -350,7 +351,7 @@ export default function DescentFilm() {
       const limit = playableUntil()
       const pinned = r.top <= 0 && r.bottom >= window.innerHeight
       root.toggleAttribute('data-film-on', r.bottom > window.innerHeight * 0.4)
-      let wall = !held() && !wallSpent && pinned && limit > 0 && limit < 1 && target > limit && target - limit < 0.2
+      let wall = !reduce && !touch && !held() && !wallSpent && pinned && limit > 0 && limit < 1 && target > limit && target - limit < 0.2
       const now = performance.now()
       if (wall && !walled) wallSince = now
       if (wall && now - wallSince > 1500) { wall = false; wallSpent = true }
