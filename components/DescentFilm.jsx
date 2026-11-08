@@ -94,11 +94,12 @@ function quadMatrix(w, h, q) {
 /**
  * Runs inline while the HTML is still parsing, before React hydrates: shows
  * the branded intro (<html data-film-intro>, 2.5 s cap) and holds scrolling
- * (<html data-film-hold>, 8 s cap, 3 s on touch) so nobody races past a film
- * that hasn't loaded. DescentFilm takes both over once it hydrates.
+ * (<html data-film-hold>, 8 s cap) on desktop while the film loads. Touch
+ * visitors see the lightweight poster immediately and can scroll without a
+ * blocking loading screen. DescentFilm takes over once it hydrates.
  */
 const HOLD_SCRIPT = `(function(){
-if(window.__filmHold||window.location.hash)return;
+if(window.__filmHold||window.location.hash||window.matchMedia('(prefers-reduced-motion: reduce)').matches||window.matchMedia('(pointer: coarse)').matches)return;
 var c=navigator.connection;if(c&&c.saveData)return;
 var held=true,y=window.scrollY,d=document.documentElement,
 k={" ":1,PageDown:1,PageUp:1,ArrowDown:1,ArrowUp:1,End:1,Home:1},

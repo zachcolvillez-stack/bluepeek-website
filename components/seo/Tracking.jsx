@@ -49,8 +49,10 @@ export default function Tracking() {
     return (
       <>
         <MetaPixel />
-        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID || GADS_ID}`} strategy="afterInteractive" />
+        {/* Queue page views and early conversions now; load Google's heavier
+            library after page resources finish, during browser idle time. */}
         <Script id="ga4" strategy="afterInteractive">{`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());${configs}`}</Script>
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID || GADS_ID}`} strategy="lazyOnload" />
       </>
     )
   }

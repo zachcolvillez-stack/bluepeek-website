@@ -1,4 +1,6 @@
 'use client'
+import { useEffect, useState } from 'react'
+import { fetchResults, RESULTS_REFRESH_MS, resultDate, weeklySummary } from '../../lib/results'
 import { openEnquire } from '../../lib/enquire'
 import { Headline, Eyebrow } from './parts'
 import s from './Websites.module.css'
@@ -68,7 +70,7 @@ const ROWS = [0, 1, 2, 3].map(r => SITES.filter((_, i) => i % 4 === r))
 // Real weekly enquiry counts from BluePeek Forms (genuine submissions only,
 // BluePeek's own site excluded), complete weeks starting Monday 8 June 2026.
 const WEEKS = [2, 3, 12, 14, 11, 19, 29, 18, 24, 30, 29, 41, 42, 48, 48, 65, 75, 99]
-const WEEK0 = new Date(2026, 5, 8)
+const FALLBACK_WEEKS = WEEKS.map((count, i) => ({ start: new Date(Date.UTC(2026, 5, 8 + i * 7)).toISOString().slice(0, 10), count }))
 const TOTAL = 649 // to 14 October 2026, including the part week
 const STORIES = [
   { name: 'Attention Detailing', where: 'Nerang', url: 'https://attentiondetailing.com.au', domain: 'attentiondetailing.com.au', num: '54', what: 'quote form submissions, 17 September–9 October 2026', img: '/bottom/proof/attention.webp', alt: 'A black four-wheel drive inside the Attention Detailing workshop', story: '/work/attention-detailing' },
@@ -76,21 +78,25 @@ const STORIES = [
   { name: 'S.T.S.B Gardening', where: 'Albury', url: 'https://stsbgardening.com.au', domain: 'stsbgardening.com.au', num: '20', what: 'quote requests from July to 14 October 2026', story: '/blog/stsb-gardening-albury-wodonga-local-seo', img: '/bottom/proof/stsb.webp', alt: 'An S.T.S.B gardener edging a lawn', weeks: [2, 0, 1, 0, 1, 1, 2, 2, 4, 4, 1, 2] },
 ]
 
-function WeeklyChart() {
-  const W = 1000, H = 300, P = 8, max = 110
-  const x = (i) => P + (i / (WEEKS.length - 1)) * (W - 2 * P)
-  const y = (v) => H - 24 - (v / max) * (H - 54)
-  const pts = WEEKS.map((v, i) => [x(i), y(v)])
+function WeeklyChart({ weeks }) {
+  const W = 1000, H = 300, P = 8
+  const { max: highest, peak } = weeklySummary(weeks)
+  const step = Math.max(1, Math.ceil(highest / 4))
+  const max = step * 4
+  const ticks = [1, 2, 3, 4].map(n => n * step)
+  const x = i => P + (i / Math.max(1, weeks.length - 1)) * (W - 2 * P)
+  const y = v => H - 24 - (v / max) * (H - 54)
+  const pts = weeks.map((week, i) => [x(i), y(week.count)])
   const line = pts.map(([px, py], i) => `${i ? 'L' : 'M'}${px.toFixed(1)},${py.toFixed(1)}`).join(' ')
-  const area = `${line} L${x(WEEKS.length - 1)},${H - 24} L${x(0)},${H - 24} Z`
+  const area = `${line} L${x(weeks.length - 1)},${H - 24} L${x(0)},${H - 24} Z`
   const months = []
-  WEEKS.forEach((_, i) => {
-    const d = new Date(WEEK0.getTime() + i * 7 * 864e5)
-    if (i === 0 || d.getDate() <= 7) months.push([x(i), d.toLocaleString('en-AU', { month: 'short' })])
+  weeks.forEach((week, i) => {
+    const d = new Date(`${week.start}T00:00:00Z`)
+    if (i === 0 || d.getUTCDate() <= 7) months.push([x(i), d.toLocaleString('en-AU', { month: 'short', timeZone: 'UTC' })])
   })
-  const peak = WEEKS.length - 1
+  const peakWeek = weeks[peak]
   return (
-    <figure className={s.chart} aria-label={`Weekly enquiries across client sites, rising from ${WEEKS[0]} in the week of 8 June to ${WEEKS[peak]} in the week of 5 October 2026`}>
+    <figure className={s.chart} aria-label={peakWeek ? `Weekly enquiries across client sites, ${resultDate(weeks[0].start)} to ${resultDate(weeks[weeks.length - 1].start)}. Highest completed week: ${peakWeek.count} enquiries, starting ${resultDate(peakWeek.start)}.` : 'No completed reporting weeks yet.'}>
       <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" aria-hidden="true">
         <defs>
           <linearGradient id="wkArea" x1="0" y1="0" x2="0" y2="1">
@@ -98,28 +104,48 @@ function WeeklyChart() {
             <stop offset="1" stopColor="#0B3ED9" stopOpacity="0" />
           </linearGradient>
         </defs>
-        {[25, 50, 75, 100].map((v) => <line key={v} x1="0" x2={W} y1={y(v)} y2={y(v)} className={s.grid} vectorEffect="non-scaling-stroke" />)}
-        <path d={area} fill="url(#wkArea)" />
-        <path d={line} className={s.line} vectorEffect="non-scaling-stroke" />
+        {ticks.map(v => <line key={v} x1="0" x2={W} y1={y(v)} y2={y(v)} className={s.grid} vectorEffect="non-scaling-stroke" />)}
+        {weeks.length > 0 && <><path d={area} fill="url(#wkArea)" /><path d={line} className={s.line} vectorEffect="non-scaling-stroke" /></>}
       </svg>
-      {[25, 50, 75, 100].map((v) => <span key={v} className={s.yTick} style={{ top: `${(y(v) / H) * 100}%` }}>{v}</span>)}
-      <span className={s.peak} style={{ left: `${(x(peak) / W) * 100}%`, top: `${(y(WEEKS[peak]) / H) * 100}%` }}><b>{WEEKS[peak]}</b> in one week</span>
+      {ticks.map(v => <span key={v} className={s.yTick} style={{ top: `${(y(v) / H) * 100}%` }}>{v}</span>)}
+      {peakWeek && <span className={s.peak} style={{ left: `${(x(peak) / W) * 100}%`, top: `${(y(peakWeek.count) / H) * 100}%`, transform: peak === 0 ? 'translate(0,-150%)' : undefined }}><b>{peakWeek.count}</b> week of {resultDate(peakWeek.start)}</span>}
       <div className={s.months} aria-hidden="true">{months.map(([mx, m]) => <span key={m + mx} style={{ left: `${(mx / W) * 100}%` }}>{m}</span>)}</div>
-      <figcaption className={s.chartCap}>Enquiries per week, all client sites</figcaption>
+      <figcaption className={s.chartCap}>Enquiries per completed week</figcaption>
     </figure>
   )
 }
 
 function Bars({ data }) {
-  const max = Math.max(...data)
+  const max = Math.max(1, ...data)
   return (
     <div className={s.bars} aria-hidden="true">
-      {data.map((v, i) => <span key={i} style={{ height: `${Math.max(3, (v / max) * 100)}%` }} data-last={i === data.length - 1 ? '' : undefined} />)}
+      {data.map((v, i) => <span key={i} style={{ height: `${(v / max) * 100}%` }} data-last={i === data.length - 1 ? '' : undefined} />)}
     </div>
   )
 }
 
-export default function Websites() {
+export default function Websites({ results }) {
+  const [live, setLive] = useState(results)
+  useEffect(() => {
+    let active = true
+    let controller
+    async function refresh() {
+      if (document.visibilityState !== 'visible') return
+      controller?.abort()
+      controller = new AbortController()
+      const next = await fetchResults('/api/results', { cache: 'no-store', signal: controller.signal })
+      if (active && next) setLive(next)
+    }
+    const interval = window.setInterval(refresh, RESULTS_REFRESH_MS)
+    return () => { active = false; controller?.abort(); window.clearInterval(interval) }
+  }, [])
+  const weeks = live?.weeks ?? FALLBACK_WEEKS
+  const total = live?.total ?? TOTAL
+  const period = live ? `${resultDate(live.periodStart)}–${resultDate(live.asOf)}` : null
+  const stories = STORIES.map(story => {
+    const client = live?.clients.find(client => client.domain === story.domain)
+    return client ? { ...story, num: client.total.toLocaleString('en-AU'), what: `recorded website enquiries, ${period}`, weeks: client.weeks.map(week => week.count) } : story
+  })
 
   return (
     <section id="work" className={s.root} aria-labelledby="work-h">
@@ -152,13 +178,14 @@ export default function Websites() {
         <Headline as="h3" className={s.proofHead} lead="Built to bring in work." dim="Every enquiry, counted." />
         <div className={s.hero}>
           <div className={s.heroStats}>
-            <p className={s.heroNum}>{TOTAL}</p>
-            <p className={s.heroLabel}>genuine enquiries through our clients’ websites since June</p>
+            <p className={s.heroNum}>{total.toLocaleString('en-AU')}</p>
+            <p className={s.heroLabel}>{live ? 'recorded enquiries through our clients’ websites since June' : 'genuine enquiries through our clients’ websites to 14 October 2026 (saved snapshot)'}</p>
           </div>
-          <WeeklyChart />
+          <WeeklyChart weeks={weeks} />
         </div>
+        {live && <p className={s.source}>Current week, starting {resultDate(live.currentWeek.start)}: {live.currentWeek.count.toLocaleString('en-AU')} enquiries so far. This partial week is excluded from the chart.</p>}
         <ul className={s.stories}>
-          {STORIES.map((c) => (
+          {stories.map((c) => (
             <li key={c.name}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={c.img} alt={c.alt} loading="lazy" decoding="async" />
@@ -171,7 +198,7 @@ export default function Websites() {
             </li>
           ))}
         </ul>
-        <p className={s.source}>Source: BluePeek Forms, genuine submissions only (spam and test entries removed), to 14 October 2026 unless a different reporting period is shown on the card. Counts can cover different periods; case studies explain each result. Enquiries are requests, not confirmed jobs.</p>
+        <p className={s.source}>Source: BluePeek Forms. {live ? `Spam and identified internal tests excluded; BluePeek and preview sites excluded. Updated ${resultDate(live.asOf)}; all counts cover ${period}. Updates every five minutes while this page is visible. Case studies retain their original reporting periods.` : 'Live results are unavailable. Showing the saved 14 October 2026 snapshot of genuine submissions, with spam and identified test entries removed under the historical reporting rules. Card reporting periods differ and are shown above.'} Enquiries are requests, not confirmed jobs.</p>
       </div>
 
       {/* Beat 3: how local search works. */}
@@ -184,8 +211,8 @@ export default function Websites() {
             <Headline as="h3" className={s.localHead} lead="Top of the map." dim="Suburb by suburb." />
             <ol className={s.steps}>
               <li><span>1</span><p><b>Someone nearby searches.</b> “Mechanic near me”, “detailing Nerang”.</p></li>
-              <li><span>2</span><p><b>Google shows three businesses</b> on the map, above everything else.</p></li>
-              <li><span>3</span><p><b>We get you into those three</b> with your Business Profile, suburb pages and reviews.</p></li>
+              <li><span>2</span><p><b>Google can show nearby businesses</b> in map results alongside ads and website listings.</p></li>
+              <li><span>3</span><p><b>We improve your local visibility</b> with your Business Profile, useful local pages and genuine reviews.</p></li>
             </ol>
             <div className={s.cta}>
               <a href="#contact" className={s.pill} onClick={(e) => { e.preventDefault(); openEnquire('New website or redesign') }}>Start my website <span aria-hidden="true">→</span></a>

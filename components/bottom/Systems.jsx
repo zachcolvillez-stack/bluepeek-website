@@ -1,8 +1,7 @@
 'use client'
 import { useRef } from 'react'
 import { openEnquire } from '../../lib/enquire'
-import { REVIEWS } from '../../lib/reviews'
-import { useReviewAgg } from '../../lib/useReviews'
+import { useReviewFeed } from '../../lib/useReviews'
 import { useProgress, Phone, Headline, Eyebrow } from './parts'
 import s from './Systems.module.css'
 
@@ -23,14 +22,13 @@ const THREAD = [
   { who: 'link' },
   { who: 'me', text: 'Done. Five stars from me!' },
 ]
-const QUOTES = REVIEWS.filter((r) => ['Darren Marshall', 'Adam Sa'].includes(r.author))
 
 export default function Systems() {
   const cardsRef = useRef(null)
   const threadRef = useRef(null)
   useProgress(cardsRef, 'flow')
   useProgress(threadRef, 'flow')
-  const agg = useReviewAgg()
+  const agg = useReviewFeed()
 
   return (
     <section id="systems" className={s.root} aria-labelledby="systems-h">
@@ -93,9 +91,9 @@ export default function Systems() {
       <div className={s.proof}>
         <p className={s.score}>{agg.ratingValue}</p>
         <p className={s.stars} aria-hidden="true">★★★★★</p>
-        <p className={s.scoreLabel}>Bluepeek on Google · {agg.reviewCount} reviews</p>
+        <p className={s.scoreLabel}><a href={agg.mapsUrl} target="_blank" rel="noopener noreferrer">Bluepeek on Google · {agg.reviewCount} reviews</a></p>
         <ul className={s.quotes}>
-          {QUOTES.map((q) => (
+          {agg.reviews.slice(0, 2).map((q) => (
             <li key={q.author}><q>{q.text}</q><span>{q.author} · Google review</span></li>
           ))}
         </ul>
