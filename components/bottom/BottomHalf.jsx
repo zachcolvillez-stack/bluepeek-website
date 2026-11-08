@@ -11,7 +11,7 @@ import Closing from './Closing'
  * dark (2 Ads), light (3 AI systems), dark (closing). Each section owns its
  * own component + CSS module; shared tokens live in app/bottom.css (.bh).
  */
-export default function BottomHalf() {
+export default function BottomHalf({ results }) {
   useEffect(() => {
     // Child scroll scenes change height during hydration. Resolve a direct
     // section link after those layouts settle, rather than losing its target.
@@ -46,7 +46,7 @@ export default function BottomHalf() {
   return (
     <div className="bh">
       <Intro />
-      <Websites />
+      <Websites results={results} />
       <Ads />
       <Systems />
       <Closing />

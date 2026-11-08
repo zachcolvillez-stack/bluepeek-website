@@ -19,17 +19,17 @@ const archivo = Archivo({
 import { organizationSchema, websiteSchema } from '../lib/schema'
 import JsonLd from '../components/seo/JsonLd'
 import Tracking from '../components/seo/Tracking'
-
-const LIVE_REVIEWS_URL = 'https://bluepeekdashboard.com.au/api/public/reviews'
+import ReviewProvider from '../components/ReviewProvider'
+import { parseReviewFeed, REVIEWS_FEED_URL } from '../lib/review-feed'
 
 // The Google Maps URL for Bluepeek's profile, from the live reviews feed, so the
 // organisation schema's sameAs links to the real Business Profile.
 async function getLiveProfile() {
   try {
-    const res = await fetch(LIVE_REVIEWS_URL, { next: { revalidate: 3600 } })
+    const res = await fetch(REVIEWS_FEED_URL, { next: { revalidate: 300 }, signal: AbortSignal.timeout(3000) })
     if (!res.ok) return null
     const j = await res.json()
-    return j?.ok && j.mapsUrl ? { mapsUrl: j.mapsUrl } : null
+    return parseReviewFeed(j)
   } catch {
     return null
   }
@@ -94,7 +94,7 @@ export default async function RootLayout({ children }) {
         <noscript>
           <style>{`[style*="opacity:0"],[style*="opacity: 0"]{opacity:1!important;transform:none!important}`}</style>
         </noscript>
-        {children}
+        <ReviewProvider initialFeed={liveProfile}>{children}</ReviewProvider>
         <JsonLd data={organizationSchema(liveProfile)} />
         <JsonLd data={websiteSchema()} />
         <Analytics />

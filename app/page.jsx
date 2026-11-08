@@ -3,15 +3,19 @@ import DescentFilm from '../components/DescentFilm'
 import BottomHalf from '../components/bottom/BottomHalf'
 import HomeFooter from '../components/HomeFooter'
 import EnquireWidget from '../components/EnquireWidget'
+import { getResults } from '../lib/results-server'
 
-export default function Home() {
+export const revalidate = 300
+
+export default async function Home() {
+  const results = await getResults()
   return (
     <div className="bp-home bp-home--film">
       <a className="bp-skip" href="#main-content">Skip to content</a>
       <Nav film />
       <main id="main-content">
         <DescentFilm />
-        <BottomHalf />
+        <BottomHalf results={results} />
       </main>
       <HomeFooter />
       <EnquireWidget />
