@@ -184,8 +184,8 @@ export default function Websites() {
             <Headline as="h3" className={s.localHead} lead="Top of the map." dim="Suburb by suburb." />
             <ol className={s.steps}>
               <li><span>1</span><p><b>Someone nearby searches.</b> “Mechanic near me”, “detailing Nerang”.</p></li>
-              <li><span>2</span><p><b>Google shows three businesses</b> on the map, above everything else.</p></li>
-              <li><span>3</span><p><b>We get you into those three</b> with your Business Profile, suburb pages and reviews.</p></li>
+              <li><span>2</span><p><b>Google can show nearby businesses</b> in map results alongside ads and website listings.</p></li>
+              <li><span>3</span><p><b>We improve your local visibility</b> with your Business Profile, useful local pages and genuine reviews.</p></li>
             </ol>
             <div className={s.cta}>
               <a href="#contact" className={s.pill} onClick={(e) => { e.preventDefault(); openEnquire('New website or redesign') }}>Start my website <span aria-hidden="true">→</span></a>

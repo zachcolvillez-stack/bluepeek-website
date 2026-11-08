@@ -98,7 +98,7 @@ function quadMatrix(w, h, q) {
  * that hasn't loaded. DescentFilm takes both over once it hydrates.
  */
 const HOLD_SCRIPT = `(function(){
-if(window.__filmHold||window.location.hash)return;
+if(window.__filmHold||window.location.hash||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
 var c=navigator.connection;if(c&&c.saveData)return;
 var held=true,y=window.scrollY,d=document.documentElement,
 k={" ":1,PageDown:1,PageUp:1,ArrowDown:1,ArrowUp:1,End:1,Home:1},

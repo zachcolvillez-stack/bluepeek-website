@@ -1,7 +1,7 @@
 'use client'
 import { useRef } from 'react'
 import { openEnquire } from '../../lib/enquire'
-import { REVIEWS } from '../../lib/reviews'
+import { REVIEWS, REVIEWS_SOURCE_URL } from '../../lib/reviews'
 import { useReviewAgg } from '../../lib/useReviews'
 import { useProgress, Phone, Headline, Eyebrow } from './parts'
 import s from './Systems.module.css'
@@ -93,7 +93,7 @@ export default function Systems() {
       <div className={s.proof}>
         <p className={s.score}>{agg.ratingValue}</p>
         <p className={s.stars} aria-hidden="true">★★★★★</p>
-        <p className={s.scoreLabel}>Bluepeek on Google · {agg.reviewCount} reviews</p>
+        <p className={s.scoreLabel}><a href={REVIEWS_SOURCE_URL} target="_blank" rel="noopener noreferrer">Bluepeek on Google · {agg.reviewCount} reviews</a></p>
         <ul className={s.quotes}>
           {QUOTES.map((q) => (
             <li key={q.author}><q>{q.text}</q><span>{q.author} · Google review</span></li>
