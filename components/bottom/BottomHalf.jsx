@@ -4,6 +4,7 @@ import Intro from './Intro'
 import Websites from './Websites'
 import Ads from './Ads'
 import Systems from './Systems'
+import GoldCoast from './GoldCoast'
 import Closing from './Closing'
 
 /**
@@ -49,6 +50,7 @@ export default function BottomHalf({ results }) {
       <Websites results={results} />
       <Ads />
       <Systems />
+      <GoldCoast />
       <Closing />
     </div>
   )
