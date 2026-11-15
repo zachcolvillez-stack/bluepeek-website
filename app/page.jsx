@@ -4,6 +4,9 @@ import BottomHalf from '../components/bottom/BottomHalf'
 import HomeFooter from '../components/HomeFooter'
 import EnquireWidget from '../components/EnquireWidget'
 import { getResults } from '../lib/results-server'
+import JsonLd from '../components/seo/JsonLd'
+import { faqSchema } from '../lib/schema'
+import { GOLD_COAST_FAQS } from '../lib/faqs'
 
 export const revalidate = 300
 
@@ -19,6 +22,7 @@ export default async function Home() {
       </main>
       <HomeFooter />
       <EnquireWidget />
+      <JsonLd data={faqSchema(GOLD_COAST_FAQS)} />
     </div>
   )
 }
