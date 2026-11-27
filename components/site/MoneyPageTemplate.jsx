@@ -28,7 +28,8 @@ export default function MoneyPageTemplate({ page, breadcrumb }) {
   // Location pages list the client stories in their hub; the national page lists every hub.
   const hubs = page.hub === 'all' ? HUB_ORDER : page.hub ? [page.hub] : []
   // A suburb page narrows its hub to the clients in those suburbs.
-  const inPage = p => !page.clientSuburbs || page.clientSuburbs.includes(p.client.suburb)
+  // An industry page narrows the list to its own trade's clients.
+  const inPage = p => (!page.clientSuburbs || page.clientSuburbs.includes(p.client.suburb)) && (!page.clientIds || page.clientIds.includes(p.client.id))
   const hubGroups = hubs.map(h => ({ hub: h, posts: CLIENT_POSTS.filter(p => p.hub === h && inPage(p)) })).filter(g => g.posts.length)
 
   return (
