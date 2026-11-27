@@ -27,7 +27,11 @@ const SUBURBS = [
     ['Krakin Automotive', 'krakin-automotive-molendinar-local-seo'],
   ] },
   { name: 'Burleigh Heads', clients: [
+    ['JC Tuned', 'jc-tuned-burleigh-heads-local-seo'],
     ['Signmakers Gold Coast', 'signmakers-gold-coast-burleigh-heads-local-seo'],
+  ] },
+  { name: 'Currumbin Waters', clients: [
+    ['Auto Ace Garage', 'auto-ace-garage-currumbin-waters-local-seo'],
   ] },
 ]
 
@@ -45,7 +49,7 @@ export default function GoldCoast() {
         <div className={s.prose}>
           <p>Bluepeek is a Gold Coast web design studio run by its two founders. Every website starts from a blank page for one business, is written around the searches your customers actually type, and is built to load fast on the phone they are holding.</p>
           <p>Most Gold Coast web design projects go live in one to two weeks. There is no build fee: the first month is free, then plans start at $149 a month with no lock-in, and you own the domain, the content and the site.</p>
-          <p>A website only pays when people find it, so local SEO comes with every build: a page for each service, suburb-level copy, Google Business Profile setup, review requests, and call and form tracking that shows what each page brings in.</p>
+          <p>A website only pays when people find it, so <a href="/seo-gold-coast">Gold Coast SEO</a> comes with every build: a page for each service, suburb-level copy, Google Business Profile setup, review requests, and call and form tracking that shows what each page brings in.</p>
         </div>
 
         <div className={s.local}>
