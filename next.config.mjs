@@ -39,6 +39,9 @@ const nextConfig = {
       // Review systems page consolidated into the Google review system hub
       { source: '/review-systems', destination: '/google-reviews', permanent: true },
 
+      // Thin panel-beater template consolidated into the smash repairs hub (one page per search)
+      { source: '/websites-for-panel-beaters', destination: '/industries/smash-repairs', permanent: true },
+
       // NFC review chips. A chip is physical and cannot be reprogrammed once it
       // is on a client's counter, so a card written with this domain instead of
       // go.bluepeek.online would 404 here forever. Clients have already
